@@ -1,4 +1,5 @@
-import React from "react"
+"use client"
+import React, { useEffect, useRef } from "react"
 
 const reasons = [
   {
@@ -23,42 +24,132 @@ const reasons = [
   },
 ]
 
+/* ── Animated Arrow SVG ───────────────────────────────────────────── */
+const AnimatedArrow = ({ fromLeft, index }: { fromLeft: boolean; index: number }) => {
+  const pathRef = useRef<SVGPathElement>(null)
+
+  useEffect(() => {
+    const path = pathRef.current
+    if (!path) return
+    const len = path.getTotalLength()
+    path.style.strokeDasharray = `${len}`
+    path.style.strokeDashoffset = `${len}`
+    // stagger each arrow slightly
+    path.style.animation = `drawPath 1.2s ease forwards`
+    path.style.animationDelay = `${index * 0.25}s`
+  }, [index])
+
+  // fromLeft=true → card is on the LEFT, arrow goes right-to-left (toward next right card)
+  // fromLeft=false → card is on the RIGHT, arrow goes left-to-right (toward next left card)
+
+  const W = 800
+  const H = 90
+
+  // Left card: starts at ~41% (right edge of left card), ends at ~59% (left edge of right card)
+  // We curve outward slightly through the center
+  const leftPath   = `M ${W * 0.41} 5 C ${W * 0.5} -30, ${W * 0.5} 100, ${W * 0.59} ${H - 5}`
+  // Right card: starts at ~59%, ends at ~41%
+  const rightPath  = `M ${W * 0.59} 5 C ${W * 0.5} -30, ${W * 0.5} 100, ${W * 0.41} ${H - 5}`
+
+  const d = fromLeft ? leftPath : rightPath
+  const arrowId = `arrow-${index}`
+  const glowId  = `glow-${index}`
+  const animId  = `flowDot-${index}`
+
+  return (
+    <div className="hidden md:block w-full relative" style={{ height: 90 }}>
+      <style>{`
+        @keyframes drawPath {
+          to { stroke-dashoffset: 0; }
+        }
+        @keyframes ${animId} {
+          0%   { offset-distance: 0%;   opacity: 0; }
+          5%   { opacity: 1; }
+          95%  { opacity: 1; }
+          100% { offset-distance: 100%; opacity: 0; }
+        }
+        .dot-${index} {
+          offset-path: path('${d}');
+          animation: ${animId} 1.6s ease-in-out infinite;
+          animation-delay: ${index * 0.3}s;
+        }
+      `}</style>
+
+      <svg
+        viewBox={`0 0 ${W} ${H}`}
+        preserveAspectRatio="none"
+        className="absolute inset-0 w-full h-full overflow-visible"
+        fill="none"
+      >
+        <defs>
+          {/* arrowhead marker */}
+          <marker
+            id={arrowId}
+            markerWidth="10"
+            markerHeight="7"
+            refX="9"
+            refY="3.5"
+            orient="auto"
+          >
+            <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444" />
+          </marker>
+
+          {/* red glow filter */}
+          <filter id={glowId} x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {/* dashed track */}
+        <path
+          d={d}
+          stroke="#e5e7eb"
+          strokeWidth="2"
+          strokeDasharray="6 4"
+          strokeLinecap="round"
+        />
+
+        {/* animated drawn line */}
+        <path
+          ref={pathRef}
+          d={d}
+          stroke="#ef4444"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          markerEnd={`url(#${arrowId})`}
+          style={{ strokeDasharray: 1000, strokeDashoffset: 1000 }}
+        />
+      </svg>
+
+      {/* travelling glow dot (CSS offset-path) */}
+      <div
+        className={`dot-${index} absolute`}
+        style={{
+          width: 12,
+          height: 12,
+          borderRadius: "50%",
+          background: "#ef4444",
+          boxShadow: "0 0 10px 4px rgba(239,68,68,0.7)",
+          top: 0,
+          left: 0,
+          pointerEvents: "none",
+          transform: "translate(-50%, -50%)",
+        }}
+      />
+    </div>
+  )
+}
+
+/* ── Main Section ─────────────────────────────────────────────────── */
 const WhyChooseSection = () => {
   return (
     <section className="bg-gray-100 py-20 px-6 md:px-8 relative overflow-hidden">
-      {/* Connecting Lines Container (background decor) */}
-      <div className="absolute inset-0 pointer-events-none z-10">
-        <div className="hidden md:block absolute top-[25%] left-[25%] w-24 h-24 border-2 border-blue-400/30 rounded-full" />
-        <div className="hidden md:block absolute top-[25%] right-[25%] w-24 h-24 border-2 border-emerald-400/30 rounded-full" />
-        <svg
-          className="absolute top-[28%] left-1/2 transform -translate-x-1/2 w-32 h-32 opacity-50"
-          fill="none"
-          viewBox="0 0 100 100"
-        >
-          <path
-            d="M 20 50 Q 50 30 80 50 T 50 70 Q 20 50 20 50"
-            stroke="#3B82F6"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-        <svg
-          className="absolute top-[58%] left-[25%] w-24 h-24 opacity-50"
-          fill="none"
-          viewBox="0 0 100 100"
-        >
-          <path
-            d="M 50 20 Q 80 50 50 80"
-            stroke="#10B981"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </div>
-
       <div className="max-w-6xl mx-auto relative z-20">
+        {/* Header */}
         <div className="text-center mb-14">
           <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-gray-500 mb-3">
             Why us
@@ -72,77 +163,53 @@ const WhyChooseSection = () => {
           </p>
         </div>
 
-       <div className="relative max-w-4xl mx-auto">
-  {/* vertical line */}
-  <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gray-300 -translate-x-1/2" />
+        {/* Timeline */}
+        <div className="relative max-w-4xl mx-auto">
+          {reasons.map((item, index) => {
+            const isLeft = index % 2 === 0
+            const isLast = index === reasons.length - 1
 
-  {reasons.map((item, index) => (
-    <div
-      key={item.title}
-      className="relative flex flex-col md:flex-row items-center mb-10 md:mb-14"
-    >
-      {/* left/right alternate card */}
-      <div
-        className={`
-          w-full md:w-5/12
-          ${index % 2 === 0 ? "md:mr-auto md:text-right" : "md:ml-auto md:text-left"}
-        `}
-      >
-        <div className="group relative rounded-2xl border border-gray-200 bg-slate-950 shadow-lg overflow-hidden">
-          {/* Image */}
-          <div className="relative aspect-[16/9] w-full overflow-hidden">
-            <img
-              src={item.img}
-              alt={item.title}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent" />
-          </div>
-          {/* Content */}
-          <div className="absolute bottom-0 left-0 right-0 p-4">
-            <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-white text-xs font-bold border border-white/30">
-              {String(index + 1).padStart(2, "0")}
-            </div>
-            <h3 className="text-lg font-bold text-white mb-1">{item.title}</h3>
-            <p className="text-sm text-gray-200">{item.desc}</p>
-          </div>
+            return (
+              <div key={item.title}>
+                {/* Card */}
+                <div className="flex flex-col md:flex-row items-center">
+                  <div
+                    className={`w-full md:w-5/12 ${
+                      isLeft ? "md:mr-auto" : "md:ml-auto"
+                    }`}
+                  >
+                    <div className="group relative rounded-2xl border border-gray-200 bg-slate-950 shadow-lg overflow-hidden">
+                      {/* Image */}
+                      <div className="relative aspect-video w-full overflow-hidden">
+                        <img
+                          src={item.img}
+                          alt={item.title}
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-slate-950/90 via-slate-950/50 to-transparent" />
+                      </div>
+                      {/* Content */}
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-white text-xs font-bold border border-white/30">
+                          {String(index + 1).padStart(2, "0")}
+                        </div>
+                        <h3 className="text-lg font-bold text-white mb-1">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm text-gray-200">{item.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Animated Arrow to next card */}
+                {!isLast && (
+                  <AnimatedArrow fromLeft={isLeft} index={index} />
+                )}
+              </div>
+            )
+          })}
         </div>
-      </div>
-
-      {/* center dot + arrow that points to the next card */}
-      <div className="hidden md:flex flex-col items-center mx-4">
-        {/* dot */}
-        <div className="w-4 h-4 rounded-full bg-red-600 border-4 border-white shadow-md" />
-        {/* arrow only if not last card */}
-        {index < reasons.length - 1 && (
-          <div className="flex-1 flex items-center justify-center">
-            <svg
-              className="w-6 h-16 text-red-600"
-              viewBox="0 0 24 80"
-              fill="none"
-              stroke="currentColor"
-            >
-              {/* vertical line */}
-              <path
-                d="M12 0 L12 64"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-              {/* arrow head */}
-              <path
-                d="M6 58 L12 64 L18 58"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-        )}
-      </div>
-    </div>
-  ))}
-</div>
-
       </div>
     </section>
   )
