@@ -12,13 +12,13 @@ const NAV_LINKS = [
 ];
 
 const SERVICE_LINKS = [
-  { href: "/infrastructure", label: "Infrastructure & Setup" },
-  { href: "/culinary", label: "Culinary & Operations" },
-  { href: "/talent", label: "Talent & Training" },
-  { href: "/digital", label: "Digital & Growth" },
+  { href: "/MainSection#infrastructureAndSetup", label: "Infrastructure & Setup" },
+  { href: "/MainSection#culinary", label: "Culinary & Operations" },
+  { href: "/MainSection#talent", label: "Talent & Training" },
+  { href: "/MainSection#digital", label: "Digital & Growth" },
 ];
 
-export default function Navbar() {
+export default function Navbar() {  
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
