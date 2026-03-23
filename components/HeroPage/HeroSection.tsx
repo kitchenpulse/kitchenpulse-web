@@ -36,7 +36,7 @@ const HeroSection: React.FC = () =>  {
               href="/contact"
               className="bg-orange-600 hover:bg-orange-700 transition px-6 py-3 rounded-lg font-medium"
             >
-              Book a Strategy Call
+              Book a Call
             </Link>
 
             <Link

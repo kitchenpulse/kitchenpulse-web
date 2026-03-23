@@ -1,26 +1,31 @@
 "use client"
 import React, { useEffect, useRef } from "react"
+import { HiLightningBolt, HiCog, HiCurrencyRupee, HiUserGroup } from "react-icons/hi"
 
 const reasons = [
   {
     title: "One-Stop Solution",
     desc: "From real estate sourcing to digital growth — everything under one roof.",
     img: "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    icon: HiLightningBolt,
   },
   {
     title: "Seamless Integration",
     desc: "Coordinated execution across all operational functions.",
     img: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    icon: HiCog,
   },
   {
     title: "Cost-Effective Model",
     desc: "25–30% savings through bulk purchasing and operational efficiencies.",
     img: "https://images.pexels.com/photos/4968633/pexels-photo-4968633.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    icon: HiCurrencyRupee,
   },
   {
     title: "Single Point of Contact",
     desc: "Dedicated team ensuring accountability and clarity.",
     img: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    icon: HiUserGroup,
   },
 ]
 
@@ -34,27 +39,20 @@ const AnimatedArrow = ({ fromLeft, index }: { fromLeft: boolean; index: number }
     const len = path.getTotalLength()
     path.style.strokeDasharray = `${len}`
     path.style.strokeDashoffset = `${len}`
-    // stagger each arrow slightly
     path.style.animation = `drawPath 1.2s ease forwards`
     path.style.animationDelay = `${index * 0.25}s`
   }, [index])
 
-  // fromLeft=true → card is on the LEFT, arrow goes right-to-left (toward next right card)
-  // fromLeft=false → card is on the RIGHT, arrow goes left-to-right (toward next left card)
-
   const W = 800
   const H = 90
 
-  // Left card: starts at ~41% (right edge of left card), ends at ~59% (left edge of right card)
-  // We curve outward slightly through the center
-  const leftPath   = `M ${W * 0.41} 5 C ${W * 0.5} -30, ${W * 0.5} 100, ${W * 0.59} ${H - 5}`
-  // Right card: starts at ~59%, ends at ~41%
-  const rightPath  = `M ${W * 0.59} 5 C ${W * 0.5} -30, ${W * 0.5} 100, ${W * 0.41} ${H - 5}`
+  const leftPath = `M ${W * 0.41} 5 C ${W * 0.5} -30, ${W * 0.5} 100, ${W * 0.59} ${H - 5}`
+  const rightPath = `M ${W * 0.59} 5 C ${W * 0.5} -30, ${W * 0.5} 100, ${W * 0.41} ${H - 5}`
 
   const d = fromLeft ? leftPath : rightPath
   const arrowId = `arrow-${index}`
-  const glowId  = `glow-${index}`
-  const animId  = `flowDot-${index}`
+  const glowId = `glow-${index}`
+  const animId = `flowDot-${index}`
 
   return (
     <div className="hidden md:block w-full relative" style={{ height: 90 }}>
@@ -82,7 +80,6 @@ const AnimatedArrow = ({ fromLeft, index }: { fromLeft: boolean; index: number }
         fill="none"
       >
         <defs>
-          {/* arrowhead marker */}
           <marker
             id={arrowId}
             markerWidth="10"
@@ -94,7 +91,6 @@ const AnimatedArrow = ({ fromLeft, index }: { fromLeft: boolean; index: number }
             <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444" />
           </marker>
 
-          {/* red glow filter */}
           <filter id={glowId} x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="4" result="blur" />
             <feMerge>
@@ -104,7 +100,6 @@ const AnimatedArrow = ({ fromLeft, index }: { fromLeft: boolean; index: number }
           </filter>
         </defs>
 
-        {/* dashed track */}
         <path
           d={d}
           stroke="#e5e7eb"
@@ -113,7 +108,6 @@ const AnimatedArrow = ({ fromLeft, index }: { fromLeft: boolean; index: number }
           strokeLinecap="round"
         />
 
-        {/* animated drawn line */}
         <path
           ref={pathRef}
           d={d}
@@ -125,7 +119,6 @@ const AnimatedArrow = ({ fromLeft, index }: { fromLeft: boolean; index: number }
         />
       </svg>
 
-      {/* travelling glow dot (CSS offset-path) */}
       <div
         className={`dot-${index} absolute`}
         style={{
@@ -147,17 +140,21 @@ const AnimatedArrow = ({ fromLeft, index }: { fromLeft: boolean; index: number }
 /* ── Main Section ─────────────────────────────────────────────────── */
 const WhyChooseSection = () => {
   return (
-    <section className="bg-gray-100 py-20 px-6 md:px-8 relative overflow-hidden">
+    <section className="bg-gray-100 py-20 px-6 md:px-8 relative overflow-hidden"
+      style={{ backgroundImage: "url('/assets/printedp.jpg')" }}
+    >
+      
+      <div className="absolute inset-0 bg-black/30" />
       <div className="max-w-6xl mx-auto relative z-20">
         {/* Header */}
         <div className="text-center mb-14">
-          <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-gray-500 mb-3">
+          <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-black mb-3">
             Why us
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-3">
+          <h2 className="text-5xl md:text-4xl font-bold text-black mb-3">
             Why Choose KitchenPulse?
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
+          <p className="text-black font-bold max-w-2xl mx-auto text-sm md:text-base">
             We bring structure, accountability, and measurable impact to every
             stage of your food business lifecycle.
           </p>
@@ -168,6 +165,7 @@ const WhyChooseSection = () => {
           {reasons.map((item, index) => {
             const isLeft = index % 2 === 0
             const isLast = index === reasons.length - 1
+            const Icon = item.icon
 
             return (
               <div key={item.title}>
@@ -178,7 +176,7 @@ const WhyChooseSection = () => {
                       isLeft ? "md:mr-auto" : "md:ml-auto"
                     }`}
                   >
-                    <div className="group relative rounded-2xl border border-gray-200 bg-slate-950 shadow-lg overflow-hidden">
+                    <div className="group relative rounded-2xl border border-gray-200 bg-white shadow-lg overflow-hidden">
                       {/* Image */}
                       <div className="relative aspect-video w-full overflow-hidden">
                         <img
@@ -186,17 +184,23 @@ const WhyChooseSection = () => {
                           alt={item.title}
                           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
-                        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-slate-950/90 via-slate-950/50 to-transparent" />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent" />
                       </div>
-                      {/* Content */}
-                      <div className="absolute bottom-0 left-0 right-0 p-4">
-                        <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-white text-xs font-bold border border-white/30">
-                          {String(index + 1).padStart(2, "0")}
-                        </div>
-                        <h3 className="text-lg font-bold text-white mb-1">
-                          {item.title}
+
+                      {/* Content BELOW image */}
+                      <div className="p-4">
+                       
+
+                        <h3 className="mb-1">
+                          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1">
+                            <Icon className="h-5 w-5 text-black" />
+                            <span className="text-lg font-semibold text-black tracking-tight">
+                              {item.title}
+                            </span>
+                          </div>
                         </h3>
-                        <p className="text-sm text-gray-200">{item.desc}</p>
+
+                        <p className="text-sm text-black">{item.desc}</p>
                       </div>
                     </div>
                   </div>
