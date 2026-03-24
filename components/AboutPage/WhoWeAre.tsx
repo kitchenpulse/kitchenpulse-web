@@ -56,8 +56,8 @@ const WhoWeAre = () => {
 
   return (
     <section
-      className="relative py-24 px-6 md:px-10 overflow-hidden"
-      style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #1a1209 50%, #0f0f0f 100%)" }}
+      className="relative py-24 px-6 md:px-10 overflow-hidden bg-white"
+      
     >
       {/* Ambient glow */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -88,14 +88,14 @@ const WhoWeAre = () => {
             <p className="text-xs uppercase tracking-[0.3em] text-orange-500 font-semibold">Who We Are</p>
             <span className="h-px w-8 bg-orange-500" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-black  mb-5 leading-tight">
             Built by{" "}
             <span style={{ WebkitTextStroke: "1px #ea580c", color: "transparent" }}>
               Operators,
             </span>{" "}
             for Operators
           </h2>
-          <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+          <p className="text-gray-900 text-sm md:text-base leading-relaxed">
             <span className="font-semibold text-orange-500">Kitchen Pulse</span> is your complete F&amp;B and D2C
             success partner — offering end-to-end solutions for seamless launches,
             optimized operations, and sustained growth across every stage of your
