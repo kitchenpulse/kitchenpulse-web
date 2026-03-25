@@ -9,8 +9,8 @@ export default function AboutPage() {
   return (
     <main className="w-full">
       <WhoWeAre />
-      <OurValuesSection/>
-      <OurApproachSection/>
+      {/* <OurValuesSection/>
+      <OurApproachSection/> */}
     </main>
   );
 }
