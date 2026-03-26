@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 const founders = [
   {
-    name: "Rahul Sharma",
+    name: "Sushant Oundhakar",
     title: "Co-Founder & CEO",
     bio: "Visionary leader with 15+ years in the F&B industry, driving Kitchen Pulse's mission to transform how food brands scale across India.",
     initials: "RS",
@@ -12,9 +12,9 @@ const founders = [
     stat: { value: "15+", label: "Years in F&B" },
   },
   {
-    name: "Priya Mehta",
+    name: "Shubham Gupta",
     title: "Co-Founder & COO",
-    bio: "Operations expert with deep expertise in D2C growth, supply chain, and building scalable systems for high-growth food businesses.",
+    bio: "Growth-driven business leader with 8+ years of experience in sales, strategy, and team leadership—scaling operations and driving top-line results across fast-paced sectors. Currently leading the West region at Mukunda Foods and passionate about building ambitious, high-impact businesses.",
     initials: "PM",
     linkedin: "#",
     stat: { value: "200+", label: "Brands Scaled" },
