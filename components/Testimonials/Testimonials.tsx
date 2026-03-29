@@ -36,6 +36,9 @@ const testimonials = [
     role: "Co-Founder",
     company: "Kerala Café",
     logo: "/assets/keralacafe.png",
+
+
+    
     featured: false,
     quote:
       "Kitchen Pulse delivered a cohesive concept — aligning front-of-house interiors with our coastal, homely vibe while designing a back-of-house that handles heavy volumes comfortably. From ventilation to lighting, the way they tied interiors and kitchen together has elevated our guest experience.",
