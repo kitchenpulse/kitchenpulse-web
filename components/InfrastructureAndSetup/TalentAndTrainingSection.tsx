@@ -78,417 +78,74 @@ const TalentAndTrainingSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  const fade = (visible: boolean, delay = "") =>
+    `transition-all duration-700 ease-out ${delay} ${
+      visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+    }`;
+
   return (
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap');
-
-        .tt-section {
-          font-family: 'DM Sans', sans-serif;
-          background: #0a0a0a;
-          color: #f5f0eb;
-          overflow: hidden;
-          position: relative;
-        }
-
-        .tt-section * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        .tt-section::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0;
-          width: 100%; height: 100%;
-          opacity: 0.025;
-          pointer-events: none;
-          z-index: 0;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-
-        /* ── HERO BAND ── */
-        .tt-hero {
-          position: relative;
-          z-index: 2;
-          padding: 100px 80px 80px;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 80px;
-          align-items: end;
-          border-bottom: 1px solid #1a1a1a;
-        }
-
-        @media (max-width: 1100px) { .tt-hero { padding: 80px 50px 60px; gap: 48px; } }
-        @media (max-width: 800px) {
-          .tt-hero {
-            grid-template-columns: 1fr;
-            padding: 60px 28px 48px;
-            gap: 36px;
-          }
-        }
-        @media (max-width: 480px) { .tt-hero { padding: 48px 20px 40px; } }
-
-        .tt-eyebrow {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          font-size: 11px;
-          font-weight: 500;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #f97316;
-          margin-bottom: 24px;
-        }
-
-        .tt-eyebrow-line {
-          width: 32px; height: 1px;
-          background: #f97316;
-        }
-
-        .tt-headline {
-          font-family: 'Playfair Display', Georgia, serif;
-          font-size: clamp(40px, 5vw, 68px);
-          font-weight: 900;
-          line-height: 1.0;
-          letter-spacing: -0.02em;
-          color: #f5f0eb;
-          margin-bottom: 0;
-        }
-
-        .tt-headline em {
-          font-style: italic;
-          color: #f97316;
-        }
-
-        .tt-hero-right {
-          padding-bottom: 8px;
-        }
-
-        .tt-hero-body {
-          font-size: clamp(14px, 1.4vw, 16px);
-          font-weight: 300;
-          line-height: 1.8;
-          color: #9e9690;
-          margin-bottom: 40px;
-          max-width: 400px;
-        }
-
-        .tt-stats-strip {
-          display: flex;
-          gap: 0;
-          border-top: 1px solid #1e1e1e;
-          padding-top: 28px;
-        }
-
-        .tt-stat {
-          flex: 1;
-          padding-right: 20px;
-        }
-
-        .tt-stat + .tt-stat {
-          padding-left: 20px;
-          border-left: 1px solid #1e1e1e;
-        }
-
-        .tt-stat-value {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(26px, 3vw, 38px);
-          font-weight: 700;
-          color: #f97316;
-          line-height: 1;
-          margin-bottom: 5px;
-        }
-
-        .tt-stat-label {
-          font-size: 10px;
-          font-weight: 400;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: #5a5550;
-        }
-
-        /* ── CARDS + ROLES GRID ── */
-        .tt-body {
-          position: relative;
-          z-index: 2;
-          display: grid;
-          grid-template-columns: 1.35fr 1fr;
-          gap: 2px;
-          border-bottom: 1px solid #1a1a1a;
-        }
-
-        @media (max-width: 900px) {
-          .tt-body { grid-template-columns: 1fr; }
-        }
-
-        /* Cards column */
-        .tt-cards-col {
-          padding: 72px 64px 72px 80px;
-          display: flex;
-          flex-direction: column;
-          gap: 2px;
-          border-right: 1px solid #1a1a1a;
-        }
-
-        @media (max-width: 1200px) { .tt-cards-col { padding: 60px 40px 60px 50px; } }
-        @media (max-width: 900px) {
-          .tt-cards-col {
-            padding: 48px 28px;
-            border-right: none;
-            border-bottom: 1px solid #1a1a1a;
-          }
-        }
-        @media (max-width: 480px) { .tt-cards-col { padding: 40px 20px; } }
-
-        .tt-col-label {
-          font-size: 11px;
-          font-weight: 500;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #5a5550;
-          margin-bottom: 36px;
-          display: flex;
-          align-items: center;
-          gap: 14px;
-        }
-
-        .tt-col-label::after {
-          content: '';
-          flex: 1;
-          max-width: 48px;
-          height: 1px;
-          background: #2a2a2a;
-        }
-
-        .tt-card {
-          background: #111;
-          border: 1px solid #1a1a1a;
-          padding: 32px 28px;
-          position: relative;
-          overflow: hidden;
-          opacity: 0;
-          transform: translateX(-16px);
-          transition: background 0.3s, border-color 0.3s;
-        }
-
-        .tt-card.visible {
-          opacity: 1;
-          transform: translateX(0);
-          transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94),
-                      background 0.3s, border-color 0.3s;
-        }
-
-        .tt-card:hover {
-          background: #161616;
-          border-color: #f97316;
-        }
-
-        .tt-card::after {
-          content: '';
-          position: absolute;
-          left: 0; top: 0;
-          width: 3px; height: 100%;
-          background: linear-gradient(180deg, #f97316, #ea580c);
-          transform: scaleY(0);
-          transform-origin: top;
-          transition: transform 0.4s ease;
-        }
-
-        .tt-card:hover::after { transform: scaleY(1); }
-
-        .tt-card-top {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 14px;
-        }
-
-        .tt-card-icon-wrap {
-          font-size: 22px;
-          width: 44px; height: 44px;
-          background: #1a1a1a;
-          border: 1px solid #252525;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .tt-card-num {
-          font-family: 'Playfair Display', serif;
-          font-size: 48px;
-          font-weight: 900;
-          color: #1e1e1e;
-          line-height: 1;
-          user-select: none;
-          transition: color 0.3s;
-        }
-
-        .tt-card:hover .tt-card-num { color: #2a1a0a; }
-
-        .tt-card-title {
-          font-family: 'Playfair Display', serif;
-          font-size: 19px;
-          font-weight: 700;
-          color: #f5f0eb;
-          margin-bottom: 10px;
-          line-height: 1.25;
-        }
-
-        .tt-card-desc {
-          font-size: 13px;
-          font-weight: 300;
-          line-height: 1.75;
-          color: #6b6560;
-          transition: color 0.3s;
-        }
-
-        .tt-card:hover .tt-card-desc { color: #9e9690; }
-
-        /* Roles column */
-        .tt-roles-col {
-          padding: 72px 56px 72px 52px;
-          display: flex;
-          flex-direction: column;
-        }
-
-        @media (max-width: 1200px) { .tt-roles-col { padding: 60px 36px; } }
-        @media (max-width: 900px) { .tt-roles-col { padding: 48px 28px; } }
-        @media (max-width: 480px) { .tt-roles-col { padding: 40px 20px; } }
-
-        .tt-roles-sticky {
-          position: sticky;
-          top: 32px;
-        }
-
-        .tt-roles-heading {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(20px, 2vw, 26px);
-          font-weight: 700;
-          color: #f5f0eb;
-          line-height: 1.25;
-          margin-bottom: 8px;
-        }
-
-        .tt-roles-heading em {
-          font-style: italic;
-          color: #f97316;
-        }
-
-        .tt-roles-sub {
-          font-size: 13px;
-          font-weight: 300;
-          color: #6b6560;
-          line-height: 1.65;
-          margin-bottom: 36px;
-        }
-
-        .tt-roles-list {
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 3px;
-        }
-
-        .tt-role-item {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 14px 18px;
-          background: #111;
-          border: 1px solid #1a1a1a;
-          opacity: 0;
-          transform: translateX(16px);
-          transition: background 0.25s, border-color 0.25s;
-          cursor: default;
-        }
-
-        .tt-role-item.visible {
-          opacity: 1;
-          transform: translateX(0);
-          transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94),
-                      background 0.25s, border-color 0.25s;
-        }
-
-        .tt-role-item:hover {
-          background: #161616;
-          border-color: #2a2a2a;
-        }
-
-        .tt-role-name {
-          font-size: 13px;
-          font-weight: 400;
-          color: #9e9690;
-          display: flex;
-          align-items: center;
-          gap: 12px;
-        }
-
-        .tt-role-dot {
-          width: 5px; height: 5px;
-          border-radius: 50%;
-          background: #f97316;
-          flex-shrink: 0;
-        }
-
-        .tt-role-tag {
-          font-size: 10px;
-          font-weight: 500;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: #3a3530;
-          background: #1a1a1a;
-          border: 1px solid #252525;
-          padding: 3px 10px;
-          white-space: nowrap;
-          transition: color 0.25s, border-color 0.25s;
-        }
-
-        .tt-role-item:hover .tt-role-tag {
-          color: #f97316;
-          border-color: #3a2010;
-        }
-
-        /* ── FADE-IN utilities ── */
-        .tt-fade {
-          opacity: 0;
-          transform: translateY(18px);
-          transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .tt-fade.visible { opacity: 1; transform: translateY(0); }
-        .tt-d1 { transition-delay: 0.1s; }
-        .tt-d2 { transition-delay: 0.2s; }
-        .tt-d3 { transition-delay: 0.3s; }
-        .tt-d4 { transition-delay: 0.45s; }
       `}</style>
 
-      <section id="talent" className="tt-section" ref={sectionRef}>
+      <section
+        id="talent"
+        ref={sectionRef}
+        className="relative bg-[#faf9f7] text-[#1a1714] overflow-hidden"
+        style={{ fontFamily: "'DM Sans', sans-serif" }}
+      >
+        {/* Grain overlay */}
+        <div
+          className="fixed inset-0 opacity-[0.025] pointer-events-none z-[1]"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
+          }}
+        />
 
         {/* ── HERO BAND ── */}
-        <div className="tt-hero">
+        <div className="relative z-[2] grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-end px-5 sm:px-[50px] lg:px-20 pt-[100px] pb-16 lg:pb-20 border-b border-black/[0.07]">
+
           {/* Left: Headline */}
           <div>
-            <div className={`tt-fade ${heroVisible ? "visible" : ""}`}>
-              <span className="tt-eyebrow">
-                <span className="tt-eyebrow-line" />
+            <div className={fade(heroVisible)}>
+              <span className="inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-orange-500 mb-6">
+                <span className="w-8 h-px bg-orange-500 inline-block" />
                 Talent &amp; Training
               </span>
             </div>
-            <h2 className={`tt-headline tt-fade tt-d1 ${heroVisible ? "visible" : ""}`}>
-              People Who<br />Make Your<br /><em>Brand Deliver.</em>
+            <h2
+              className={`text-[clamp(40px,5vw,68px)] font-black leading-none tracking-[-0.02em] text-[#1a1714] ${fade(heroVisible, "delay-100")}`}
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              People Who<br />Make Your<br />
+              <em className="text-orange-500" style={{ fontStyle: "italic" }}>Brand Deliver.</em>
             </h2>
           </div>
 
           {/* Right: Body + Stats */}
-          <div className="tt-hero-right">
-            <p className={`tt-hero-body tt-fade tt-d2 ${heroVisible ? "visible" : ""}`}>
+          <div className="pb-2">
+            <p className={`text-[clamp(14px,1.4vw,16px)] font-light leading-[1.8] text-[#6b6560] max-w-[400px] mb-10 ${fade(heroVisible, "delay-200")}`}>
               We source, train, and develop the teams that run your kitchens and
               front-of-house — so your brand delivers a consistent experience, every
               single day, across every location.
             </p>
-            <div className={`tt-stats-strip tt-fade tt-d3 ${heroVisible ? "visible" : ""}`}>
+            <div className={`flex border-t border-black/[0.07] pt-7 ${fade(heroVisible, "delay-300")}`}>
               {stats.map((s, i) => (
-                <div className="tt-stat" key={i}>
-                  <div className="tt-stat-value">{s.value}</div>
-                  <div className="tt-stat-label">{s.label}</div>
+                <div
+                  key={i}
+                  className={`flex-1 pr-5 ${i > 0 ? "pl-5 border-l border-black/[0.07]" : ""}`}
+                >
+                  <div
+                    className="text-[clamp(26px,3vw,38px)] font-bold leading-none text-orange-500 mb-1.5"
+                    style={{ fontFamily: "'Playfair Display', serif" }}
+                  >
+                    {s.value}
+                  </div>
+                  <div className="text-[10px] font-normal tracking-[0.12em] uppercase text-[#a09890]">
+                    {s.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -496,51 +153,88 @@ const TalentAndTrainingSection = () => {
         </div>
 
         {/* ── TWO-COLUMN BODY ── */}
-        <div className="tt-body">
+        <div className="relative z-[2] grid grid-cols-1 md:grid-cols-[1.35fr_1fr] gap-0.5 border-b border-black/[0.07]">
 
-          {/* Cards */}
-          <div className="tt-cards-col">
-            <div className="tt-col-label">What We Do</div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+          {/* Cards column */}
+          <div className="px-5 py-12 sm:px-[50px] sm:py-16 lg:px-20 lg:py-[72px] flex flex-col gap-0.5 border-b md:border-b-0 md:border-r border-black/[0.07]">
+            <div className="flex items-center gap-3.5 text-[11px] font-medium tracking-[0.2em] uppercase text-[#a09890] mb-9 after:flex-1 after:max-w-12 after:h-px after:bg-black/[0.1]">
+              What We Do
+            </div>
+
+            <div className="flex flex-col gap-0.5">
               {talentItems.map((item, index) => (
                 <div
                   key={index}
-                  className={`tt-card ${visibleCards[index] ? "visible" : ""}`}
+                  className={`group relative bg-white border border-black/[0.07] px-7 py-8 overflow-hidden cursor-default transition-all duration-300 hover:border-orange-500 hover:bg-[#fffcfa] ${
+                    visibleCards[index]
+                      ? "opacity-100 translate-x-0 transition-[opacity,transform,border-color,background] duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+                      : "opacity-0 -translate-x-4"
+                  }`}
                   style={{ transitionDelay: visibleCards[index] ? `${index * 0.1}s` : "0s" }}
                 >
-                  <div className="tt-card-top">
-                    <div className="tt-card-icon-wrap">{item.icon}</div>
-                    <span className="tt-card-num">0{index + 1}</span>
+                  {/* Left accent bar */}
+                  <div className="absolute left-0 top-0 w-[3px] h-full bg-gradient-to-b from-orange-500 to-orange-600 scale-y-0 group-hover:scale-y-100 transition-transform duration-[400ms] origin-top" />
+
+                  {/* Top row: icon + ghost number */}
+                  <div className="flex items-center justify-between mb-3.5">
+                    <div className="w-11 h-11 bg-[#f0ede8] border border-black/[0.07] flex items-center justify-center text-[22px]">
+                      {item.icon}
+                    </div>
+                    <span
+                      className="text-[48px] font-black leading-none text-black/[0.04] select-none group-hover:text-orange-500/[0.08] transition-colors duration-300"
+                      style={{ fontFamily: "'Playfair Display', serif" }}
+                    >
+                      0{index + 1}
+                    </span>
                   </div>
-                  <h3 className="tt-card-title">{item.title}</h3>
-                  <p className="tt-card-desc">{item.description}</p>
+
+                  <h3
+                    className="text-[19px] font-bold leading-[1.25] text-[#1a1714] mb-2.5"
+                    style={{ fontFamily: "'Playfair Display', serif" }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="text-[13px] font-light leading-[1.75] text-[#8a8480] group-hover:text-[#6b6560] transition-colors duration-300">
+                    {item.description}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Roles */}
-          <div className="tt-roles-col">
-            <div className="tt-roles-sticky">
-              <h3 className={`tt-roles-heading tt-fade ${heroVisible ? "visible" : ""}`}>
-                Roles We Help<br />You <em>Build</em>
+          {/* Roles column */}
+          <div className="px-5 py-12 sm:px-[36px] sm:py-16 lg:px-[52px] lg:py-[72px] flex flex-col">
+            <div className="sticky top-8">
+              <h3
+                className={`text-[clamp(20px,2vw,26px)] font-bold leading-[1.25] text-[#1a1714] mb-2 ${fade(heroVisible)}`}
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                Roles We Help<br />You{" "}
+                <em className="text-orange-500" style={{ fontStyle: "italic" }}>Build</em>
               </h3>
-              <p className={`tt-roles-sub tt-fade tt-d1 ${heroVisible ? "visible" : ""}`}>
+              <p className={`text-[13px] font-light leading-[1.65] text-[#6b6560] mb-9 ${fade(heroVisible, "delay-100")}`}>
                 From kitchen brigades to cloud kitchen specialists — every hire
                 is matched to your standards.
               </p>
-              <ul className="tt-roles-list">
+
+              <ul className="flex flex-col gap-[3px]">
                 {roles.map((item, i) => (
                   <li
                     key={i}
-                    className={`tt-role-item ${visibleRoles[i] ? "visible" : ""}`}
+                    className={`group flex items-center justify-between px-[18px] py-3.5 bg-white border border-black/[0.07] cursor-default transition-all duration-[250ms] hover:border-black/[0.12] hover:bg-[#fffcfa] ${
+                      visibleRoles[i]
+                        ? "opacity-100 translate-x-0 transition-[opacity,transform,background,border-color] duration-[450ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+                        : "opacity-0 translate-x-4"
+                    }`}
                     style={{ transitionDelay: visibleRoles[i] ? `${i * 0.07}s` : "0s" }}
                   >
-                    <span className="tt-role-name">
-                      <span className="tt-role-dot" />
+                    <span className="flex items-center gap-3 text-[13px] font-normal text-[#6b6560]">
+                      <span className="w-[5px] h-[5px] rounded-full bg-orange-500 flex-shrink-0" />
                       {item.role}
                     </span>
-                    <span className="tt-role-tag">{item.tag}</span>
+                    <span className="text-[10px] font-medium tracking-[0.1em] uppercase text-[#a09890] bg-[#f0ede8] border border-black/[0.07] px-2.5 py-[3px] whitespace-nowrap group-hover:text-orange-500 group-hover:border-orange-200 transition-colors duration-[250ms]">
+                      {item.tag}
+                    </span>
                   </li>
                 ))}
               </ul>

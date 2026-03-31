@@ -1,8 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
+
+const WHATSAPP_NUMBER = "919167636653";
+const WHATSAPP_MESSAGE = "Hi! I'd like to schedule a call with Kitchen Pulse.";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -23,11 +27,36 @@ export default function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [servicesHover, setServicesHover] = useState(false);
+  const [navVisible, setNavVisible] = useState(true);
+
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    const handleScroll = () => {
+      if (ticking.current) return;
+      ticking.current = true;
+
+      window.requestAnimationFrame(() => {
+        const currentY = window.scrollY;
+
+        if (currentY < 60 || currentY < lastScrollY.current) {
+          // Scrolling up or near top — show navbar
+          setNavVisible(true);
+        } else if (currentY > lastScrollY.current && currentY > 60) {
+          // Scrolling down past 60px — hide navbar & close mobile menu
+          setNavVisible(false);
+          setIsOpen(false);
+        }
+
+        setIsScrolled(currentY > 10);
+        lastScrollY.current = currentY;
+        ticking.current = false;
+      });
+    };
+
     handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -38,562 +67,317 @@ export default function Navbar() {
   };
 
   return (
-    <>
+    <div style={{ fontFamily: "'DM Sans', sans-serif" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap');
 
+        /* ── Slide in/out ── */
         .kp-nav-root {
-          font-family: 'DM Sans', sans-serif;
-        }
-
-        /* ── TOP BAR ── */
-        .kp-topbar {
-          background: #080808;
-          border-bottom: 1px solid #1a1a1a;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 9px 48px;
-          font-size: 11px;
-          font-weight: 400;
-          letter-spacing: 0.06em;
-          color: #5a5550;
-        }
-        @media (max-width: 768px) { .kp-topbar { display: none; } }
-
-        .kp-topbar a {
-          color: #5a5550;
-          text-decoration: none;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          transition: color 0.2s;
-        }
-        .kp-topbar a:hover { color: #f97316; }
-
-        .kp-topbar-dot {
-          width: 4px; height: 4px;
-          background: #f97316;
-          transform: rotate(45deg);
-          opacity: 0.5;
-        }
-
-        /* ── MAIN NAV ── */
-        .kp-nav {
-          position: sticky;
+          position: fixed;
           top: 0;
+          left: 0;
+          right: 0;
           z-index: 50;
-          background: #0a0a0a;
-          border-bottom: 1px solid #1a1a1a;
-          transition: border-color 0.3s, box-shadow 0.3s;
+          transform: translateY(0);
+          transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                      border-color 0.3s,
+                      box-shadow 0.3s;
+        }
+        .kp-nav-root.nav-hidden {
+          transform: translateY(-100%);
         }
 
-        .kp-nav.scrolled {
-          border-bottom-color: #f97316;
-          box-shadow: 0 1px 40px rgba(249,115,22,0.08);
-        }
-
-        /* thin orange progress line at very bottom when scrolled */
-        .kp-nav.scrolled::after {
+        /* ── Link hover underline ── */
+        .kp-link-underline { position: relative; }
+        .kp-link-underline::after {
           content: '';
           position: absolute;
-          bottom: -1px; left: 0;
-          width: 100%; height: 1px;
-          background: linear-gradient(90deg, #f97316, #ea580c 40%, transparent 100%);
-        }
-
-        .kp-nav-inner {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0 48px;
-          height: 64px;
-        }
-        @media (max-width: 1100px) { .kp-nav-inner { padding: 0 32px; } }
-        @media (max-width: 768px)  { .kp-nav-inner { padding: 0 20px; } }
-
-        /* ── LOGO ── */
-        .kp-logo {
-          display: inline-flex;
-          align-items: center;
-          gap: 2px;
-          text-decoration: none;
-          flex-shrink: 0;
-        }
-
-        .kp-logo-word {
-          font-family: 'Playfair Display', Georgia, serif;
-          font-size: 22px;
-          font-weight: 700;
-          color: #f5f0eb;
-          letter-spacing: -0.01em;
-          line-height: 1;
-        }
-
-        .kp-logo-accent {
-          font-family: 'Playfair Display', Georgia, serif;
-          font-size: 22px;
-          font-weight: 700;
-          font-style: italic;
-          color: #f97316;
-          letter-spacing: -0.01em;
-          line-height: 1;
-        }
-
-        .kp-logo-diamond {
-          width: 5px; height: 5px;
-          background: #f97316;
-          transform: rotate(45deg);
-          margin: 0 1px 0 3px;
-          flex-shrink: 0;
-          opacity: 0.7;
-        }
-
-        /* ── DESKTOP LINKS ── */
-        .kp-links {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-        }
-        @media (max-width: 768px) { .kp-links { display: none; } }
-
-        .kp-link {
-          position: relative;
-          font-size: 12px;
-          font-weight: 500;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: #6b6560;
-          text-decoration: none;
-          padding: 8px 14px;
-          transition: color 0.2s;
-        }
-
-        .kp-link::after {
-          content: '';
-          position: absolute;
-          bottom: 4px; left: 14px;
+          bottom: 2px; left: 12px;
           width: 0; height: 1px;
           background: #f97316;
           transition: width 0.25s ease;
         }
+        .kp-link-underline:hover::after { width: calc(100% - 24px); }
 
-        .kp-link:hover {
-          color: #f5f0eb;
-        }
-        .kp-link:hover::after { width: calc(100% - 28px); }
-
-        /* ── SERVICES DROPDOWN ── */
-        .kp-services-wrap {
-          position: relative;
-        }
-
-        .kp-services-btn {
-          display: flex;
-          align-items: center;
-          gap: 5px;
-          font-size: 12px;
-          font-weight: 500;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: #6b6560;
-          background: none;
-          border: none;
-          cursor: pointer;
-          padding: 8px 14px;
-          transition: color 0.2s;
-          font-family: 'DM Sans', sans-serif;
-        }
-
-        .kp-services-btn:hover,
-        .kp-services-btn.open { color: #f5f0eb; }
-
-        .kp-chevron {
-          transition: transform 0.25s ease;
-          opacity: 0.6;
-        }
-        .kp-services-btn.open .kp-chevron { transform: rotate(180deg); opacity: 1; }
-
+        /* ── Services dropdown ── */
         .kp-dropdown {
           position: absolute;
-          top: calc(100% + 16px);
-          left: 0;
+          top: calc(100% + 12px); left: 0;
           min-width: 220px;
-          background: #111;
-          border: 1px solid #1e1e1e;
-          overflow: hidden;
-          opacity: 0;
-          visibility: hidden;
-          transform: translateY(-8px);
+          background: #fff;
+          border: 1px solid rgba(0,0,0,0.09);
+          border-top: 2px solid #f97316;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+          opacity: 0; visibility: hidden;
+          transform: translateY(-6px);
           transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-          box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+          z-index: 100;
         }
-
         .kp-dropdown.open {
-          opacity: 1;
-          visibility: visible;
+          opacity: 1; visibility: visible;
           transform: translateY(0);
         }
-
-        /* Orange left-border marker on dropdown */
-        .kp-dropdown::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0;
-          width: 2px; height: 100%;
-          background: linear-gradient(180deg, #f97316, #ea580c);
-        }
-
         .kp-dropdown-item {
           display: flex;
           align-items: center;
-          gap: 10px;
-          padding: 13px 20px 13px 22px;
-          font-size: 12px;
-          font-weight: 400;
-          letter-spacing: 0.05em;
+          justify-content: space-between;
+          padding: 11px 18px;
+          font-size: 12px; font-weight: 400;
+          letter-spacing: 0.04em;
           color: #6b6560;
           text-decoration: none;
-          border-bottom: 1px solid #1a1a1a;
+          border-bottom: 1px solid rgba(0,0,0,0.05);
           transition: color 0.2s, background 0.2s, padding-left 0.2s;
         }
         .kp-dropdown-item:last-child { border-bottom: none; }
         .kp-dropdown-item:hover {
-          color: #f5f0eb;
-          background: #161616;
-          padding-left: 26px;
+          color: #f97316; background: #fff8f5; padding-left: 22px;
         }
 
-        .kp-dropdown-arrow {
-          margin-left: auto;
-          opacity: 0;
-          transition: opacity 0.2s;
-          color: #f97316;
-          font-size: 10px;
-        }
-        .kp-dropdown-item:hover .kp-dropdown-arrow { opacity: 1; }
-
-        /* ── CTA BUTTON ── */
-        .kp-cta {
+        /* ── Orange CTA (fill-slide on hover) ── */
+        .kp-cta-btn {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
-          margin-left: 12px;
-          padding: 10px 20px;
+          gap: 7px;
+          padding: 9px 18px;
           background: transparent;
           border: 1px solid #f97316;
           color: #f97316;
           font-family: 'DM Sans', sans-serif;
-          font-size: 11px;
-          font-weight: 500;
-          letter-spacing: 0.16em;
+          font-size: 11px; font-weight: 500;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
           text-decoration: none;
-          transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+          cursor: pointer;
           position: relative;
           overflow: hidden;
+          transition: color 0.25s;
         }
-
-        .kp-cta::before {
+        .kp-cta-btn::before {
           content: '';
-          position: absolute;
-          inset: 0;
+          position: absolute; inset: 0;
           background: #f97316;
           transform: translateX(-100%);
           transition: transform 0.25s ease;
           z-index: 0;
         }
+        .kp-cta-btn:hover::before { transform: translateX(0); }
+        .kp-cta-btn:hover { color: #fff; }
+        .kp-cta-btn > * { position: relative; z-index: 1; }
 
-        .kp-cta:hover::before { transform: translateX(0); }
-        .kp-cta:hover { color: #0a0a0a; box-shadow: 0 0 24px rgba(249,115,22,0.25); }
-
-        .kp-cta span { position: relative; z-index: 1; }
-
-        .kp-cta-dot {
-          width: 4px; height: 4px;
-          background: currentColor;
-          transform: rotate(45deg);
-          flex-shrink: 0;
-          position: relative;
-          z-index: 1;
-          transition: background 0.25s;
-        }
-
-        /* ── MOBILE TOGGLE ── */
-        .kp-mobile-toggle {
-          display: none;
-          align-items: center;
-          justify-content: center;
-          width: 40px; height: 40px;
-          border: 1px solid #252525;
-          background: #111;
-          color: #9e9690;
-          cursor: pointer;
-          transition: border-color 0.2s, color 0.2s;
-        }
-        .kp-mobile-toggle:hover { border-color: #f97316; color: #f97316; }
-        @media (max-width: 768px) { .kp-mobile-toggle { display: flex; } }
-
-        /* ── MOBILE MENU ── */
-        .kp-mobile-menu {
-          display: none;
-          border-top: 1px solid #1a1a1a;
-          background: #0a0a0a;
-        }
-        @media (max-width: 768px) { .kp-mobile-menu { display: block; } }
-
-        .kp-mobile-inner {
-          padding: 24px 20px 28px;
-          display: flex;
-          flex-direction: column;
-          gap: 2px;
-        }
-
+        /* ── Mobile links ── */
         .kp-mobile-link {
           display: flex;
           align-items: center;
           gap: 10px;
-          padding: 13px 16px;
-          font-size: 13px;
-          font-weight: 400;
-          letter-spacing: 0.1em;
+          padding: 12px 14px;
+          font-size: 13px; font-weight: 400;
+          letter-spacing: 0.08em;
           text-transform: uppercase;
           color: #6b6560;
           text-decoration: none;
           border-left: 2px solid transparent;
+          border-radius: 0 4px 4px 0;
           transition: color 0.2s, border-color 0.2s, background 0.2s;
         }
         .kp-mobile-link:hover {
-          color: #f5f0eb;
+          color: #1a1714;
           border-left-color: #f97316;
-          background: #111;
+          background: #fff8f5;
         }
 
-        .kp-mobile-services-btn {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 13px 16px;
-          font-family: 'DM Sans', sans-serif;
-          font-size: 13px;
-          font-weight: 400;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: #6b6560;
-          background: none;
-          border: none;
-          border-left: 2px solid transparent;
-          cursor: pointer;
-          width: 100%;
-          text-align: left;
-          transition: color 0.2s, border-color 0.2s, background 0.2s;
-        }
-        .kp-mobile-services-btn:hover,
-        .kp-mobile-services-btn.open {
-          color: #f5f0eb;
-          border-left-color: #f97316;
-          background: #111;
-        }
-
-        .kp-mobile-sub {
-          padding: 4px 0 8px 28px;
-          display: flex;
-          flex-direction: column;
-          gap: 0;
-          border-left: 2px solid #1e1e1e;
-          margin-left: 16px;
-        }
-
-        .kp-mobile-sub-link {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          padding: 10px 12px;
-          font-size: 11px;
-          font-weight: 400;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: #3a3530;
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-        .kp-mobile-sub-link:hover { color: #f97316; }
-
-        .kp-mobile-sub-dash {
-          width: 12px; height: 1px;
-          background: #3a3530;
-          flex-shrink: 0;
-          transition: background 0.2s;
-        }
-        .kp-mobile-sub-link:hover .kp-mobile-sub-dash { background: #f97316; }
-
-        .kp-mobile-divider {
-          height: 1px;
-          background: #1a1a1a;
-          margin: 8px 0;
-        }
-
+        /* ── Mobile CTA ── */
         .kp-mobile-cta {
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 8px;
-          margin-top: 8px;
-          padding: 14px;
+          margin-top: 4px;
+          padding: 13px;
           background: transparent;
           border: 1px solid #f97316;
           color: #f97316;
           font-family: 'DM Sans', sans-serif;
-          font-size: 11px;
-          font-weight: 500;
-          letter-spacing: 0.18em;
+          font-size: 11px; font-weight: 500;
+          letter-spacing: 0.16em;
           text-transform: uppercase;
           text-decoration: none;
           transition: background 0.25s, color 0.25s;
         }
-        .kp-mobile-cta:hover { background: #f97316; color: #0a0a0a; }
+        .kp-mobile-cta:hover { background: #f97316; color: #fff; }
       `}</style>
 
-      <div className="kp-nav-root">
-        {/* ── TOP BAR ── */}
-        <div className="kp-topbar">
-          <a href="tel:9167636653">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{ width: 13, height: 13 }}>
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.99 2.18 2 2 0 013 0h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z" />
-            </svg>
-            +91 91676 36653
-          </a>
-          <div className="kp-topbar-dot" />
-          <a href="mailto:info@kitchenpulse.in">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{ width: 13, height: 13 }}>
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-              <path d="M2 7l10 7 10-7" />
-            </svg>
-            info@kitchenpulse.in
-          </a>
-        </div>
+      {/* Fixed navbar that slides up/down */}
+      <nav
+        className={`kp-nav-root bg-white ${navVisible ? "" : "nav-hidden"} ${
+          isScrolled
+            ? "border-b border-orange-500/40 shadow-[0_2px_20px_rgba(249,115,22,0.07)]"
+            : "border-b border-black/[0.07]"
+        }`}
+        aria-label="Main navigation"
+      >
+        <div className="flex items-center justify-between px-5 sm:px-12 lg:px-20 h-16">
 
-        {/* ── MAIN NAV ── */}
-        <nav
-          className={`kp-nav ${isScrolled ? "scrolled" : ""}`}
-          aria-label="Main navigation"
-        >
-          <div className="kp-nav-inner">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="inline-flex items-center gap-0.5 no-underline flex-shrink-0"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          >
+            <span className="text-[21px] font-bold text-[#1a1714] tracking-[-0.01em] leading-none">
+              Kitchen
+            </span>
+            <span className="w-[5px] h-[5px] bg-orange-500 rotate-45 mx-[3px] flex-shrink-0 opacity-80" />
+            <span className="text-[21px] font-bold italic text-orange-500 tracking-[-0.01em] leading-none">
+              Pulse
+            </span>
+          </Link>
 
-            {/* Logo */}
-            <Link href="/" className="kp-logo">
-              <span className="kp-logo-word">Kitchen</span>
-              <div className="kp-logo-diamond" />
-              <span className="kp-logo-accent">Pulse</span>
-            </Link>
-
-            {/* Desktop links */}
-            <div className="kp-links">
-              {NAV_LINKS.slice(0, 2).map((link) => (
-                <Link key={link.href} href={link.href} className="kp-link">
-                  {link.label}
-                </Link>
-              ))}
-
-              {/* Services dropdown */}
-              <div
-                className="kp-services-wrap"
-                onMouseEnter={() => setServicesHover(true)}
-                onMouseLeave={() => setServicesHover(false)}
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-1">
+            {NAV_LINKS.slice(0, 2).map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="kp-link-underline relative px-3 py-2 text-[11px] font-medium tracking-[0.12em] uppercase text-[#6b6560] no-underline hover:text-[#1a1714] transition-colors duration-200"
               >
-                <button
-                  type="button"
-                  className={`kp-services-btn ${servicesHover ? "open" : ""}`}
-                  aria-haspopup="true"
-                  aria-expanded={servicesHover}
-                >
-                  Services
-                  <ChevronDown size={13} className="kp-chevron" aria-hidden="true" />
-                </button>
-
-                <div className={`kp-dropdown ${servicesHover ? "open" : ""}`}>
-                  {SERVICE_LINKS.map((service) => (
-                    <Link key={service.href} href={service.href} className="kp-dropdown-item">
-                      {service.label}
-                      <span className="kp-dropdown-arrow">→</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              {NAV_LINKS.slice(2).map((link) => (
-                <Link key={link.href} href={link.href} className="kp-link">
-                  {link.label}
-                </Link>
-              ))}
-
-              <Link href="/contact" className="kp-cta">
-                <span className="kp-cta-dot" />
-                <span>Schedule a Call</span>
+                {link.label}
               </Link>
+            ))}
+
+            {/* Services dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setServicesHover(true)}
+              onMouseLeave={() => setServicesHover(false)}
+            >
+              <button
+                type="button"
+                className={`flex items-center gap-1 px-3 py-2 text-[11px] font-medium tracking-[0.12em] uppercase transition-colors duration-200 bg-transparent border-none cursor-pointer ${
+                  servicesHover ? "text-[#1a1714]" : "text-[#6b6560]"
+                }`}
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+                aria-haspopup="true"
+                aria-expanded={servicesHover}
+              >
+                Services
+                <ChevronDown
+                  size={13}
+                  className="opacity-60 transition-transform duration-200"
+                  style={{ transform: servicesHover ? "rotate(180deg)" : "rotate(0deg)" }}
+                  aria-hidden="true"
+                />
+              </button>
+
+              <div className={`kp-dropdown ${servicesHover ? "open" : ""}`}>
+                {SERVICE_LINKS.map((service) => (
+                  <Link key={service.href} href={service.href} className="kp-dropdown-item">
+                    {service.label}
+                    <span className="text-orange-400 text-[10px]">→</span>
+                  </Link>
+                ))}
+              </div>
             </div>
 
-            {/* Mobile toggle */}
-            <button
-              className="kp-mobile-toggle"
-              onClick={toggleMobileMenu}
-              aria-label="Toggle navigation menu"
-              aria-expanded={isOpen}
+            {NAV_LINKS.slice(2).map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="kp-link-underline relative px-3 py-2 text-[11px] font-medium tracking-[0.12em] uppercase text-[#6b6560] no-underline hover:text-[#1a1714] transition-colors duration-200"
+              >
+                {link.label}
+              </Link>
+            ))}
+
+            {/* Orange CTA → WhatsApp */}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="kp-cta-btn ml-3"
             >
-              {isOpen ? <X size={18} /> : <Menu size={18} />}
-            </button>
+              <span className="w-[4px] h-[4px] bg-current rotate-45 flex-shrink-0" />
+              <span>Schedule a Call</span>
+            </a>
           </div>
 
-          {/* Mobile menu */}
-          {isOpen && (
-            <div className="kp-mobile-menu">
-              <div className="kp-mobile-inner">
-                <Link href="/" className="kp-mobile-link" onClick={closeMobileMenu}>Home</Link>
-                <Link href="/about" className="kp-mobile-link" onClick={closeMobileMenu}>About</Link>
+          {/* Mobile toggle */}
+          <button
+            className="md:hidden flex items-center justify-center w-9 h-9 border border-black/10 bg-[#faf9f7] text-[#6b6560] hover:border-orange-500/40 hover:text-orange-500 transition-all duration-200"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle navigation menu"
+            aria-expanded={isOpen}
+          >
+            {isOpen ? <X size={17} /> : <Menu size={17} />}
+          </button>
+        </div>
 
-                {/* Services accordion */}
-                <div>
-                  <button
-                    type="button"
-                    className={`kp-mobile-services-btn ${isServicesOpen ? "open" : ""}`}
-                    onClick={() => setIsServicesOpen((prev) => !prev)}
-                  >
-                    Services
-                    <ChevronDown
-                      size={13}
-                      style={{
-                        transition: "transform 0.25s",
-                        transform: isServicesOpen ? "rotate(180deg)" : "rotate(0deg)",
-                        opacity: 0.7,
-                      }}
-                    />
-                  </button>
-                  {isServicesOpen && (
-                    <div className="kp-mobile-sub">
-                      {SERVICE_LINKS.map((s) => (
-                        <Link key={s.href} href={s.href} className="kp-mobile-sub-link" onClick={closeMobileMenu}>
-                          <span className="kp-mobile-sub-dash" />
-                          {s.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
+        {/* Mobile menu */}
+        {isOpen && (
+          <div className="md:hidden border-t border-black/[0.07] bg-white">
+            <div className="flex flex-col gap-1 px-4 py-5">
+              <Link href="/" className="kp-mobile-link" onClick={closeMobileMenu}>Home</Link>
+              <Link href="/about" className="kp-mobile-link" onClick={closeMobileMenu}>About</Link>
 
-                <Link href="/process" className="kp-mobile-link" onClick={closeMobileMenu}>Process</Link>
-                <Link href="/contact" className="kp-mobile-link" onClick={closeMobileMenu}>Contact</Link>
-
-                <div className="kp-mobile-divider" />
-
-                <Link href="/contact" className="kp-mobile-cta" onClick={closeMobileMenu}>
-                  <span style={{ width: 4, height: 4, background: "currentColor", transform: "rotate(45deg)", flexShrink: 0 }} />
-                  Book a Consultation
-                </Link>
+              {/* Services accordion */}
+              <div>
+                <button
+                  type="button"
+                  className={`w-full flex items-center justify-between px-3.5 py-3 text-[13px] font-light tracking-[0.08em] uppercase transition-colors duration-200 bg-transparent border-none border-l-2 cursor-pointer ${
+                    isServicesOpen
+                      ? "text-[#1a1714] border-orange-500 bg-orange-50"
+                      : "text-[#6b6560] border-transparent"
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                  onClick={() => setIsServicesOpen((prev) => !prev)}
+                >
+                  Services
+                  <ChevronDown
+                    size={13}
+                    className="opacity-60 transition-transform duration-200"
+                    style={{ transform: isServicesOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                  />
+                </button>
+                {isServicesOpen && (
+                  <div className="ml-4 pl-4 border-l border-black/[0.08] flex flex-col py-1">
+                    {SERVICE_LINKS.map((s) => (
+                      <Link
+                        key={s.href}
+                        href={s.href}
+                        className="flex items-center gap-2 py-2.5 px-2 text-[11px] font-light tracking-[0.08em] uppercase text-[#9a948e] no-underline hover:text-orange-500 transition-colors duration-200"
+                        onClick={closeMobileMenu}
+                      >
+                        <span className="w-3 h-px bg-current opacity-50 flex-shrink-0" />
+                        {s.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
+
+              <Link href="/testimonials" className="kp-mobile-link" onClick={closeMobileMenu}>Testimonials</Link>
+              <Link href="/contact" className="kp-mobile-link" onClick={closeMobileMenu}>Contact</Link>
+
+              <div className="h-px bg-black/[0.07] my-2" />
+
+              {/* Mobile CTA → WhatsApp */}
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="kp-mobile-cta"
+                onClick={closeMobileMenu}
+              >
+                <span className="w-[4px] h-[4px] bg-current rotate-45 flex-shrink-0" />
+                Schedule a Call
+              </a>
             </div>
-          )}
-        </nav>
-      </div>
-    </>
+          </div>
+        )}
+      </nav>
+
+      {/* Spacer — prevents content from sitting under the fixed nav */}
+      <div className="h-16" />
+    </div>
   );
 }

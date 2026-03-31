@@ -52,6 +52,12 @@ const stats = [
   { value: "Tier 2 & 3", label: "Deep Expertise" },
 ];
 
+const intelPoints = [
+  "1800+ vetted properties ready for F&B and D2C use",
+  "Ground-level insight across Tier 1, 2 & 3 cities",
+  "End-to-end support from shortlisting to deal closure",
+];
+
 const StrategicLocationIntelligenceSection = () => {
   const [activeImage, setActiveImage] = useState(0);
   const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false, false, false]);
@@ -91,748 +97,257 @@ const StrategicLocationIntelligenceSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  const fade = (visible: boolean, delay = "") =>
+    `transition-all duration-700 ease-out ${delay} ${
+      visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+    }`;
+
   return (
     <>
+      {/* Google Fonts only — cannot be expressed in Tailwind */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap');
-
-        .sli-section {
-          font-family: 'DM Sans', sans-serif;
-          background: #0a0a0a;
-          color: #f5f0eb;
-          overflow: hidden;
-          position: relative;
-        }
-
-        .sli-section * {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-        }
-
-        /* Grain overlay */
-        .sli-section::before {
-          content: '';
-          position: fixed;
-          top: 0; left: 0;
-          width: 100%; height: 100%;
-          opacity: 0.03;
-          pointer-events: none;
-          z-index: 1;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-
-        /* ── HERO ── */
-        .sli-hero-container {
-          position: relative;
-          min-height: 90vh;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          align-items: stretch;
-        }
-
-        @media (max-width: 900px) {
-          .sli-hero-container {
-            grid-template-columns: 1fr;
-            min-height: auto;
-          }
-        }
-
-        /* Left text panel */
-        .sli-hero-text-panel {
-          position: relative;
-          z-index: 2;
-          padding: 80px 60px 80px 80px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          background: #0a0a0a;
-        }
-
-        @media (max-width: 1200px) {
-          .sli-hero-text-panel { padding: 60px 40px 60px 50px; }
-        }
-        @media (max-width: 900px) {
-          .sli-hero-text-panel { padding: 60px 28px 48px; }
-        }
-        @media (max-width: 480px) {
-          .sli-hero-text-panel { padding: 48px 20px 40px; }
-        }
-
-        .sli-eyebrow {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          font-size: 11px;
-          font-weight: 500;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #f97316;
-          margin-bottom: 24px;
-        }
-
-        .sli-eyebrow-line {
-          width: 32px;
-          height: 1px;
-          background: #f97316;
-          display: inline-block;
-        }
-
-        .sli-hero-headline {
-          font-family: 'Playfair Display', Georgia, serif;
-          font-size: clamp(42px, 5.5vw, 76px);
-          font-weight: 900;
-          line-height: 1.0;
-          letter-spacing: -0.02em;
-          color: #f5f0eb;
-          margin-bottom: 28px;
-        }
-
-        .sli-hero-headline em {
-          font-style: italic;
-          color: #f97316;
-        }
-
-        .sli-hero-subtitle {
-          font-size: clamp(14px, 1.5vw, 16px);
-          font-weight: 300;
-          line-height: 1.75;
-          color: #9e9690;
-          max-width: 420px;
-          margin-bottom: 40px;
-        }
-
-        .sli-cta-row {
-          display: flex;
-          align-items: center;
-          gap: 24px;
-          flex-wrap: wrap;
-        }
-
-        .sli-btn-primary {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          background: #f97316;
-          color: #0a0a0a;
-          font-size: 13px;
-          font-weight: 500;
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-          padding: 16px 28px;
-          border: none;
-          cursor: pointer;
-          transition: all 0.25s ease;
-          clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-          font-family: 'DM Sans', sans-serif;
-        }
-
-        .sli-btn-primary:hover {
-          background: #ea580c;
-          transform: translateY(-2px);
-        }
-
-        .sli-btn-ghost {
-          font-size: 13px;
-          font-weight: 400;
-          color: #9e9690;
-          background: none;
-          border: none;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          transition: color 0.2s;
-          letter-spacing: 0.02em;
-          font-family: 'DM Sans', sans-serif;
-        }
-
-        .sli-btn-ghost:hover { color: #f5f0eb; }
-
-        /* Stats strip */
-        .sli-stats-strip {
-          display: flex;
-          gap: 0;
-          margin-top: 60px;
-          border-top: 1px solid #1e1e1e;
-          padding-top: 32px;
-        }
-
-        .sli-stat-item {
-          flex: 1;
-          padding-right: 24px;
-        }
-
-        .sli-stat-item + .sli-stat-item {
-          padding-left: 24px;
-          border-left: 1px solid #1e1e1e;
-        }
-
-        .sli-stat-value {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(20px, 2.5vw, 32px);
-          font-weight: 700;
-          color: #f97316;
-          line-height: 1;
-          margin-bottom: 6px;
-        }
-
-        .sli-stat-label {
-          font-size: 11px;
-          font-weight: 400;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: #5a5550;
-        }
-
-        /* Right image panel */
-        .sli-hero-image-panel {
-          position: relative;
-          overflow: hidden;
-          min-height: 500px;
-        }
-
-        @media (max-width: 900px) {
-          .sli-hero-image-panel { min-height: 360px; }
-        }
-
-        .sli-hero-img {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          opacity: 0;
-          transition: opacity 1.2s ease;
-          filter: brightness(0.7) saturate(0.85);
-        }
-
-        .sli-hero-img.active { opacity: 1; }
-
-        /* Slow Ken Burns on active image */
         @keyframes sli-ken-burns {
           from { transform: scale(1); }
-          to { transform: scale(1.06); }
+          to   { transform: scale(1.06); }
         }
-
-        .sli-hero-img.active {
-          animation: sli-ken-burns 8s ease forwards;
-        }
-
-        /* Diagonal overlay */
-        .sli-image-diagonal {
-          position: absolute;
-          top: 0; left: -1px;
-          width: 80px;
-          height: 100%;
-          background: #0a0a0a;
-          clip-path: polygon(0 0, 100% 0, 0 100%);
-          z-index: 2;
-        }
-
-        @media (max-width: 900px) {
-          .sli-image-diagonal { display: none; }
-        }
-
-        /* City indicator */
-        .sli-city-badge {
-          position: absolute;
-          top: 24px;
-          left: 56px;
-          z-index: 3;
-          background: rgba(10, 10, 10, 0.7);
-          border: 1px solid #2a2a2a;
-          backdrop-filter: blur(10px);
-          padding: 8px 16px;
-          font-size: 12px;
-          font-weight: 500;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          color: #f5f0eb;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          transition: all 0.3s ease;
-        }
-
-        @media (max-width: 900px) {
-          .sli-city-badge { left: 20px; }
-        }
-
-        .sli-city-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: #f97316;
-          animation: sli-pulse 2s ease infinite;
-        }
-
         @keyframes sli-pulse {
           0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.4); }
+          50%       { opacity: 0.5; transform: scale(1.4); }
         }
-
-        /* Dot indicators */
-        .sli-dots {
-          position: absolute;
-          bottom: 32px;
-          right: 32px;
-          z-index: 3;
-          display: flex;
-          gap: 8px;
-          align-items: center;
+        .sli-img-active {
+          opacity: 1 !important;
+          animation: sli-ken-burns 8s ease forwards;
         }
-
-        .sli-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.3);
-          border: none;
-          cursor: pointer;
-          padding: 0;
-          transition: background 0.3s, transform 0.3s;
-        }
-
-        .sli-dot.active {
-          background: #f97316;
-          transform: scale(1.35);
-        }
-
-        /* Pan-India badge */
-        .sli-floating-badge {
-          position: absolute;
-          bottom: 32px;
-          left: 56px;
-          background: rgba(10, 10, 10, 0.85);
-          border: 1px solid #2a2a2a;
-          backdrop-filter: blur(10px);
-          padding: 18px 22px;
-          z-index: 3;
-          max-width: 210px;
-        }
-
-        @media (max-width: 900px) {
-          .sli-floating-badge { left: 20px; }
-        }
-
-        .sli-floating-badge-label {
-          font-size: 10px;
-          letter-spacing: 0.15em;
-          text-transform: uppercase;
-          color: #f97316;
-          font-weight: 500;
-          margin-bottom: 8px;
-        }
-
-        .sli-floating-badge-text {
-          font-family: 'Playfair Display', serif;
-          font-size: 17px;
-          font-weight: 700;
-          color: #f5f0eb;
-          line-height: 1.25;
-        }
-
-        /* ── CARDS SECTION ── */
-        .sli-cards-section {
-          padding: 100px 80px;
-          position: relative;
-          z-index: 2;
-        }
-
-        @media (max-width: 1200px) { .sli-cards-section { padding: 80px 50px; } }
-        @media (max-width: 900px) { .sli-cards-section { padding: 60px 28px; } }
-        @media (max-width: 480px) { .sli-cards-section { padding: 48px 20px; } }
-
-        .sli-section-label {
-          font-size: 11px;
-          font-weight: 500;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #5a5550;
-          margin-bottom: 48px;
-          display: flex;
-          align-items: center;
-          gap: 14px;
-        }
-
-        .sli-section-label::after {
-          content: '';
-          flex: 1;
-          max-width: 64px;
-          height: 1px;
-          background: #2a2a2a;
-        }
-
-        .sli-cards-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 2px;
-        }
-
-        @media (max-width: 1100px) {
-          .sli-cards-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 600px) {
-          .sli-cards-grid { grid-template-columns: 1fr; }
-        }
-
-        .sli-card {
-          background: #111;
-          padding: 40px 32px;
-          position: relative;
-          overflow: hidden;
-          border: 1px solid #1a1a1a;
-          cursor: default;
-          opacity: 0;
-          transform: translateY(24px);
-          transition: background 0.35s, border-color 0.35s;
-        }
-
-        .sli-card.visible {
-          opacity: 1;
-          transform: translateY(0);
-          transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                      background 0.35s, border-color 0.35s;
-        }
-
-        .sli-card:hover {
-          background: #161616;
-          border-color: #f97316;
-        }
-
-        .sli-card::after {
-          content: '';
-          position: absolute;
-          bottom: 0; left: 0;
-          width: 100%; height: 3px;
-          background: linear-gradient(90deg, #f97316, #ea580c);
-          transform: scaleX(0);
-          transform-origin: left;
-          transition: transform 0.4s ease;
-        }
-
-        .sli-card:hover::after {
-          transform: scaleX(1);
-        }
-
-        .sli-card-number {
-          font-family: 'Playfair Display', serif;
-          font-size: 72px;
-          font-weight: 900;
-          color: #1e1e1e;
-          line-height: 1;
-          position: absolute;
-          top: 16px; right: 20px;
-          user-select: none;
-          transition: color 0.35s;
-        }
-
-        .sli-card:hover .sli-card-number {
-          color: #2a1a0a;
-        }
-
-        .sli-card-icon {
-          font-size: 26px;
-          margin-bottom: 20px;
-          display: block;
-        }
-
-        .sli-card-title {
-          font-family: 'Playfair Display', serif;
-          font-size: 19px;
-          font-weight: 700;
-          color: #f5f0eb;
-          margin-bottom: 12px;
-          line-height: 1.25;
-        }
-
-        .sli-card-desc {
-          font-size: 13px;
-          font-weight: 300;
-          line-height: 1.75;
-          color: #6b6560;
-          transition: color 0.3s;
-        }
-
-        .sli-card:hover .sli-card-desc {
-          color: #9e9690;
-        }
-
-        /* ── INTEL PANEL (mirrored from ops panel) ── */
-        .sli-intel-panel {
-          margin: 0 80px 100px;
-          background: #111;
-          border: 1px solid #1e1e1e;
-          display: grid;
-          grid-template-columns: 1.4fr 1fr;
-          overflow: hidden;
-          position: relative;
-          z-index: 2;
-        }
-
-        @media (max-width: 1200px) { .sli-intel-panel { margin: 0 50px 80px; } }
-        @media (max-width: 900px) {
-          .sli-intel-panel {
-            margin: 0 28px 60px;
-            grid-template-columns: 1fr;
-          }
-        }
-        @media (max-width: 480px) { .sli-intel-panel { margin: 0 20px 48px; } }
-
-        .sli-intel-content {
-          padding: 52px 56px 52px 52px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-
-        @media (max-width: 900px) { .sli-intel-content { padding: 44px 28px; } }
-
-        .sli-intel-eyebrow {
-          font-size: 10px;
-          font-weight: 500;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #f97316;
-          margin-bottom: 20px;
-        }
-
-        .sli-intel-title {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(24px, 2.5vw, 34px);
-          font-weight: 700;
-          color: #f5f0eb;
-          line-height: 1.2;
-          margin-bottom: 18px;
-        }
-
-        .sli-intel-title em {
-          font-style: italic;
-          color: #f97316;
-        }
-
-        .sli-intel-text {
-          font-size: 14px;
-          font-weight: 300;
-          line-height: 1.8;
-          color: #6b6560;
-          margin-bottom: 36px;
-          max-width: 440px;
-        }
-
-        .sli-intel-list {
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-        }
-
-        .sli-intel-list li {
-          display: flex;
-          align-items: flex-start;
-          gap: 14px;
-          font-size: 13px;
-          font-weight: 400;
-          color: #9e9690;
-          line-height: 1.6;
-        }
-
-        .sli-intel-bullet {
-          width: 20px;
-          height: 20px;
-          background: #1e1e1e;
-          border: 1px solid #2a2a2a;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          margin-top: 2px;
-        }
-
-        .sli-intel-bullet svg {
-          width: 10px;
-          height: 10px;
-          color: #f97316;
-        }
-
-        /* Image side of intel panel */
-        .sli-intel-image {
-          position: relative;
-          min-height: 320px;
-          overflow: hidden;
-        }
-
-        .sli-intel-image img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          filter: brightness(0.6) saturate(0.8);
-          transition: transform 6s ease;
-        }
-
-        .sli-intel-image:hover img {
-          transform: scale(1.05);
-        }
-
-        .sli-intel-image-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(135deg, rgba(249,115,22,0.15) 0%, transparent 60%);
-        }
-
-        /* ── Fade-in utilities ── */
-        .sli-fade-in {
-          opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .sli-fade-in.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .sli-delay-1 { transition-delay: 0.1s; }
-        .sli-delay-2 { transition-delay: 0.2s; }
-        .sli-delay-3 { transition-delay: 0.3s; }
-        .sli-delay-4 { transition-delay: 0.45s; }
-        .sli-delay-5 { transition-delay: 0.6s; }
       `}</style>
 
-      <section id="location" className="sli-section" ref={sectionRef}>
+      <section
+        id="location"
+        ref={sectionRef}
+        className="relative bg-[#faf9f7] text-[#1a1714] overflow-hidden"
+        style={{ fontFamily: "'DM Sans', sans-serif" }}
+      >
+        {/* Grain overlay */}
+        <div
+          className="fixed inset-0 opacity-[0.025] pointer-events-none z-[1]"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
+          }}
+        />
 
         {/* ── HERO SPLIT ── */}
-        <div className="sli-hero-container">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 min-h-[90vh] md:min-h-[90vh]">
 
-          {/* Left: Text */}
-          <div className="sli-hero-text-panel">
-            <div className={`sli-fade-in ${heroVisible ? "visible" : ""}`}>
-              <span className="sli-eyebrow">
-                <span className="sli-eyebrow-line" />
+          {/* Left: Text panel */}
+          <div className="relative z-[2] flex flex-col justify-center bg-[#faf9f7] px-5 py-12 sm:px-[50px] sm:py-16 lg:px-20 lg:py-20">
+
+            <div className={fade(heroVisible)}>
+              <span className="inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-orange-500 mb-6">
+                <span className="w-8 h-px bg-orange-500 inline-block" />
                 Location Intelligence
               </span>
             </div>
 
-            <h2 className={`sli-hero-headline sli-fade-in sli-delay-1 ${heroVisible ? "visible" : ""}`}>
-              Where <em>Location</em><br />Becomes<br />Advantage.
+            <h2
+              className={`text-[clamp(42px,5.5vw,76px)] font-black leading-none tracking-[-0.02em] text-[#1a1714] mb-7 ${fade(heroVisible, "delay-100")}`}
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              Where{" "}
+              <em className="text-orange-500" style={{ fontStyle: "italic" }}>Location</em>
+              <br />Becomes
+              <br />Advantage.
             </h2>
 
-            <p className={`sli-hero-subtitle sli-fade-in sli-delay-2 ${heroVisible ? "visible" : ""}`}>
+            <p
+              className={`text-[clamp(14px,1.5vw,16px)] font-light leading-[1.75] text-[#6b6560] max-w-[420px] mb-10 ${fade(heroVisible, "delay-200")}`}
+            >
               We combine on-ground expertise with data-driven insight to secure
               locations that maximize visibility, operational efficiency, and
               long-term profitability for F&amp;B and D2C brands.
             </p>
 
-            <div className={`sli-cta-row sli-fade-in sli-delay-3 ${heroVisible ? "visible" : ""}`}>
-              <button className="sli-btn-primary">
+            {/* CTAs */}
+            <div className={`flex flex-wrap items-center gap-6 ${fade(heroVisible, "delay-300")}`}>
+              <button
+                className="inline-flex items-center gap-2.5 bg-orange-500 hover:bg-orange-600 text-white text-[13px] font-medium tracking-[0.05em] uppercase px-7 py-4 border-none cursor-pointer transition-all duration-200 hover:-translate-y-0.5"
+                style={{
+                  clipPath:
+                    "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
+                  fontFamily: "'DM Sans', sans-serif",
+                }}
+              >
                 Find Locations
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
-              <button className="sli-btn-ghost">
+              <button
+                className="flex items-center gap-2 text-[13px] font-normal tracking-[0.02em] text-[#8a8480] hover:text-[#1a1714] bg-transparent border-none cursor-pointer transition-colors duration-200"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+              >
                 View Properties
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2"/>
-                  <path d="M5 7h4M7 5l2 2-2 2" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
+                  <path d="M5 7h4M7 5l2 2-2 2" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
             </div>
 
-            <div className={`sli-stats-strip sli-fade-in sli-delay-4 ${heroVisible ? "visible" : ""}`}>
+            {/* Stats strip */}
+            <div className={`flex mt-14 border-t border-black/[0.07] pt-8 ${fade(heroVisible, "delay-[450ms]")}`}>
               {stats.map((s, i) => (
-                <div className="sli-stat-item" key={i}>
-                  <div className="sli-stat-value">{s.value}</div>
-                  <div className="sli-stat-label">{s.label}</div>
+                <div
+                  key={i}
+                  className={`flex-1 pr-6 ${i > 0 ? "pl-6 border-l border-black/[0.07]" : ""}`}
+                >
+                  <div
+                    className="text-[clamp(20px,2.5vw,32px)] font-bold leading-none text-orange-500 mb-1.5"
+                    style={{ fontFamily: "'Playfair Display', serif" }}
+                  >
+                    {s.value}
+                  </div>
+                  <div className="text-[11px] font-normal tracking-[0.1em] uppercase text-[#a09890]">
+                    {s.label}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right: Crossfading Image */}
-          <div className={`sli-hero-image-panel sli-fade-in sli-delay-2 ${heroVisible ? "visible" : ""}`}>
-            <div className="sli-image-diagonal" />
+          {/* Right: Crossfading image panel */}
+          <div className={`relative overflow-hidden min-h-[360px] md:min-h-0 ${fade(heroVisible, "delay-200")}`}>
 
+            {/* Diagonal cutout (desktop only) */}
+            <div
+              className="absolute top-0 left-[-1px] w-20 h-full bg-[#faf9f7] z-[2] hidden md:block"
+              style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
+            />
+
+            {/* Images */}
             {heroImages.map((img, i) => (
               <img
                 key={i}
                 src={img.url}
                 alt={img.alt}
-                className={`sli-hero-img ${i === activeImage ? "active" : ""}`}
+                className={`absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-[1200ms] ease-in-out ${i === activeImage ? "sli-img-active" : ""}`}
+                style={{ filter: "brightness(0.78) saturate(0.85)" }}
               />
             ))}
 
-            {/* City indicator */}
-            <div className="sli-city-badge">
-              <span className="sli-city-dot" />
+            {/* City badge */}
+            <div className="absolute top-6 left-14 md:left-14 z-[3] bg-white/80 border border-black/[0.09] backdrop-blur-md px-4 py-2 text-[12px] font-medium tracking-[0.08em] uppercase text-[#1a1714] flex items-center gap-2">
+              <span
+                className="w-1.5 h-1.5 rounded-full bg-orange-500"
+                style={{ animation: "sli-pulse 2s ease infinite" }}
+              />
               {heroImages[activeImage].city}
             </div>
 
             {/* Dot controls */}
-            <div className="sli-dots">
+            <div className="absolute bottom-8 right-8 z-[3] flex items-center gap-2">
               {heroImages.map((_, i) => (
                 <button
                   key={i}
-                  className={`sli-dot ${i === activeImage ? "active" : ""}`}
                   onClick={() => setActiveImage(i)}
                   aria-label={`Show ${heroImages[i].city}`}
+                  className={`w-2 h-2 rounded-full border-none cursor-pointer p-0 transition-all duration-300 ${
+                    i === activeImage
+                      ? "bg-orange-500 scale-[1.35]"
+                      : "bg-white/50"
+                  }`}
                 />
               ))}
             </div>
 
             {/* Floating badge */}
-            <div className="sli-floating-badge">
-              <div className="sli-floating-badge-label">Pan-India Network</div>
-              <div className="sli-floating-badge-text">Prime Real Estate, Placed Right</div>
+            <div className="absolute bottom-8 left-14 z-[3] bg-white/90 border border-black/[0.08] backdrop-blur-md px-5 py-4 max-w-[210px]">
+              <div className="text-[10px] tracking-[0.15em] uppercase text-orange-500 font-medium mb-2">
+                Pan-India Network
+              </div>
+              <div
+                className="text-[17px] font-bold leading-[1.25] text-[#1a1714]"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                Prime Real Estate, Placed Right
+              </div>
             </div>
           </div>
         </div>
 
         {/* ── SERVICE CARDS ── */}
-        <div className="sli-cards-section">
-          <div className="sli-section-label">Our Capabilities</div>
-          <div className="sli-cards-grid">
+        <div className="relative z-[2] px-5 sm:px-[50px] lg:px-20 py-16 sm:py-20 lg:py-[100px]">
+
+          {/* Section label */}
+          <div className="flex items-center gap-3.5 text-[11px] font-medium tracking-[0.2em] uppercase text-[#a09890] mb-12 after:flex-1 after:max-w-16 after:h-px after:bg-black/[0.1]">
+            Our Capabilities
+          </div>
+
+          {/* 4-col grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0.5">
             {highlights.map((item, index) => (
               <div
                 key={index}
-                className={`sli-card ${visibleCards[index] ? "visible" : ""}`}
+                className={`group relative bg-white border border-black/[0.07] px-8 py-10 overflow-hidden cursor-default transition-all duration-300 hover:border-orange-500 hover:bg-[#fffcfa] ${
+                  visibleCards[index]
+                    ? "opacity-100 translate-y-0 transition-[opacity,transform,border-color,background] duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+                    : "opacity-0 translate-y-6"
+                }`}
                 style={{ transitionDelay: visibleCards[index] ? `${index * 0.12}s` : "0s" }}
               >
-                <span className="sli-card-number">0{index + 1}</span>
-                <span className="sli-card-icon">{item.icon}</span>
-                <h3 className="sli-card-title">{item.label}</h3>
-                <p className="sli-card-desc">{item.description}</p>
+                {/* Animated bottom bar */}
+                <div className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-orange-500 to-orange-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-[400ms] origin-left" />
+
+                {/* Ghost number */}
+                <span
+                  className="absolute top-4 right-5 text-[72px] font-black leading-none text-black/[0.04] select-none group-hover:text-orange-500/[0.07] transition-colors duration-300"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  0{index + 1}
+                </span>
+
+                <span className="text-[26px] mb-5 block">{item.icon}</span>
+                <h3
+                  className="text-[19px] font-bold leading-[1.25] text-[#1a1714] mb-3"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  {item.label}
+                </h3>
+                <p className="text-[13px] font-light leading-[1.75] text-[#8a8480] group-hover:text-[#6b6560] transition-colors duration-300">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
         {/* ── INTEL PANEL ── */}
-        <div className="sli-intel-panel">
+        <div className="relative z-[2] mx-5 sm:mx-[50px] lg:mx-20 mb-16 sm:mb-20 lg:mb-[100px] bg-white border border-black/[0.07] grid grid-cols-1 md:grid-cols-[1.4fr_1fr] overflow-hidden">
 
           {/* Content side */}
-          <div className="sli-intel-content">
-            <p className="sli-intel-eyebrow">How We Source for You</p>
-            <h3 className="sli-intel-title">
-              Sourcing That Goes <em>Beyond</em> the Listing
+          <div className="flex flex-col justify-center px-7 py-11 sm:px-14 sm:py-14">
+            <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-orange-500 mb-5">
+              How We Source for You
+            </p>
+            <h3
+              className="text-[clamp(24px,2.5vw,34px)] font-bold leading-[1.2] text-[#1a1714] mb-4"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Sourcing That Goes{" "}
+              <em className="text-orange-500" style={{ fontStyle: "italic" }}>Beyond</em>{" "}
+              the Listing
             </h3>
-            <p className="sli-intel-text">
+            <p className="text-[14px] font-light leading-[1.8] text-[#6b6560] mb-9 max-w-[440px]">
               From off-market properties to pre-negotiated lease terms, our network
               gives you a real edge — whether you're launching your first outlet or
               scaling to fifty.
             </p>
-            <ul className="sli-intel-list">
-              {[
-                "1800+ vetted properties ready for F&B and D2C use",
-                "Ground-level insight across Tier 1, 2 & 3 cities",
-                "End-to-end support from shortlisting to deal closure",
-              ].map((item, i) => (
-                <li key={i}>
-                  <span className="sli-intel-bullet">
-                    <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M2 5l2.5 2.5L8 3" strokeLinecap="round" strokeLinejoin="round"/>
+            <ul className="flex flex-col gap-3.5">
+              {intelPoints.map((item, i) => (
+                <li key={i} className="flex items-start gap-3.5 text-[13px] font-normal leading-[1.6] text-[#8a8480]">
+                  <span className="w-5 h-5 bg-[#f0ede8] border border-black/[0.07] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg viewBox="0 0 10 10" fill="none" stroke="#f97316" strokeWidth="1.5" width="10" height="10">
+                      <path d="M2 5l2.5 2.5L8 3" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
                   {item}
@@ -842,12 +357,21 @@ const StrategicLocationIntelligenceSection = () => {
           </div>
 
           {/* Image side */}
-          <div className="sli-intel-image">
+          <div className="group relative min-h-[320px] overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800&q=85&auto=format&fit=crop"
               alt="City expansion"
+              className="w-full h-full object-cover transition-transform duration-[6000ms] ease-linear group-hover:scale-[1.05]"
+              style={{ filter: "brightness(0.75) saturate(0.8)" }}
             />
-            <div className="sli-intel-image-overlay" />
+            {/* Warm tint overlay */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(249,115,22,0.12) 0%, transparent 60%)",
+              }}
+            />
           </div>
         </div>
 

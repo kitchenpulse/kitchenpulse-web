@@ -46,7 +46,6 @@ const stats = [
 const DigitalAndGrowthSection = () => {
   const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false, false]);
   const [heroVisible, setHeroVisible] = useState(false);
-  const [activeCard, setActiveCard] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -63,538 +62,279 @@ const DigitalAndGrowthSection = () => {
                     next[i] = true;
                     return next;
                   });
-                }, i * 140);
+                }, i * 150);
               });
             }, 300);
           }
         });
       },
-      { threshold: 0.08 }
+      { threshold: 0.1 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
+  const fade = (visible: boolean, delay = "") =>
+    `transition-all duration-700 ease-out ${delay} ${
+      visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+    }`;
+
   return (
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap');
-
-        .dg-section {
-          font-family: 'DM Sans', sans-serif;
-          background: #0a0a0a;
-          color: #f5f0eb;
-          overflow: hidden;
-          position: relative;
-        }
-
-        .dg-section * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        .dg-section::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0;
-          width: 100%; height: 100%;
-          opacity: 0.025;
-          pointer-events: none;
-          z-index: 0;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-
-        /* ── HERO ── */
-        .dg-hero {
-          position: relative;
-          z-index: 2;
-          padding: 100px 80px 0;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 72px;
-          align-items: end;
-        }
-
-        @media (max-width: 1100px) { .dg-hero { padding: 80px 50px 0; gap: 48px; } }
-        @media (max-width: 800px) {
-          .dg-hero { grid-template-columns: 1fr; padding: 60px 28px 0; gap: 32px; }
-        }
-        @media (max-width: 480px) { .dg-hero { padding: 48px 20px 0; } }
-
-        .dg-eyebrow {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          font-size: 11px;
-          font-weight: 500;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #f97316;
-          margin-bottom: 24px;
-        }
-
-        .dg-eyebrow-line { width: 32px; height: 1px; background: #f97316; }
-
-        .dg-headline {
-          font-family: 'Playfair Display', Georgia, serif;
-          font-size: clamp(40px, 5vw, 68px);
-          font-weight: 900;
-          line-height: 1.0;
-          letter-spacing: -0.02em;
-          color: #f5f0eb;
-        }
-
-        .dg-headline em { font-style: italic; color: #f97316; }
-
-        .dg-hero-body {
-          font-size: clamp(14px, 1.4vw, 16px);
-          font-weight: 300;
-          line-height: 1.8;
-          color: #9e9690;
-          margin-bottom: 40px;
-          max-width: 400px;
-        }
-
-        /* Stats strip */
-        .dg-stats-strip {
-          display: flex;
-          gap: 0;
-          border-top: 1px solid #1e1e1e;
-          padding-top: 28px;
-          margin-bottom: 0;
-        }
-
-        .dg-stat { flex: 1; padding-right: 20px; }
-        .dg-stat + .dg-stat { padding-left: 20px; border-left: 1px solid #1e1e1e; }
-
-        .dg-stat-value {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(24px, 2.5vw, 36px);
-          font-weight: 700;
-          color: #f97316;
-          line-height: 1;
-          margin-bottom: 5px;
-        }
-
-        .dg-stat-label {
-          font-size: 10px;
-          font-weight: 400;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: #5a5550;
-        }
-
-        /* ── FEATURED CARDS ── */
-        .dg-cards-track {
-          position: relative;
-          z-index: 2;
-          padding: 64px 80px 0;
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 2px;
-        }
-
-        @media (max-width: 1100px) { .dg-cards-track { padding: 56px 50px 0; } }
-        @media (max-width: 900px) {
-          .dg-cards-track { grid-template-columns: 1fr; padding: 48px 28px 0; }
-        }
-        @media (max-width: 480px) { .dg-cards-track { padding: 40px 20px 0; } }
-
-        .dg-card {
-          position: relative;
-          overflow: hidden;
-          border: 1px solid #1a1a1a;
-          background: #111;
-          cursor: default;
-          opacity: 0;
-          transform: translateY(28px);
-          transition: border-color 0.35s;
-          display: flex;
-          flex-direction: column;
-        }
-
-        .dg-card.visible {
-          opacity: 1;
-          transform: translateY(0);
-          transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94),
-                      border-color 0.35s;
-        }
-
-        .dg-card:hover { border-color: #f97316; }
-
-        /* Image zone */
-        .dg-card-img-wrap {
-          position: relative;
-          height: 200px;
-          overflow: hidden;
-          flex-shrink: 0;
-        }
-
-        @media (max-width: 900px) { .dg-card-img-wrap { height: 220px; } }
-
-        .dg-card-img-wrap img {
-          width: 100%; height: 100%;
-          object-fit: cover;
-          filter: brightness(0.6) saturate(0.8);
-          transition: transform 6s ease, filter 0.4s ease;
-          display: block;
-        }
-
-        .dg-card:hover .dg-card-img-wrap img {
-          transform: scale(1.07);
-          filter: brightness(0.5) saturate(0.7);
-        }
-
-        /* Gradient fade image into card body */
-        .dg-card-img-fade {
-          position: absolute;
-          bottom: 0; left: 0; right: 0;
-          height: 80px;
-          background: linear-gradient(to top, #111, transparent);
-          pointer-events: none;
-        }
-
-        /* Icon pill on image */
-        .dg-card-icon {
-          position: absolute;
-          top: 16px; left: 16px;
-          width: 38px; height: 38px;
-          background: rgba(10,10,10,0.75);
-          border: 1px solid #2a2a2a;
-          backdrop-filter: blur(8px);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 17px;
-          z-index: 2;
-        }
-
-        /* Number on image */
-        .dg-card-num {
-          position: absolute;
-          top: 14px; right: 18px;
-          font-family: 'Playfair Display', serif;
-          font-size: 52px;
-          font-weight: 900;
-          color: rgba(255,255,255,0.08);
-          line-height: 1;
-          user-select: none;
-          z-index: 2;
-          transition: color 0.3s;
-        }
-
-        .dg-card:hover .dg-card-num { color: rgba(249,115,22,0.15); }
-
-        /* Text zone */
-        .dg-card-body {
-          padding: 24px 26px 28px;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-        }
-
-        .dg-card-title {
-          font-family: 'Playfair Display', serif;
-          font-size: 18px;
-          font-weight: 700;
-          color: #f5f0eb;
-          line-height: 1.25;
-          margin-bottom: 10px;
-        }
-
-        .dg-card-desc {
-          font-size: 13px;
-          font-weight: 300;
-          line-height: 1.75;
-          color: #6b6560;
-          transition: color 0.3s;
-          flex: 1;
-        }
-
-        .dg-card:hover .dg-card-desc { color: #9e9690; }
-
-        /* Bottom bar */
-        .dg-card-bar {
-          height: 3px;
-          background: linear-gradient(90deg, #f97316, #ea580c);
-          transform: scaleX(0);
-          transform-origin: left;
-          transition: transform 0.4s ease;
-          margin-top: 20px;
-        }
-
-        .dg-card:hover .dg-card-bar { transform: scaleX(1); }
-
-        /* ── GROWTH PANEL ── */
-        .dg-growth-panel {
-          position: relative;
-          z-index: 2;
-          margin: 2px 80px 0;
-          display: grid;
-          grid-template-columns: 1fr 1.6fr;
-          border: 1px solid #1e1e1e;
-          background: #111;
-          overflow: hidden;
-        }
-
-        @media (max-width: 1100px) { .dg-growth-panel { margin: 2px 50px 0; } }
-        @media (max-width: 900px) {
-          .dg-growth-panel { margin: 2px 28px 0; grid-template-columns: 1fr; }
-        }
-        @media (max-width: 480px) { .dg-growth-panel { margin: 2px 20px 0; } }
-
-        /* Metrics side */
-        .dg-metrics-side {
-          padding: 52px 44px;
-          border-right: 1px solid #1e1e1e;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          gap: 0;
-        }
-
-        @media (max-width: 900px) {
-          .dg-metrics-side { border-right: none; border-bottom: 1px solid #1e1e1e; padding: 40px 28px; }
-        }
-
-        .dg-metrics-label {
-          font-size: 10px;
-          font-weight: 500;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #5a5550;
-          margin-bottom: 32px;
-          display: flex;
-          align-items: center;
-          gap: 12px;
-        }
-
-        .dg-metrics-label::after {
-          content: '';
-          flex: 1;
-          max-width: 40px;
-          height: 1px;
-          background: #2a2a2a;
-        }
-
-        .dg-metric-row {
-          display: flex;
-          align-items: baseline;
-          gap: 16px;
-          padding: 20px 0;
-          border-bottom: 1px solid #1a1a1a;
-        }
-
-        .dg-metric-row:first-of-type { padding-top: 0; }
-        .dg-metric-row:last-of-type { border-bottom: none; padding-bottom: 0; }
-
-        .dg-metric-value {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(32px, 3.5vw, 48px);
-          font-weight: 700;
-          color: #f97316;
-          line-height: 1;
-          flex-shrink: 0;
-        }
-
-        .dg-metric-info { display: flex; flex-direction: column; gap: 2px; }
-
-        .dg-metric-label {
-          font-size: 13px;
-          font-weight: 500;
-          color: #f5f0eb;
-          line-height: 1.2;
-        }
-
-        .dg-metric-sub {
-          font-size: 11px;
-          font-weight: 300;
-          color: #5a5550;
-          letter-spacing: 0.04em;
-        }
-
-        /* Growth content side */
-        .dg-growth-content {
-          padding: 52px 52px 52px 48px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-
-        @media (max-width: 900px) { .dg-growth-content { padding: 40px 28px; } }
-
-        .dg-growth-eyebrow {
-          font-size: 10px;
-          font-weight: 500;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #f97316;
-          margin-bottom: 20px;
-        }
-
-        .dg-growth-title {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(22px, 2.2vw, 32px);
-          font-weight: 700;
-          color: #f5f0eb;
-          line-height: 1.2;
-          margin-bottom: 18px;
-        }
-
-        .dg-growth-title em { font-style: italic; color: #f97316; }
-
-        .dg-growth-text {
-          font-size: 14px;
-          font-weight: 300;
-          line-height: 1.8;
-          color: #6b6560;
-          margin-bottom: 32px;
-          max-width: 440px;
-        }
-
-        .dg-growth-list {
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-        }
-
-        .dg-growth-list li {
-          display: flex;
-          align-items: flex-start;
-          gap: 14px;
-          font-size: 13px;
-          font-weight: 400;
-          color: #9e9690;
-          line-height: 1.6;
-        }
-
-        .dg-growth-bullet {
-          width: 20px; height: 20px;
-          background: #1e1e1e;
-          border: 1px solid #2a2a2a;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          margin-top: 2px;
-        }
-
-        .dg-growth-bullet svg { width: 10px; height: 10px; color: #f97316; }
-
-        /* bottom spacer */
-        .dg-footer-space {
-          height: 100px;
-          position: relative;
-          z-index: 2;
-        }
-
-        @media (max-width: 900px) { .dg-footer-space { height: 60px; } }
-        @media (max-width: 480px) { .dg-footer-space { height: 48px; } }
-
-        /* ── Fade-in utilities ── */
-        .dg-fade {
-          opacity: 0;
-          transform: translateY(18px);
-          transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .dg-fade.visible { opacity: 1; transform: translateY(0); }
-        .dg-d1 { transition-delay: 0.1s; }
-        .dg-d2 { transition-delay: 0.2s; }
-        .dg-d3 { transition-delay: 0.3s; }
-        .dg-d4 { transition-delay: 0.45s; }
       `}</style>
 
-      <section id="digital" className="dg-section" ref={sectionRef}>
+      <section
+        id="digital"
+        ref={sectionRef}
+        className="relative bg-[#faf9f7] text-[#1a1714] overflow-hidden"
+        style={{ fontFamily: "'DM Sans', sans-serif" }}
+      >
+        {/* Grain overlay — matches culinary */}
+        <div
+          className="fixed inset-0 opacity-[0.025] pointer-events-none z-[1]"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
+          }}
+        />
 
-        {/* ── HERO BAND ── */}
-        <div className="dg-hero">
-          <div>
-            <div className={`dg-fade ${heroVisible ? "visible" : ""}`}>
-              <span className="dg-eyebrow">
-                <span className="dg-eyebrow-line" />
+        {/* ── HERO SPLIT ── */}
+        <div className="relative grid grid-cols-1 md:grid-cols-2 min-h-[90vh]">
+
+          {/* Left: Image panel — flipped vs culinary (image left, text right) */}
+          <div className={`group relative overflow-hidden min-h-[350px] md:min-h-0 order-2 md:order-1 ${fade(heroVisible, "delay-200")}`}>
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&q=85&auto=format&fit=crop"
+              alt="Digital growth analytics"
+              className="w-full h-full object-cover block transition-transform duration-[8000ms] ease-linear group-hover:scale-[1.04]"
+              style={{ filter: "brightness(0.78) saturate(0.9)" }}
+            />
+            {/* Diagonal cutout on right edge (desktop only) */}
+            <div
+              className="absolute top-0 right-[-1px] w-20 h-full bg-[#faf9f7] z-[2] hidden md:block"
+              style={{ clipPath: "polygon(100% 0, 100% 100%, 0 0)" }}
+            />
+            {/* Blue-to-orange tint consistent with orange brand */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(249,115,22,0.10) 0%, transparent 60%)",
+              }}
+            />
+            {/* Floating badge */}
+            <div className="absolute bottom-8 left-8 z-[3] bg-white/90 border border-black/[0.09] backdrop-blur-md px-5 py-4 max-w-[200px]">
+              <div className="text-[10px] tracking-[0.15em] uppercase text-orange-500 font-medium mb-2">
+                Data-Driven
+              </div>
+              <div
+                className="text-[18px] font-bold leading-[1.2] text-[#1a1714]"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                Growth That's Measurable
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Text panel */}
+          <div className="relative z-[2] flex flex-col justify-center bg-[#faf9f7] px-5 py-12 sm:px-[40px] sm:py-16 lg:px-[60px] lg:pr-20 lg:py-20 order-1 md:order-2">
+
+            <div className={fade(heroVisible)}>
+              <span className="inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-orange-500 mb-6">
+                <span className="w-8 h-px bg-orange-500 inline-block" />
                 Digital &amp; Growth
               </span>
             </div>
-            <h2 className={`dg-headline dg-fade dg-d1 ${heroVisible ? "visible" : ""}`}>
-              Driving Orders,<br />Reach &amp; <em>Visibility.</em>
-            </h2>
-          </div>
 
-          <div>
-            <p className={`dg-hero-body dg-fade dg-d2 ${heroVisible ? "visible" : ""}`}>
+            <h2
+              className={`text-[clamp(42px,5.5vw,76px)] font-black leading-none tracking-[-0.02em] text-[#1a1714] mb-7 ${fade(heroVisible, "delay-100")}`}
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              Driving Orders,<br />Reach &amp;{" "}
+              <em className="text-orange-500" style={{ fontStyle: "italic" }}>Visibility.</em>
+            </h2>
+
+            <p
+              className={`text-[clamp(14px,1.5vw,16px)] font-light leading-[1.75] text-[#6b6560] max-w-[420px] mb-10 ${fade(heroVisible, "delay-200")}`}
+            >
               We manage your digital presence across aggregators, social, and D2C
               channels to create predictable, scalable growth for your F&amp;B brand
               — every decision tied to metrics that matter.
             </p>
-            <div className={`dg-stats-strip dg-fade dg-d3 ${heroVisible ? "visible" : ""}`}>
+
+            {/* CTAs */}
+            <div className={`flex flex-wrap items-center gap-6 ${fade(heroVisible, "delay-300")}`}>
+              <button
+                className="inline-flex items-center gap-2.5 bg-orange-500 hover:bg-orange-600 text-white text-[13px] font-medium tracking-[0.05em] uppercase px-7 py-4 border-none cursor-pointer transition-all duration-200 hover:-translate-y-0.5"
+                style={{
+                  clipPath:
+                    "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
+                  fontFamily: "'DM Sans', sans-serif",
+                }}
+              >
+                Explore Services
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <button
+                className="flex items-center gap-2 text-[13px] font-normal tracking-[0.02em] text-[#8a8480] hover:text-[#1a1714] bg-transparent border-none cursor-pointer transition-colors duration-200"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+              >
+                View Case Studies
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
+                  <path d="M5 7h4M7 5l2 2-2 2" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Stats strip */}
+            <div className={`flex mt-14 border-t border-black/[0.07] pt-8 ${fade(heroVisible, "delay-[450ms]")}`}>
               {stats.map((s, i) => (
-                <div className="dg-stat" key={i}>
-                  <div className="dg-stat-value">{s.value}</div>
-                  <div className="dg-stat-label">{s.label}</div>
+                <div
+                  key={i}
+                  className={`flex-1 pr-6 ${i > 0 ? "pl-6 border-l border-black/[0.07]" : ""}`}
+                >
+                  <div
+                    className="text-[clamp(28px,3vw,40px)] font-bold leading-none text-orange-500 mb-1.5"
+                    style={{ fontFamily: "'Playfair Display', serif" }}
+                  >
+                    {s.value}
+                  </div>
+                  <div className="text-[11px] font-normal tracking-[0.1em] uppercase text-[#a09890]">
+                    {s.label}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* ── IMAGE CARDS ── */}
-        <div className="dg-cards-track">
-          {digitalItems.map((item, index) => (
-            <div
-              key={index}
-              className={`dg-card ${visibleCards[index] ? "visible" : ""}`}
-              style={{ transitionDelay: visibleCards[index] ? `${index * 0.12}s` : "0s" }}
-            >
-              {/* Image */}
-              <div className="dg-card-img-wrap">
-                <img src={item.image} alt={item.title} />
-                <div className="dg-card-img-fade" />
-                <div className="dg-card-icon">{item.icon}</div>
-                <span className="dg-card-num">0{index + 1}</span>
-              </div>
+        {/* ── SERVICE CARDS ── */}
+        <div className="relative z-[2] px-5 sm:px-[50px] lg:px-20 py-16 sm:py-20 lg:py-[100px]">
 
-              {/* Text */}
-              <div className="dg-card-body">
-                <h3 className="dg-card-title">{item.title}</h3>
-                <p className="dg-card-desc">{item.description}</p>
-                <div className="dg-card-bar" />
+          {/* Section label */}
+          <div className="flex items-center gap-3.5 text-[11px] font-medium tracking-[0.2em] uppercase text-[#a09890] mb-12 after:flex-1 after:max-w-16 after:h-px after:bg-black/[0.1]">
+            Our Services
+          </div>
+
+          {/* 3-col grid with images */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0.5">
+            {digitalItems.map((item, index) => (
+              <div
+                key={index}
+                className={`group relative bg-white border border-black/[0.07] overflow-hidden cursor-default transition-all duration-300 hover:border-orange-500 ${
+                  visibleCards[index]
+                    ? "opacity-100 translate-y-0 transition-[opacity,transform,border-color,background] duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+                    : "opacity-0 translate-y-6"
+                }`}
+                style={{ transitionDelay: visibleCards[index] ? `${index * 0.12}s` : "0s" }}
+              >
+                {/* Card image */}
+                <div className="relative h-[180px] overflow-hidden flex-shrink-0">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-[6000ms] ease-linear group-hover:scale-[1.06]"
+                    style={{ filter: "brightness(0.72) saturate(0.85)" }}
+                  />
+                  {/* Fade image into card body */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
+                    style={{ background: "linear-gradient(to top, #fff, transparent)" }}
+                  />
+                  {/* Icon pill */}
+                  <span className="absolute top-3.5 left-3.5 z-[2] w-9 h-9 bg-black/70 border border-white/10 backdrop-blur-md flex items-center justify-center text-[16px]">
+                    {item.icon}
+                  </span>
+                  {/* Ghost number on image */}
+                  <span
+                    className="absolute top-2 right-4 text-[56px] font-black leading-none text-white/10 select-none group-hover:text-orange-500/20 transition-colors duration-300 z-[2]"
+                    style={{ fontFamily: "'Playfair Display', serif" }}
+                  >
+                    0{index + 1}
+                  </span>
+                </div>
+
+                {/* Animated bottom bar */}
+                <div className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-orange-500 to-orange-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-[400ms] origin-left" />
+
+                {/* Text body */}
+                <div className="px-7 pt-5 pb-8">
+                  <h3
+                    className="text-[20px] font-bold leading-[1.25] text-[#1a1714] mb-3"
+                    style={{ fontFamily: "'Playfair Display', serif" }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="text-[13px] font-light leading-[1.75] text-[#8a8480] group-hover:text-[#6b6560] transition-colors duration-300">
+                    {item.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* ── GROWTH PANEL ── */}
-        <div className="dg-growth-panel">
+        <div className="relative z-[2] mx-5 sm:mx-[50px] lg:mx-20 mb-16 sm:mb-20 lg:mb-[100px] bg-white border border-black/[0.07] grid grid-cols-1 md:grid-cols-[1fr_1.6fr] overflow-hidden">
 
-          {/* Metrics */}
-          <div className="dg-metrics-side">
-            <div className="dg-metrics-label">Key Metrics</div>
+          {/* Metrics side — mirrors culinary's image side position */}
+          <div className="flex flex-col justify-center px-9 py-11 sm:px-11 sm:py-[52px] border-b md:border-b-0 md:border-r border-black/[0.07]">
+            <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-[#a09890] mb-8 flex items-center gap-3 after:flex-1 after:max-w-10 after:h-px after:bg-black/[0.1]">
+              Key Metrics
+            </p>
             {metrics.map((m, i) => (
-              <div className="dg-metric-row" key={i}>
-                <span className="dg-metric-value">{m.value}</span>
-                <div className="dg-metric-info">
-                  <span className="dg-metric-label">{m.label}</span>
-                  <span className="dg-metric-sub">{m.sub}</span>
+              <div
+                key={i}
+                className={`flex items-baseline gap-4 py-5 ${
+                  i < metrics.length - 1 ? "border-b border-black/[0.06]" : ""
+                } ${i === 0 ? "pt-0" : ""}`}
+              >
+                <span
+                  className="text-[clamp(32px,3.5vw,48px)] font-bold leading-none text-orange-500 flex-shrink-0"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  {m.value}
+                </span>
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-[13px] font-medium text-[#1a1714] leading-[1.2]">
+                    {m.label}
+                  </span>
+                  <span className="text-[11px] font-light text-[#a09890] tracking-[0.04em]">
+                    {m.sub}
+                  </span>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Content */}
-          <div className="dg-growth-content">
-            <p className="dg-growth-eyebrow">Growth Mindset</p>
-            <h3 className="dg-growth-title">
-              Every Initiative,<br /><em>Measurably Tied</em> to Revenue
+          {/* Content side */}
+          <div className="flex flex-col justify-center px-7 py-11 sm:px-14 sm:py-[52px]">
+            <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-orange-500 mb-5">
+              Growth Mindset
+            </p>
+            <h3
+              className="text-[clamp(24px,2.5vw,34px)] font-bold leading-[1.2] text-[#1a1714] mb-4"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Every Initiative,{" "}
+              <em className="text-orange-500" style={{ fontStyle: "italic" }}>Measurably Tied</em>{" "}
+              to Revenue
             </h3>
-            <p className="dg-growth-text">
+            <p className="text-[14px] font-light leading-[1.8] text-[#6b6560] mb-8 max-w-[440px]">
               We connect order volume, AOV, repeat rate, and store-level
               profitability so you see exactly what's working — and scale it fast.
             </p>
-            <ul className="dg-growth-list">
+            <ul className="flex flex-col gap-3.5">
               {growthPoints.map((pt, i) => (
-                <li key={i}>
-                  <span className="dg-growth-bullet">
-                    <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M2 5l2.5 2.5L8 3" strokeLinecap="round" strokeLinejoin="round"/>
+                <li key={i} className="flex items-start gap-3.5 text-[13px] font-normal leading-[1.6] text-[#8a8480]">
+                  <span className="w-5 h-5 bg-[#f0ede8] border border-black/[0.07] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg viewBox="0 0 10 10" fill="none" stroke="#f97316" strokeWidth="1.5" width="10" height="10">
+                      <path d="M2 5l2.5 2.5L8 3" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
                   {pt}
@@ -603,8 +343,6 @@ const DigitalAndGrowthSection = () => {
             </ul>
           </div>
         </div>
-
-        <div className="dg-footer-space" />
 
       </section>
     </>
