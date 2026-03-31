@@ -11,7 +11,7 @@ export default function Home() {
    <HeroSection />
    <ServicesSection />
    <WhyChooseSection/>
-   <ProcessSection/>
+   {/* <ProcessSection/> */}
       
     </main>
   );

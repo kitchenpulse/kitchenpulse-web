@@ -37,6 +37,12 @@ const reasons = [
   },
 ];
 
+const headerStats = [
+  { v: "4", l: "Key Advantages" },
+  { v: "30%", l: "Cost Savings" },
+  { v: "1", l: "Point of Contact" },
+];
+
 /* ── Animated connector between cards ─────────────────────────────── */
 const Connector = ({ fromLeft, index }: { fromLeft: boolean; index: number }) => {
   const pathRef = useRef<SVGPathElement>(null);
@@ -74,7 +80,13 @@ const Connector = ({ fromLeft, index }: { fromLeft: boolean; index: number }) =>
           </marker>
         </defs>
         {/* Track */}
-        <path d={d} stroke="rgba(249,115,22,0.12)" strokeWidth="1.5" strokeDasharray="5 4" strokeLinecap="round" />
+        <path
+          d={d}
+          stroke="rgba(249,115,22,0.15)"
+          strokeWidth="1.5"
+          strokeDasharray="5 4"
+          strokeLinecap="round"
+        />
         {/* Animated fill */}
         <path
           ref={pathRef}
@@ -92,7 +104,9 @@ const Connector = ({ fromLeft, index }: { fromLeft: boolean; index: number }) =>
 /* ── Main Section ─────────────────────────────────────────────────── */
 const WhyChooseSection = () => {
   const [heroVisible, setHeroVisible] = useState(false);
-  const [visibleCards, setVisibleCards] = useState<boolean[]>(new Array(reasons.length).fill(false));
+  const [visibleCards, setVisibleCards] = useState<boolean[]>(
+    new Array(reasons.length).fill(false)
+  );
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -119,432 +133,165 @@ const WhyChooseSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  const fade = (visible: boolean, delay = "") =>
+    `transition-all duration-700 ease-out ${delay} ${
+      visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[18px]"
+    }`;
+
   return (
     <>
+      {/* Only for Google Fonts — cannot be expressed in Tailwind */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap');
-
-        .wc-section {
-          font-family: 'DM Sans', sans-serif;
-          color: #f5f0eb;
-          overflow: hidden;
-          position: relative;
-        }
-
-        .wc-section * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        /* Background image layer */
-        .wc-bg {
-          position: absolute;
-          inset: 0;
-          background-image: url('/assets/printedp.jpg');
-          background-size: cover;
-          background-position: center;
-          z-index: 0;
-        }
-
-        /* Dark overlay — heavy enough to match the dark site feel */
-        .wc-bg::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: rgba(8, 8, 8, 0.82);
-        }
-
-        /* Grain on top of overlay */
-        .wc-grain {
-          position: absolute;
-          inset: 0;
-          z-index: 1;
-          pointer-events: none;
-          opacity: 0.03;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-
-        /* Ambient glow */
-        .wc-glow {
-          position: absolute;
-          top: 50%; right: -120px;
-          transform: translateY(-50%);
-          width: 520px; height: 520px;
-          background: radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 70%);
-          pointer-events: none;
-          z-index: 1;
-        }
-
-        /* ── HEADER ── */
-        .wc-header {
-          position: relative;
-          z-index: 2;
-          padding: 100px 80px 72px;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 64px;
-          align-items: end;
-          border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
-
-        @media (max-width: 1100px) { .wc-header { padding: 80px 50px 60px; gap: 40px; } }
-        @media (max-width: 800px)  { .wc-header { grid-template-columns: 1fr; padding: 60px 28px 48px; gap: 28px; } }
-        @media (max-width: 480px)  { .wc-header { padding: 48px 20px 40px; } }
-
-        .wc-eyebrow {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          font-size: 11px;
-          font-weight: 500;
-          letter-spacing: 0.22em;
-          text-transform: uppercase;
-          color: #f97316;
-          margin-bottom: 24px;
-        }
-
-        .wc-eyebrow-line { width: 32px; height: 1px; background: #f97316; }
-
-        .wc-headline {
-          font-family: 'Playfair Display', Georgia, serif;
-          font-size: clamp(38px, 5vw, 66px);
-          font-weight: 900;
-          line-height: 1.0;
-          letter-spacing: -0.02em;
-          color: #f5f0eb;
-        }
-
-        .wc-headline em { font-style: italic; color: #f97316; }
-
-        .wc-header-body {
-          font-size: clamp(14px, 1.4vw, 16px);
-          font-weight: 300;
-          line-height: 1.8;
-          color: #9e9690;
-          max-width: 400px;
-          margin-bottom: 36px;
-        }
-
-        .wc-header-stats {
-          display: flex;
-          gap: 0;
-          border-top: 1px solid rgba(255,255,255,0.06);
-          padding-top: 28px;
-        }
-
-        .wc-hstat { flex: 1; padding-right: 20px; }
-        .wc-hstat + .wc-hstat { padding-left: 20px; border-left: 1px solid rgba(255,255,255,0.06); }
-
-        .wc-hstat-val {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(22px, 2.5vw, 32px);
-          font-weight: 700;
-          color: #f97316;
-          line-height: 1;
-          margin-bottom: 5px;
-        }
-
-        .wc-hstat-lbl {
-          font-size: 10px;
-          font-weight: 400;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: #5a5550;
-        }
-
-        /* ── TIMELINE BODY ── */
-        .wc-timeline {
-          position: relative;
-          z-index: 2;
-          padding: 60px 80px 100px;
-          max-width: 1280px;
-          margin: 0 auto;
-        }
-
-        @media (max-width: 1100px) { .wc-timeline { padding: 48px 50px 80px; } }
-        @media (max-width: 800px)  { .wc-timeline { padding: 40px 28px 60px; } }
-        @media (max-width: 480px)  { .wc-timeline { padding: 32px 20px 48px; } }
-
-        /* ── CARD ROW ── */
-        .wc-row {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .wc-card-wrap {
-          width: 100%;
-          display: flex;
-        }
-
-        .wc-card-wrap.left  { justify-content: flex-start; }
-        .wc-card-wrap.right { justify-content: flex-end; }
-
-        /* The card itself */
-        .wc-card {
-          width: 46%;
-          background: rgba(10,10,10,0.7);
-          border: 1px solid rgba(255,255,255,0.07);
-          overflow: hidden;
-          position: relative;
-          opacity: 0;
-          transform: translateY(28px);
-          transition: border-color 0.35s, background 0.35s;
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-        }
-
-        @media (max-width: 800px) { .wc-card { width: 100%; } }
-
-        .wc-card.visible {
-          opacity: 1;
-          transform: translateY(0);
-          transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94),
-                      border-color 0.35s, background 0.35s;
-        }
-
-        .wc-card:hover {
-          border-color: #f97316;
-          background: rgba(15,10,5,0.8);
-        }
-
-        /* Orange bottom bar on hover */
-        .wc-card::after {
-          content: '';
-          position: absolute;
-          bottom: 0; left: 0;
-          width: 100%; height: 3px;
-          background: linear-gradient(90deg, #f97316, #ea580c);
-          transform: scaleX(0);
-          transform-origin: left;
-          transition: transform 0.45s ease;
-        }
-
-        .wc-card:hover::after { transform: scaleX(1); }
-
-        /* Image */
-        .wc-card-img-wrap {
-          position: relative;
-          width: 100%;
-          aspect-ratio: 16 / 7;
-          overflow: hidden;
-        }
-
-        .wc-card-img-wrap img {
-          width: 100%; height: 100%;
-          object-fit: cover;
-          display: block;
-          transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
-          filter: grayscale(30%) brightness(0.75);
-        }
-
-        .wc-card:hover .wc-card-img-wrap img {
-          transform: scale(1.06);
-          filter: grayscale(0%) brightness(0.85);
-        }
-
-        /* Scrim over image */
-        .wc-card-scrim {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.4) 50%, transparent 100%);
-          pointer-events: none;
-        }
-
-        /* Tag overlaid on image */
-        .wc-card-img-tag {
-          position: absolute;
-          top: 16px; left: 16px;
-          font-size: 9px;
-          font-weight: 500;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #f97316;
-          background: rgba(0,0,0,0.6);
-          border: 1px solid rgba(249,115,22,0.3);
-          padding: 4px 10px;
-          backdrop-filter: blur(4px);
-        }
-
-        /* Content below image */
-        .wc-card-body {
-          padding: 24px 28px 0;
-        }
-
-        .wc-card-title-row {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          margin-bottom: 10px;
-        }
-
-        .wc-card-icon-box {
-          width: 36px; height: 36px;
-          background: #1a1a1a;
-          border: 1px solid #2a2a2a;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: #f97316;
-          flex-shrink: 0;
-          transition: background 0.3s, border-color 0.3s;
-        }
-
-        .wc-card:hover .wc-card-icon-box {
-          background: #2a1a0a;
-          border-color: #3a2010;
-        }
-
-        .wc-card-icon-box svg { width: 17px; height: 17px; }
-
-        .wc-card-title {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(17px, 1.8vw, 22px);
-          font-weight: 700;
-          color: #f5f0eb;
-          line-height: 1.2;
-        }
-
-        .wc-card-desc {
-          font-size: 13px;
-          font-weight: 300;
-          line-height: 1.8;
-          color: #6b6560;
-          transition: color 0.3s;
-        }
-
-        .wc-card:hover .wc-card-desc { color: #9e9690; }
-
-        .wc-card-footer {
-          margin-top: 20px;
-          padding: 14px 28px 20px;
-          border-top: 1px solid rgba(255,255,255,0.05);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .wc-card-stat {
-          font-size: 10px;
-          font-weight: 500;
-          letter-spacing: 0.08em;
-          color: #3a3530;
-          background: #1a1a1a;
-          border: 1px solid rgba(255,255,255,0.06);
-          padding: 4px 10px;
-          transition: color 0.3s, border-color 0.3s;
-        }
-
-        .wc-card:hover .wc-card-stat {
-          color: #f97316;
-          border-color: #3a2010;
-        }
-
-        .wc-card-num {
-          font-family: 'Playfair Display', serif;
-          font-size: 28px;
-          font-weight: 900;
-          color: rgba(249,115,22,0.12);
-          line-height: 1;
-          transition: color 0.3s;
-          user-select: none;
-        }
-
-        .wc-card:hover .wc-card-num { color: rgba(249,115,22,0.25); }
-
-        /* Fade utilities */
-        .wc-fade {
-          opacity: 0;
-          transform: translateY(18px);
-          transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .wc-fade.visible { opacity: 1; transform: translateY(0); }
-        .wc-d1 { transition-delay: 0.1s; }
-        .wc-d2 { transition-delay: 0.2s; }
-        .wc-d3 { transition-delay: 0.3s; }
       `}</style>
 
-      <section id="why-choose" className="wc-section" ref={sectionRef}>
-        {/* Background */}
-        <div className="wc-bg" />
-        <div className="wc-grain" />
-        <div className="wc-glow" />
+      <section
+        id="why-choose"
+        ref={sectionRef}
+        className="relative bg-[#faf9f7] text-[#1a1714] overflow-hidden"
+        style={{ fontFamily: "'DM Sans', sans-serif" }}
+      >
+        {/* Background image layer */}
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/assets/printedp.jpg')" }}
+        />
+
+        {/* Light overlay — heavy enough to keep text readable, but much lighter than dark */}
+        <div className="absolute inset-0 z-[1] bg-[#faf9f7]/[0.88]" />
+
+        {/* Grain */}
+        <div
+          className="absolute inset-0 z-[2] pointer-events-none opacity-[0.025]"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
+          }}
+        />
+
+        {/* Ambient glow */}
+        <div
+          className="absolute top-1/2 -right-[120px] -translate-y-1/2 w-[520px] h-[520px] pointer-events-none z-[2]"
+          style={{
+            background: "radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 70%)",
+          }}
+        />
 
         {/* ── HEADER ── */}
-        <div className="wc-header">
+        <div className="relative z-[3] px-5 sm:px-[50px] lg:px-20 pt-16 sm:pt-20 lg:pt-[100px] pb-12 sm:pb-[60px] lg:pb-[72px] grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-16 items-end border-b border-black/[0.07]">
+
+          {/* Left */}
           <div>
-            <div className={`wc-fade ${heroVisible ? "visible" : ""}`}>
-              <span className="wc-eyebrow">
-                <span className="wc-eyebrow-line" />
+            <div className={fade(heroVisible)}>
+              <span className="inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.22em] uppercase text-orange-500 mb-6">
+                <span className="w-8 h-px bg-orange-500" />
                 Why Us
               </span>
             </div>
-            <h2 className={`wc-headline wc-fade wc-d1 ${heroVisible ? "visible" : ""}`}>
-              Why Choose<br /><em>KitchenPulse</em><br />?
+            <h2
+              className={`text-[clamp(38px,5vw,66px)] font-black leading-none tracking-[-0.02em] text-[#1a1714] ${fade(heroVisible, "delay-100")}`}
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              Why Choose<br />
+              <em className="text-orange-500" style={{ fontStyle: "italic" }}>KitchenPulse</em><br />?
             </h2>
           </div>
 
+          {/* Right */}
           <div>
-            <p className={`wc-header-body wc-fade wc-d2 ${heroVisible ? "visible" : ""}`}>
+            <p
+              className={`text-[clamp(14px,1.4vw,16px)] font-light leading-[1.8] text-[#6b6560] max-w-[400px] mb-9 ${fade(heroVisible, "delay-200")}`}
+            >
               We bring structure, accountability, and measurable impact to every
               stage of your food business lifecycle — one partner, every layer.
             </p>
-            <div className={`wc-header-stats wc-fade wc-d3 ${heroVisible ? "visible" : ""}`}>
-              {[
-                { v: "4", l: "Key Advantages" },
-                { v: "30%", l: "Cost Savings" },
-                { v: "1", l: "Point of Contact" },
-              ].map((s, i) => (
-                <div className="wc-hstat" key={i}>
-                  <div className="wc-hstat-val">{s.v}</div>
-                  <div className="wc-hstat-lbl">{s.l}</div>
-                </div>
-              ))}
-            </div>
+
+           
           </div>
         </div>
 
         {/* ── TIMELINE ── */}
-        <div className="wc-timeline">
+        <div className="relative z-[3] px-5 sm:px-[50px] lg:px-20 py-14 sm:py-16 lg:py-[100px] max-w-[1280px] mx-auto">
           {reasons.map((item, index) => {
             const isLeft = index % 2 === 0;
             const isLast = index === reasons.length - 1;
             const Icon = item.icon;
 
             return (
-              <div className="wc-row" key={item.title}>
-                <div className={`wc-card-wrap ${isLeft ? "left" : "right"}`}>
+              <div key={item.title} className="flex flex-col items-center">
+
+                {/* Card row */}
+                <div className={`w-full flex ${isLeft ? "justify-start" : "justify-end"}`}>
                   <div
-                    className={`wc-card ${visibleCards[index] ? "visible" : ""}`}
+                    className={`group w-full md:w-[46%] bg-white/80 backdrop-blur-sm border border-black/[0.07] overflow-hidden relative transition-all duration-300 hover:border-orange-500 hover:bg-white ${
+                      visibleCards[index]
+                        ? "opacity-100 translate-y-0 transition-[opacity,transform,border-color,background] duration-[550ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+                        : "opacity-0 translate-y-7"
+                    }`}
                     style={{ transitionDelay: visibleCards[index] ? `${index * 0.08}s` : "0s" }}
                   >
+                    {/* Animated bottom bar */}
+                    <div className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-orange-500 to-orange-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-[450ms] origin-left z-10" />
+
                     {/* Image */}
-                    <div className="wc-card-img-wrap">
-                      <img src={item.img} alt={item.title} />
-                      <div className="wc-card-scrim" />
-                      <span className="wc-card-img-tag">{item.tag}</span>
+                    <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/7" }}>
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="w-full h-full object-cover block transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.06]"
+                        style={{ filter: "grayscale(20%) brightness(0.88)" }}
+                      />
+                      {/* Scrim */}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          background:
+                            "linear-gradient(to top, rgba(250,249,247,0.92) 0%, rgba(250,249,247,0.3) 50%, transparent 100%)",
+                        }}
+                      />
+                      {/* Tag */}
+                      <span className="absolute top-4 left-4 text-[9px] font-medium tracking-[0.2em] uppercase text-orange-500 bg-white/80 border border-orange-200 px-2.5 py-1 backdrop-blur-sm">
+                        {item.tag}
+                      </span>
                     </div>
 
                     {/* Body */}
-                    <div className="wc-card-body">
-                      <div className="wc-card-title-row">
-                        <div className="wc-card-icon-box">
-                          <Icon />
+                    <div className="px-7 pt-6">
+                      <div className="flex items-center gap-3 mb-2.5">
+                        {/* Icon box */}
+                        <div className="w-9 h-9 bg-[#f0ede8] border border-black/[0.07] flex items-center justify-center text-orange-500 flex-shrink-0 group-hover:bg-orange-50 group-hover:border-orange-200 transition-all duration-300">
+                          <Icon size={17} />
                         </div>
-                        <h3 className="wc-card-title">{item.title}</h3>
+                        <h3
+                          className="text-[clamp(17px,1.8vw,22px)] font-bold leading-[1.2] text-[#1a1714]"
+                          style={{ fontFamily: "'Playfair Display', serif" }}
+                        >
+                          {item.title}
+                        </h3>
                       </div>
-                      <p className="wc-card-desc">{item.desc}</p>
+                      <p className="text-[13px] font-light leading-[1.8] text-[#8a8480] group-hover:text-[#6b6560] transition-colors duration-300">
+                        {item.desc}
+                      </p>
                     </div>
 
                     {/* Footer */}
-                    <div className="wc-card-footer">
-                      <span className="wc-card-stat">{item.stat}</span>
-                      <span className="wc-card-num">0{index + 1}</span>
+                    <div className="mt-5 mx-0 px-7 pb-5 pt-3.5 border-t border-black/[0.06] flex items-center justify-between">
+                      <span className="text-[10px] font-medium tracking-[0.08em] text-[#a09890] bg-[#f0ede8] border border-black/[0.06] px-2.5 py-1 group-hover:text-orange-500 group-hover:border-orange-200 transition-all duration-300">
+                        {item.stat}
+                      </span>
+                      <span
+                        className="text-[28px] font-black leading-none text-orange-500/[0.12] select-none group-hover:text-orange-500/[0.25] transition-colors duration-300"
+                        style={{ fontFamily: "'Playfair Display', serif" }}
+                      >
+                        0{index + 1}
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 {/* Animated connector */}
                 {!isLast && (
-                  <div style={{ width: "100%", position: "relative", zIndex: 2 }}>
+                  <div className="w-full relative z-[2]">
                     <Connector fromLeft={isLeft} index={index} />
                   </div>
                 )}
