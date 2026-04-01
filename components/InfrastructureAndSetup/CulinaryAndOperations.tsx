@@ -150,25 +150,7 @@ const CulinaryAndOperationsSection = () => {
               </button>
             </div>
 
-            {/* Stats strip */}
-            <div className={`flex mt-14 border-t border-black/[0.07] pt-8 ${fade(heroVisible, "delay-[450ms]")}`}>
-              {stats.map((s, i) => (
-                <div
-                  key={i}
-                  className={`flex-1 pr-6 ${i > 0 ? "pl-6 border-l border-black/[0.07]" : ""}`}
-                >
-                  <div
-                    className="text-[clamp(28px,3vw,40px)] font-bold leading-none text-orange-500 mb-1.5"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
-                  >
-                    {s.value}
-                  </div>
-                  <div className="text-[11px] font-normal tracking-[0.1em] uppercase text-[#a09890]">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+           
           </div>
 
           {/* Right: Image panel */}

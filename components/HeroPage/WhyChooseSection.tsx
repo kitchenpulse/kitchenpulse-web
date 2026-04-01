@@ -37,65 +37,31 @@ const reasons = [
   },
 ];
 
-const headerStats = [
-  { v: "4", l: "Key Advantages" },
-  { v: "30%", l: "Cost Savings" },
-  { v: "1", l: "Point of Contact" },
-];
-
-/* ── Animated connector between cards ─────────────────────────────── */
-const Connector = ({ fromLeft, index }: { fromLeft: boolean; index: number }) => {
-  const pathRef = useRef<SVGPathElement>(null);
+/* ── Vertical divider between cards ──────────────────────────────── */
+const VerticalConnector = ({ index }: { index: number }) => {
+  const lineRef = useRef<SVGLineElement>(null);
 
   useEffect(() => {
-    const path = pathRef.current;
-    if (!path) return;
-    const len = path.getTotalLength();
-    path.style.strokeDasharray = `${len}`;
-    path.style.strokeDashoffset = `${len}`;
-    const anim = path.animate(
-      [{ strokeDashoffset: `${len}` }, { strokeDashoffset: "0" }],
-      { duration: 1200, delay: index * 260, fill: "forwards", easing: "ease" }
+    const el = lineRef.current;
+    if (!el) return;
+    el.style.strokeDasharray = "200";
+    el.style.strokeDashoffset = "200";
+    const anim = el.animate(
+      [{ strokeDashoffset: "200" }, { strokeDashoffset: "0" }],
+      { duration: 600, delay: index * 140 + 300, fill: "forwards", easing: "ease" }
     );
     return () => anim.cancel();
   }, [index]);
 
-  const W = 800;
-  const H = 80;
-  const d = fromLeft
-    ? `M ${W * 0.41} 4 C ${W * 0.5} -28, ${W * 0.5} 98, ${W * 0.59} ${H - 4}`
-    : `M ${W * 0.59} 4 C ${W * 0.5} -28, ${W * 0.5} 98, ${W * 0.41} ${H - 4}`;
-
   return (
-    <div className="hidden md:block w-full relative" style={{ height: 80 }}>
-      <svg
-        viewBox={`0 0 ${W} ${H}`}
-        preserveAspectRatio="none"
-        className="absolute inset-0 w-full h-full overflow-visible"
-        fill="none"
-      >
-        <defs>
-          <marker id={`arr-${index}`} markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-            <polygon points="0 0, 8 3, 0 6" fill="#f97316" />
-          </marker>
-        </defs>
+    <div className="flex justify-center" style={{ height: 56 }}>
+      <svg width="2" height="56" viewBox="0 0 2 56" fill="none" overflow="visible">
         {/* Track */}
-        <path
-          d={d}
-          stroke="rgba(249,115,22,0.15)"
-          strokeWidth="1.5"
-          strokeDasharray="5 4"
-          strokeLinecap="round"
-        />
+        <line x1="1" y1="0" x2="1" y2="56" stroke="rgba(249,115,22,0.15)" strokeWidth="1.5" strokeDasharray="5 4" />
         {/* Animated fill */}
-        <path
-          ref={pathRef}
-          d={d}
-          stroke="#f97316"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          markerEnd={`url(#arr-${index})`}
-        />
+        <line ref={lineRef} x1="1" y1="0" x2="1" y2="56" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" />
+        {/* Arrow head */}
+        <polygon points="-4,48 1,56 6,48" fill="rgba(249,115,22,0)" />
       </svg>
     </div>
   );
@@ -140,7 +106,6 @@ const WhyChooseSection = () => {
 
   return (
     <>
-      {/* Only for Google Fonts — cannot be expressed in Tailwind */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap');
       `}</style>
@@ -157,7 +122,7 @@ const WhyChooseSection = () => {
           style={{ backgroundImage: "url('/assets/printedp.jpg')" }}
         />
 
-        {/* Light overlay — heavy enough to keep text readable, but much lighter than dark */}
+        {/* Light overlay */}
         <div className="absolute inset-0 z-[1] bg-[#faf9f7]/[0.88]" />
 
         {/* Grain */}
@@ -179,7 +144,6 @@ const WhyChooseSection = () => {
 
         {/* ── HEADER ── */}
         <div className="relative z-[3] px-5 sm:px-[50px] lg:px-20 pt-16 sm:pt-20 lg:pt-[100px] pb-12 sm:pb-[60px] lg:pb-[72px] grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-16 items-end border-b border-black/[0.07]">
-
           {/* Left */}
           <div>
             <div className={fade(heroVisible)}>
@@ -205,25 +169,20 @@ const WhyChooseSection = () => {
               We bring structure, accountability, and measurable impact to every
               stage of your food business lifecycle — one partner, every layer.
             </p>
-
-           
           </div>
         </div>
 
-        {/* ── TIMELINE ── */}
-        <div className="relative z-[3] px-5 sm:px-[50px] lg:px-20 py-14 sm:py-16 lg:py-[100px] max-w-[1280px] mx-auto">
-          {reasons.map((item, index) => {
-            const isLeft = index % 2 === 0;
-            const isLast = index === reasons.length - 1;
-            const Icon = item.icon;
+        {/* ── ROW OF CARDS ── */}
+        <div className="relative z-[3] px-5 sm:px-[50px] lg:px-20 py-14 sm:py-16 lg:py-[100px]">
+          <div className="flex flex-col sm:flex-row gap-5 items-stretch">
+            {reasons.map((item, index) => {
+              const Icon = item.icon;
 
-            return (
-              <div key={item.title} className="flex flex-col items-center">
-
-                {/* Card row */}
-                <div className={`w-full flex ${isLeft ? "justify-start" : "justify-end"}`}>
+              return (
+                <React.Fragment key={item.title}>
+                  {/* ── Card ── */}
                   <div
-                    className={`group w-full md:w-[46%] bg-white/80 backdrop-blur-sm border border-black/[0.07] overflow-hidden relative transition-all duration-300 hover:border-orange-500 hover:bg-white ${
+                    className={`group flex-1 min-w-0 bg-white/80 backdrop-blur-sm border border-black/[0.07] overflow-hidden relative transition-all duration-300 hover:border-orange-500 hover:bg-white ${
                       visibleCards[index]
                         ? "opacity-100 translate-y-0 transition-[opacity,transform,border-color,background] duration-[550ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
                         : "opacity-0 translate-y-7"
@@ -241,7 +200,6 @@ const WhyChooseSection = () => {
                         className="w-full h-full object-cover block transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.06]"
                         style={{ filter: "grayscale(20%) brightness(0.88)" }}
                       />
-                      {/* Scrim */}
                       <div
                         className="absolute inset-0 pointer-events-none"
                         style={{
@@ -249,7 +207,6 @@ const WhyChooseSection = () => {
                             "linear-gradient(to top, rgba(250,249,247,0.92) 0%, rgba(250,249,247,0.3) 50%, transparent 100%)",
                         }}
                       />
-                      {/* Tag */}
                       <span className="absolute top-4 left-4 text-[9px] font-medium tracking-[0.2em] uppercase text-orange-500 bg-white/80 border border-orange-200 px-2.5 py-1 backdrop-blur-sm">
                         {item.tag}
                       </span>
@@ -258,7 +215,6 @@ const WhyChooseSection = () => {
                     {/* Body */}
                     <div className="px-7 pt-6">
                       <div className="flex items-center gap-3 mb-2.5">
-                        {/* Icon box */}
                         <div className="w-9 h-9 bg-[#f0ede8] border border-black/[0.07] flex items-center justify-center text-orange-500 flex-shrink-0 group-hover:bg-orange-50 group-hover:border-orange-200 transition-all duration-300">
                           <Icon size={17} />
                         </div>
@@ -287,17 +243,11 @@ const WhyChooseSection = () => {
                       </span>
                     </div>
                   </div>
-                </div>
 
-                {/* Animated connector */}
-                {!isLast && (
-                  <div className="w-full relative z-[2]">
-                    <Connector fromLeft={isLeft} index={index} />
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                </React.Fragment>
+              );
+            })}
+          </div>
         </div>
       </section>
     </>

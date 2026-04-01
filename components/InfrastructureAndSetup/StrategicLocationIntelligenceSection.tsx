@@ -167,52 +167,9 @@ const StrategicLocationIntelligenceSection = () => {
               long-term profitability for F&amp;B and D2C brands.
             </p>
 
-            {/* CTAs */}
-            <div className={`flex flex-wrap items-center gap-6 ${fade(heroVisible, "delay-300")}`}>
-              <button
-                className="inline-flex items-center gap-2.5 bg-orange-500 hover:bg-orange-600 text-white text-[13px] font-medium tracking-[0.05em] uppercase px-7 py-4 border-none cursor-pointer transition-all duration-200 hover:-translate-y-0.5"
-                style={{
-                  clipPath:
-                    "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
-                  fontFamily: "'DM Sans', sans-serif",
-                }}
-              >
-                Find Locations
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              <button
-                className="flex items-center gap-2 text-[13px] font-normal tracking-[0.02em] text-[#8a8480] hover:text-[#1a1714] bg-transparent border-none cursor-pointer transition-colors duration-200"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
-                View Properties
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
-                  <path d="M5 7h4M7 5l2 2-2 2" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-            </div>
-
+          
             {/* Stats strip */}
-            <div className={`flex mt-14 border-t border-black/[0.07] pt-8 ${fade(heroVisible, "delay-[450ms]")}`}>
-              {stats.map((s, i) => (
-                <div
-                  key={i}
-                  className={`flex-1 pr-6 ${i > 0 ? "pl-6 border-l border-black/[0.07]" : ""}`}
-                >
-                  <div
-                    className="text-[clamp(20px,2.5vw,32px)] font-bold leading-none text-orange-500 mb-1.5"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
-                  >
-                    {s.value}
-                  </div>
-                  <div className="text-[11px] font-normal tracking-[0.1em] uppercase text-[#a09890]">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+            
           </div>
 
           {/* Right: Crossfading image panel */}

@@ -164,52 +164,7 @@ const DigitalAndGrowthSection = () => {
               — every decision tied to metrics that matter.
             </p>
 
-            {/* CTAs */}
-            <div className={`flex flex-wrap items-center gap-6 ${fade(heroVisible, "delay-300")}`}>
-              <button
-                className="inline-flex items-center gap-2.5 bg-orange-500 hover:bg-orange-600 text-white text-[13px] font-medium tracking-[0.05em] uppercase px-7 py-4 border-none cursor-pointer transition-all duration-200 hover:-translate-y-0.5"
-                style={{
-                  clipPath:
-                    "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
-                  fontFamily: "'DM Sans', sans-serif",
-                }}
-              >
-                Explore Services
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              <button
-                className="flex items-center gap-2 text-[13px] font-normal tracking-[0.02em] text-[#8a8480] hover:text-[#1a1714] bg-transparent border-none cursor-pointer transition-colors duration-200"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
-                View Case Studies
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
-                  <path d="M5 7h4M7 5l2 2-2 2" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Stats strip */}
-            <div className={`flex mt-14 border-t border-black/[0.07] pt-8 ${fade(heroVisible, "delay-[450ms]")}`}>
-              {stats.map((s, i) => (
-                <div
-                  key={i}
-                  className={`flex-1 pr-6 ${i > 0 ? "pl-6 border-l border-black/[0.07]" : ""}`}
-                >
-                  <div
-                    className="text-[clamp(28px,3vw,40px)] font-bold leading-none text-orange-500 mb-1.5"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
-                  >
-                    {s.value}
-                  </div>
-                  <div className="text-[11px] font-normal tracking-[0.1em] uppercase text-[#a09890]">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+          
           </div>
         </div>
 
@@ -278,72 +233,6 @@ const DigitalAndGrowthSection = () => {
             ))}
           </div>
         </div>
-
-        {/* ── GROWTH PANEL ── */}
-        <div className="relative z-[2] mx-5 sm:mx-[50px] lg:mx-20 mb-16 sm:mb-20 lg:mb-[100px] bg-white border border-black/[0.07] grid grid-cols-1 md:grid-cols-[1fr_1.6fr] overflow-hidden">
-
-          {/* Metrics side — mirrors culinary's image side position */}
-          <div className="flex flex-col justify-center px-9 py-11 sm:px-11 sm:py-[52px] border-b md:border-b-0 md:border-r border-black/[0.07]">
-            <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-[#a09890] mb-8 flex items-center gap-3 after:flex-1 after:max-w-10 after:h-px after:bg-black/[0.1]">
-              Key Metrics
-            </p>
-            {metrics.map((m, i) => (
-              <div
-                key={i}
-                className={`flex items-baseline gap-4 py-5 ${
-                  i < metrics.length - 1 ? "border-b border-black/[0.06]" : ""
-                } ${i === 0 ? "pt-0" : ""}`}
-              >
-                <span
-                  className="text-[clamp(32px,3.5vw,48px)] font-bold leading-none text-orange-500 flex-shrink-0"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  {m.value}
-                </span>
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-[13px] font-medium text-[#1a1714] leading-[1.2]">
-                    {m.label}
-                  </span>
-                  <span className="text-[11px] font-light text-[#a09890] tracking-[0.04em]">
-                    {m.sub}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Content side */}
-          <div className="flex flex-col justify-center px-7 py-11 sm:px-14 sm:py-[52px]">
-            <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-orange-500 mb-5">
-              Growth Mindset
-            </p>
-            <h3
-              className="text-[clamp(24px,2.5vw,34px)] font-bold leading-[1.2] text-[#1a1714] mb-4"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Every Initiative,{" "}
-              <em className="text-orange-500" style={{ fontStyle: "italic" }}>Measurably Tied</em>{" "}
-              to Revenue
-            </h3>
-            <p className="text-[14px] font-light leading-[1.8] text-[#6b6560] mb-8 max-w-[440px]">
-              We connect order volume, AOV, repeat rate, and store-level
-              profitability so you see exactly what's working — and scale it fast.
-            </p>
-            <ul className="flex flex-col gap-3.5">
-              {growthPoints.map((pt, i) => (
-                <li key={i} className="flex items-start gap-3.5 text-[13px] font-normal leading-[1.6] text-[#8a8480]">
-                  <span className="w-5 h-5 bg-[#f0ede8] border border-black/[0.07] flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg viewBox="0 0 10 10" fill="none" stroke="#f97316" strokeWidth="1.5" width="10" height="10">
-                      <path d="M2 5l2.5 2.5L8 3" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                  {pt}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
       </section>
     </>
   );

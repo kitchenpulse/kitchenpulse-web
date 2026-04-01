@@ -198,19 +198,7 @@ const ContactSection = () => {
               <strong className="text-orange-500 font-medium">D2C growth</strong>{" "}
               — we're ready to partner with you across every stage of the journey.
             </p>
-            <div className={`flex border-t border-black/[0.07] pt-7 ${fade("delay-300")}`}>
-              {[
-                { v: "24h",      l: "Response Time" },
-                { v: "Pan-India", l: "Coverage" },
-                { v: "Free",     l: "First Consult" },
-              ].map((s, i) => (
-                <div key={i} className={`flex-1 pr-5 ${i > 0 ? "pl-5 border-l border-black/[0.07]" : ""}`}>
-                  <div className="text-[clamp(22px,2.5vw,32px)] font-bold leading-none text-orange-500 mb-1.5"
-                    style={{ fontFamily: "'Playfair Display', serif" }}>{s.v}</div>
-                  <div className="text-[10px] font-normal tracking-[0.12em] uppercase text-[#a09890]">{s.l}</div>
-                </div>
-              ))}
-            </div>
+           
           </div>
         </div>
 

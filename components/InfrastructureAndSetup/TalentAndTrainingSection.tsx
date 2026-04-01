@@ -131,24 +131,7 @@ const TalentAndTrainingSection = () => {
               front-of-house — so your brand delivers a consistent experience, every
               single day, across every location.
             </p>
-            <div className={`flex border-t border-black/[0.07] pt-7 ${fade(heroVisible, "delay-300")}`}>
-              {stats.map((s, i) => (
-                <div
-                  key={i}
-                  className={`flex-1 pr-5 ${i > 0 ? "pl-5 border-l border-black/[0.07]" : ""}`}
-                >
-                  <div
-                    className="text-[clamp(26px,3vw,38px)] font-bold leading-none text-orange-500 mb-1.5"
-                    style={{ fontFamily: "'Playfair Display', serif" }}
-                  >
-                    {s.value}
-                  </div>
-                  <div className="text-[10px] font-normal tracking-[0.12em] uppercase text-[#a09890]">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+         
           </div>
         </div>
 
