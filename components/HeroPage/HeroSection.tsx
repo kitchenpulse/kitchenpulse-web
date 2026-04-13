@@ -127,22 +127,7 @@ const HeroSection: React.FC = () => {
             </svg>
           </Link>
 
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2.5 bg-transparent text-[#6b6560] hover:text-[#1a1714] text-[13px] font-normal tracking-[0.05em] border border-[#d4cfc9] hover:border-[#a09890] px-7 py-[15px] no-underline transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
-          >
-            Explore Services
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
-              <path
-                d="M5 7h4M7 5l2 2-2 2"
-                stroke="currentColor"
-                strokeWidth="1.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
+          
         </div>
 
         
