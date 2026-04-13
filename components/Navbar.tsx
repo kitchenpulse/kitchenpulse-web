@@ -16,7 +16,7 @@ const NAV_LINKS = [
 ];
 
 const SERVICE_LINKS = [
-  { href: "/MainSection#infrastructureAndSetup", label: "Infrastructure & Setup" },
+  { href: "/MainSection#infrastructure", label: "Infrastructure & Setup" },
   { href: "/MainSection#culinary", label: "Culinary & Operations" },
   { href: "/MainSection#talent", label: "Talent & Training" },
   { href: "/MainSection#digital", label: "Digital & Growth" },
