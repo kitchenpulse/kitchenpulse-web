@@ -7,7 +7,7 @@ const founders = [
     name: "Sushant Oundhakar",
     title: "Co-Founder & CEO",
     bio: "Visionary leader with 15+ years in the F&B industry, driving Kitchen Pulse's mission to transform how food brands scale across India.",
-    initials: "RS",
+    initials: "SO",
     linkedin: "#",
     stat: { value: "15+", label: "Years in F&B" },
   },
@@ -15,7 +15,7 @@ const founders = [
     name: "Shubham Gupta",
     title: "Co-Founder & COO",
     bio: "Growth-driven business leader with 8+ years of experience in sales, strategy, and team leadership—scaling operations and driving top-line results across fast-paced sectors. Currently leading the West region at Mukunda Foods and passionate about building ambitious, high-impact businesses.",
-    initials: "PM",
+    initials: "SG",
     linkedin: "#",
     stat: { value: "200+", label: "Brands Scaled" },
   },
@@ -66,7 +66,6 @@ const WhoWeAre = () => {
   const [heroVisible, setHeroVisible] = useState(false);
   const [visibleCards, setVisibleCards] = useState<boolean[]>(new Array(founders.length).fill(false));
   const [visibleContact, setVisibleContact] = useState(false);
-  const [hoveredFounder, setHoveredFounder] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -103,31 +102,20 @@ const WhoWeAre = () => {
 
         .ww-section {
           font-family: 'DM Sans', sans-serif;
-          background: #0a0a0a;
-          color: #f5f0eb;
+          background: #faf9f7;
+          color: #1a1714;
           overflow: hidden;
           position: relative;
         }
 
         .ww-section * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Grain overlay */
-        .ww-section::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          opacity: 0.025;
-          pointer-events: none;
-          z-index: 0;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-
-        /* Ambient glow — top-right to contrast ProcessSection's bottom-left */
+        /* Subtle ambient glow */
         .ww-glow {
           position: absolute;
           top: -100px; right: -120px;
           width: 640px; height: 520px;
-          background: radial-gradient(ellipse, rgba(249,115,22,0.07) 0%, transparent 68%);
+          background: radial-gradient(ellipse, rgba(249,115,22,0.06) 0%, transparent 68%);
           pointer-events: none;
           z-index: 1;
         }
@@ -149,7 +137,7 @@ const WhoWeAre = () => {
           grid-template-columns: 1fr 1fr;
           gap: 64px;
           align-items: end;
-          border-bottom: 1px solid #1a1a1a;
+          border-bottom: 1px solid rgba(0,0,0,0.08);
         }
 
         @media (max-width: 1100px) { .ww-header { padding: 80px 50px 60px; gap: 40px; } }
@@ -175,7 +163,7 @@ const WhoWeAre = () => {
           font-weight: 900;
           line-height: 1.0;
           letter-spacing: -0.02em;
-          color: #f5f0eb;
+          color: #1a1714;
         }
         .ww-headline em { font-style: italic; color: #f97316; }
 
@@ -183,7 +171,7 @@ const WhoWeAre = () => {
           font-size: clamp(14px, 1.4vw, 16px);
           font-weight: 300;
           line-height: 1.8;
-          color: #9e9690;
+          color: #6b6560;
           max-width: 400px;
           margin-bottom: 36px;
         }
@@ -193,11 +181,11 @@ const WhoWeAre = () => {
         .ww-header-stats {
           display: flex;
           gap: 0;
-          border-top: 1px solid #1e1e1e;
+          border-top: 1px solid rgba(0,0,0,0.08);
           padding-top: 28px;
         }
         .ww-hstat { flex: 1; padding-right: 20px; }
-        .ww-hstat + .ww-hstat { padding-left: 20px; border-left: 1px solid #1e1e1e; }
+        .ww-hstat + .ww-hstat { padding-left: 20px; border-left: 1px solid rgba(0,0,0,0.08); }
         .ww-hstat-val {
           font-family: 'Playfair Display', serif;
           font-size: clamp(22px, 2.5vw, 32px);
@@ -211,16 +199,17 @@ const WhoWeAre = () => {
           font-weight: 400;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: #5a5550;
+          color: #a09890;
         }
 
         /* ── PILLARS MARQUEE ── */
         .ww-pillars-wrap {
           position: relative;
           z-index: 2;
-          border-bottom: 1px solid #1a1a1a;
+          border-bottom: 1px solid rgba(0,0,0,0.08);
           overflow: hidden;
           padding: 0;
+          background: #faf9f7;
         }
         .ww-pillars-track {
           display: flex;
@@ -239,7 +228,7 @@ const WhoWeAre = () => {
           align-items: center;
           gap: 10px;
           padding: 18px 36px;
-          border-right: 1px solid #1a1a1a;
+          border-right: 1px solid rgba(0,0,0,0.07);
           white-space: nowrap;
           flex-shrink: 0;
         }
@@ -249,7 +238,7 @@ const WhoWeAre = () => {
           font-weight: 500;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #5a5550;
+          color: #a09890;
           transition: color 0.3s;
         }
         .ww-pillar-item:hover .ww-pillar-label { color: #f97316; }
@@ -260,20 +249,20 @@ const WhoWeAre = () => {
           z-index: 2;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 2px;
-          background: #111;
-          border-bottom: 1px solid #1a1a1a;
+          gap: 1px;
+          background: rgba(0,0,0,0.07);
+          border-bottom: 1px solid rgba(0,0,0,0.08);
         }
         @media (max-width: 700px) { .ww-mv-grid { grid-template-columns: 1fr; } }
 
         .ww-mv-card {
-          background: #0a0a0a;
+          background: #faf9f7;
           padding: 52px 60px;
           position: relative;
           overflow: hidden;
           transition: background 0.3s;
         }
-        .ww-mv-card:hover { background: #0e0e0e; }
+        .ww-mv-card:hover { background: #f5f3ef; }
 
         /* Large italic letter watermark */
         .ww-mv-wm {
@@ -283,13 +272,13 @@ const WhoWeAre = () => {
           font-style: italic;
           font-size: 120px;
           font-weight: 900;
-          color: #141414;
+          color: rgba(0,0,0,0.04);
           line-height: 1;
           pointer-events: none;
           user-select: none;
           transition: color 0.3s;
         }
-        .ww-mv-card:hover .ww-mv-wm { color: #1a1209; }
+        .ww-mv-card:hover .ww-mv-wm { color: rgba(249,115,22,0.06); }
 
         .ww-mv-label {
           display: flex;
@@ -313,7 +302,7 @@ const WhoWeAre = () => {
           font-family: 'Playfair Display', serif;
           font-size: clamp(22px, 2.5vw, 30px);
           font-weight: 700;
-          color: #f5f0eb;
+          color: #1a1714;
           margin-bottom: 18px;
           line-height: 1.2;
           position: relative;
@@ -324,22 +313,22 @@ const WhoWeAre = () => {
           font-size: 14px;
           font-weight: 300;
           line-height: 1.85;
-          color: #6b6560;
+          color: #8a8480;
           position: relative;
           z-index: 1;
           transition: color 0.3s;
           max-width: 380px;
         }
-        .ww-mv-card:hover .ww-mv-text { color: #9e9690; }
+        .ww-mv-card:hover .ww-mv-text { color: #6b6560; }
 
         .ww-mv-line {
           margin-top: 28px;
           height: 1px;
           background: linear-gradient(90deg, #f97316 0%, transparent 60%);
-          opacity: 0.25;
+          opacity: 0.2;
           transition: opacity 0.3s;
         }
-        .ww-mv-card:hover .ww-mv-line { opacity: 0.5; }
+        .ww-mv-card:hover .ww-mv-line { opacity: 0.45; }
 
         /* ── FOUNDERS ── */
         .ww-founders-wrap {
@@ -356,27 +345,28 @@ const WhoWeAre = () => {
           gap: 14px;
           padding: 36px 0 24px;
         }
-        .ww-founders-label-line { flex: 1; height: 1px; background: #1a1a1a; }
+        .ww-founders-label-line { flex: 1; height: 1px; background: rgba(0,0,0,0.08); }
         .ww-founders-label-text {
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 0.24em;
           text-transform: uppercase;
-          color: #3a3530;
+          color: #a09890;
           white-space: nowrap;
         }
 
         .ww-founders-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 2px;
+          gap: 1px;
+          background: rgba(0,0,0,0.07);
         }
         @media (max-width: 700px) { .ww-founders-grid { grid-template-columns: 1fr; } }
 
         /* ── FOUNDER CARD ── */
         .ww-founder-card {
-          background: #111;
-          border: 1px solid #1a1a1a;
+          background: #ffffff;
+          border: 1px solid rgba(0,0,0,0.07);
           padding: 40px 36px 32px;
           position: relative;
           overflow: hidden;
@@ -392,7 +382,7 @@ const WhoWeAre = () => {
                       border-color 0.3s, background 0.3s;
         }
         .ww-founder-card:hover {
-          background: #161616;
+          background: #fffcfa;
           border-color: #f97316;
         }
 
@@ -409,7 +399,7 @@ const WhoWeAre = () => {
         }
         .ww-founder-card:hover::after { transform: scaleX(1); }
 
-        /* Avatar large initials block */
+        /* Avatar */
         .ww-founder-avatar-row {
           display: flex;
           align-items: flex-start;
@@ -418,8 +408,8 @@ const WhoWeAre = () => {
         }
         .ww-founder-avatar {
           width: 72px; height: 72px;
-          background: #161616;
-          border: 1px solid #252525;
+          background: #f0ede8;
+          border: 1px solid rgba(0,0,0,0.08);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -432,11 +422,11 @@ const WhoWeAre = () => {
           z-index: 1;
         }
         .ww-founder-card:hover .ww-founder-avatar {
-          background: #1e1107;
-          border-color: rgba(249,115,22,0.35);
+          background: #fdecd9;
+          border-color: rgba(249,115,22,0.3);
         }
 
-        /* Stat pill */
+        /* Stat */
         .ww-founder-stat {
           text-align: right;
           position: relative;
@@ -446,26 +436,26 @@ const WhoWeAre = () => {
           font-family: 'Playfair Display', serif;
           font-size: 28px;
           font-weight: 700;
-          color: #2a2520;
+          color: rgba(0,0,0,0.07);
           line-height: 1;
           transition: color 0.3s;
         }
-        .ww-founder-card:hover .ww-founder-stat-val { color: rgba(249,115,22,0.25); }
+        .ww-founder-card:hover .ww-founder-stat-val { color: rgba(249,115,22,0.18); }
         .ww-founder-stat-lbl {
           font-size: 9px;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: #2a2520;
+          color: rgba(0,0,0,0.12);
           margin-top: 3px;
           transition: color 0.3s;
         }
-        .ww-founder-card:hover .ww-founder-stat-lbl { color: #3a3530; }
+        .ww-founder-card:hover .ww-founder-stat-lbl { color: rgba(249,115,22,0.35); }
 
         .ww-founder-name {
           font-family: 'Playfair Display', serif;
           font-size: clamp(20px, 2vw, 24px);
           font-weight: 700;
-          color: #f5f0eb;
+          color: #1a1714;
           line-height: 1.1;
           margin-bottom: 6px;
           position: relative;
@@ -485,17 +475,17 @@ const WhoWeAre = () => {
           font-size: 13px;
           font-weight: 300;
           line-height: 1.8;
-          color: #6b6560;
+          color: #8a8480;
           transition: color 0.3s;
           position: relative;
           z-index: 1;
         }
-        .ww-founder-card:hover .ww-founder-bio { color: #9e9690; }
+        .ww-founder-card:hover .ww-founder-bio { color: #6b6560; }
 
         .ww-founder-footer {
           margin-top: 24px;
           padding-top: 16px;
-          border-top: 1px solid #1a1a1a;
+          border-top: 1px solid rgba(0,0,0,0.07);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -511,7 +501,7 @@ const WhoWeAre = () => {
           font-weight: 500;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #3a3530;
+          color: #a09890;
           text-decoration: none;
           transition: color 0.3s;
         }
@@ -519,8 +509,8 @@ const WhoWeAre = () => {
 
         .ww-founder-arrow {
           width: 20px; height: 20px;
-          border: 1px solid #252525;
-          background: #1a1a1a;
+          border: 1px solid rgba(0,0,0,0.1);
+          background: #f0ede8;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -528,11 +518,11 @@ const WhoWeAre = () => {
         }
         .ww-founder-card:hover .ww-founder-arrow {
           border-color: #f97316;
-          background: #2a1a0a;
+          background: #fdecd9;
         }
         .ww-founder-arrow svg {
           width: 10px; height: 10px;
-          stroke: #3a3530;
+          stroke: #a09890;
           transition: stroke 0.3s;
         }
         .ww-founder-card:hover .ww-founder-arrow svg { stroke: #f97316; }
@@ -559,14 +549,14 @@ const WhoWeAre = () => {
         }
 
         .ww-contact-box {
-          border: 1px solid #1a1a1a;
+          border: 1px solid rgba(0,0,0,0.07);
           overflow: hidden;
         }
 
         .ww-contact-header {
           padding: 20px 28px;
-          border-bottom: 1px solid #1a1a1a;
-          background: #111;
+          border-bottom: 1px solid rgba(0,0,0,0.07);
+          background: #ffffff;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -582,44 +572,44 @@ const WhoWeAre = () => {
           font-size: 9px;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #3a3530;
-          border: 1px solid #252525;
+          color: #a09890;
+          border: 1px solid rgba(0,0,0,0.08);
           padding: 4px 10px;
         }
 
         .ww-contact-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          background: #111;
+          background: #ffffff;
         }
         @media (max-width: 700px) { .ww-contact-grid { grid-template-columns: 1fr; } }
 
         .ww-contact-item {
           padding: 32px 28px;
-          border-right: 1px solid #1a1a1a;
+          border-right: 1px solid rgba(0,0,0,0.07);
           display: flex;
           align-items: flex-start;
           gap: 16px;
           transition: background 0.3s;
         }
         .ww-contact-item:last-child { border-right: none; }
-        .ww-contact-item:hover { background: #161616; }
+        .ww-contact-item:hover { background: #fffcfa; }
 
         .ww-contact-icon-wrap {
           width: 38px; height: 38px;
-          border: 1px solid #252525;
-          background: #1a1a1a;
+          border: 1px solid rgba(0,0,0,0.08);
+          background: #f0ede8;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
-          color: #6b6560;
+          color: #8a8480;
           transition: border-color 0.3s, color 0.3s, background 0.3s;
         }
         .ww-contact-item:hover .ww-contact-icon-wrap {
-          border-color: rgba(249,115,22,0.35);
+          border-color: rgba(249,115,22,0.3);
           color: #f97316;
-          background: #1e1107;
+          background: #fdecd9;
         }
 
         .ww-contact-sub-label {
@@ -627,7 +617,7 @@ const WhoWeAre = () => {
           font-weight: 500;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: #3a3530;
+          color: #a09890;
           margin-bottom: 8px;
           transition: color 0.3s;
         }
@@ -637,13 +627,13 @@ const WhoWeAre = () => {
           font-size: 13px;
           font-weight: 300;
           line-height: 1.7;
-          color: #6b6560;
+          color: #8a8480;
           white-space: pre-line;
           transition: color 0.3s;
         }
-        .ww-contact-item:hover .ww-contact-value { color: #9e9690; }
+        .ww-contact-item:hover .ww-contact-value { color: #6b6560; }
 
-        /* Fade utilities (mirror ProcessSection) */
+        /* Fade utilities */
         .ww-fade {
           opacity: 0;
           transform: translateY(18px);
@@ -750,8 +740,6 @@ const WhoWeAre = () => {
                 key={founder.name}
                 className={`ww-founder-card ${visibleCards[i] ? "visible" : ""}`}
                 style={{ transitionDelay: visibleCards[i] ? `${i * 0.12}s` : "0s" }}
-                onMouseEnter={() => setHoveredFounder(i)}
-                onMouseLeave={() => setHoveredFounder(null)}
               >
                 <div className="ww-founder-avatar-row">
                   <div className="ww-founder-avatar">{founder.initials}</div>

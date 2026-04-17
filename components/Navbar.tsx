@@ -16,10 +16,11 @@ const NAV_LINKS = [
 ];
 
 const SERVICE_LINKS = [
-  { href: "/MainSection#infrastructure", label: "Infrastructure & Setup" },
+  { href: "/MainSection#location", label: "Location Intelligence" },
   { href: "/MainSection#culinary", label: "Culinary & Operations" },
   { href: "/MainSection#talent", label: "Talent & Training" },
   { href: "/MainSection#digital", label: "Digital & Growth" },
+  {href: "/MainSection#infrastructure", label: "Infrastructure & Setup" },
 ];
 
 export default function Navbar() {
@@ -219,18 +220,17 @@ export default function Navbar() {
         <div className="flex items-center justify-between px-5 sm:px-12 lg:px-20 h-16">
 
           {/* Logo */}
-          <Link
+                    <Link
             href="/"
-            className="inline-flex items-center gap-0.5 no-underline flex-shrink-0"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            className="inline-flex items-center gap-2 no-underline flex-shrink-0"
+            aria-label="Kitchen Pulse Home"
           >
-            <span className="text-[21px] font-bold text-[#1a1714] tracking-[-0.01em] leading-none">
-              Kitchen
-            </span>
-            <span className="w-[5px] h-[5px] bg-orange-500 rotate-45 mx-[3px] flex-shrink-0 opacity-80" />
-            <span className="text-[21px] font-bold italic text-orange-500 tracking-[-0.01em] leading-none">
-              Pulse
-            </span>
+            <img
+              src="/assets/bg.png"
+              alt="Kitchen Pulse"
+              // className="h-20 w-auto -mt-2"
+              className="h-20 w-auto object-contain filter brightness-0 invert-0 opacity-90"
+            />
           </Link>
 
           {/* Desktop links */}
