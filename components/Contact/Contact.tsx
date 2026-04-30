@@ -103,7 +103,34 @@ const ContactSection = () => {
   const handleChange  = (id: string, value: string) => setFormData((p) => ({ ...p, [id]: value }));
   const toggleInterest = (item: string) =>
     setSelected((p) => (p.includes(item) ? p.filter((i) => i !== item) : [...p, item]));
-  const handleSubmit  = (e: React.MouseEvent) => { e.preventDefault(); setSubmitted(true); };
+  
+
+  const handleSubmit = (e: React.MouseEvent) => {
+  e.preventDefault();
+
+  if (!formData.name || !formData.phone || !formData.message) {
+    alert("Please fill in your name, phone number, and message.");
+    return;
+  }
+
+  const message = `
+Hello Kitchen Pulse,
+
+Name: ${formData.name}
+Brand/Company: ${formData.brand || "Not provided"}
+Email: ${formData.email || "Not provided"}
+Phone: ${formData.phone}
+Areas of Interest: ${selected.length ? selected.join(", ") : "Not specified"}
+
+Goals:
+${formData.message}
+  `.trim();
+
+  const whatsappUrl = `https://wa.me/919167636653?text=${encodeURIComponent(message)}`;
+  // const whatsappUrl = `https://wa.me/918788559582?text=${encodeURIComponent(message)}`;
+
+  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+};
 
   const fade = (delay = "") =>
     `transition-all duration-700 ease-out ${delay} ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`;
