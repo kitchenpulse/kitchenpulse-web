@@ -15,7 +15,7 @@ const contactDetails = [
   },
   {
     label: "Email Us",
-    value: "hello@kitchenpulse.in",
+    value: "info@kitchenpulse.in",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ width: 18, height: 18 }}>
         <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -25,7 +25,7 @@ const contactDetails = [
   },
   {
     label: "Call Us",
-    value: "+91 98765 43210",
+    value: "+91 9167636653",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ width: 18, height: 18 }}>
         <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.99 2.18 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z" />
@@ -247,40 +247,7 @@ const ContactSection = () => {
             </div>
 
             {/* Follow Us */}
-            <div>
-              <div className="flex items-center gap-2.5 text-[10px] font-medium tracking-[0.22em] uppercase text-orange-500 mb-4">
-                <span className="w-[6px] h-[6px] bg-orange-500 rotate-45 inline-block flex-shrink-0" />
-                Follow Us
-              </div>
-              <div className="flex flex-col gap-0.5">
-                {socialLinks.map((s) => (
-                  <a
-                    href={s.href}
-                    key={s.label}
-                    className="group flex items-center justify-between px-4 py-3.5 bg-white border border-black/[0.07] no-underline transition-all duration-300 hover:border-black/[0.14] hover:bg-[#fffcfa]"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 flex items-center justify-center bg-[#f0ede8] border border-black/[0.07] text-[#8a8480] transition-all duration-300 group-hover:border-orange-500/30 group-hover:text-orange-500 group-hover:bg-orange-50">
-                        {s.icon}
-                      </div>
-                      <div>
-                        <p className="text-[11px] font-medium tracking-[0.08em] uppercase text-[#a09890] transition-colors duration-300 group-hover:text-orange-500">
-                          {s.label}
-                        </p>
-                        <p className="text-[12px] font-light text-[#c0bab4] transition-colors duration-300 group-hover:text-[#8a8480]">
-                          {s.handle}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="w-5 h-5 flex items-center justify-center bg-[#f0ede8] border border-black/[0.07] transition-all duration-300 group-hover:border-orange-500/40 group-hover:bg-orange-50">
-                      <svg viewBox="0 0 10 10" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-2.5 h-2.5 stroke-[#c0bab4] transition-colors duration-300 group-hover:stroke-orange-500">
-                        <path d="M2 5h6M5 2l3 3-3 3" />
-                      </svg>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
+           
           </div>
 
           {/* RIGHT — Form */}
@@ -400,23 +367,7 @@ const ContactSection = () => {
         </div>
 
         {/* ── FOOTER STRIP ── */}
-        <div className="relative z-[2] flex items-center justify-between flex-wrap gap-4 px-5 sm:px-[50px] lg:px-20 py-7 border-t border-black/[0.07]">
-          <div className="flex items-center gap-3">
-            <span className="w-2 h-2 bg-orange-500 rotate-45 inline-block flex-shrink-0" />
-            <span
-              className="text-[16px] font-bold text-[#1a1714] tracking-[0.04em]"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Kitchen Pulse
-            </span>
-            <span className="text-[10px] font-light tracking-[0.14em] uppercase text-[#c0bab4]">
-              — India's F&amp;B Growth Partner
-            </span>
-          </div>
-          <span className="text-[10px] font-light tracking-[0.08em] text-[#c0bab4]">
-            © {new Date().getFullYear()} Kitchen Pulse. All rights reserved.
-          </span>
-        </div>
+       
       </section>
     </>
   );

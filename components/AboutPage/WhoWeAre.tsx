@@ -6,17 +6,17 @@ const founders = [
   {
     name: "Sushant Oundhakar",
     title: "Co-Founder & CEO",
-    bio: "Visionary leader with 15+ years in the F&B industry, driving Kitchen Pulse's mission to transform how food brands scale across India.",
+    bio: "Visionary leader with 15+ years in the F&B industry, currently serving as a full-time Director at Kitchen Pulse, driving its mission to transform how food brands scale across India",
     initials: "SO",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/sushant-oundhakar/",
     stat: { value: "15+", label: "Years in F&B" },
   },
   {
     name: "Shubham Gupta",
     title: "Co-Founder & COO",
-    bio: "Growth-driven business leader with 8+ years of experience in sales, strategy, and team leadership—scaling operations and driving top-line results across fast-paced sectors. Currently leading the West region at Mukunda Foods and passionate about building ambitious, high-impact businesses.",
+    bio: "Growth-driven business leader with 8+ years of experience in sales, strategy, and team leadership—scaling operations and driving top-line results across fast-paced sectors. Currently serving as a full-time Director at Kitchen Pulse, with a strong focus on building ambitious, high-impact businesses.",
     initials: "SG",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/shubhamgupta12/",
     stat: { value: "200+", label: "Brands Scaled" },
   },
 ];
@@ -34,7 +34,7 @@ const contactDetails = [
   },
   {
     label: "Email Us",
-    value: "hello@kitchenpulse.in",
+    value: "info@kitchenpulse.in",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ width: 18, height: 18 }}>
         <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -44,7 +44,7 @@ const contactDetails = [
   },
   {
     label: "Call Us",
-    value: "+91 98765 43210",
+    value: "+91 91676 36653",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ width: 18, height: 18 }}>
         <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.99 2.18 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z" />
