@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 const testimonials = [
   {
-    client: "Glen",
+    client: "Glenn",
     role: "CEO",
     company: "Cluckin",
     logo: "/assets/clucin.png",
@@ -23,16 +23,16 @@ const testimonials = [
       "With Maiz Mexican scaling across multiple locations, we needed a partner who could standardise our kitchens without compromising on menu authenticity. Kitchen Pulse helped us build a setup that makes expansion easy — a true one-stop solution from design and equipment to on-ground coordination.",
   },
   {
-    client: "Krishna Kant",
-    role: "CFO",
-    company: "Charcoal Eats",
+    client: "Prashant Paradkar,",
+    role: "Head of Projects",
+    company: "charcoal eats",
     logo: "/assets/charcoaleats.jpg",
     featured: false,
     quote:
       "The pace at which they execute projects and the price at which they deliver complete kitchens is amazing, especially given the quality of equipment and workmanship. They make the entire process far more predictable — from finalising BOQs to handover.",
   },
   {
-    client: "Jestin",
+    client: "Justin",
     role: "Co-Founder",
     company: "Kerala Café",
     logo: "/assets/keralacafe.png",

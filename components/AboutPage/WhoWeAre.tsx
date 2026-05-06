@@ -6,7 +6,7 @@ const founders = [
   {
     name: "Sushant Oundhakar",
     title: "Co-Founder & CEO",
-    bio: "Visionary leader with 15+ years in the F&B industry, currently serving as a full-time Director at Kitchen Pulse, driving its mission to transform how food brands scale across India",
+    bio: "Visionary leader with 9+ years in the F&B industry, currently serving as a full-time Director at Kitchen Pulse, driving its mission to transform how food brands scale across India",
     initials: "SO",
     linkedin: "https://www.linkedin.com/in/sushant-oundhakar/",
     stat: { value: "15+", label: "Years in F&B" },
@@ -22,16 +22,6 @@ const founders = [
 ];
 
 const contactDetails = [
-  {
-    label: "Office Address",
-    value: "Unit 4B, Saki Naka Business Park,\nAndheri East, Mumbai – 400072",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ width: 18, height: 18 }}>
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-        <circle cx="12" cy="9" r="2.5" />
-      </svg>
-    ),
-  },
   {
     label: "Email Us",
     value: "info@kitchenpulse.in",

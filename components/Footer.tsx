@@ -102,11 +102,9 @@ const Footer = () => {
             </div>
 
             <div>
-              <p className="kp-footer-heading">Office</p>
-              <p className="kp-footer-text max-w-[320px]">
-                Unit 4B, Saki Naka Business Park,
-                <br />
-                Andheri East, Mumbai – 400072
+              <p className="kp-footer-heading">Phone</p>
+              <p className="kp-footer-text max-w-[360px]">
+                For business inquiries, partnerships, and growth conversations with Kitchen Pulse.
               </p>
               <p className="kp-footer-text mt-3 text-[#f97316] font-medium">
                 +91 91676 36653

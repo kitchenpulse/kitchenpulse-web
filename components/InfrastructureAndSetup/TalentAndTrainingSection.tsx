@@ -28,7 +28,6 @@ const roles = [
   { role: "Restaurant Managers", tag: "Front-of-House" },
   { role: "Shift Leaders & Supervisors", tag: "Management" },
   { role: "Cloud Kitchen Specialists", tag: "D2C" },
-  { role: "Back-Office & Admin", tag: "Support" },
 ];
 
 const stats = [
