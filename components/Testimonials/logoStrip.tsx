@@ -6,7 +6,7 @@ const logos = [
   { name: "Maiz Mexican",  src: "/assets/maizmexican.png",   initials: "MM" },
   { name: "Charcoal Eats", src: "/assets/charcoaleats.jpg",  initials: "CE" },
   { name: "Kerala Café",   src: "/assets/keralacafe.png",    initials: "KC" },
-  { name: "Rebel Foods",   src: null,                        initials: "RF" },
+  { name: "Rebel Foods",   src: "/assets/rebelfoods.jpeg",    initials: "RF" },
 ];
 
 // Duplicate for seamless infinite scroll

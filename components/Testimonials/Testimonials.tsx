@@ -44,7 +44,7 @@ const testimonials = [
     client: "Rishabh",
     role: "Franchise Owner",
     company: "Rebel Foods",
-    logo: null,
+    logo: "/assets/rebelfoods.jpeg",
     initials: "RF",
     featured: false,
     quote:
