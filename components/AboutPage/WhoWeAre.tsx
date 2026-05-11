@@ -9,7 +9,7 @@ const founders = [
     bio: "Visionary leader with 9+ years in the F&B industry, currently serving as a full-time Director at Kitchen Pulse, driving its mission to transform how food brands scale across India",
     initials: "SO",
     linkedin: "https://www.linkedin.com/in/sushant-oundhakar/",
-    stat: { value: "15+", label: "Years in F&B" },
+    stat: { value: "9+", label: "Years in F&B" },
   },
   {
     name: "Shubham Gupta",
