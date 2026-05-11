@@ -3,10 +3,13 @@ import React from "react";
 
 const logos = [
   { name: "Cluckin",       src: "/assets/clucin.png",        initials: "CK" },
-  { name: "Maiz Mexican",  src: "/assets/maizmexican.png",   initials: "MM" },
+  { name: "Sadak Chaap",  src: "/assets/sadakchap.jpeg",   initials: "MM" },
   { name: "Charcoal Eats", src: "/assets/charcoaleats.jpg",  initials: "CE" },
   { name: "Kerala Café",   src: "/assets/keralacafe.png",    initials: "KC" },
   { name: "Rebel Foods",   src: "/assets/rebelfoods.jpeg",    initials: "RF" },
+  { name: "Enoki",     src: "/assets/enoki.jpeg",     initials: "FC" },
+  { name: "Kytchens",        src: "/assets/kytchens.jpeg",        initials: "EF" },
+  { name: "Kissan Connect", src: "/assets/kissanconnect.jpeg",           initials: "BBK" },
 ];
 
 // Duplicate for seamless infinite scroll

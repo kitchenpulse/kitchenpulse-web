@@ -14,13 +14,13 @@ const testimonials = [
       "Kitchen Pulse understood our QSR throughput challenges better than anyone we had worked with before. They supported us closely through equipment planning, installation, and commissioning, ensuring we went live on schedule with zero disruption to operations. I see them as a long-term partner for every new Cluckin outlet — our one-stop kitchen solutions partner.",
   },
   {
-    client: "Venkatesh",
+    client: "Sanath Ahuja",
     role: "Chief of Staff",
-    company: "Maiz Mexican",
-    logo: "/assets/maizmexican.png",
+    company: "Sadak Chaap",
+    logo: "/assets/sadakchap.jpeg",
     featured: false,
     quote:
-      "With Maiz Mexican scaling across multiple locations, we needed a partner who could standardise our kitchens without compromising on menu authenticity. Kitchen Pulse helped us build a setup that makes expansion easy — a true one-stop solution from design and equipment to on-ground coordination.",
+      "With Sadak Chaap scaling across multiple locations, we needed a partner who could standardise our kitchens without compromising on menu authenticity. Kitchen Pulse helped us build a setup that makes expansion easy — a true one-stop solution from design and equipment to on-ground coordination.",
   },
   {
     client: "Prashant Paradkar,",
