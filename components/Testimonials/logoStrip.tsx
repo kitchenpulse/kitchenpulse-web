@@ -10,6 +10,7 @@ const logos = [
   { name: "Enoki",     src: "/assets/enoki.jpeg",     initials: "FC" },
   { name: "Kytchens",        src: "/assets/kytchens.jpeg",        initials: "EF" },
   { name: "Kissan Connect", src: "/assets/kissanconnect.jpeg",           initials: "BBK" },
+  { name: "MH99 Burgers",       src: "/assets/burgers.jpeg",       initials: "FC" },
 ];
 
 // Duplicate for seamless infinite scroll

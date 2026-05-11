@@ -15,7 +15,7 @@ const testimonials = [
   },
   {
     client: "Sanath Ahuja",
-    role: "Chief of Staff",
+    role: "CEO",
     company: "Sadak Chaap",
     logo: "/assets/sadakchap.jpeg",
     featured: false,
