@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 const founders = [
   {
     name: "Sushant Oundhakar",
-    title: "Co-Founder & CEO",
+    title: "Co-Founder & COO",
     bio: "Visionary leader with 9+ years in the F&B industry, currently serving as a full-time Director at Kitchen Pulse, driving its mission to transform how food brands scale across India",
     initials: "SO",
     linkedin: "https://www.linkedin.com/in/sushant-oundhakar/",
@@ -13,7 +13,7 @@ const founders = [
   },
   {
     name: "Shubham Gupta",
-    title: "Co-Founder & COO",
+    title: "Co-Founder & CEO",
     bio: "Growth-driven business leader with 8+ years of experience in sales, strategy, and team leadership—scaling operations and driving top-line results across fast-paced sectors. Currently serving as a full-time Director at Kitchen Pulse, with a strong focus on building ambitious, high-impact businesses.",
     initials: "SG",
     linkedin: "https://www.linkedin.com/in/shubhamgupta12/",
