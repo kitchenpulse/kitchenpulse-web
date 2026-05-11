@@ -660,18 +660,7 @@ const WhoWeAre = () => {
               offering end-to-end solutions for seamless launches, optimized operations,
               and sustained growth across every stage of your business journey.
             </p>
-            <div className={`ww-header-stats ww-fade ww-d3 ${heroVisible ? "visible" : ""}`}>
-              {[
-                { v: "6+", l: "Core Verticals" },
-                { v: "∞", l: "Growth Paths" },
-                { v: "Pan-India", l: "Reach" },
-              ].map((s, i) => (
-                <div className="ww-hstat" key={i}>
-                  <div className="ww-hstat-val">{s.v}</div>
-                  <div className="ww-hstat-lbl">{s.l}</div>
-                </div>
-              ))}
-            </div>
+           
           </div>
         </div>
 
@@ -751,11 +740,7 @@ const WhoWeAre = () => {
                     </svg>
                     LinkedIn Profile
                   </a>
-                  <div className="ww-founder-arrow">
-                    <svg viewBox="0 0 10 10" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 5h6M5 2l3 3-3 3" />
-                    </svg>
-                  </div>
+                  
                 </div>
               </div>
             ))}
