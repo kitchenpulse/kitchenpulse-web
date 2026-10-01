@@ -76,8 +76,8 @@ const ProcessSection = () => {
 
         .pr-section {
           font-family: 'DM Sans', sans-serif;
-          background: #0a0a0a;
-          color: #f5f0eb;
+          background: #0f0e0d;
+          color: #f2efe9;
           overflow: hidden;
           position: relative;
         }
@@ -114,7 +114,7 @@ const ProcessSection = () => {
           grid-template-columns: 1fr 1fr;
           gap: 64px;
           align-items: end;
-          border-bottom: 1px solid #1a1a1a;
+          border-bottom: 1px solid rgba(255,255,255,0.10);
         }
 
         @media (max-width: 1100px) { .pr-header { padding: 80px 50px 60px; gap: 40px; } }
@@ -141,7 +141,7 @@ const ProcessSection = () => {
           font-weight: 900;
           line-height: 1.0;
           letter-spacing: -0.02em;
-          color: #f5f0eb;
+          color: #f2efe9;
         }
 
         .pr-headline em { font-style: italic; color: #f97316; }
@@ -150,7 +150,7 @@ const ProcessSection = () => {
           font-size: clamp(14px, 1.4vw, 16px);
           font-weight: 300;
           line-height: 1.8;
-          color: #9e9690;
+          color: #b0aaa2;
           max-width: 400px;
           margin-bottom: 36px;
         }
@@ -159,12 +159,12 @@ const ProcessSection = () => {
         .pr-header-stats {
           display: flex;
           gap: 0;
-          border-top: 1px solid #1e1e1e;
+          border-top: 1px solid rgba(255,255,255,0.10);
           padding-top: 28px;
         }
 
         .pr-hstat { flex: 1; padding-right: 20px; }
-        .pr-hstat + .pr-hstat { padding-left: 20px; border-left: 1px solid #1e1e1e; }
+        .pr-hstat + .pr-hstat { padding-left: 20px; border-left: 1px solid rgba(255,255,255,0.10); }
 
         .pr-hstat-val {
           font-family: 'Playfair Display', serif;
@@ -231,7 +231,7 @@ const ProcessSection = () => {
         /* ── CARD ── */
         .pr-card {
           background: #111;
-          border: 1px solid #1a1a1a;
+          border: 1px solid rgba(255,255,255,0.10);
           padding: 36px 28px 28px;
           position: relative;
           overflow: hidden;
@@ -302,7 +302,7 @@ const ProcessSection = () => {
           font-family: 'Playfair Display', serif;
           font-size: clamp(18px, 2vw, 22px);
           font-weight: 700;
-          color: #f5f0eb;
+          color: #f2efe9;
           line-height: 1.2;
           margin-bottom: 14px;
           position: relative;
@@ -321,13 +321,13 @@ const ProcessSection = () => {
           z-index: 1;
         }
 
-        .pr-card:hover .pr-card-desc { color: #9e9690; }
+        .pr-card:hover .pr-card-desc { color: #b0aaa2; }
 
         /* Footer */
         .pr-card-footer {
           margin-top: 24px;
           padding-top: 16px;
-          border-top: 1px solid #1a1a1a;
+          border-top: 1px solid rgba(255,255,255,0.10);
           display: flex;
           align-items: center;
           justify-content: space-between;

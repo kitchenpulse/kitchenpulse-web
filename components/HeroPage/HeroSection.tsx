@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ctaPrimaryClass, ctaSecondaryClass } from "@/components/ui/CtaButtons";
 
 const HeroSection: React.FC = () => {
@@ -14,16 +15,18 @@ const HeroSection: React.FC = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0f0e0d]">
 
-      {/* Background image — existing asset only */}
-      <div
-        className="absolute inset-0 bg-cover bg-center animate-[heroZoom_14s_ease_forwards]"
-        style={{
-          backgroundImage: "url('/assets/chefing.jpeg')",
-          filter: "brightness(0.55) saturate(0.75)",
-        }}
-        role="img"
-        aria-label="Chef plating dishes in a commercial kitchen"
-      />
+      {/* Background image — next/image for LCP; existing asset only */}
+      <div className="absolute inset-0 animate-[heroZoom_14s_ease_forwards]">
+        <Image
+          src="/assets/chefing.jpeg"
+          alt="Chef plating dishes in a commercial kitchen"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+          style={{ filter: "brightness(0.55) saturate(0.75)" }}
+        />
+      </div>
 
       {/* Grain overlay */}
       <div

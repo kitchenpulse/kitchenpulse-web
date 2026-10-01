@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { CtaGroup } from "@/components/ui/CtaButtons";
 
 const founders = [
   {
@@ -127,7 +128,7 @@ const WhoWeAre = () => {
           grid-template-columns: 1fr 1fr;
           gap: 64px;
           align-items: end;
-          border-bottom: 1px solid rgba(255,255,255,0.09);
+          border-bottom: 1px solid rgba(255,255,255,0.10);
         }
 
         @media (max-width: 1100px) { .ww-header { padding: 80px 50px 60px; gap: 40px; } }
@@ -161,7 +162,7 @@ const WhoWeAre = () => {
           font-size: clamp(14px, 1.4vw, 16px);
           font-weight: 300;
           line-height: 1.8;
-          color: #a8a29a;
+          color: #b0aaa2;
           max-width: 400px;
           margin-bottom: 36px;
         }
@@ -171,11 +172,11 @@ const WhoWeAre = () => {
         .ww-header-stats {
           display: flex;
           gap: 0;
-          border-top: 1px solid rgba(255,255,255,0.09);
+          border-top: 1px solid rgba(255,255,255,0.10);
           padding-top: 28px;
         }
         .ww-hstat { flex: 1; padding-right: 20px; }
-        .ww-hstat + .ww-hstat { padding-left: 20px; border-left: 1px solid rgba(255,255,255,0.09); }
+        .ww-hstat + .ww-hstat { padding-left: 20px; border-left: 1px solid rgba(255,255,255,0.10); }
         .ww-hstat-val {
           font-family: 'Playfair Display', serif;
           font-size: clamp(22px, 2.5vw, 32px);
@@ -189,14 +190,14 @@ const WhoWeAre = () => {
           font-weight: 400;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: #7a746e;
+          color: #8c8680;
         }
 
         /* ── PILLARS MARQUEE ── */
         .ww-pillars-wrap {
           position: relative;
           z-index: 2;
-          border-bottom: 1px solid rgba(255,255,255,0.09);
+          border-bottom: 1px solid rgba(255,255,255,0.10);
           overflow: hidden;
           padding: 0;
           background: #0f0e0d;
@@ -218,7 +219,7 @@ const WhoWeAre = () => {
           align-items: center;
           gap: 10px;
           padding: 18px 36px;
-          border-right: 1px solid rgba(255,255,255,0.08);
+          border-right: 1px solid rgba(255,255,255,0.10);
           white-space: nowrap;
           flex-shrink: 0;
         }
@@ -228,7 +229,7 @@ const WhoWeAre = () => {
           font-weight: 500;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #7a746e;
+          color: #8c8680;
           transition: color 0.3s;
         }
         .ww-pillar-item:hover .ww-pillar-label { color: #f97316; }
@@ -240,8 +241,8 @@ const WhoWeAre = () => {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 1px;
-          background: rgba(255,255,255,0.08);
-          border-bottom: 1px solid rgba(255,255,255,0.09);
+          background: rgba(255,255,255,0.10);
+          border-bottom: 1px solid rgba(255,255,255,0.10);
         }
         @media (max-width: 700px) { .ww-mv-grid { grid-template-columns: 1fr; } }
 
@@ -303,13 +304,13 @@ const WhoWeAre = () => {
           font-size: 14px;
           font-weight: 300;
           line-height: 1.85;
-          color: #7a746e;
+          color: #8c8680;
           position: relative;
           z-index: 1;
           transition: color 0.3s;
           max-width: 380px;
         }
-        .ww-mv-card:hover .ww-mv-text { color: #a8a29a; }
+        .ww-mv-card:hover .ww-mv-text { color: #b0aaa2; }
 
         .ww-mv-line {
           margin-top: 28px;
@@ -335,13 +336,13 @@ const WhoWeAre = () => {
           gap: 14px;
           padding: 36px 0 24px;
         }
-        .ww-founders-label-line { flex: 1; height: 1px; background: rgba(255,255,255,0.09); }
+        .ww-founders-label-line { flex: 1; height: 1px; background: rgba(255,255,255,0.10); }
         .ww-founders-label-text {
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 0.24em;
           text-transform: uppercase;
-          color: #7a746e;
+          color: #8c8680;
           white-space: nowrap;
         }
 
@@ -349,14 +350,14 @@ const WhoWeAre = () => {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 1px;
-          background: rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.10);
         }
         @media (max-width: 700px) { .ww-founders-grid { grid-template-columns: 1fr; } }
 
         /* ── FOUNDER CARD ── */
         .ww-founder-card {
           background: #171614;
-          border: 1px solid rgba(255,255,255,0.08);
+          border: 1px solid rgba(255,255,255,0.10);
           padding: 40px 36px 32px;
           position: relative;
           overflow: hidden;
@@ -399,7 +400,7 @@ const WhoWeAre = () => {
         .ww-founder-avatar {
           width: 72px; height: 72px;
           background: #24211e;
-          border: 1px solid rgba(255,255,255,0.09);
+          border: 1px solid rgba(255,255,255,0.10);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -426,7 +427,7 @@ const WhoWeAre = () => {
           font-family: 'Playfair Display', serif;
           font-size: 28px;
           font-weight: 700;
-          color: rgba(255,255,255,0.08);
+          color: rgba(255,255,255,0.10);
           line-height: 1;
           transition: color 0.3s;
         }
@@ -465,17 +466,17 @@ const WhoWeAre = () => {
           font-size: 13px;
           font-weight: 300;
           line-height: 1.8;
-          color: #7a746e;
+          color: #8c8680;
           transition: color 0.3s;
           position: relative;
           z-index: 1;
         }
-        .ww-founder-card:hover .ww-founder-bio { color: #a8a29a; }
+        .ww-founder-card:hover .ww-founder-bio { color: #b0aaa2; }
 
         .ww-founder-footer {
           margin-top: 24px;
           padding-top: 16px;
-          border-top: 1px solid rgba(255,255,255,0.08);
+          border-top: 1px solid rgba(255,255,255,0.10);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -491,7 +492,7 @@ const WhoWeAre = () => {
           font-weight: 500;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #7a746e;
+          color: #8c8680;
           text-decoration: none;
           transition: color 0.3s;
         }
@@ -539,13 +540,13 @@ const WhoWeAre = () => {
         }
 
         .ww-contact-box {
-          border: 1px solid rgba(255,255,255,0.08);
+          border: 1px solid rgba(255,255,255,0.10);
           overflow: hidden;
         }
 
         .ww-contact-header {
           padding: 20px 28px;
-          border-bottom: 1px solid rgba(255,255,255,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.10);
           background: #171614;
           display: flex;
           align-items: center;
@@ -562,21 +563,21 @@ const WhoWeAre = () => {
           font-size: 9px;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #7a746e;
-          border: 1px solid rgba(255,255,255,0.09);
+          color: #8c8680;
+          border: 1px solid rgba(255,255,255,0.10);
           padding: 4px 10px;
         }
 
         .ww-contact-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           background: #171614;
         }
         @media (max-width: 700px) { .ww-contact-grid { grid-template-columns: 1fr; } }
 
         .ww-contact-item {
           padding: 32px 28px;
-          border-right: 1px solid rgba(255,255,255,0.08);
+          border-right: 1px solid rgba(255,255,255,0.10);
           display: flex;
           align-items: flex-start;
           gap: 16px;
@@ -587,13 +588,13 @@ const WhoWeAre = () => {
 
         .ww-contact-icon-wrap {
           width: 38px; height: 38px;
-          border: 1px solid rgba(255,255,255,0.09);
+          border: 1px solid rgba(255,255,255,0.10);
           background: #24211e;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
-          color: #7a746e;
+          color: #8c8680;
           transition: border-color 0.3s, color 0.3s, background 0.3s;
         }
         .ww-contact-item:hover .ww-contact-icon-wrap {
@@ -607,7 +608,7 @@ const WhoWeAre = () => {
           font-weight: 500;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: #7a746e;
+          color: #8c8680;
           margin-bottom: 8px;
           transition: color 0.3s;
         }
@@ -617,11 +618,11 @@ const WhoWeAre = () => {
           font-size: 13px;
           font-weight: 300;
           line-height: 1.7;
-          color: #7a746e;
+          color: #8c8680;
           white-space: pre-line;
           transition: color 0.3s;
         }
-        .ww-contact-item:hover .ww-contact-value { color: #a8a29a; }
+        .ww-contact-item:hover .ww-contact-value { color: #b0aaa2; }
 
         /* Fade utilities */
         .ww-fade {
@@ -660,7 +661,18 @@ const WhoWeAre = () => {
               offering end-to-end solutions for seamless launches, optimized operations,
               and sustained growth across every stage of your business journey.
             </p>
-           
+            <div className={`ww-header-stats ww-fade ww-d3 ${heroVisible ? "visible" : ""}`}>
+              {[
+                { v: "200+", l: "Brands Scaled" },
+                { v: "6", l: "Service Pillars" },
+                { v: "9+", l: "Years in F&B" },
+              ].map((s) => (
+                <div className="ww-hstat" key={s.l}>
+                  <div className="ww-hstat-val">{s.v}</div>
+                  <div className="ww-hstat-lbl">{s.l}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -733,7 +745,7 @@ const WhoWeAre = () => {
                 <p className="ww-founder-bio">{founder.bio}</p>
 
                 <div className="ww-founder-footer">
-                  <a href={founder.linkedin} className="ww-linkedin-btn">
+                  <a href={founder.linkedin} target="_blank" rel="noopener noreferrer" className="ww-linkedin-btn">
                     <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: 12, height: 12 }}>
                       <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
                       <circle cx="4" cy="4" r="2" />
@@ -761,16 +773,53 @@ const WhoWeAre = () => {
               <span className="ww-contact-header-tag">Mumbai · India</span>
             </div>
             <div className="ww-contact-grid">
-              {contactDetails.map((item) => (
-                <div className="ww-contact-item" key={item.label}>
-                  <div className="ww-contact-icon-wrap">{item.icon}</div>
-                  <div>
-                    <p className="ww-contact-sub-label">{item.label}</p>
-                    <p className="ww-contact-value">{item.value}</p>
+              {contactDetails.map((item) => {
+                const href =
+                  item.label === "Email Us"
+                    ? `mailto:${item.value}`
+                    : item.label === "Call Us"
+                      ? `tel:${item.value.replace(/\s/g, "")}`
+                      : undefined;
+                return (
+                  <div className="ww-contact-item" key={item.label}>
+                    <div className="ww-contact-icon-wrap">{item.icon}</div>
+                    <div>
+                      <p className="ww-contact-sub-label">{item.label}</p>
+                      {href ? (
+                        <a href={href} className="ww-contact-value" style={{ textDecoration: "none", display: "block" }}>
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="ww-contact-value">{item.value}</p>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
+          </div>
+
+          {/* CTA band — matches site-wide hierarchy */}
+          <div style={{ marginTop: 40, paddingTop: 36, borderTop: "1px solid rgba(255,255,255,0.10)" }}>
+            <h3
+              style={{
+                fontFamily: "'Playfair Display', Georgia, serif",
+                fontSize: "clamp(22px, 2.5vw, 28px)",
+                fontWeight: 700,
+                color: "#f2efe9",
+                marginBottom: 10,
+              }}
+            >
+              Ready to scale your kitchen?
+            </h3>
+            <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.7, color: "#b0aaa2", maxWidth: 440, marginBottom: 24 }}>
+              Book a consult with the founders — or message us on WhatsApp for a faster reply.
+            </p>
+            <CtaGroup
+              whatsappMessage="Hi! I'd like to learn more about Kitchen Pulse and book a consult."
+              primaryLabel="Book a consult"
+              showServices
+            />
           </div>
         </div>
       </section>
