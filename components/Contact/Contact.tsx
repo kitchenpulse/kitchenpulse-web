@@ -28,8 +28,8 @@ const contactDetails = [
 const socialLinks = [
   {
     label: "Instagram",
-    handle: "@kitchenpulse.in",
-    href: "#",
+    handle: "@kitchenpulse_official",
+    href: "https://www.instagram.com/kitchenpulse_official/",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ width: 18, height: 18 }}>
         <rect x="2" y="2" width="20" height="20" rx="5" />
@@ -41,7 +41,7 @@ const socialLinks = [
   {
     label: "LinkedIn",
     handle: "Kitchen Pulse",
-    href: "#",
+    href: "https://www.linkedin.com/company/kitchen-pulse",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: 18, height: 18 }}>
         <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
@@ -51,8 +51,8 @@ const socialLinks = [
   },
   {
     label: "WhatsApp",
-    handle: "+91 98765 43210",
-    href: "#",
+    handle: "+91 91676 36653",
+    href: "https://wa.me/919167636653",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ width: 18, height: 18 }}>
         <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
@@ -265,7 +265,37 @@ ${formData.message}
             </div>
 
             {/* Follow Us */}
-           
+            <div>
+              <div className="flex items-center gap-2.5 text-[10px] font-medium tracking-[0.22em] uppercase text-orange-500 mb-4">
+                <span className="w-[6px] h-[6px] bg-orange-500 rotate-45 inline-block flex-shrink-0" />
+                Follow Us
+              </div>
+              <div className="flex flex-col gap-0.5">
+                {socialLinks.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ct-info-item-w group relative flex items-start gap-4 px-5 py-5 bg-white border border-black/[0.07] no-underline cursor-pointer transition-all duration-300 hover:border-orange-500/30 hover:bg-[#fffcfa] overflow-hidden"
+                  >
+                    <div className="ct-info-bar" />
+                    <div className="w-[38px] h-[38px] flex-shrink-0 flex items-center justify-center bg-[#f0ede8] border border-black/[0.07] text-[#8a8480] transition-all duration-300 group-hover:border-orange-500/30 group-hover:text-orange-500 group-hover:bg-orange-50">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <p className="text-[9px] font-medium tracking-[0.2em] uppercase text-[#c0bab4] mb-1.5 transition-colors duration-300 group-hover:text-orange-500">
+                        {item.label}
+                      </p>
+                      <p className="text-[13px] font-light leading-[1.75] text-[#8a8480] transition-colors duration-300 group-hover:text-[#6b6560]">
+                        {item.handle}
+                      </p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+
           </div>
 
           {/* RIGHT — Form */}
