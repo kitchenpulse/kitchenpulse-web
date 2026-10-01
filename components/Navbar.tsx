@@ -107,10 +107,10 @@ export default function Navbar() {
           position: absolute;
           top: calc(100% + 12px); left: 0;
           min-width: 220px;
-          background: #fff;
-          border: 1px solid rgba(0,0,0,0.09);
+          background: #171614;
+          border: 1px solid rgba(255,255,255,0.10);
           border-top: 2px solid #f97316;
-          box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+          box-shadow: 0 8px 32px rgba(0,0,0,0.45);
           opacity: 0; visibility: hidden;
           transform: translateY(-6px);
           transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
@@ -127,14 +127,14 @@ export default function Navbar() {
           padding: 11px 18px;
           font-size: 12px; font-weight: 400;
           letter-spacing: 0.04em;
-          color: #6b6560;
+          color: #a8a29a;
           text-decoration: none;
-          border-bottom: 1px solid rgba(0,0,0,0.05);
+          border-bottom: 1px solid rgba(255,255,255,0.06);
           transition: color 0.2s, background 0.2s, padding-left 0.2s;
         }
         .kp-dropdown-item:last-child { border-bottom: none; }
         .kp-dropdown-item:hover {
-          color: #f97316; background: #fff8f5; padding-left: 22px;
+          color: #f97316; background: #1f1814; padding-left: 22px;
         }
 
         /* ── Orange CTA (fill-slide on hover) ── */
@@ -177,16 +177,16 @@ export default function Navbar() {
           font-size: 13px; font-weight: 400;
           letter-spacing: 0.08em;
           text-transform: uppercase;
-          color: #6b6560;
+          color: #a8a29a;
           text-decoration: none;
           border-left: 2px solid transparent;
           border-radius: 0 4px 4px 0;
           transition: color 0.2s, border-color 0.2s, background 0.2s;
         }
         .kp-mobile-link:hover {
-          color: #1a1714;
+          color: #f2efe9;
           border-left-color: #f97316;
-          background: #fff8f5;
+          background: #1f1814;
         }
 
         /* ── Mobile CTA ── */
@@ -212,10 +212,10 @@ export default function Navbar() {
 
       {/* Fixed navbar that slides up/down */}
       <nav
-        className={`kp-nav-root bg-white ${navVisible ? "" : "nav-hidden"} ${
+        className={`kp-nav-root bg-[#171614] ${navVisible ? "" : "nav-hidden"} ${
           isScrolled
             ? "border-b border-orange-500/40 shadow-[0_2px_20px_rgba(249,115,22,0.07)]"
-            : "border-b border-black/[0.07]"
+            : "border-b border-white/[0.08]"
         }`}
         aria-label="Main navigation"
       >
@@ -231,7 +231,7 @@ export default function Navbar() {
               src="/assets/bg.png"
               alt="Kitchen Pulse"
               // className="h-20 w-auto -mt-2"
-              className="h-20 w-auto object-contain filter brightness-0 invert-0 opacity-90"
+              className="h-20 w-auto object-contain filter brightness-0 invert opacity-90"
             />
           </Link>
 
@@ -241,7 +241,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="kp-link-underline relative px-3 py-2 text-[11px] font-medium tracking-[0.12em] uppercase text-[#6b6560] no-underline hover:text-[#1a1714] transition-colors duration-200"
+                className="kp-link-underline relative px-3 py-2 text-[11px] font-medium tracking-[0.12em] uppercase text-[#a8a29a] no-underline hover:text-[#f2efe9] transition-colors duration-200"
               >
                 {link.label}
               </Link>
@@ -256,7 +256,7 @@ export default function Navbar() {
               <button
                 type="button"
                 className={`flex items-center gap-1 px-3 py-2 text-[11px] font-medium tracking-[0.12em] uppercase transition-colors duration-200 bg-transparent border-none cursor-pointer ${
-                  servicesHover ? "text-[#1a1714]" : "text-[#6b6560]"
+                  servicesHover ? "text-[#f2efe9]" : "text-[#a8a29a]"
                 }`}
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
                 aria-haspopup="true"
@@ -285,7 +285,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="kp-link-underline relative px-3 py-2 text-[11px] font-medium tracking-[0.12em] uppercase text-[#6b6560] no-underline hover:text-[#1a1714] transition-colors duration-200"
+                className="kp-link-underline relative px-3 py-2 text-[11px] font-medium tracking-[0.12em] uppercase text-[#a8a29a] no-underline hover:text-[#f2efe9] transition-colors duration-200"
               >
                 {link.label}
               </Link>
@@ -305,7 +305,7 @@ export default function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden flex items-center justify-center w-9 h-9 border border-black/10 bg-[#faf9f7] text-[#6b6560] hover:border-orange-500/40 hover:text-orange-500 transition-all duration-200"
+            className="md:hidden flex items-center justify-center w-9 h-9 border border-white/10 bg-[#0f0e0d] text-[#a8a29a] hover:border-orange-500/40 hover:text-orange-500 transition-all duration-200"
             onClick={toggleMobileMenu}
             aria-label="Toggle navigation menu"
             aria-expanded={isOpen}
@@ -316,7 +316,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden border-t border-black/[0.07] bg-white">
+          <div className="md:hidden border-t border-white/[0.08] bg-[#171614]">
             <div className="flex flex-col gap-1 px-4 py-5">
               <Link href="/" className="kp-mobile-link" onClick={closeMobileMenu}>Home</Link>
               <Link href="/about" className="kp-mobile-link" onClick={closeMobileMenu}>About</Link>
@@ -327,8 +327,8 @@ export default function Navbar() {
                   type="button"
                   className={`w-full flex items-center justify-between px-3.5 py-3 text-[13px] font-light tracking-[0.08em] uppercase transition-colors duration-200 bg-transparent border-none border-l-2 cursor-pointer ${
                     isServicesOpen
-                      ? "text-[#1a1714] border-orange-500 bg-orange-50"
-                      : "text-[#6b6560] border-transparent"
+                      ? "text-[#f2efe9] border-orange-500 bg-orange-500/10"
+                      : "text-[#a8a29a] border-transparent"
                   }`}
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                   onClick={() => setIsServicesOpen((prev) => !prev)}
@@ -341,12 +341,12 @@ export default function Navbar() {
                   />
                 </button>
                 {isServicesOpen && (
-                  <div className="ml-4 pl-4 border-l border-black/[0.08] flex flex-col py-1">
+                  <div className="ml-4 pl-4 border-l border-white/[0.09] flex flex-col py-1">
                     {SERVICE_LINKS.map((s) => (
                       <Link
                         key={s.href}
                         href={s.href}
-                        className="flex items-center gap-2 py-2.5 px-2 text-[11px] font-light tracking-[0.08em] uppercase text-[#9a948e] no-underline hover:text-orange-500 transition-colors duration-200"
+                        className="flex items-center gap-2 py-2.5 px-2 text-[11px] font-light tracking-[0.08em] uppercase text-[#7a746e] no-underline hover:text-orange-500 transition-colors duration-200"
                         onClick={closeMobileMenu}
                       >
                         <span className="w-3 h-px bg-current opacity-50 flex-shrink-0" />
@@ -360,7 +360,7 @@ export default function Navbar() {
               <Link href="/testimonials" className="kp-mobile-link" onClick={closeMobileMenu}>Testimonials</Link>
               <Link href="/contact" className="kp-mobile-link" onClick={closeMobileMenu}>Contact</Link>
 
-              <div className="h-px bg-black/[0.07] my-2" />
+              <div className="h-px bg-white/[0.08] my-2" />
 
               {/* Mobile CTA → WhatsApp */}
               <a

@@ -132,7 +132,7 @@ const ServicesSection = () => {
       <section
         id="services"
         ref={sectionRef}
-        className="relative bg-[#faf9f7] text-[#1a1714] overflow-hidden"
+        className="relative bg-[#0f0e0d] text-[#f2efe9] overflow-hidden"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
         {/* Grain overlay */}
@@ -153,7 +153,7 @@ const ServicesSection = () => {
         />
 
         {/* ── HEADER ── */}
-        <div className="relative z-[2] px-5 sm:px-[50px] lg:px-20 pt-16 sm:pt-20 lg:pt-[100px] pb-12 sm:pb-[60px] lg:pb-[72px] grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-16 items-end border-b border-black/[0.07]">
+        <div className="relative z-[2] px-5 sm:px-[50px] lg:px-20 pt-16 sm:pt-20 lg:pt-[100px] pb-12 sm:pb-[60px] lg:pb-[72px] grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-16 items-end border-b border-white/[0.08]">
           <div>
             <div className={fade(heroVisible)}>
               <span className="inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.22em] uppercase text-orange-500 mb-6">
@@ -162,7 +162,7 @@ const ServicesSection = () => {
               </span>
             </div>
             <h2
-              className={`text-[clamp(38px,5vw,66px)] font-black leading-none tracking-[-0.02em] text-[#1a1714] ${fade(heroVisible, "delay-100")}`}
+              className={`text-[clamp(38px,5vw,66px)] font-black leading-none tracking-[-0.02em] text-[#f2efe9] ${fade(heroVisible, "delay-100")}`}
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
               Our Complete<br />
@@ -173,7 +173,7 @@ const ServicesSection = () => {
 
           <div>
             <p
-              className={`text-[clamp(14px,1.4vw,16px)] font-light leading-[1.8] text-[#6b6560] max-w-[400px] mb-9 ${fade(heroVisible, "delay-200")}`}
+              className={`text-[clamp(14px,1.4vw,16px)] font-light leading-[1.8] text-[#a8a29a] max-w-[400px] mb-9 ${fade(heroVisible, "delay-200")}`}
             >
               A modular stack of services designed to support you from your first
               outlet all the way to multi-city scale — every piece built to work
@@ -190,7 +190,7 @@ const ServicesSection = () => {
               return (
                 <div
                   key={service.title}
-                  className={`group flex-1 min-w-0 bg-white border border-black/[0.07] p-6 relative overflow-hidden flex flex-col cursor-default transition-all duration-300 hover:border-orange-500 hover:bg-[#fffcfa] ${
+                  className={`group flex-1 min-w-0 bg-[#171614] border border-white/[0.08] p-6 relative overflow-hidden flex flex-col cursor-default transition-all duration-300 hover:border-orange-500 hover:bg-[#1c1916] ${
                     visibleCards[i]
                       ? "opacity-100 translate-y-0 transition-[opacity,transform,border-color,background] duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
                       : "opacity-0 translate-y-6"
@@ -202,11 +202,11 @@ const ServicesSection = () => {
 
                   {/* Top row: icon + number */}
                   <div className="flex items-start justify-between mb-5">
-                    <div className="w-[42px] h-[42px] bg-[#f0ede8] border border-black/[0.06] flex items-center justify-center text-orange-500 flex-shrink-0 group-hover:bg-orange-50 group-hover:border-orange-200 transition-all duration-300">
+                    <div className="w-[42px] h-[42px] bg-[#24211e] border border-white/[0.07] flex items-center justify-center text-orange-500 flex-shrink-0 group-hover:bg-orange-500/10 group-hover:border-orange-500/25 transition-all duration-300">
                       <Icon />
                     </div>
                     <span
-                      className="text-[44px] font-black leading-none text-black/[0.06] select-none group-hover:text-orange-100 transition-colors duration-300"
+                      className="text-[44px] font-black leading-none text-white/[0.08] select-none group-hover:text-orange-100 transition-colors duration-300"
                       style={{ fontFamily: "'Playfair Display', serif" }}
                     >
                       0{i + 1}
@@ -217,18 +217,18 @@ const ServicesSection = () => {
                     {service.tag}
                   </p>
                   <h3
-                    className="text-[16px] font-bold leading-[1.25] text-[#1a1714] mb-2.5"
+                    className="text-[16px] font-bold leading-[1.25] text-[#f2efe9] mb-2.5"
                     style={{ fontFamily: "'Playfair Display', serif" }}
                   >
                     {service.title}
                   </h3>
-                  <p className="text-[11px] font-light leading-[1.75] text-[#8a8480] flex-1 group-hover:text-[#6b6560] transition-colors duration-300">
+                  <p className="text-[11px] font-light leading-[1.75] text-[#7a746e] flex-1 group-hover:text-[#a8a29a] transition-colors duration-300">
                     {service.desc}
                   </p>
 
                   {/* Footer */}
-                  <div className="mt-5 pt-4 border-t border-black/[0.06] flex items-center gap-2">
-                    <span className="text-[10px] font-medium tracking-[0.08em] text-[#a09890] bg-[#f0ede8] border border-black/[0.06] px-2.5 py-1 group-hover:text-orange-500 group-hover:border-orange-200 transition-all duration-300">
+                  <div className="mt-5 pt-4 border-t border-white/[0.07] flex items-center gap-2">
+                    <span className="text-[10px] font-medium tracking-[0.08em] text-[#7a746e] bg-[#24211e] border border-white/[0.07] px-2.5 py-1 group-hover:text-orange-500 group-hover:border-orange-500/25 transition-all duration-300">
                       {service.stat}
                     </span>
                   </div>

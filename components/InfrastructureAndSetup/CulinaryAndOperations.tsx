@@ -80,7 +80,7 @@ const CulinaryAndOperationsSection = () => {
       <section
         id="culinary"
         ref={sectionRef}
-        className="relative bg-[#faf9f7] text-[#1a1714] overflow-hidden"
+        className="relative bg-[#0f0e0d] text-[#f2efe9] overflow-hidden"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
         {/* Grain overlay */}
@@ -96,7 +96,7 @@ const CulinaryAndOperationsSection = () => {
         <div className="relative grid grid-cols-1 md:grid-cols-2 min-h-[90vh] md:min-h-[90vh]">
 
           {/* Left: Text panel */}
-          <div className="relative z-[2] flex flex-col justify-center bg-[#faf9f7] px-5 py-12 sm:px-[40px] sm:py-16 lg:px-[60px] lg:pl-20 lg:py-20">
+          <div className="relative z-[2] flex flex-col justify-center bg-[#0f0e0d] px-5 py-12 sm:px-[40px] sm:py-16 lg:px-[60px] lg:pl-20 lg:py-20">
 
             <div className={fade(heroVisible)}>
               <span className="inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-orange-500 mb-6">
@@ -106,7 +106,7 @@ const CulinaryAndOperationsSection = () => {
             </div>
 
             <h2
-              className={`text-[clamp(42px,5.5vw,76px)] font-black leading-none tracking-[-0.02em] text-[#1a1714] mb-7 ${fade(heroVisible, "delay-100")}`}
+              className={`text-[clamp(42px,5.5vw,76px)] font-black leading-none tracking-[-0.02em] text-[#f2efe9] mb-7 ${fade(heroVisible, "delay-100")}`}
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
               Where{" "}
@@ -116,7 +116,7 @@ const CulinaryAndOperationsSection = () => {
             </h2>
 
             <p
-              className={`text-[clamp(14px,1.5vw,16px)] font-light leading-[1.75] text-[#6b6560] max-w-[420px] mb-10 ${fade(heroVisible, "delay-200")}`}
+              className={`text-[clamp(14px,1.5vw,16px)] font-light leading-[1.75] text-[#a8a29a] max-w-[420px] mb-10 ${fade(heroVisible, "delay-200")}`}
             >
               We bring together chef-driven innovation and operational discipline
               to design menus, kitchens, and processes that perform in real-world
@@ -132,7 +132,7 @@ const CulinaryAndOperationsSection = () => {
           <div className={`group relative overflow-hidden min-h-[350px] md:min-h-0 ${fade(heroVisible, "delay-200")}`}>
             {/* Diagonal cutout (desktop only) */}
             <div
-              className="absolute top-0 left-[-1px] w-20 h-full bg-[#faf9f7] z-[2] hidden md:block"
+              className="absolute top-0 left-[-1px] w-20 h-full bg-[#0f0e0d] z-[2] hidden md:block"
               style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
             />
             <img
@@ -142,12 +142,12 @@ const CulinaryAndOperationsSection = () => {
               style={{ filter: "brightness(0.78) saturate(0.9)" }}
             />
             {/* Floating badge */}
-            <div className="absolute bottom-8 right-8 z-[3] bg-white/90 border border-black/[0.09] backdrop-blur-md px-5 py-4 max-w-[200px]">
+            <div className="absolute bottom-8 right-8 z-[3] bg-[#171614]/90 border border-white/[0.10] backdrop-blur-md px-5 py-4 max-w-[200px]">
               <div className="text-[10px] tracking-[0.15em] uppercase text-orange-500 font-medium mb-2">
                 Est. Excellence
               </div>
               <div
-                className="text-[18px] font-bold leading-[1.2] text-[#1a1714]"
+                className="text-[18px] font-bold leading-[1.2] text-[#f2efe9]"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Farm to Table Innovation
@@ -160,7 +160,7 @@ const CulinaryAndOperationsSection = () => {
         <div className="relative z-[2] px-5 sm:px-[50px] lg:px-20 py-16 sm:py-20 lg:py-[100px]">
 
           {/* Section label */}
-          <div className="flex items-center gap-3.5 text-[11px] font-medium tracking-[0.2em] uppercase text-[#a09890] mb-12 after:flex-1 after:max-w-16 after:h-px after:bg-black/[0.1]">
+          <div className="flex items-center gap-3.5 text-[11px] font-medium tracking-[0.2em] uppercase text-[#7a746e] mb-12 after:flex-1 after:max-w-16 after:h-px after:bg-white/[0.12]">
             Our Services
           </div>
 
@@ -169,7 +169,7 @@ const CulinaryAndOperationsSection = () => {
             {culinaryItems.map((item, index) => (
               <div
                 key={index}
-                className={`group relative bg-white border border-black/[0.07] px-9 py-10 overflow-hidden cursor-default transition-all duration-300 hover:border-orange-500 hover:bg-[#fffcfa] ${
+                className={`group relative bg-[#171614] border border-white/[0.08] px-9 py-10 overflow-hidden cursor-default transition-all duration-300 hover:border-orange-500 hover:bg-[#1c1916] ${
                   visibleCards[index]
                     ? "opacity-100 translate-y-0 transition-[opacity,transform,border-color,background] duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
                     : "opacity-0 translate-y-6"
@@ -181,7 +181,7 @@ const CulinaryAndOperationsSection = () => {
 
                 {/* Ghost number */}
                 <span
-                  className="absolute top-4 right-6 text-[72px] font-black leading-none text-black/[0.04] select-none group-hover:text-orange-500/[0.07] transition-colors duration-300"
+                  className="absolute top-4 right-6 text-[72px] font-black leading-none text-white/[0.06] select-none group-hover:text-orange-500/[0.07] transition-colors duration-300"
                   style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   0{index + 1}
@@ -189,12 +189,12 @@ const CulinaryAndOperationsSection = () => {
 
                 <span className="text-[28px] mb-5 block">{item.icon}</span>
                 <h3
-                  className="text-[22px] font-bold leading-[1.2] text-[#1a1714] mb-3.5"
+                  className="text-[22px] font-bold leading-[1.2] text-[#f2efe9] mb-3.5"
                   style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   {item.title}
                 </h3>
-                <p className="text-[14px] font-light leading-[1.75] text-[#8a8480] group-hover:text-[#6b6560] transition-colors duration-300">
+                <p className="text-[14px] font-light leading-[1.75] text-[#7a746e] group-hover:text-[#a8a29a] transition-colors duration-300">
                   {item.description}
                 </p>
               </div>
@@ -203,7 +203,7 @@ const CulinaryAndOperationsSection = () => {
         </div>
 
         {/* ── OPERATIONS PANEL ── */}
-        <div className="relative z-[2] mx-5 sm:mx-[50px] lg:mx-20 mb-16 sm:mb-20 lg:mb-[100px] bg-white border border-black/[0.07] grid grid-cols-1 md:grid-cols-[1fr_1.4fr] overflow-hidden">
+        <div className="relative z-[2] mx-5 sm:mx-[50px] lg:mx-20 mb-16 sm:mb-20 lg:mb-[100px] bg-[#171614] border border-white/[0.08] grid grid-cols-1 md:grid-cols-[1fr_1.4fr] overflow-hidden">
 
           {/* Image side */}
           <div className="group relative min-h-[320px] overflow-hidden">
@@ -229,20 +229,20 @@ const CulinaryAndOperationsSection = () => {
               How We Support Your Kitchens
             </p>
             <h3
-              className="text-[clamp(24px,2.5vw,34px)] font-bold leading-[1.2] text-[#1a1714] mb-4"
+              className="text-[clamp(24px,2.5vw,34px)] font-bold leading-[1.2] text-[#f2efe9] mb-4"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Scalable Systems Built for the Real World
             </h3>
-            <p className="text-[14px] font-light leading-[1.8] text-[#6b6560] mb-8 max-w-[440px]">
+            <p className="text-[14px] font-light leading-[1.8] text-[#a8a29a] mb-8 max-w-[440px]">
               From back-of-house workflows to brand-consistent recipes, we help
               you design culinary systems that are scalable, repeatable, and
               easy to train across locations.
             </p>
             <ul className="flex flex-col gap-3.5">
               {opsBullets.map((item, i) => (
-                <li key={i} className="flex items-start gap-3.5 text-[13px] font-normal leading-[1.6] text-[#8a8480]">
-                  <span className="w-5 h-5 bg-[#f0ede8] border border-black/[0.07] flex items-center justify-center flex-shrink-0 mt-0.5">
+                <li key={i} className="flex items-start gap-3.5 text-[13px] font-normal leading-[1.6] text-[#7a746e]">
+                  <span className="w-5 h-5 bg-[#24211e] border border-white/[0.08] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <svg viewBox="0 0 10 10" fill="none" stroke="#f97316" strokeWidth="1.5" width="10" height="10">
                       <path d="M2 5l2.5 2.5L8 3" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>

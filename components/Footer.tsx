@@ -33,7 +33,7 @@ const Footer = () => {
           font-size: 13px;
           font-weight: 300;
           line-height: 1.85;
-          color: #6b6560;
+          color: #a8a29a;
         }
 
         .kp-footer-heading {
@@ -48,7 +48,7 @@ const Footer = () => {
         .kp-footer-policy {
           font-size: 13px;
           font-weight: 400;
-          color: #6b6560;
+          color: #a8a29a;
           letter-spacing: 0.03em;
         }
 
@@ -58,33 +58,33 @@ const Footer = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          border: 1px solid rgba(0,0,0,0.08);
-          background: #fff;
+          border: 1px solid rgba(255,255,255,0.09);
+          background: #171614;
           color: #f97316;
           transition: all 0.3s ease;
         }
 
         .kp-footer-icon:hover {
-          background: #fff7f2;
+          background: #1f1814;
           border-color: rgba(249,115,22,0.32);
           transform: translateY(-2px);
         }
 
         .kp-footer-divider {
-          border-top: 1px solid rgba(0,0,0,0.08);
+          border-top: 1px solid rgba(255,255,255,0.09);
         }
       `}</style>
 
       <footer
         ref={footerRef}
-        className="bg-[#faf9f7] text-[#1a1714] border-t border-black/[0.07]"
+        className="bg-[#0f0e0d] text-[#f2efe9] border-t border-white/[0.08]"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
         <div className={`px-5 sm:px-12 lg:px-20 py-14 sm:py-16 ${fade()}`}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             <div>
               <h3
-                className="text-[30px] sm:text-[34px] leading-[1.2] text-[#1a1714] max-w-[260px]"
+                className="text-[30px] sm:text-[34px] leading-[1.2] text-[#f2efe9] max-w-[260px]"
                 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}
               >
                 Built to help F&amp;B brands scale with clarity and confidence.
@@ -112,7 +112,7 @@ const Footer = () => {
 
            
             <div className="text-center mt-8">
-              <p className="text-[11px] sm:text-[12px] font-light tracking-[0.05em] text-[#a89f97]">
+              <p className="text-[11px] sm:text-[12px] font-light tracking-[0.05em] text-[#6b6560]">
                 © {new Date().getFullYear()} Kitchen Pulse. All rights reserved.
               </p>
             </div>

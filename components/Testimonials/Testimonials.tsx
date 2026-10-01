@@ -71,7 +71,7 @@ const LogoBadge = ({
   size: "lg" | "sm";
 }) => {
   const dimension = size === "lg" ? 40 : 32;
-  const baseClass = `flex-shrink-0 flex items-center justify-center border border-black/[0.07] overflow-hidden bg-[#f0ede8]`;
+  const baseClass = `flex-shrink-0 flex items-center justify-center border border-white/[0.08] overflow-hidden bg-[#24211e]`;
   const sizeClass = size === "lg" ? "w-10 h-10 rounded-[4px]" : "w-8 h-8 rounded-[3px]";
   const textClass = size === "lg"
     ? "text-[14px] font-bold text-orange-500"
@@ -142,7 +142,7 @@ const Testimonials: React.FC = () => {
       `}</style>
 
       <section
-        className="relative bg-[#faf9f7] text-[#1a1714] overflow-hidden"
+        className="relative bg-[#0f0e0d] text-[#f2efe9] overflow-hidden"
         ref={sectionRef}
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
@@ -165,7 +165,7 @@ const Testimonials: React.FC = () => {
               </span>
             </div>
             <h2
-              className={`text-[clamp(36px,4.5vw,60px)] font-black leading-none tracking-[-0.02em] text-[#1a1714] ${fade(heroVisible, "delay-100")}`}
+              className={`text-[clamp(36px,4.5vw,60px)] font-black leading-none tracking-[-0.02em] text-[#f2efe9] ${fade(heroVisible, "delay-100")}`}
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
               Partners Who<br />
@@ -174,7 +174,7 @@ const Testimonials: React.FC = () => {
           </div>
 
           <div>
-            <p className={`text-[clamp(13px,1.3vw,15px)] font-light leading-[1.85] text-[#6b6560] max-w-[400px] ${fade(heroVisible, "delay-200")}`}>
+            <p className={`text-[clamp(13px,1.3vw,15px)] font-light leading-[1.85] text-[#a8a29a] max-w-[400px] ${fade(heroVisible, "delay-200")}`}>
               From single-outlet QSRs to multi-city cloud kitchen chains, our clients count on
               Kitchen Pulse to deliver complete kitchen solutions — on time, on budget, and built to scale.
             </p>
@@ -187,7 +187,7 @@ const Testimonials: React.FC = () => {
 
           {/* Featured Card */}
           <div
-            className={`group grid grid-cols-1 md:grid-cols-[1.4fr_1fr] bg-white border border-black/[0.07] overflow-hidden mb-0.5 transition-colors duration-300 hover:border-orange-500 ${fade(heroVisible, "delay-[450ms]")}`}
+            className={`group grid grid-cols-1 md:grid-cols-[1.4fr_1fr] bg-[#171614] border border-white/[0.08] overflow-hidden mb-0.5 transition-colors duration-300 hover:border-orange-500 ${fade(heroVisible, "delay-[450ms]")}`}
           >
             {/* Image side */}
             <div className="relative h-[220px] md:h-auto overflow-hidden">
@@ -200,7 +200,7 @@ const Testimonials: React.FC = () => {
               {/* Fade into card body on desktop */}
               <div
                 className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none hidden md:block"
-                style={{ background: "linear-gradient(to top, #fff, transparent)" }}
+                style={{ background: "linear-gradient(to top, #171614, transparent)" }}
               />
               {/* Warm tint */}
               <div
@@ -218,15 +218,15 @@ const Testimonials: React.FC = () => {
                 >
                   "
                 </div>
-                <p className="text-[14px] font-light leading-[1.85] text-[#8a8480] group-hover:text-[#6b6560] transition-colors duration-300">
+                <p className="text-[14px] font-light leading-[1.85] text-[#7a746e] group-hover:text-[#a8a29a] transition-colors duration-300">
                   {featuredTestimonial.quote}
                 </p>
               </div>
-              <div className="mt-7 pt-5 border-t border-black/[0.07] flex items-center gap-3.5">
+              <div className="mt-7 pt-5 border-t border-white/[0.08] flex items-center gap-3.5">
                 <LogoBadge logo={featuredTestimonial.logo} initials={(featuredTestimonial as any).initials} size="lg" />
                 <div>
-                  <div className="text-[13px] font-medium text-[#1a1714] mb-0.5">{featuredTestimonial.client}</div>
-                  <div className="text-[11px] text-[#a09890] tracking-[0.04em]">{featuredTestimonial.role}, {featuredTestimonial.company}</div>
+                  <div className="text-[13px] font-medium text-[#f2efe9] mb-0.5">{featuredTestimonial.client}</div>
+                  <div className="text-[11px] text-[#7a746e] tracking-[0.04em]">{featuredTestimonial.role}, {featuredTestimonial.company}</div>
                 </div>
               </div>
               {/* Bottom bar */}
@@ -239,7 +239,7 @@ const Testimonials: React.FC = () => {
             {smallTestimonials.map((t, index) => (
               <div
                 key={t.company}
-                className={`group bg-white border border-black/[0.07] px-6 py-7 flex flex-col justify-between cursor-default transition-colors duration-300 hover:border-orange-500 hover:bg-[#fffcfa] ${
+                className={`group bg-[#171614] border border-white/[0.08] px-6 py-7 flex flex-col justify-between cursor-default transition-colors duration-300 hover:border-orange-500 hover:bg-[#1c1916] ${
                   visibleCards[index]
                     ? "opacity-100 translate-y-0 transition-[opacity,transform,border-color,background] duration-[550ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
                     : "opacity-0 translate-y-6"
@@ -253,15 +253,15 @@ const Testimonials: React.FC = () => {
                   >
                     "
                   </div>
-                  <p className="text-[12.5px] font-light leading-[1.8] text-[#8a8480] group-hover:text-[#6b6560] transition-colors duration-300">
+                  <p className="text-[12.5px] font-light leading-[1.8] text-[#7a746e] group-hover:text-[#a8a29a] transition-colors duration-300">
                     {t.quote}
                   </p>
                 </div>
-                <div className="mt-5 pt-4 border-t border-black/[0.07] flex items-center gap-2.5">
+                <div className="mt-5 pt-4 border-t border-white/[0.08] flex items-center gap-2.5">
                   <LogoBadge logo={t.logo} initials={(t as any).initials} size="sm" />
                   <div>
-                    <div className="text-[12px] font-medium text-[#1a1714] mb-0.5">{t.client}</div>
-                    <div className="text-[10.5px] text-[#a09890] tracking-[0.04em]">{t.role}, {t.company}</div>
+                    <div className="text-[12px] font-medium text-[#f2efe9] mb-0.5">{t.client}</div>
+                    <div className="text-[10.5px] text-[#7a746e] tracking-[0.04em]">{t.role}, {t.company}</div>
                   </div>
                 </div>
                 <div className="h-[2px] bg-gradient-to-r from-orange-500 to-orange-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-[400ms] origin-left mt-3" />

@@ -80,7 +80,7 @@ export default function CommercialKitchenFitOutPage() {
   };
 
   return (
-    <main className="w-full bg-[#faf8f6] text-[#1a1714]">
+    <main className="w-full bg-[#0f0e0d] text-[#f2efe9]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
@@ -100,7 +100,7 @@ export default function CommercialKitchenFitOutPage() {
         >
           Turnkey commercial kitchen fit-out across India
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#6b6560]">
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#a8a29a]">
           From bare shell to service-ready kitchen — Kitchen Pulse coordinates
           civil, HVAC, equipment, and handover so restaurants and cloud kitchens
           open on schedule without juggling a dozen vendors.
@@ -114,30 +114,30 @@ export default function CommercialKitchenFitOutPage() {
           </Link>
           <Link
             href="/MainSection"
-            className="inline-flex items-center rounded-sm border border-[#1a1714]/15 px-5 py-3 text-sm font-medium uppercase tracking-wider text-[#1a1714]"
+            className="inline-flex items-center rounded-sm border border-[#f2efe9]/15 px-5 py-3 text-sm font-medium uppercase tracking-wider text-[#f2efe9]"
           >
             All services
           </Link>
         </div>
       </section>
 
-      <section className="border-y border-black/5 bg-white">
+      <section className="border-y border-white/5 bg-[#171614]">
         <div className="mx-auto grid max-w-5xl gap-8 px-6 py-14 md:grid-cols-3">
           <div>
             <p className="text-3xl font-bold text-orange-500">21 days</p>
-            <p className="mt-2 text-sm text-[#6b6560]">
+            <p className="mt-2 text-sm text-[#a8a29a]">
               Target kitchen handover window for scoped projects
             </p>
           </div>
           <div>
             <p className="text-3xl font-bold text-orange-500">25–30%</p>
-            <p className="mt-2 text-sm text-[#6b6560]">
+            <p className="mt-2 text-sm text-[#a8a29a]">
               Typical savings via bulk buying and coordinated execution
             </p>
           </div>
           <div>
             <p className="text-3xl font-bold text-orange-500">Pan India</p>
-            <p className="mt-2 text-sm text-[#6b6560]">
+            <p className="mt-2 text-sm text-[#a8a29a]">
               Repeatable fit-out playbooks beyond Mumbai
             </p>
           </div>
@@ -154,19 +154,19 @@ export default function CommercialKitchenFitOutPage() {
               </span>
               <div>
                 <h3 className="text-lg font-semibold">{step.title}</h3>
-                <p className="mt-2 text-[#6b6560] leading-relaxed">{step.body}</p>
+                <p className="mt-2 text-[#a8a29a] leading-relaxed">{step.body}</p>
               </div>
             </li>
           ))}
         </ol>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-[#171614]">
         <div className="mx-auto max-w-5xl px-6 py-16">
           <h2 className="text-2xl font-bold md:text-3xl">
             Built for restaurants and cloud kitchens
           </h2>
-          <p className="mt-4 max-w-3xl text-[#6b6560] leading-relaxed">
+          <p className="mt-4 max-w-3xl text-[#a8a29a] leading-relaxed">
             Whether you are opening a QSR, cloud kitchen, or multi-city brand,
             we design for throughput, compliance, and maintenance — then execute
             under one accountable team. Pair fit-out with our real estate,
@@ -180,15 +180,15 @@ export default function CommercialKitchenFitOutPage() {
         <h2 className="text-2xl font-bold md:text-3xl">FAQs</h2>
         <div className="mt-8 space-y-6">
           {FAQ.map((item) => (
-            <div key={item.q} className="border-b border-black/10 pb-6">
+            <div key={item.q} className="border-b border-white/10 pb-6">
               <h3 className="text-lg font-semibold">{item.q}</h3>
-              <p className="mt-2 text-[#6b6560] leading-relaxed">{item.a}</p>
+              <p className="mt-2 text-[#a8a29a] leading-relaxed">{item.a}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-[#1a1714] text-white">
+      <section className="bg-[#1a1816] text-[#f2efe9]">
         <div className="mx-auto max-w-5xl px-6 py-16">
           <h2 className="text-2xl font-bold md:text-3xl">
             Planning a kitchen this quarter?
