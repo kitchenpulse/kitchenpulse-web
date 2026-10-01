@@ -2,27 +2,35 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "F&B Services | Kitchen Fit-Out, Real Estate & Growth",
+  title: "F&B Services | Kitchen Fit-Out, Equipment & HVAC",
   description:
-    "Kitchen Pulse F&B services — commercial kitchen fit-out, real estate, HVAC, equipment, staffing, and aggregator growth across India.",
+    "Kitchen Pulse primary F&B services — commercial kitchen fit-out, equipment, and HVAC across India. Staffing and aggregator growth available as add-ons.",
   alternates: { canonical: "/services" },
 };
 
-const LINKS = [
+const PRIMARY = [
   {
     href: "/services/commercial-kitchen-fit-out",
     title: "Commercial kitchen fit-out",
-    body: "Turnkey civil, HVAC, equipment, and handover for restaurants and cloud kitchens.",
+    body: "Turnkey civil, HVAC, equipment, and handover for restaurants and cloud kitchens — bare shell to service-ready.",
   },
+  {
+    href: "/services/commercial-kitchen-equipment",
+    title: "Commercial kitchen equipment",
+    body: "Layout-first cooking, cold, prep, and custom stainless supply — sized to menu volume and utilities.",
+  },
+  {
+    href: "/services/kitchen-hvac",
+    title: "Kitchen HVAC & exhaust",
+    body: "Exhaust, fresh air, and comfort cooling designed as one system for high-heat F&B kitchens.",
+  },
+];
+
+const SECONDARY = [
   {
     href: "/MainSection#location",
     title: "Real estate sourcing",
     body: "F&B location intelligence across tier 2 & 3 cities.",
-  },
-  {
-    href: "/MainSection#infrastructure",
-    title: "Infrastructure & HVAC",
-    body: "Civil works and kitchen exhaust systems nationwide.",
   },
   {
     href: "/MainSection#talent",
@@ -46,18 +54,40 @@ export default function ServicesIndexPage() {
         F&B services built to scale
       </h1>
       <p className="mt-5 max-w-2xl text-lg text-[#a8a29a]">
-        Modular support from first outlet to multi-city rollout — start with the
-        service you need, or run the full Kitchen Pulse stack.
+        Primary focus: commercial kitchen fit-out, equipment, and HVAC —
+        pan-India from our Navi Mumbai base. Staffing and aggregator support
+        remain available as secondary add-ons.
       </p>
-      <ul className="mt-12 space-y-4">
-        {LINKS.map((item) => (
+
+      <h2 className="mt-14 text-xs font-medium uppercase tracking-[0.18em] text-orange-500">
+        Primary services
+      </h2>
+      <ul className="mt-4 space-y-4">
+        {PRIMARY.map((item) => (
           <li key={item.href}>
             <Link
               href={item.href}
               className="block rounded-md border border-white/10 bg-[#171614] p-5 transition hover:border-orange-500/40"
             >
-              <h2 className="text-lg font-semibold text-[#f2efe9]">{item.title}</h2>
+              <h3 className="text-lg font-semibold text-[#f2efe9]">{item.title}</h3>
               <p className="mt-1 text-sm text-[#a8a29a]">{item.body}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      <h2 className="mt-14 text-xs font-medium uppercase tracking-[0.18em] text-[#7a746e]">
+        Additional support
+      </h2>
+      <ul className="mt-4 space-y-3">
+        {SECONDARY.map((item) => (
+          <li key={item.href}>
+            <Link
+              href={item.href}
+              className="block rounded-md border border-white/[0.06] bg-[#0f0e0d] p-4 transition hover:border-white/15"
+            >
+              <h3 className="text-base font-medium text-[#f2efe9]">{item.title}</h3>
+              <p className="mt-1 text-sm text-[#7a746e]">{item.body}</p>
             </Link>
           </li>
         ))}

@@ -18,11 +18,11 @@ const NAV_LINKS = [
 const SERVICE_LINKS = [
   { href: "/services", label: "All Services" },
   { href: "/services/commercial-kitchen-fit-out", label: "Commercial Kitchen Fit-Out" },
+  { href: "/services/commercial-kitchen-equipment", label: "Commercial Kitchen Equipment" },
+  { href: "/services/kitchen-hvac", label: "Kitchen HVAC & Exhaust" },
   { href: "/MainSection#location", label: "Location Intelligence" },
-  { href: "/MainSection#culinary", label: "Culinary & Operations" },
   { href: "/MainSection#talent", label: "Talent & Training" },
   { href: "/MainSection#digital", label: "Digital & Growth" },
-  { href: "/MainSection#infrastructure", label: "Infrastructure & Setup" },
 ];
 
 export default function Navbar() {
