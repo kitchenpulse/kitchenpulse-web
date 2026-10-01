@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import { CtaGroup } from "@/components/ui/CtaButtons";
 
 const digitalItems = [
   {
@@ -156,12 +157,20 @@ const DigitalAndGrowthSection = () => {
             </h2>
 
             <p
-              className={`text-[clamp(14px,1.5vw,16px)] font-light leading-[1.75] text-[#a8a29a] max-w-[420px] mb-10 ${fade(heroVisible, "delay-200")}`}
+              className={`text-[clamp(14px,1.5vw,16px)] font-light leading-[1.75] text-[#a8a29a] max-w-[420px] mb-8 ${fade(heroVisible, "delay-200")}`}
             >
               We manage your digital presence across aggregators, social, and D2C
               channels to create predictable, scalable growth for your F&amp;B brand
               — every decision tied to metrics that matter.
             </p>
+
+            <div className={fade(heroVisible, "delay-300")}>
+              <CtaGroup
+                whatsappMessage="Hi! I'd like to discuss digital and aggregator growth."
+                primaryLabel="Book a consult"
+                showServices
+              />
+            </div>
 
           
           </div>
@@ -171,7 +180,7 @@ const DigitalAndGrowthSection = () => {
         <div className="relative z-[2] px-5 sm:px-[50px] lg:px-20 py-16 sm:py-20 lg:py-[100px]">
 
           {/* Section label */}
-          <div className="flex items-center gap-3.5 text-[11px] font-medium tracking-[0.2em] uppercase text-[#7a746e] mb-12 after:flex-1 after:max-w-16 after:h-px after:bg-white/[0.12]">
+          <div className="flex items-center gap-3.5 text-[11px] font-medium tracking-[0.2em] uppercase text-[#8c8680] mb-12 after:flex-1 after:max-w-16 after:h-px after:bg-white/[0.14]">
             Our Services
           </div>
 
@@ -180,7 +189,7 @@ const DigitalAndGrowthSection = () => {
             {digitalItems.map((item, index) => (
               <div
                 key={index}
-                className={`group relative bg-[#171614] border border-white/[0.08] overflow-hidden cursor-default transition-all duration-300 hover:border-orange-500 ${
+                className={`group relative bg-[#171614] border border-white/[0.10] overflow-hidden cursor-default transition-all duration-300 hover:border-orange-500 ${
                   visibleCards[index]
                     ? "opacity-100 translate-y-0 transition-[opacity,transform,border-color,background] duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
                     : "opacity-0 translate-y-6"
@@ -224,7 +233,7 @@ const DigitalAndGrowthSection = () => {
                   >
                     {item.title}
                   </h3>
-                  <p className="text-[13px] font-light leading-[1.75] text-[#7a746e] group-hover:text-[#a8a29a] transition-colors duration-300">
+                  <p className="text-[13px] font-light leading-[1.75] text-[#8c8680] group-hover:text-[#a8a29a] transition-colors duration-300">
                     {item.description}
                   </p>
                 </div>

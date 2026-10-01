@@ -7,6 +7,27 @@ export const metadata: Metadata = {
   description:
     "Kitchen Pulse F&B services — launch consulting for new founders across QSR, restaurants, and cloud kitchens, plus commercial kitchen fit-out, equipment, and HVAC across India. Staffing and aggregator growth available as add-ons.",
   alternates: { canonical: "/services" },
+  openGraph: {
+    title: "F&B Services | Fit-Out, Equipment, HVAC & Launch Consulting",
+    description:
+      "Launch consulting, commercial kitchen fit-out, equipment, and HVAC — plus staffing and aggregator growth add-ons across India.",
+    url: "https://kitchenpulse.in/services",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Kitchen Pulse F&B services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "F&B Services | Fit-Out, Equipment, HVAC & Launch Consulting",
+    description:
+      "Launch consulting, fit-out, equipment, and HVAC for F&B brands across India.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 const PRIMARY = [

@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import { CtaGroup } from "@/components/ui/CtaButtons";
 
 const culinaryItems = [
   {
@@ -116,12 +117,20 @@ const CulinaryAndOperationsSection = () => {
             </h2>
 
             <p
-              className={`text-[clamp(14px,1.5vw,16px)] font-light leading-[1.75] text-[#a8a29a] max-w-[420px] mb-10 ${fade(heroVisible, "delay-200")}`}
+              className={`text-[clamp(14px,1.5vw,16px)] font-light leading-[1.75] text-[#a8a29a] max-w-[420px] mb-8 ${fade(heroVisible, "delay-200")}`}
             >
               We bring together chef-driven innovation and operational discipline
               to design menus, kitchens, and processes that perform in real-world
               F&amp;B and D2C environments.
             </p>
+
+            <div className={fade(heroVisible, "delay-300")}>
+              <CtaGroup
+                whatsappMessage="Hi! I'd like to discuss culinary and kitchen operations support."
+                primaryLabel="Book a consult"
+                showServices
+              />
+            </div>
 
            
 
@@ -160,7 +169,7 @@ const CulinaryAndOperationsSection = () => {
         <div className="relative z-[2] px-5 sm:px-[50px] lg:px-20 py-16 sm:py-20 lg:py-[100px]">
 
           {/* Section label */}
-          <div className="flex items-center gap-3.5 text-[11px] font-medium tracking-[0.2em] uppercase text-[#7a746e] mb-12 after:flex-1 after:max-w-16 after:h-px after:bg-white/[0.12]">
+          <div className="flex items-center gap-3.5 text-[11px] font-medium tracking-[0.2em] uppercase text-[#8c8680] mb-12 after:flex-1 after:max-w-16 after:h-px after:bg-white/[0.14]">
             Our Services
           </div>
 
@@ -169,7 +178,7 @@ const CulinaryAndOperationsSection = () => {
             {culinaryItems.map((item, index) => (
               <div
                 key={index}
-                className={`group relative bg-[#171614] border border-white/[0.08] px-9 py-10 overflow-hidden cursor-default transition-all duration-300 hover:border-orange-500 hover:bg-[#1c1916] ${
+                className={`group relative bg-[#171614] border border-white/[0.10] px-9 py-10 overflow-hidden cursor-default transition-all duration-300 hover:border-orange-500 hover:bg-[#1c1916] ${
                   visibleCards[index]
                     ? "opacity-100 translate-y-0 transition-[opacity,transform,border-color,background] duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
                     : "opacity-0 translate-y-6"
@@ -194,7 +203,7 @@ const CulinaryAndOperationsSection = () => {
                 >
                   {item.title}
                 </h3>
-                <p className="text-[14px] font-light leading-[1.75] text-[#7a746e] group-hover:text-[#a8a29a] transition-colors duration-300">
+                <p className="text-[14px] font-light leading-[1.75] text-[#8c8680] group-hover:text-[#a8a29a] transition-colors duration-300">
                   {item.description}
                 </p>
               </div>
@@ -203,7 +212,7 @@ const CulinaryAndOperationsSection = () => {
         </div>
 
         {/* ── OPERATIONS PANEL ── */}
-        <div className="relative z-[2] mx-5 sm:mx-[50px] lg:mx-20 mb-16 sm:mb-20 lg:mb-[100px] bg-[#171614] border border-white/[0.08] grid grid-cols-1 md:grid-cols-[1fr_1.4fr] overflow-hidden">
+        <div className="relative z-[2] mx-5 sm:mx-[50px] lg:mx-20 mb-16 sm:mb-20 lg:mb-[100px] bg-[#171614] border border-white/[0.10] grid grid-cols-1 md:grid-cols-[1fr_1.4fr] overflow-hidden">
 
           {/* Image side */}
           <div className="group relative min-h-[320px] overflow-hidden">
@@ -241,8 +250,8 @@ const CulinaryAndOperationsSection = () => {
             </p>
             <ul className="flex flex-col gap-3.5">
               {opsBullets.map((item, i) => (
-                <li key={i} className="flex items-start gap-3.5 text-[13px] font-normal leading-[1.6] text-[#7a746e]">
-                  <span className="w-5 h-5 bg-[#24211e] border border-white/[0.08] flex items-center justify-center flex-shrink-0 mt-0.5">
+                <li key={i} className="flex items-start gap-3.5 text-[13px] font-normal leading-[1.6] text-[#8c8680]">
+                  <span className="w-5 h-5 bg-[#24211e] border border-white/[0.10] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <svg viewBox="0 0 10 10" fill="none" stroke="#f97316" strokeWidth="1.5" width="10" height="10">
                       <path d="M2 5l2.5 2.5L8 3" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
