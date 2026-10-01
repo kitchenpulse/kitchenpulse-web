@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CtaGroup, ServiceCtaBand } from "@/components/ui/CtaButtons";
 
 export const metadata: Metadata = {
   title: "Turnkey Commercial Kitchen Fit-Out Across India",
@@ -15,9 +16,6 @@ export const metadata: Metadata = {
   },
 };
 
-const WHATSAPP_URL =
-  "https://wa.me/919167636653?text=" +
-  encodeURIComponent("Hi! I'd like to discuss a commercial kitchen fit-out with Kitchen Pulse.");
 
 const STEPS = [
   {
@@ -104,7 +102,7 @@ export default function CommercialKitchenFitOutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
       />
 
-      <section className="mx-auto max-w-5xl px-6 pb-16 pt-28 md:pt-32">
+      <section className="mx-auto max-w-5xl px-6 pb-16 pt-28 md:pt-32 md:pb-20">
         <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-orange-500">
           Services
         </p>
@@ -114,60 +112,44 @@ export default function CommercialKitchenFitOutPage() {
         >
           Turnkey commercial kitchen fit-out across India
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#a8a29a]">
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#b0aaa2]">
           From bare shell to service-ready kitchen — Kitchen Pulse coordinates
           civil, HVAC, equipment, and handover so restaurants and cloud kitchens
           open on schedule without juggling a dozen vendors.
         </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-sm bg-orange-500 px-5 py-3 text-sm font-medium uppercase tracking-wider text-white"
-          >
-            Book a demo
-          </Link>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center rounded-sm border border-[#f2efe9]/15 px-5 py-3 text-sm font-medium uppercase tracking-wider text-[#f2efe9]"
-          >
-            WhatsApp us
-          </a>
-          <Link
-            href="/services"
-            className="inline-flex items-center rounded-sm border border-[#f2efe9]/15 px-5 py-3 text-sm font-medium uppercase tracking-wider text-[#f2efe9]"
-          >
-            All services
-          </Link>
-        </div>
+        <CtaGroup
+          whatsappMessage="Hi! I'd like to discuss a commercial kitchen fit-out with Kitchen Pulse."
+          primaryLabel="Book a consult"
+          showServices
+        />
+
       </section>
 
-      <section className="border-y border-white/5 bg-[#171614]">
-        <div className="mx-auto grid max-w-5xl gap-8 px-6 py-14 md:grid-cols-3">
+      <section className="border-y border-white/[0.10] bg-[#171614]">
+        <div className="mx-auto grid max-w-5xl gap-8 px-6 py-14 md:py-16 md:grid-cols-3">
           <div>
             <p className="text-3xl font-bold text-orange-500">21 days</p>
-            <p className="mt-2 text-sm text-[#a8a29a]">
+            <p className="mt-2 text-sm text-[#b0aaa2]">
               Target kitchen handover window for scoped projects
             </p>
           </div>
           <div>
             <p className="text-3xl font-bold text-orange-500">25–30%</p>
-            <p className="mt-2 text-sm text-[#a8a29a]">
+            <p className="mt-2 text-sm text-[#b0aaa2]">
               Typical savings via bulk buying and coordinated execution
             </p>
           </div>
           <div>
             <p className="text-3xl font-bold text-orange-500">Pan India</p>
-            <p className="mt-2 text-sm text-[#a8a29a]">
+            <p className="mt-2 text-sm text-[#b0aaa2]">
               Repeatable fit-out playbooks beyond Mumbai
             </p>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-2xl font-bold md:text-3xl">How a Kitchen Pulse fit-out works</h2>
+      <section className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+        <h2 className="text-2xl font-bold md:text-3xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>How a Kitchen Pulse fit-out works</h2>
         <ol className="mt-10 space-y-8">
           {STEPS.map((step, i) => (
             <li key={step.title} className="flex gap-5">
@@ -176,7 +158,7 @@ export default function CommercialKitchenFitOutPage() {
               </span>
               <div>
                 <h3 className="text-lg font-semibold">{step.title}</h3>
-                <p className="mt-2 text-[#a8a29a] leading-relaxed">{step.body}</p>
+                <p className="mt-2 text-[#b0aaa2] leading-relaxed">{step.body}</p>
               </div>
             </li>
           ))}
@@ -184,11 +166,11 @@ export default function CommercialKitchenFitOutPage() {
       </section>
 
       <section className="bg-[#171614]">
-        <div className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="text-2xl font-bold md:text-3xl">
+        <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+          <h2 className="text-2xl font-bold md:text-3xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
             Built for restaurants and cloud kitchens
           </h2>
-          <p className="mt-4 max-w-3xl text-[#a8a29a] leading-relaxed">
+          <p className="mt-4 max-w-3xl text-[#b0aaa2] leading-relaxed">
             Whether you are opening a QSR, cloud kitchen, or multi-city brand,
             we design for throughput, compliance, and maintenance — then execute
             under one accountable team. Pair fit-out with{" "}
@@ -212,33 +194,11 @@ export default function CommercialKitchenFitOutPage() {
         </div>
       </section>
 
-      <section className="bg-[#1a1816] text-[#f2efe9]">
-        <div className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="text-2xl font-bold md:text-3xl">
-            Planning a kitchen this quarter?
-          </h2>
-          <p className="mt-4 max-w-2xl text-white/70">
-            Tell us your city, concept, and timeline — we will map the fit-out
-            path and what it takes to go live.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="inline-flex items-center rounded-sm bg-orange-500 px-5 py-3 text-sm font-medium uppercase tracking-wider text-white"
-            >
-              Talk to Kitchen Pulse
-            </Link>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center rounded-sm border border-[#f2efe9]/15 px-5 py-3 text-sm font-medium uppercase tracking-wider text-[#f2efe9]"
-            >
-              WhatsApp us
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServiceCtaBand
+        heading="Planning a kitchen this quarter?"
+        body="Tell us your city, concept, and timeline — we will map the fit-out path and what it takes to go live."
+        whatsappMessage="Hi! I'd like to discuss a commercial kitchen fit-out with Kitchen Pulse."
+      />
     </main>
   );
 }

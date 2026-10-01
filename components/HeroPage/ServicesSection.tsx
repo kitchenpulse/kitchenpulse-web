@@ -1,5 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { ctaPrimaryClass, ctaSecondaryClass } from "@/components/ui/CtaButtons";
 
 const Icons = {
   RealEstate: () => (
@@ -153,7 +155,7 @@ const ServicesSection = () => {
         />
 
         {/* ── HEADER ── */}
-        <div className="relative z-[2] px-5 sm:px-[50px] lg:px-20 pt-16 sm:pt-20 lg:pt-[100px] pb-12 sm:pb-[60px] lg:pb-[72px] grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-16 items-end border-b border-white/[0.08]">
+        <div className="relative z-[2] px-5 sm:px-[50px] lg:px-20 pt-20 sm:pt-24 lg:pt-[110px] pb-14 sm:pb-16 lg:pb-20 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-end border-b border-white/[0.10]">
           <div>
             <div className={fade(heroVisible)}>
               <span className="inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.22em] uppercase text-orange-500 mb-6">
@@ -173,7 +175,7 @@ const ServicesSection = () => {
 
           <div>
             <p
-              className={`text-[clamp(14px,1.4vw,16px)] font-light leading-[1.8] text-[#a8a29a] max-w-[400px] mb-9 ${fade(heroVisible, "delay-200")}`}
+              className={`text-[clamp(14px,1.4vw,16px)] font-light leading-[1.8] text-[#b0aaa2] max-w-[400px] mb-9 ${fade(heroVisible, "delay-200")}`}
             >
               A modular stack of services designed to support you from your first
               outlet all the way to multi-city scale — every piece built to work
@@ -183,14 +185,14 @@ const ServicesSection = () => {
         </div>
 
         {/* ── ALL 6 CARDS IN ONE ROW ── */}
-        <div className="relative z-[2] px-5 sm:px-[50px] lg:px-20 py-14 sm:py-16 lg:py-[100px]">
+        <div className="relative z-[2] px-5 sm:px-[50px] lg:px-20 py-16 sm:py-20 lg:py-[100px]">
           <div className="flex flex-col sm:flex-row gap-0.5">
             {SERVICES.map((service, i) => {
               const Icon = service.icon;
               return (
                 <div
                   key={service.title}
-                  className={`group flex-1 min-w-0 bg-[#171614] border border-white/[0.08] p-6 relative overflow-hidden flex flex-col cursor-default transition-all duration-300 hover:border-orange-500 hover:bg-[#1c1916] ${
+                  className={`group flex-1 min-w-0 bg-[#171614] border border-white/[0.10] p-6 relative overflow-hidden flex flex-col cursor-default transition-all duration-300 hover:border-orange-500 hover:bg-[#1c1916] ${
                     visibleCards[i]
                       ? "opacity-100 translate-y-0 transition-[opacity,transform,border-color,background] duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
                       : "opacity-0 translate-y-6"
@@ -222,19 +224,44 @@ const ServicesSection = () => {
                   >
                     {service.title}
                   </h3>
-                  <p className="text-[11px] font-light leading-[1.75] text-[#7a746e] flex-1 group-hover:text-[#a8a29a] transition-colors duration-300">
+                  <p className="text-[12px] font-light leading-[1.75] text-[#8c8680] flex-1 group-hover:text-[#b0aaa2] transition-colors duration-300">
                     {service.desc}
                   </p>
 
                   {/* Footer */}
-                  <div className="mt-5 pt-4 border-t border-white/[0.07] flex items-center gap-2">
-                    <span className="text-[10px] font-medium tracking-[0.08em] text-[#7a746e] bg-[#24211e] border border-white/[0.07] px-2.5 py-1 group-hover:text-orange-500 group-hover:border-orange-500/25 transition-all duration-300">
+                  <div className="mt-5 pt-4 border-t border-white/[0.10] flex items-center gap-2">
+                    <span className="text-[10px] font-medium tracking-[0.08em] text-[#8c8680] bg-[#24211e] border border-white/[0.10] px-2.5 py-1 group-hover:text-orange-500 group-hover:border-orange-500/25 transition-all duration-300">
                       {service.stat}
                     </span>
                   </div>
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* ── CTA ── */}
+        <div className="relative z-[2] px-5 sm:px-[50px] lg:px-20 pb-16 sm:pb-20 lg:pb-24 border-t border-white/[0.10]">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 pt-12 sm:pt-14">
+            <div>
+              <h3
+                className="text-[clamp(22px,2.5vw,28px)] font-bold text-[#f2efe9]"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                Ready to map your next kitchen?
+              </h3>
+              <p className="mt-2 text-[14px] font-light text-[#b0aaa2] max-w-md">
+                Book a consult — we&apos;ll outline fit-out, equipment, or launch support for your city and timeline.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/contact" className={ctaPrimaryClass}>
+                Book a consult
+              </Link>
+              <Link href="/services" className={ctaSecondaryClass}>
+                All services
+              </Link>
+            </div>
           </div>
         </div>
       </section>

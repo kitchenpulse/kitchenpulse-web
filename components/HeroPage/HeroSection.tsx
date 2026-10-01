@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-
-
+import { ctaPrimaryClass, ctaSecondaryClass } from "@/components/ui/CtaButtons";
 
 const HeroSection: React.FC = () => {
   const [visible, setVisible] = useState(false);
@@ -15,13 +14,15 @@ const HeroSection: React.FC = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0f0e0d]">
 
-      {/* Background image */}
+      {/* Background image — existing asset only */}
       <div
         className="absolute inset-0 bg-cover bg-center animate-[heroZoom_14s_ease_forwards]"
         style={{
-          backgroundImage: "url('assets/chefing.jpeg')",
+          backgroundImage: "url('/assets/chefing.jpeg')",
           filter: "brightness(0.55) saturate(0.75)",
         }}
+        role="img"
+        aria-label="Chef plating dishes in a commercial kitchen"
       />
 
       {/* Grain overlay */}
@@ -61,7 +62,7 @@ const HeroSection: React.FC = () => {
       />
 
       {/* Content */}
-      <div className="relative z-[4] w-full max-w-[1280px] mx-auto px-5 sm:px-7 md:px-[50px] lg:px-20 text-[#f2efe9]">
+      <div className="relative z-[4] w-full max-w-[1280px] mx-auto px-5 sm:px-7 md:px-[50px] lg:px-20 text-[#f2efe9] py-16 sm:py-20">
 
         {/* Eyebrow */}
         <div
@@ -92,7 +93,7 @@ const HeroSection: React.FC = () => {
 
         {/* Subheadline */}
         <p
-          className={`text-[clamp(15px,1.6vw,18px)] font-light leading-[1.75] text-[#a8a29a] max-w-[520px] mb-11 transition-all duration-700 ease-out delay-[280ms] ${
+          className={`text-[clamp(15px,1.6vw,18px)] font-light leading-[1.75] text-[#b0aaa2] max-w-[520px] mb-11 transition-all duration-700 ease-out delay-[280ms] ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[18px]"
           }`}
           style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -101,22 +102,15 @@ const HeroSection: React.FC = () => {
           innovation, staffing, and digital growth — all under one roof.
         </p>
 
-        {/* CTAs */}
+        {/* CTAs — primary solid + secondary outline */}
         <div
-          className={`flex flex-wrap items-center gap-5 mb-16 transition-all duration-700 ease-out delay-[380ms] ${
+          className={`flex flex-wrap items-center gap-3 sm:gap-4 mb-10 transition-all duration-700 ease-out delay-[380ms] ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2.5 bg-orange-500 hover:bg-orange-600 text-white text-[13px] font-medium tracking-[0.06em] uppercase px-[30px] py-4 no-underline transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
-            style={{
-              clipPath:
-                "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
-            }}
-          >
-            Schedule a Call
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <Link href="/contact" className={ctaPrimaryClass}>
+            Book a consult
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path
                 d="M1 7h12M8 2l5 5-5 5"
                 stroke="currentColor"
@@ -127,15 +121,13 @@ const HeroSection: React.FC = () => {
             </svg>
           </Link>
 
-          
+          <Link href="/services" className={ctaSecondaryClass}>
+            Explore services
+          </Link>
         </div>
-
-        
 
       </div>
 
-      {/* Minimal style block — only for things Tailwind can't express:
-          custom keyframe + Google Fonts import */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap');
         @keyframes heroZoom {
