@@ -45,7 +45,7 @@ export default function ServicesIndexPage() {
       >
         F&B services built to scale
       </h1>
-      <p className="mt-5 max-w-2xl text-lg text-[#6b6560]">
+      <p className="mt-5 max-w-2xl text-lg text-[#a8a29a]">
         Modular support from first outlet to multi-city rollout — start with the
         service you need, or run the full Kitchen Pulse stack.
       </p>
@@ -54,10 +54,10 @@ export default function ServicesIndexPage() {
           <li key={item.href}>
             <Link
               href={item.href}
-              className="block rounded-md border border-black/10 bg-white p-5 transition hover:border-orange-500/40"
+              className="block rounded-md border border-white/10 bg-[#171614] p-5 transition hover:border-orange-500/40"
             >
-              <h2 className="text-lg font-semibold text-[#1a1714]">{item.title}</h2>
-              <p className="mt-1 text-sm text-[#6b6560]">{item.body}</p>
+              <h2 className="text-lg font-semibold text-[#f2efe9]">{item.title}</h2>
+              <p className="mt-1 text-sm text-[#a8a29a]">{item.body}</p>
             </Link>
           </li>
         ))}

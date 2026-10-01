@@ -13,14 +13,14 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#faf9f7]">
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0f0e0d]">
 
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center animate-[heroZoom_14s_ease_forwards]"
         style={{
           backgroundImage: "url('assets/chefing.jpeg')",
-          filter: "brightness(1.05) saturate(0.7)",
+          filter: "brightness(0.55) saturate(0.75)",
         }}
       />
 
@@ -38,7 +38,7 @@ const HeroSection: React.FC = () => {
         className="absolute inset-0 z-[2]"
         style={{
           background:
-            "linear-gradient(105deg, rgba(250,249,247,0.94) 0%, rgba(250,249,247,0.78) 45%, rgba(250,249,247,0.18) 100%)",
+            "linear-gradient(105deg, rgba(15,14,13,0.94) 0%, rgba(15,14,13,0.78) 45%, rgba(15,14,13,0.18) 100%)",
         }}
       />
 
@@ -61,7 +61,7 @@ const HeroSection: React.FC = () => {
       />
 
       {/* Content */}
-      <div className="relative z-[4] w-full max-w-[1280px] mx-auto px-5 sm:px-7 md:px-[50px] lg:px-20 text-[#1a1714]">
+      <div className="relative z-[4] w-full max-w-[1280px] mx-auto px-5 sm:px-7 md:px-[50px] lg:px-20 text-[#f2efe9]">
 
         {/* Eyebrow */}
         <div
@@ -75,7 +75,7 @@ const HeroSection: React.FC = () => {
 
         {/* Headline */}
         <h1
-          className={`text-[clamp(44px,6.5vw,90px)] font-black leading-none tracking-[-0.025em] text-[#1a1714] max-w-[780px] mb-7 transition-all duration-[750ms] ease-out delay-[150ms] ${
+          className={`text-[clamp(44px,6.5vw,90px)] font-black leading-none tracking-[-0.025em] text-[#f2efe9] max-w-[780px] mb-7 transition-all duration-[750ms] ease-out delay-[150ms] ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
           style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
@@ -92,7 +92,7 @@ const HeroSection: React.FC = () => {
 
         {/* Subheadline */}
         <p
-          className={`text-[clamp(15px,1.6vw,18px)] font-light leading-[1.75] text-[#6b6560] max-w-[520px] mb-11 transition-all duration-700 ease-out delay-[280ms] ${
+          className={`text-[clamp(15px,1.6vw,18px)] font-light leading-[1.75] text-[#a8a29a] max-w-[520px] mb-11 transition-all duration-700 ease-out delay-[280ms] ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[18px]"
           }`}
           style={{ fontFamily: "'DM Sans', sans-serif" }}

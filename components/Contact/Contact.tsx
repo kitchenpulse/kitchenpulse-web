@@ -132,9 +132,9 @@ ${formData.message}
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap');
 
         .ct-input {
-          background: #fff;
-          border: 1px solid rgba(0,0,0,0.09);
-          color: #1a1714;
+          background: #171614;
+          border: 1px solid rgba(255,255,255,0.10);
+          color: #f2efe9;
           font-family: 'DM Sans', sans-serif;
           font-size: 13px;
           font-weight: 300;
@@ -147,8 +147,8 @@ ${formData.message}
           -webkit-appearance: none;
           border-radius: 0;
         }
-        .ct-input::placeholder { color: #c0bab4; }
-        .ct-input:focus { border-color: rgba(249,115,22,0.5); background: #fffcfa; }
+        .ct-input::placeholder { color: #5c574f; }
+        .ct-input:focus { border-color: rgba(249,115,22,0.5); background: #1c1916; }
 
         .ct-info-bar {
           position: absolute;
@@ -176,7 +176,7 @@ ${formData.message}
       <section
         id="contact"
         ref={sectionRef}
-        className="relative bg-[#faf9f7] text-[#1a1714] overflow-hidden"
+        className="relative bg-[#0f0e0d] text-[#f2efe9] overflow-hidden"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
         {/* Grain overlay */}
@@ -192,7 +192,7 @@ ${formData.message}
           style={{ background: "radial-gradient(ellipse, rgba(249,115,22,0.03) 0%, transparent 70%)" }} />
 
         {/* ── HEADER ── */}
-        <div className={`relative z-[2] grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-end px-5 sm:px-[50px] lg:px-20 pt-[100px] pb-16 lg:pb-[72px] border-b border-black/[0.07]`}>
+        <div className={`relative z-[2] grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-end px-5 sm:px-[50px] lg:px-20 pt-[100px] pb-16 lg:pb-[72px] border-b border-white/[0.08]`}>
           <div>
             <div className={fade()}>
               <span className="inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.22em] uppercase text-orange-500 mb-6">
@@ -201,7 +201,7 @@ ${formData.message}
               </span>
             </div>
             <h2
-              className={`text-[clamp(38px,5vw,66px)] font-black leading-none tracking-[-0.02em] text-[#1a1714] ${fade("delay-100")}`}
+              className={`text-[clamp(38px,5vw,66px)] font-black leading-none tracking-[-0.02em] text-[#f2efe9] ${fade("delay-100")}`}
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
               Let's Build<br />
@@ -211,7 +211,7 @@ ${formData.message}
           </div>
 
           <div>
-            <p className={`text-[clamp(14px,1.4vw,16px)] font-light leading-[1.8] text-[#6b6560] max-w-[400px] mb-9 ${fade("delay-200")}`}>
+            <p className={`text-[clamp(14px,1.4vw,16px)] font-light leading-[1.8] text-[#a8a29a] max-w-[400px] mb-9 ${fade("delay-200")}`}>
               Whether you're launching a new F&amp;B concept, scaling an existing brand, or exploring{" "}
               <strong className="text-orange-500 font-medium">D2C growth</strong>{" "}
               — we're ready to partner with you across every stage of the journey.
@@ -222,18 +222,18 @@ ${formData.message}
 
         {/* ── DIVIDER LABEL ── */}
         <div className={`relative z-[2] flex items-center gap-3.5 px-5 sm:px-[50px] lg:px-20 py-9 ${fade("delay-[450ms]")}`}>
-          <div className="flex-1 h-px bg-black/[0.07]" />
-          <span className="text-[10px] font-medium tracking-[0.24em] uppercase text-[#c0bab4] whitespace-nowrap">
+          <div className="flex-1 h-px bg-white/[0.08]" />
+          <span className="text-[10px] font-medium tracking-[0.24em] uppercase text-[#5c574f] whitespace-nowrap">
             Reach Out
           </span>
-          <div className="flex-1 h-px bg-black/[0.07]" />
+          <div className="flex-1 h-px bg-white/[0.08]" />
         </div>
 
         {/* ── BODY GRID ── */}
-        <div className={`relative z-[2] grid grid-cols-1 md:grid-cols-[1fr_1.55fr] gap-0.5 px-5 sm:px-[50px] lg:px-20 border-t border-b border-black/[0.07] ${fade("delay-[550ms]")}`}>
+        <div className={`relative z-[2] grid grid-cols-1 md:grid-cols-[1fr_1.55fr] gap-0.5 px-5 sm:px-[50px] lg:px-20 border-t border-b border-white/[0.08] ${fade("delay-[550ms]")}`}>
 
           {/* LEFT — contact info + socials */}
-          <div className="flex flex-col gap-12 py-12 lg:py-[52px] pr-0 md:pr-12 lg:pr-[48px] border-b md:border-b-0 md:border-r border-black/[0.07]">
+          <div className="flex flex-col gap-12 py-12 lg:py-[52px] pr-0 md:pr-12 lg:pr-[48px] border-b md:border-b-0 md:border-r border-white/[0.08]">
 
             {/* Direct Contact */}
             <div>
@@ -245,17 +245,17 @@ ${formData.message}
                 {contactDetails.map((item) => (
                   <div
                     key={item.label}
-                    className="ct-info-item-w group relative flex items-start gap-4 px-5 py-5 bg-white border border-black/[0.07] cursor-default transition-all duration-300 hover:border-orange-500/30 hover:bg-[#fffcfa] overflow-hidden"
+                    className="ct-info-item-w group relative flex items-start gap-4 px-5 py-5 bg-[#171614] border border-white/[0.08] cursor-default transition-all duration-300 hover:border-orange-500/30 hover:bg-[#1c1916] overflow-hidden"
                   >
                     <div className="ct-info-bar" />
-                    <div className="w-[38px] h-[38px] flex-shrink-0 flex items-center justify-center bg-[#f0ede8] border border-black/[0.07] text-[#8a8480] transition-all duration-300 group-hover:border-orange-500/30 group-hover:text-orange-500 group-hover:bg-orange-50">
+                    <div className="w-[38px] h-[38px] flex-shrink-0 flex items-center justify-center bg-[#24211e] border border-white/[0.08] text-[#7a746e] transition-all duration-300 group-hover:border-orange-500/30 group-hover:text-orange-500 group-hover:bg-orange-500/10">
                       {item.icon}
                     </div>
                     <div>
-                      <p className="text-[9px] font-medium tracking-[0.2em] uppercase text-[#c0bab4] mb-1.5 transition-colors duration-300 group-hover:text-orange-500">
+                      <p className="text-[9px] font-medium tracking-[0.2em] uppercase text-[#5c574f] mb-1.5 transition-colors duration-300 group-hover:text-orange-500">
                         {item.label}
                       </p>
-                      <p className="text-[13px] font-light leading-[1.75] text-[#8a8480] whitespace-pre-line transition-colors duration-300 group-hover:text-[#6b6560]">
+                      <p className="text-[13px] font-light leading-[1.75] text-[#7a746e] whitespace-pre-line transition-colors duration-300 group-hover:text-[#a8a29a]">
                         {item.value}
                       </p>
                     </div>
@@ -277,17 +277,17 @@ ${formData.message}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ct-info-item-w group relative flex items-start gap-4 px-5 py-5 bg-white border border-black/[0.07] no-underline cursor-pointer transition-all duration-300 hover:border-orange-500/30 hover:bg-[#fffcfa] overflow-hidden"
+                    className="ct-info-item-w group relative flex items-start gap-4 px-5 py-5 bg-[#171614] border border-white/[0.08] no-underline cursor-pointer transition-all duration-300 hover:border-orange-500/30 hover:bg-[#1c1916] overflow-hidden"
                   >
                     <div className="ct-info-bar" />
-                    <div className="w-[38px] h-[38px] flex-shrink-0 flex items-center justify-center bg-[#f0ede8] border border-black/[0.07] text-[#8a8480] transition-all duration-300 group-hover:border-orange-500/30 group-hover:text-orange-500 group-hover:bg-orange-50">
+                    <div className="w-[38px] h-[38px] flex-shrink-0 flex items-center justify-center bg-[#24211e] border border-white/[0.08] text-[#7a746e] transition-all duration-300 group-hover:border-orange-500/30 group-hover:text-orange-500 group-hover:bg-orange-500/10">
                       {item.icon}
                     </div>
                     <div>
-                      <p className="text-[9px] font-medium tracking-[0.2em] uppercase text-[#c0bab4] mb-1.5 transition-colors duration-300 group-hover:text-orange-500">
+                      <p className="text-[9px] font-medium tracking-[0.2em] uppercase text-[#5c574f] mb-1.5 transition-colors duration-300 group-hover:text-orange-500">
                         {item.label}
                       </p>
-                      <p className="text-[13px] font-light leading-[1.75] text-[#8a8480] transition-colors duration-300 group-hover:text-[#6b6560]">
+                      <p className="text-[13px] font-light leading-[1.75] text-[#7a746e] transition-colors duration-300 group-hover:text-[#a8a29a]">
                         {item.handle}
                       </p>
                     </div>
@@ -302,30 +302,30 @@ ${formData.message}
           <div className="py-12 lg:py-[52px] pl-0 md:pl-12 lg:pl-[48px]">
             {submitted ? (
               <div className="flex flex-col items-center justify-center gap-5 py-[72px] px-8 text-center min-h-[320px]">
-                <div className="w-14 h-14 flex items-center justify-center bg-orange-50 border border-orange-200">
+                <div className="w-14 h-14 flex items-center justify-center bg-orange-500/10 border border-orange-500/25">
                   <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
                     <path d="M20 6L9 17l-5-5" />
                   </svg>
                 </div>
-                <p className="text-[26px] font-bold text-[#1a1714]"
+                <p className="text-[26px] font-bold text-[#f2efe9]"
                   style={{ fontFamily: "'Playfair Display', serif" }}>
                   Message{" "}
                   <em className="text-orange-500" style={{ fontStyle: "italic" }}>Received.</em>
                 </p>
-                <p className="text-[13px] font-light text-[#8a8480] max-w-[280px] leading-[1.8]">
+                <p className="text-[13px] font-light text-[#7a746e] max-w-[280px] leading-[1.8]">
                   Our team will reach out within 24 hours. We look forward to building with you.
                 </p>
               </div>
             ) : (
               <>
                 <h3
-                  className="text-[clamp(22px,2.5vw,30px)] font-bold leading-[1.2] text-[#1a1714] mb-2"
+                  className="text-[clamp(22px,2.5vw,30px)] font-bold leading-[1.2] text-[#f2efe9] mb-2"
                   style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   Start the{" "}
                   <em className="text-orange-500" style={{ fontStyle: "italic" }}>Conversation</em>
                 </h3>
-                <p className="text-[13px] font-light text-[#8a8480] mb-9 leading-[1.7]">
+                <p className="text-[13px] font-light text-[#7a746e] mb-9 leading-[1.7]">
                   Fill in your details and we'll get back to you within 24 hours.
                 </p>
 
@@ -338,7 +338,7 @@ ${formData.message}
                       <label
                         htmlFor={field.id}
                         className={`text-[9px] font-medium tracking-[0.2em] uppercase transition-colors duration-300 ${
-                          focused === field.id ? "text-orange-500" : "text-[#c0bab4]"
+                          focused === field.id ? "text-orange-500" : "text-[#5c574f]"
                         }`}
                       >
                         {field.label}
@@ -370,7 +370,7 @@ ${formData.message}
 
                   {/* Interest pills */}
                   <div className="sm:col-span-2 mt-0.5">
-                    <p className="text-[9px] font-medium tracking-[0.2em] uppercase text-[#c0bab4] mb-2.5">
+                    <p className="text-[9px] font-medium tracking-[0.2em] uppercase text-[#5c574f] mb-2.5">
                       Areas of Interest
                     </p>
                     <div className="flex flex-wrap gap-1.5">
@@ -381,8 +381,8 @@ ${formData.message}
                           onClick={() => toggleInterest(item)}
                           className={`text-[10px] font-medium tracking-[0.14em] uppercase px-3.5 py-[7px] border cursor-pointer select-none transition-all duration-[250ms] ${
                             selected.includes(item)
-                              ? "bg-orange-50 border-orange-400 text-orange-500"
-                              : "bg-white border-black/[0.09] text-[#a09890] hover:border-orange-300/60 hover:text-[#6b6560] hover:bg-[#fffcfa]"
+                              ? "bg-orange-500/10 border-orange-400 text-orange-500"
+                              : "bg-[#171614] border-white/[0.10] text-[#7a746e] hover:border-orange-500/40 hover:text-[#a8a29a] hover:bg-[#1c1916]"
                           }`}
                         >
                           {item}
@@ -393,7 +393,7 @@ ${formData.message}
 
                   {/* Footer row */}
                   <div className="sm:col-span-2 flex items-center justify-between flex-wrap gap-4 mt-0.5">
-                    <p className="text-[11px] font-light text-[#c0bab4] max-w-[220px] leading-[1.6]">
+                    <p className="text-[11px] font-light text-[#5c574f] max-w-[220px] leading-[1.6]">
                       We respect your privacy. No spam, ever.
                     </p>
                     <button

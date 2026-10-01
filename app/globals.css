@@ -1,26 +1,54 @@
 @import "tailwindcss";
 
+/*
+  Kitchen Pulse — site-wide dark theme tokens.
+  Warm near-black surfaces + cream text + orange brand accent.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+
+  --kp-bg: #0f0e0d;
+  --kp-bg-elevated: #171614;
+  --kp-bg-muted: #24211e;
+  --kp-bg-hover: #1c1916;
+  --kp-fg: #f2efe9;
+  --kp-fg-muted: #a8a29a;
+  --kp-fg-subtle: #7a746e;
+  --kp-fg-faint: #5c574f;
+  --kp-border: rgba(255, 255, 255, 0.08);
+  --kp-border-strong: rgba(255, 255, 255, 0.12);
+  --kp-accent: #f97316;
+  --kp-accent-hover: #ea580c;
+  --kp-accent-soft: rgba(249, 115, 22, 0.12);
+
+  --background: var(--kp-bg);
+  --foreground: var(--kp-fg);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-kp-bg: var(--kp-bg);
+  --color-kp-elevated: var(--kp-bg-elevated);
+  --color-kp-muted: var(--kp-bg-muted);
+  --color-kp-hover: var(--kp-bg-hover);
+  --color-kp-fg: var(--kp-fg);
+  --color-kp-fg-muted: var(--kp-fg-muted);
+  --color-kp-fg-subtle: var(--kp-fg-subtle);
+  --color-kp-accent: var(--kp-accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: var(--kp-bg);
+  color: var(--kp-fg);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Sensible defaults for form controls on dark chrome */
+input,
+textarea,
+select {
+  color-scheme: dark;
 }

@@ -50,12 +50,12 @@ const LogoStrip: React.FC = () => {
         }
         .logo-card:hover {
           border-color: rgba(249,115,22,0.4) !important;
-          background: #fffcfa !important;
+          background: #1c1916 !important;
         }
       `}</style>
 
       <section
-        className="relative bg-[#faf9f7] overflow-hidden border-y border-black/[0.07]"
+        className="relative bg-[#0f0e0d] overflow-hidden border-y border-white/[0.08]"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
         {/* Grain overlay */}
@@ -69,16 +69,16 @@ const LogoStrip: React.FC = () => {
 
         {/* Left & right edge fades */}
         <div className="absolute left-0 top-0 h-full w-24 z-[3] pointer-events-none"
-          style={{ background: "linear-gradient(to right, #faf9f7, transparent)" }} />
+          style={{ background: "linear-gradient(to right, #0f0e0d, transparent)" }} />
         <div className="absolute right-0 top-0 h-full w-24 z-[3] pointer-events-none"
-          style={{ background: "linear-gradient(to left, #faf9f7, transparent)" }} />
+          style={{ background: "linear-gradient(to left, #0f0e0d, transparent)" }} />
 
         {/* Section label */}
         <div className="relative z-[2] flex items-center justify-center pt-10 pb-6">
-          <span className="inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-[#a09890]">
-            <span className="w-8 h-px bg-black/[0.1] inline-block" />
+          <span className="inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-[#7a746e]">
+            <span className="w-8 h-px bg-white/[0.12] inline-block" />
             Trusted by Leading F&amp;B Brands
-            <span className="w-8 h-px bg-black/[0.1] inline-block" />
+            <span className="w-8 h-px bg-white/[0.12] inline-block" />
           </span>
         </div>
 
@@ -88,11 +88,11 @@ const LogoStrip: React.FC = () => {
             {track.map((logo, i) => (
               <div
                 key={i}
-                className="logo-card flex items-center gap-3.5 mx-1.5 px-6 py-4 bg-white border border-black/[0.07] cursor-default select-none"
+                className="logo-card flex items-center gap-3.5 mx-1.5 px-6 py-4 bg-[#171614] border border-white/[0.08] cursor-default select-none"
                 style={{ minWidth: 200 }}
               >
                 {/* Logo or initials */}
-                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#f0ede8] border border-black/[0.07] rounded-[4px] overflow-hidden">
+                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#24211e] border border-white/[0.08] rounded-[4px] overflow-hidden">
                   {logo.src ? (
                     <img
                       src={logo.src}
@@ -109,7 +109,7 @@ const LogoStrip: React.FC = () => {
                     </span>
                   )}
                 </div>
-                <span className="text-[13px] font-medium text-[#1a1714] whitespace-nowrap">
+                <span className="text-[13px] font-medium text-[#f2efe9] whitespace-nowrap">
                   {logo.name}
                 </span>
               </div>
@@ -123,10 +123,10 @@ const LogoStrip: React.FC = () => {
             {[...track].reverse().map((logo, i) => (
               <div
                 key={i}
-                className="logo-card flex items-center gap-3.5 mx-1.5 px-6 py-4 bg-white border border-black/[0.07] cursor-default select-none"
+                className="logo-card flex items-center gap-3.5 mx-1.5 px-6 py-4 bg-[#171614] border border-white/[0.08] cursor-default select-none"
                 style={{ minWidth: 200 }}
               >
-                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#f0ede8] border border-black/[0.07] rounded-[4px] overflow-hidden">
+                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#24211e] border border-white/[0.08] rounded-[4px] overflow-hidden">
                   {logo.src ? (
                     <img
                       src={logo.src}
@@ -143,7 +143,7 @@ const LogoStrip: React.FC = () => {
                     </span>
                   )}
                 </div>
-                <span className="text-[13px] font-medium text-[#1a1714] whitespace-nowrap">
+                <span className="text-[13px] font-medium text-[#f2efe9] whitespace-nowrap">
                   {logo.name}
                 </span>
               </div>

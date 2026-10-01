@@ -92,8 +92,8 @@ const WhoWeAre = () => {
 
         .ww-section {
           font-family: 'DM Sans', sans-serif;
-          background: #faf9f7;
-          color: #1a1714;
+          background: #0f0e0d;
+          color: #f2efe9;
           overflow: hidden;
           position: relative;
         }
@@ -127,7 +127,7 @@ const WhoWeAre = () => {
           grid-template-columns: 1fr 1fr;
           gap: 64px;
           align-items: end;
-          border-bottom: 1px solid rgba(0,0,0,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.09);
         }
 
         @media (max-width: 1100px) { .ww-header { padding: 80px 50px 60px; gap: 40px; } }
@@ -153,7 +153,7 @@ const WhoWeAre = () => {
           font-weight: 900;
           line-height: 1.0;
           letter-spacing: -0.02em;
-          color: #1a1714;
+          color: #f2efe9;
         }
         .ww-headline em { font-style: italic; color: #f97316; }
 
@@ -161,7 +161,7 @@ const WhoWeAre = () => {
           font-size: clamp(14px, 1.4vw, 16px);
           font-weight: 300;
           line-height: 1.8;
-          color: #6b6560;
+          color: #a8a29a;
           max-width: 400px;
           margin-bottom: 36px;
         }
@@ -171,11 +171,11 @@ const WhoWeAre = () => {
         .ww-header-stats {
           display: flex;
           gap: 0;
-          border-top: 1px solid rgba(0,0,0,0.08);
+          border-top: 1px solid rgba(255,255,255,0.09);
           padding-top: 28px;
         }
         .ww-hstat { flex: 1; padding-right: 20px; }
-        .ww-hstat + .ww-hstat { padding-left: 20px; border-left: 1px solid rgba(0,0,0,0.08); }
+        .ww-hstat + .ww-hstat { padding-left: 20px; border-left: 1px solid rgba(255,255,255,0.09); }
         .ww-hstat-val {
           font-family: 'Playfair Display', serif;
           font-size: clamp(22px, 2.5vw, 32px);
@@ -189,17 +189,17 @@ const WhoWeAre = () => {
           font-weight: 400;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: #a09890;
+          color: #7a746e;
         }
 
         /* ── PILLARS MARQUEE ── */
         .ww-pillars-wrap {
           position: relative;
           z-index: 2;
-          border-bottom: 1px solid rgba(0,0,0,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.09);
           overflow: hidden;
           padding: 0;
-          background: #faf9f7;
+          background: #0f0e0d;
         }
         .ww-pillars-track {
           display: flex;
@@ -218,7 +218,7 @@ const WhoWeAre = () => {
           align-items: center;
           gap: 10px;
           padding: 18px 36px;
-          border-right: 1px solid rgba(0,0,0,0.07);
+          border-right: 1px solid rgba(255,255,255,0.08);
           white-space: nowrap;
           flex-shrink: 0;
         }
@@ -228,7 +228,7 @@ const WhoWeAre = () => {
           font-weight: 500;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #a09890;
+          color: #7a746e;
           transition: color 0.3s;
         }
         .ww-pillar-item:hover .ww-pillar-label { color: #f97316; }
@@ -240,19 +240,19 @@ const WhoWeAre = () => {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 1px;
-          background: rgba(0,0,0,0.07);
-          border-bottom: 1px solid rgba(0,0,0,0.08);
+          background: rgba(255,255,255,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.09);
         }
         @media (max-width: 700px) { .ww-mv-grid { grid-template-columns: 1fr; } }
 
         .ww-mv-card {
-          background: #faf9f7;
+          background: #0f0e0d;
           padding: 52px 60px;
           position: relative;
           overflow: hidden;
           transition: background 0.3s;
         }
-        .ww-mv-card:hover { background: #f5f3ef; }
+        .ww-mv-card:hover { background: #1a1816; }
 
         /* Large italic letter watermark */
         .ww-mv-wm {
@@ -262,7 +262,7 @@ const WhoWeAre = () => {
           font-style: italic;
           font-size: 120px;
           font-weight: 900;
-          color: rgba(0,0,0,0.04);
+          color: rgba(255,255,255,0.05);
           line-height: 1;
           pointer-events: none;
           user-select: none;
@@ -292,7 +292,7 @@ const WhoWeAre = () => {
           font-family: 'Playfair Display', serif;
           font-size: clamp(22px, 2.5vw, 30px);
           font-weight: 700;
-          color: #1a1714;
+          color: #f2efe9;
           margin-bottom: 18px;
           line-height: 1.2;
           position: relative;
@@ -303,13 +303,13 @@ const WhoWeAre = () => {
           font-size: 14px;
           font-weight: 300;
           line-height: 1.85;
-          color: #8a8480;
+          color: #7a746e;
           position: relative;
           z-index: 1;
           transition: color 0.3s;
           max-width: 380px;
         }
-        .ww-mv-card:hover .ww-mv-text { color: #6b6560; }
+        .ww-mv-card:hover .ww-mv-text { color: #a8a29a; }
 
         .ww-mv-line {
           margin-top: 28px;
@@ -335,13 +335,13 @@ const WhoWeAre = () => {
           gap: 14px;
           padding: 36px 0 24px;
         }
-        .ww-founders-label-line { flex: 1; height: 1px; background: rgba(0,0,0,0.08); }
+        .ww-founders-label-line { flex: 1; height: 1px; background: rgba(255,255,255,0.09); }
         .ww-founders-label-text {
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 0.24em;
           text-transform: uppercase;
-          color: #a09890;
+          color: #7a746e;
           white-space: nowrap;
         }
 
@@ -349,14 +349,14 @@ const WhoWeAre = () => {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 1px;
-          background: rgba(0,0,0,0.07);
+          background: rgba(255,255,255,0.08);
         }
         @media (max-width: 700px) { .ww-founders-grid { grid-template-columns: 1fr; } }
 
         /* ── FOUNDER CARD ── */
         .ww-founder-card {
-          background: #ffffff;
-          border: 1px solid rgba(0,0,0,0.07);
+          background: #171614;
+          border: 1px solid rgba(255,255,255,0.08);
           padding: 40px 36px 32px;
           position: relative;
           overflow: hidden;
@@ -372,7 +372,7 @@ const WhoWeAre = () => {
                       border-color 0.3s, background 0.3s;
         }
         .ww-founder-card:hover {
-          background: #fffcfa;
+          background: #1c1916;
           border-color: #f97316;
         }
 
@@ -398,8 +398,8 @@ const WhoWeAre = () => {
         }
         .ww-founder-avatar {
           width: 72px; height: 72px;
-          background: #f0ede8;
-          border: 1px solid rgba(0,0,0,0.08);
+          background: #24211e;
+          border: 1px solid rgba(255,255,255,0.09);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -412,7 +412,7 @@ const WhoWeAre = () => {
           z-index: 1;
         }
         .ww-founder-card:hover .ww-founder-avatar {
-          background: #fdecd9;
+          background: #2a1f14;
           border-color: rgba(249,115,22,0.3);
         }
 
@@ -426,7 +426,7 @@ const WhoWeAre = () => {
           font-family: 'Playfair Display', serif;
           font-size: 28px;
           font-weight: 700;
-          color: rgba(0,0,0,0.07);
+          color: rgba(255,255,255,0.08);
           line-height: 1;
           transition: color 0.3s;
         }
@@ -435,7 +435,7 @@ const WhoWeAre = () => {
           font-size: 9px;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: rgba(0,0,0,0.12);
+          color: rgba(255,255,255,0.14);
           margin-top: 3px;
           transition: color 0.3s;
         }
@@ -445,7 +445,7 @@ const WhoWeAre = () => {
           font-family: 'Playfair Display', serif;
           font-size: clamp(20px, 2vw, 24px);
           font-weight: 700;
-          color: #1a1714;
+          color: #f2efe9;
           line-height: 1.1;
           margin-bottom: 6px;
           position: relative;
@@ -465,17 +465,17 @@ const WhoWeAre = () => {
           font-size: 13px;
           font-weight: 300;
           line-height: 1.8;
-          color: #8a8480;
+          color: #7a746e;
           transition: color 0.3s;
           position: relative;
           z-index: 1;
         }
-        .ww-founder-card:hover .ww-founder-bio { color: #6b6560; }
+        .ww-founder-card:hover .ww-founder-bio { color: #a8a29a; }
 
         .ww-founder-footer {
           margin-top: 24px;
           padding-top: 16px;
-          border-top: 1px solid rgba(0,0,0,0.07);
+          border-top: 1px solid rgba(255,255,255,0.08);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -491,7 +491,7 @@ const WhoWeAre = () => {
           font-weight: 500;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #a09890;
+          color: #7a746e;
           text-decoration: none;
           transition: color 0.3s;
         }
@@ -499,8 +499,8 @@ const WhoWeAre = () => {
 
         .ww-founder-arrow {
           width: 20px; height: 20px;
-          border: 1px solid rgba(0,0,0,0.1);
-          background: #f0ede8;
+          border: 1px solid rgba(255,255,255,0.12);
+          background: #24211e;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -508,11 +508,11 @@ const WhoWeAre = () => {
         }
         .ww-founder-card:hover .ww-founder-arrow {
           border-color: #f97316;
-          background: #fdecd9;
+          background: #2a1f14;
         }
         .ww-founder-arrow svg {
           width: 10px; height: 10px;
-          stroke: #a09890;
+          stroke: #7a746e;
           transition: stroke 0.3s;
         }
         .ww-founder-card:hover .ww-founder-arrow svg { stroke: #f97316; }
@@ -539,14 +539,14 @@ const WhoWeAre = () => {
         }
 
         .ww-contact-box {
-          border: 1px solid rgba(0,0,0,0.07);
+          border: 1px solid rgba(255,255,255,0.08);
           overflow: hidden;
         }
 
         .ww-contact-header {
           padding: 20px 28px;
-          border-bottom: 1px solid rgba(0,0,0,0.07);
-          background: #ffffff;
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+          background: #171614;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -562,44 +562,44 @@ const WhoWeAre = () => {
           font-size: 9px;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #a09890;
-          border: 1px solid rgba(0,0,0,0.08);
+          color: #7a746e;
+          border: 1px solid rgba(255,255,255,0.09);
           padding: 4px 10px;
         }
 
         .ww-contact-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          background: #ffffff;
+          background: #171614;
         }
         @media (max-width: 700px) { .ww-contact-grid { grid-template-columns: 1fr; } }
 
         .ww-contact-item {
           padding: 32px 28px;
-          border-right: 1px solid rgba(0,0,0,0.07);
+          border-right: 1px solid rgba(255,255,255,0.08);
           display: flex;
           align-items: flex-start;
           gap: 16px;
           transition: background 0.3s;
         }
         .ww-contact-item:last-child { border-right: none; }
-        .ww-contact-item:hover { background: #fffcfa; }
+        .ww-contact-item:hover { background: #1c1916; }
 
         .ww-contact-icon-wrap {
           width: 38px; height: 38px;
-          border: 1px solid rgba(0,0,0,0.08);
-          background: #f0ede8;
+          border: 1px solid rgba(255,255,255,0.09);
+          background: #24211e;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
-          color: #8a8480;
+          color: #7a746e;
           transition: border-color 0.3s, color 0.3s, background 0.3s;
         }
         .ww-contact-item:hover .ww-contact-icon-wrap {
           border-color: rgba(249,115,22,0.3);
           color: #f97316;
-          background: #fdecd9;
+          background: #2a1f14;
         }
 
         .ww-contact-sub-label {
@@ -607,7 +607,7 @@ const WhoWeAre = () => {
           font-weight: 500;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: #a09890;
+          color: #7a746e;
           margin-bottom: 8px;
           transition: color 0.3s;
         }
@@ -617,11 +617,11 @@ const WhoWeAre = () => {
           font-size: 13px;
           font-weight: 300;
           line-height: 1.7;
-          color: #8a8480;
+          color: #7a746e;
           white-space: pre-line;
           transition: color 0.3s;
         }
-        .ww-contact-item:hover .ww-contact-value { color: #6b6560; }
+        .ww-contact-item:hover .ww-contact-value { color: #a8a29a; }
 
         /* Fade utilities */
         .ww-fade {

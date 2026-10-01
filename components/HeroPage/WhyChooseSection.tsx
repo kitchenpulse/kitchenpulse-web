@@ -113,7 +113,7 @@ const WhyChooseSection = () => {
       <section
         id="why-choose"
         ref={sectionRef}
-        className="relative bg-[#faf9f7] text-[#1a1714] overflow-hidden"
+        className="relative bg-[#0f0e0d] text-[#f2efe9] overflow-hidden"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
         {/* Background image layer */}
@@ -123,7 +123,7 @@ const WhyChooseSection = () => {
         />
 
         {/* Light overlay */}
-        <div className="absolute inset-0 z-[1] bg-[#faf9f7]/[0.88]" />
+        <div className="absolute inset-0 z-[1] bg-[#0f0e0d]/[0.92]" />
 
         {/* Grain */}
         <div
@@ -143,7 +143,7 @@ const WhyChooseSection = () => {
         />
 
         {/* ── HEADER ── */}
-        <div className="relative z-[3] px-5 sm:px-[50px] lg:px-20 pt-16 sm:pt-20 lg:pt-[100px] pb-12 sm:pb-[60px] lg:pb-[72px] grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-16 items-end border-b border-black/[0.07]">
+        <div className="relative z-[3] px-5 sm:px-[50px] lg:px-20 pt-16 sm:pt-20 lg:pt-[100px] pb-12 sm:pb-[60px] lg:pb-[72px] grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-16 items-end border-b border-white/[0.08]">
           {/* Left */}
           <div>
             <div className={fade(heroVisible)}>
@@ -153,7 +153,7 @@ const WhyChooseSection = () => {
               </span>
             </div>
             <h2
-              className={`text-[clamp(38px,5vw,66px)] font-black leading-none tracking-[-0.02em] text-[#1a1714] ${fade(heroVisible, "delay-100")}`}
+              className={`text-[clamp(38px,5vw,66px)] font-black leading-none tracking-[-0.02em] text-[#f2efe9] ${fade(heroVisible, "delay-100")}`}
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
               Why Choose<br />
@@ -164,7 +164,7 @@ const WhyChooseSection = () => {
           {/* Right */}
           <div>
             <p
-              className={`text-[clamp(14px,1.4vw,16px)] font-light leading-[1.8] text-[#6b6560] max-w-[400px] mb-9 ${fade(heroVisible, "delay-200")}`}
+              className={`text-[clamp(14px,1.4vw,16px)] font-light leading-[1.8] text-[#a8a29a] max-w-[400px] mb-9 ${fade(heroVisible, "delay-200")}`}
             >
               We bring structure, accountability, and measurable impact to every
               stage of your food business lifecycle — one partner, every layer.
@@ -182,7 +182,7 @@ const WhyChooseSection = () => {
                 <React.Fragment key={item.title}>
                   {/* ── Card ── */}
                   <div
-                    className={`group flex-1 min-w-0 bg-white/80 backdrop-blur-sm border border-black/[0.07] overflow-hidden relative transition-all duration-300 hover:border-orange-500 hover:bg-white ${
+                    className={`group flex-1 min-w-0 bg-[#171614]/80 backdrop-blur-sm border border-white/[0.08] overflow-hidden relative transition-all duration-300 hover:border-orange-500 hover:bg-[#1c1916] ${
                       visibleCards[index]
                         ? "opacity-100 translate-y-0 transition-[opacity,transform,border-color,background] duration-[550ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
                         : "opacity-0 translate-y-7"
@@ -204,10 +204,10 @@ const WhyChooseSection = () => {
                         className="absolute inset-0 pointer-events-none"
                         style={{
                           background:
-                            "linear-gradient(to top, rgba(250,249,247,0.92) 0%, rgba(250,249,247,0.3) 50%, transparent 100%)",
+                            "linear-gradient(to top, rgba(15,14,13,0.92) 0%, rgba(15,14,13,0.3) 50%, transparent 100%)",
                         }}
                       />
-                      <span className="absolute top-4 left-4 text-[9px] font-medium tracking-[0.2em] uppercase text-orange-500 bg-white/80 border border-orange-200 px-2.5 py-1 backdrop-blur-sm">
+                      <span className="absolute top-4 left-4 text-[9px] font-medium tracking-[0.2em] uppercase text-orange-500 bg-[#171614]/80 border border-orange-500/25 px-2.5 py-1 backdrop-blur-sm">
                         {item.tag}
                       </span>
                     </div>
@@ -215,24 +215,24 @@ const WhyChooseSection = () => {
                     {/* Body */}
                     <div className="px-7 pt-6">
                       <div className="flex items-center gap-3 mb-2.5">
-                        <div className="w-9 h-9 bg-[#f0ede8] border border-black/[0.07] flex items-center justify-center text-orange-500 flex-shrink-0 group-hover:bg-orange-50 group-hover:border-orange-200 transition-all duration-300">
+                        <div className="w-9 h-9 bg-[#24211e] border border-white/[0.08] flex items-center justify-center text-orange-500 flex-shrink-0 group-hover:bg-orange-500/10 group-hover:border-orange-500/25 transition-all duration-300">
                           <Icon size={17} />
                         </div>
                         <h3
-                          className="text-[clamp(17px,1.8vw,22px)] font-bold leading-[1.2] text-[#1a1714]"
+                          className="text-[clamp(17px,1.8vw,22px)] font-bold leading-[1.2] text-[#f2efe9]"
                           style={{ fontFamily: "'Playfair Display', serif" }}
                         >
                           {item.title}
                         </h3>
                       </div>
-                      <p className="text-[13px] font-light leading-[1.8] text-[#8a8480] group-hover:text-[#6b6560] transition-colors duration-300">
+                      <p className="text-[13px] font-light leading-[1.8] text-[#7a746e] group-hover:text-[#a8a29a] transition-colors duration-300">
                         {item.desc}
                       </p>
                     </div>
 
                     {/* Footer */}
-                    <div className="mt-5 mx-0 px-7 pb-5 pt-3.5 border-t border-black/[0.06] flex items-center justify-between">
-                      <span className="text-[10px] font-medium tracking-[0.08em] text-[#a09890] bg-[#f0ede8] border border-black/[0.06] px-2.5 py-1 group-hover:text-orange-500 group-hover:border-orange-200 transition-all duration-300">
+                    <div className="mt-5 mx-0 px-7 pb-5 pt-3.5 border-t border-white/[0.07] flex items-center justify-between">
+                      <span className="text-[10px] font-medium tracking-[0.08em] text-[#7a746e] bg-[#24211e] border border-white/[0.07] px-2.5 py-1 group-hover:text-orange-500 group-hover:border-orange-500/25 transition-all duration-300">
                         {item.stat}
                       </span>
                       <span
