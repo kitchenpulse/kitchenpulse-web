@@ -12,7 +12,10 @@ export default function JsonLd() {
         telephone: "+91-91676-36653",
         description:
           "End-to-end F&B and D2C growth partner: restaurant real estate, civil and HVAC, commercial kitchen equipment, staffing, culinary innovation, and aggregator digital marketing across India.",
-        sameAs: ["https://www.linkedin.com/company/kitchen-pulse"],
+        sameAs: [
+          "https://www.linkedin.com/company/kitchen-pulse",
+          "https://www.instagram.com/kitchenpulse_official/",
+        ],
         founder: [
           { "@type": "Person", name: "Shubham Gupta", jobTitle: "Director" },
           { "@type": "Person", name: "Sushant Oundhakar", jobTitle: "Director" },
