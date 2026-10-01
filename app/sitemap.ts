@@ -15,6 +15,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: `${base}/services/commercial-kitchen-equipment`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${base}/services/kitchen-hvac`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     { url: `${base}/testimonials`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/contact`, lastModified, changeFrequency: "monthly", priority: 0.8 },
   ];

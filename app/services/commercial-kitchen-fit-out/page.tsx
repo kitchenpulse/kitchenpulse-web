@@ -15,6 +15,10 @@ export const metadata: Metadata = {
   },
 };
 
+const WHATSAPP_URL =
+  "https://wa.me/919167636653?text=" +
+  encodeURIComponent("Hi! I'd like to discuss a commercial kitchen fit-out with Kitchen Pulse.");
+
 const STEPS = [
   {
     title: "Site feasibility",
@@ -40,16 +44,20 @@ const STEPS = [
 
 const FAQ = [
   {
-    q: "How long does a commercial kitchen fit-out take?",
-    a: "Kitchen Pulse targets kitchen build and handover timelines as tight as about 21 days for scoped projects, depending on site readiness, approvals, and equipment lead times.",
+    q: "How long does a commercial kitchen fit-out take in India?",
+    a: "Kitchen Pulse targets kitchen build and handover timelines as tight as about 21 days for scoped projects, depending on site readiness, approvals, and equipment lead times. Complex sites or long-lead equipment can extend that window.",
   },
   {
-    q: "Do you work outside Mumbai?",
-    a: "Yes. We are based in Navi Mumbai and deliver pan-India for restaurants, cloud kitchens, and multi-outlet F&B brands.",
+    q: "What is included in a turnkey commercial kitchen fit-out?",
+    a: "Typically civil works, kitchen HVAC and exhaust, equipment sourcing or custom fabrication, coordination of utilities, and operational handover. Real estate, staffing, and aggregator support can be added when needed but are optional.",
   },
   {
-    q: "What’s included in a turnkey fit-out?",
-    a: "Typically civil works, kitchen HVAC/exhaust, equipment sourcing or custom fabrication, coordination of utilities, and operational handover — with optional real estate, staffing, and aggregator support.",
+    q: "Do you deliver commercial kitchen fit-outs pan-India?",
+    a: "Yes. We are based in Navi Mumbai and deliver pan-India for restaurants, cloud kitchens, and multi-outlet F&B brands using repeatable design and execution playbooks.",
+  },
+  {
+    q: "Do you fit out cloud kitchens differently from restaurants?",
+    a: "The core process is the same — feasibility, layout, MEP, civil, HVAC, equipment, handover — but cloud kitchens emphasise throughput, delivery packing flow, and compact footprints, while restaurants balance kitchen performance with front-of-house adjacency and guest experience.",
   },
 ];
 
@@ -72,6 +80,12 @@ export default function CommercialKitchenFitOutPage() {
       "@type": "Organization",
       name: "Kitchen Pulse",
       url: "https://kitchenpulse.in",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Navi Mumbai",
+        addressRegion: "Maharashtra",
+        addressCountry: "IN",
+      },
     },
     areaServed: "India",
     description:
@@ -112,8 +126,16 @@ export default function CommercialKitchenFitOutPage() {
           >
             Book a demo
           </Link>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center rounded-sm border border-[#f2efe9]/15 px-5 py-3 text-sm font-medium uppercase tracking-wider text-[#f2efe9]"
+          >
+            WhatsApp us
+          </a>
           <Link
-            href="/MainSection"
+            href="/services"
             className="inline-flex items-center rounded-sm border border-[#f2efe9]/15 px-5 py-3 text-sm font-medium uppercase tracking-wider text-[#f2efe9]"
           >
             All services
@@ -169,22 +191,24 @@ export default function CommercialKitchenFitOutPage() {
           <p className="mt-4 max-w-3xl text-[#a8a29a] leading-relaxed">
             Whether you are opening a QSR, cloud kitchen, or multi-city brand,
             we design for throughput, compliance, and maintenance — then execute
-            under one accountable team. Pair fit-out with our real estate,
-            staffing, and aggregator growth services when you want a single
-            partner from setup to scale.
+            under one accountable team. Pair fit-out with{" "}
+            <Link
+              href="/services/commercial-kitchen-equipment"
+              className="text-orange-500 underline-offset-2 hover:underline"
+            >
+              commercial kitchen equipment
+            </Link>{" "}
+            and{" "}
+            <Link
+              href="/services/kitchen-hvac"
+              className="text-orange-500 underline-offset-2 hover:underline"
+            >
+              kitchen HVAC
+            </Link>{" "}
+            for a single partner from layout through commissioning. Staffing and
+            aggregator growth remain available as add-ons when you want support
+            beyond the build.
           </p>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-2xl font-bold md:text-3xl">FAQs</h2>
-        <div className="mt-8 space-y-6">
-          {FAQ.map((item) => (
-            <div key={item.q} className="border-b border-white/10 pb-6">
-              <h3 className="text-lg font-semibold">{item.q}</h3>
-              <p className="mt-2 text-[#a8a29a] leading-relaxed">{item.a}</p>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -194,15 +218,25 @@ export default function CommercialKitchenFitOutPage() {
             Planning a kitchen this quarter?
           </h2>
           <p className="mt-4 max-w-2xl text-white/70">
-            Tell us your city, concept, and timeline — we’ll map the fit-out
+            Tell us your city, concept, and timeline — we will map the fit-out
             path and what it takes to go live.
           </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex items-center rounded-sm bg-orange-500 px-5 py-3 text-sm font-medium uppercase tracking-wider text-white"
-          >
-            Talk to Kitchen Pulse
-          </Link>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center rounded-sm bg-orange-500 px-5 py-3 text-sm font-medium uppercase tracking-wider text-white"
+            >
+              Talk to Kitchen Pulse
+            </Link>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-sm border border-[#f2efe9]/15 px-5 py-3 text-sm font-medium uppercase tracking-wider text-[#f2efe9]"
+            >
+              WhatsApp us
+            </a>
+          </div>
         </div>
       </section>
     </main>
