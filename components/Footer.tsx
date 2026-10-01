@@ -102,8 +102,22 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="kp-footer-divider mt-14 pt-8">
-            <div className="text-center">
+          <div className={`kp-footer-divider mt-14 pt-8 ${fade("delay-100")}`}>
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[12px] font-light tracking-[0.04em] text-[#8c8680]">
+              <Link href="/services" className="no-underline hover:text-orange-500">
+                Services
+              </Link>
+              <Link href="/equipment" className="no-underline hover:text-orange-500">
+                Equipment guides
+              </Link>
+              <Link href="/services/commercial-kitchen-equipment" className="no-underline hover:text-orange-500">
+                Equipment supply
+              </Link>
+              <Link href="/contact" className="no-underline hover:text-orange-500">
+                Contact
+              </Link>
+            </div>
+            <div className="mt-6 text-center">
               <p className="text-[12px] font-light tracking-[0.05em] text-[#8c8680]">
                 © {new Date().getFullYear()} Kitchen Pulse. All rights reserved.
               </p>
