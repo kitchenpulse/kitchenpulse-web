@@ -56,6 +56,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: "6JeX46vDg4Y2kxq41OFyif48RxpOSZ_PSxeopScURuM",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
