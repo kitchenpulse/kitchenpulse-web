@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Cloud Kitchen Consulting — Idea to First Order | India",
+  title: "F&B Launch Consulting — Idea to First Order | India",
   description:
-    "End-to-end cloud kitchen and restaurant launch consulting for new founders — concept, menu, kitchen layout, SOPs, tech, aggregator onboarding, and go-live through first order. Pan-India from Navi Mumbai.",
-  alternates: { canonical: "/services/cloud-kitchen-consulting" },
+    "End-to-end F&B launch consulting for new entrepreneurs — QSR, restaurants, dine-in, cloud kitchens, and delivery-first brands. Concept, menu, kitchen layout, SOPs, tech, aggregator onboarding, and go-live through first order. Pan-India.",
+  alternates: { canonical: "/services/fnb-launch-consulting" },
   openGraph: {
-    title: "Cloud Kitchen Consulting — Idea to First Order | Kitchen Pulse",
+    title: "F&B Launch Consulting — Idea to First Order | Kitchen Pulse",
     description:
-      "Turnkey launch consulting for new F&B entrepreneurs — concept to first order across India.",
-    url: "https://kitchenpulse.in/services/cloud-kitchen-consulting",
+      "Turnkey kitchen brand launch consulting for new founders — QSR, restaurant, cloud kitchen, and delivery-first concepts across India.",
+    url: "https://kitchenpulse.in/services/fnb-launch-consulting",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
 };
@@ -18,32 +18,32 @@ export const metadata: Metadata = {
 const WHATSAPP_URL =
   "https://wa.me/919167636653?text=" +
   encodeURIComponent(
-    "Hi! I'd like to discuss cloud kitchen / F&B launch consulting with Kitchen Pulse."
+    "Hi! I'd like to discuss F&B launch consulting with Kitchen Pulse."
   );
 
 const PHASES = [
   {
     title: "Strategy, concept & unit economics",
-    body: "We help you sharpen the concept, cuisine positioning, and menu architecture so the offer is clear before you spend on space or equipment — including rough unit-economics thinking founders need to decide what to build.",
+    body: "We help you sharpen the concept, cuisine positioning, and menu architecture — whether you are opening a QSR, dine-in restaurant, cloud kitchen, or delivery-first brand — so the offer is clear before you spend on space or equipment.",
   },
   {
     title: "Kitchen layout, packaging & supply chain",
-    body: "Workflow-led kitchen and interiors planning, packaging choices for delivery, and vendor introductions so prep, cook, pack, and dispatch stay coherent when volume starts.",
+    body: "Workflow-led kitchen and interiors planning, packaging where delivery matters, and vendor introductions so prep, cook, service or pack, and dispatch stay coherent when volume starts.",
   },
   {
     title: "SOPs, training & tech stack",
     body: "Operating procedures, team training, and technology setup — POS, kitchen display (KDS), and related tools — so the kitchen can run without you improvising every shift.",
   },
   {
-    title: "Aggregator onboarding & first order",
-    body: "Go-to-market support including Swiggy, Zomato, and ONDC-style platform onboarding where relevant — through live trading and first-order dispatch, not just a handover deck.",
+    title: "Go-to-market & first order",
+    body: "Launch support through live trading and first-order dispatch — including Swiggy, Zomato, and ONDC-style platform onboarding where relevant — not just a handover deck.",
   },
 ];
 
 const INCLUDES = [
   {
     title: "Concept & menu engineering",
-    body: "Positioning, recipe and menu design tuned for consistency, margin, and delivery performance — especially useful for healthy-food and cloud-kitchen formats.",
+    body: "Positioning, recipe and menu design tuned for consistency, margin, and your channel mix — dine-in, takeaway, delivery, or a blend.",
   },
   {
     title: "Interiors & kitchen flow",
@@ -51,22 +51,26 @@ const INCLUDES = [
   },
   {
     title: "Packaging, SOPs & vendors",
-    body: "Delivery packaging choices, standard operating procedures, and vendor shortlists so day-one operations are not a scramble.",
+    body: "Packaging choices where needed, standard operating procedures, and vendor shortlists so day-one operations are not a scramble.",
   },
   {
     title: "Tech, platforms & go-live",
-    body: "POS/KDS setup, aggregator listings, and launch support through first order — so founders are not left alone on opening day.",
+    body: "POS/KDS setup, aggregator listings when you sell on platforms, and launch support through first order — so founders are not left alone on opening day.",
   },
 ];
 
 const FAQ = [
   {
-    q: "What is cloud kitchen consulting from Kitchen Pulse?",
-    a: "It is turnkey launch consulting for new F&B entrepreneurs — from concept and menu through kitchen layout, packaging, SOPs, vendors, training, tech (POS/KDS), aggregator onboarding, and go-live through first order. We work with cloud kitchens, restaurants, and healthy-food concepts pan-India.",
+    q: "What is F&B launch consulting from Kitchen Pulse?",
+    a: "It is turnkey launch consulting for new F&B entrepreneurs — from concept and menu through kitchen layout, packaging, SOPs, vendors, training, tech (POS/KDS), go-to-market, and first order. We work across formats: QSR, restaurants, dine-in, cloud kitchens, healthy-food concepts, and delivery-first brands, pan-India.",
   },
   {
     q: "Who is this consulting for?",
-    a: "New founders and first-time operators launching a restaurant, healthy-food brand, or cloud kitchen who want one accountable partner from idea to first order instead of stitching together designers, vendors, and platforms alone.",
+    a: "New founders and first-time operators launching a kitchen brand — QSR, restaurant, cloud kitchen, or delivery-first — who want one accountable partner from idea to first order instead of stitching together designers, vendors, and platforms alone.",
+  },
+  {
+    q: "Do you only work on cloud kitchens?",
+    a: "No. Cloud kitchens are one format we support. The same idea-to-first-order engagement covers QSR, dine-in restaurants, healthy-food brands, and other F&B concepts — scoped to how you actually serve guests.",
   },
   {
     q: "How long does an idea-to-first-order engagement take?",
@@ -82,11 +86,11 @@ const FAQ = [
   },
   {
     q: "Do you work outside Mumbai?",
-    a: "Yes. Kitchen Pulse is based in Navi Mumbai and delivers cloud kitchen and F&B launch consulting pan-India.",
+    a: "Yes. Kitchen Pulse is based in Navi Mumbai and delivers F&B launch consulting pan-India.",
   },
 ];
 
-export default function CloudKitchenConsultingPage() {
+export default function FnbLaunchConsultingPage() {
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -100,7 +104,7 @@ export default function CloudKitchenConsultingPage() {
   const serviceLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Cloud Kitchen Consulting",
+    name: "F&B Launch Consulting",
     provider: {
       "@type": "Organization",
       name: "Kitchen Pulse",
@@ -114,8 +118,8 @@ export default function CloudKitchenConsultingPage() {
     },
     areaServed: "India",
     description:
-      "End-to-end cloud kitchen and restaurant launch consulting for new founders — concept to first order across India.",
-    url: "https://kitchenpulse.in/services/cloud-kitchen-consulting",
+      "End-to-end F&B and kitchen brand launch consulting for new entrepreneurs — QSR, restaurants, cloud kitchens, and delivery-first brands — concept to first order across India.",
+    url: "https://kitchenpulse.in/services/fnb-launch-consulting",
   };
 
   return (
@@ -137,13 +141,14 @@ export default function CloudKitchenConsultingPage() {
           className="max-w-3xl text-4xl font-black leading-tight tracking-tight md:text-5xl"
           style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
         >
-          Cloud kitchen consulting — idea to first order
+          F&B launch consulting — idea to first order
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#a8a29a]">
-          Turnkey launch consulting for new entrepreneurs building restaurants,
-          healthy-food brands, or cloud kitchens. Kitchen Pulse takes you from
-          concept through menu, kitchen flow, SOPs, tech, and aggregator
-          onboarding — all the way to first-order dispatch, pan-India.
+          Turnkey kitchen brand launch consulting for new entrepreneurs —
+          whether you are building a QSR, dine-in restaurant, cloud kitchen, or
+          delivery-first brand. Kitchen Pulse takes you from concept through
+          menu, kitchen flow, SOPs, tech, and go-to-market — all the way to
+          first-order dispatch, pan-India.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
@@ -178,9 +183,9 @@ export default function CloudKitchenConsultingPage() {
             </p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-orange-500">Multi-week</p>
+            <p className="text-3xl font-bold text-orange-500">All formats</p>
             <p className="mt-2 text-sm text-[#a8a29a]">
-              Typical launch engagement paced to your go-live
+              QSR, restaurant, dine-in, cloud kitchen, delivery-first
             </p>
           </div>
           <div>
@@ -196,8 +201,8 @@ export default function CloudKitchenConsultingPage() {
         <h2 className="text-2xl font-bold md:text-3xl">What the engagement covers</h2>
         <p className="mt-4 max-w-3xl text-[#a8a29a] leading-relaxed">
           Built for founders who need more than a deck — operating help from
-          concept to first order, with optional brand identity when you want
-          creative alongside the launch.
+          concept to first order across F&B formats, with optional brand
+          identity when you want creative alongside the launch.
         </p>
         <ul className="mt-10 grid gap-6 md:grid-cols-2">
           {INCLUDES.map((item) => (

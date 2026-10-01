@@ -4,15 +4,15 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "F&B Services | Fit-Out, Equipment, HVAC & Launch Consulting",
   description:
-    "Kitchen Pulse F&B services — cloud kitchen consulting for new founders, commercial kitchen fit-out, equipment, and HVAC across India. Staffing and aggregator growth available as add-ons.",
+    "Kitchen Pulse F&B services — launch consulting for new founders across QSR, restaurants, and cloud kitchens, plus commercial kitchen fit-out, equipment, and HVAC across India. Staffing and aggregator growth available as add-ons.",
   alternates: { canonical: "/services" },
 };
 
 const PRIMARY = [
   {
-    href: "/services/cloud-kitchen-consulting",
-    title: "Cloud kitchen consulting",
-    body: "For new founders — idea to first order: concept, menu, kitchen flow, SOPs, tech, aggregator onboarding, and go-live. Pan-India.",
+    href: "/services/fnb-launch-consulting",
+    title: "F&B launch consulting",
+    body: "For new founders — idea to first order across QSR, restaurants, dine-in, cloud kitchens, and delivery-first brands. Concept, menu, kitchen flow, SOPs, tech, and go-live. Pan-India.",
     badge: "For new founders",
   },
   {
@@ -60,9 +60,10 @@ export default function ServicesIndexPage() {
         F&B services built to scale
       </h1>
       <p className="mt-5 max-w-2xl text-lg text-[#a8a29a]">
-        Launch consulting for new founders, plus commercial kitchen fit-out,
-        equipment, and HVAC — pan-India from our Navi Mumbai base. Staffing and
-        aggregator support remain available as secondary add-ons.
+        Launch consulting for new founders across formats, plus commercial
+        kitchen fit-out, equipment, and HVAC — pan-India from our Navi Mumbai
+        base. Staffing and aggregator support remain available as secondary
+        add-ons.
       </p>
 
       <h2 className="mt-14 text-xs font-medium uppercase tracking-[0.18em] text-orange-500">
