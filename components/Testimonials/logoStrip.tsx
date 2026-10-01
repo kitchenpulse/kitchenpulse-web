@@ -55,7 +55,7 @@ const LogoStrip: React.FC = () => {
       `}</style>
 
       <section
-        className="relative bg-[#0f0e0d] overflow-hidden border-y border-white/[0.08]"
+        className="relative bg-[#0f0e0d] overflow-hidden border-y border-white/[0.10]"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
         {/* Grain overlay */}
@@ -75,7 +75,7 @@ const LogoStrip: React.FC = () => {
 
         {/* Section label */}
         <div className="relative z-[2] flex items-center justify-center pt-10 pb-6">
-          <span className="inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-[#7a746e]">
+          <span className="inline-flex items-center gap-2.5 text-[11px] font-medium tracking-[0.2em] uppercase text-[#8c8680]">
             <span className="w-8 h-px bg-white/[0.12] inline-block" />
             Trusted by Leading F&amp;B Brands
             <span className="w-8 h-px bg-white/[0.12] inline-block" />
@@ -88,11 +88,11 @@ const LogoStrip: React.FC = () => {
             {track.map((logo, i) => (
               <div
                 key={i}
-                className="logo-card flex items-center gap-3.5 mx-1.5 px-6 py-4 bg-[#171614] border border-white/[0.08] cursor-default select-none"
+                className="logo-card flex items-center gap-3.5 mx-1.5 px-6 py-4 bg-[#171614] border border-white/[0.10] cursor-default select-none"
                 style={{ minWidth: 200 }}
               >
                 {/* Logo or initials */}
-                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#24211e] border border-white/[0.08] rounded-[4px] overflow-hidden">
+                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#24211e] border border-white/[0.10] rounded-[4px] overflow-hidden">
                   {logo.src ? (
                     <img
                       src={logo.src}
@@ -123,10 +123,10 @@ const LogoStrip: React.FC = () => {
             {[...track].reverse().map((logo, i) => (
               <div
                 key={i}
-                className="logo-card flex items-center gap-3.5 mx-1.5 px-6 py-4 bg-[#171614] border border-white/[0.08] cursor-default select-none"
+                className="logo-card flex items-center gap-3.5 mx-1.5 px-6 py-4 bg-[#171614] border border-white/[0.10] cursor-default select-none"
                 style={{ minWidth: 200 }}
               >
-                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#24211e] border border-white/[0.08] rounded-[4px] overflow-hidden">
+                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-[#24211e] border border-white/[0.10] rounded-[4px] overflow-hidden">
                   {logo.src ? (
                     <img
                       src={logo.src}

@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { HiLightningBolt, HiCog, HiCurrencyRupee, HiUserGroup } from "react-icons/hi";
 import Link from "next/link";
+import Image from "next/image";
 import { ctaPrimaryClass, ctaSecondaryClass, whatsappUrl } from "@/components/ui/CtaButtons";
 
 const reasons = [
@@ -118,13 +119,17 @@ const WhyChooseSection = () => {
         className="relative bg-[#0f0e0d] text-[#f2efe9] overflow-hidden"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
-        {/* Background image layer */}
-        <div
-          className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/assets/printedp.jpg')" }}
-          role="img"
-          aria-label="Printed kitchen operations backdrop"
-        />
+        {/* Background image layer — next/image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/printedp.jpg"
+            alt="Printed kitchen operations backdrop"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority={false}
+          />
+        </div>
 
         {/* Light overlay */}
         <div className="absolute inset-0 z-[1] bg-[#0f0e0d]/[0.92]" />
