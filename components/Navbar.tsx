@@ -17,6 +17,7 @@ const NAV_LINKS = [
 
 const SERVICE_LINKS = [
   { href: "/services", label: "All Services" },
+  { href: "/services/cloud-kitchen-consulting", label: "Cloud Kitchen Consulting" },
   { href: "/services/commercial-kitchen-fit-out", label: "Commercial Kitchen Fit-Out" },
   { href: "/services/commercial-kitchen-equipment", label: "Commercial Kitchen Equipment" },
   { href: "/services/kitchen-hvac", label: "Kitchen HVAC & Exhaust" },
