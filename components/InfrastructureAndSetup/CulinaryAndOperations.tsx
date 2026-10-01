@@ -127,7 +127,7 @@ const CulinaryAndOperationsSection = () => {
             <div className={fade(heroVisible, "delay-300")}>
               <CtaGroup
                 whatsappMessage="Hi! I'd like to discuss culinary and kitchen operations support."
-                primaryLabel="Book a consult"
+                primaryLabel="Book a consultation"
                 showServices
               />
             </div>

@@ -141,7 +141,7 @@ export default function KitchenHvacPage() {
         </p>
         <CtaGroup
           whatsappMessage="Hi! I'd like to discuss kitchen HVAC with Kitchen Pulse."
-          primaryLabel="Book a consult"
+          primaryLabel="Book a consultation"
           showServices
         />
 

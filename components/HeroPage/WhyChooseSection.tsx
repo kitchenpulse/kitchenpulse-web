@@ -276,8 +276,8 @@ const WhyChooseSection = () => {
               </p>
             </div>
             <CtaGroup
-              whatsappMessage="Hi! I'd like to book a consult with Kitchen Pulse."
-              primaryLabel="Book a consult"
+              whatsappMessage="Hi! I'd like to book a consultation with Kitchen Pulse."
+              primaryLabel="Book a consultation"
             />
           </div>
         </div>

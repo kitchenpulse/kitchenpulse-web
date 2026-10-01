@@ -94,7 +94,7 @@ export default function ServicesIndexPage() {
         <CtaGroup
           className="mt-8"
           whatsappMessage="Hi! I'd like to discuss Kitchen Pulse services."
-          primaryLabel="Book a consult"
+          primaryLabel="Book a consultation"
           showServices={false}
         />
       </section>
@@ -166,7 +166,7 @@ export default function ServicesIndexPage() {
           <CtaGroup
             className="mt-8"
             whatsappMessage="Hi! I'd like help choosing the right Kitchen Pulse service."
-            primaryLabel="Book a consult"
+            primaryLabel="Book a consultation"
           />
         </div>
       </section>

@@ -155,7 +155,7 @@ export default function FnbLaunchConsultingPage() {
         </p>
         <CtaGroup
           whatsappMessage="Hi! I'd like to discuss F&B launch consulting with Kitchen Pulse."
-          primaryLabel="Book a consult"
+          primaryLabel="Book a consultation"
           showServices
         />
 

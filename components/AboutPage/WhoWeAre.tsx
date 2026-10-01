@@ -813,11 +813,11 @@ const WhoWeAre = () => {
               Ready to scale your kitchen?
             </h3>
             <p style={{ fontSize: 14, fontWeight: 300, lineHeight: 1.7, color: "#b0aaa2", maxWidth: 440, marginBottom: 24 }}>
-              Book a consult with the founders — or message us on WhatsApp for a faster reply.
+              Book a consultation with the founders — or message us on WhatsApp for a faster reply.
             </p>
             <CtaGroup
-              whatsappMessage="Hi! I'd like to learn more about Kitchen Pulse and book a consult."
-              primaryLabel="Book a consult"
+              whatsappMessage="Hi! I'd like to learn more about Kitchen Pulse and book a consultation."
+              primaryLabel="Book a consultation"
               showServices
             />
           </div>
