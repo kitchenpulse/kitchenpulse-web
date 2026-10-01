@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { HiLightningBolt, HiCog, HiCurrencyRupee, HiUserGroup } from "react-icons/hi";
+import Link from "next/link";
+import { ctaPrimaryClass, ctaSecondaryClass, whatsappUrl } from "@/components/ui/CtaButtons";
 
 const reasons = [
   {
@@ -120,6 +122,8 @@ const WhyChooseSection = () => {
         <div
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/assets/printedp.jpg')" }}
+          role="img"
+          aria-label="Printed kitchen operations backdrop"
         />
 
         {/* Light overlay */}
@@ -143,7 +147,7 @@ const WhyChooseSection = () => {
         />
 
         {/* ── HEADER ── */}
-        <div className="relative z-[3] px-5 sm:px-[50px] lg:px-20 pt-16 sm:pt-20 lg:pt-[100px] pb-12 sm:pb-[60px] lg:pb-[72px] grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-16 items-end border-b border-white/[0.08]">
+        <div className="relative z-[3] px-5 sm:px-[50px] lg:px-20 pt-20 sm:pt-24 lg:pt-[110px] pb-14 sm:pb-16 lg:pb-20 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-end border-b border-white/[0.10]">
           {/* Left */}
           <div>
             <div className={fade(heroVisible)}>
@@ -164,7 +168,7 @@ const WhyChooseSection = () => {
           {/* Right */}
           <div>
             <p
-              className={`text-[clamp(14px,1.4vw,16px)] font-light leading-[1.8] text-[#a8a29a] max-w-[400px] mb-9 ${fade(heroVisible, "delay-200")}`}
+              className={`text-[clamp(14px,1.4vw,16px)] font-light leading-[1.8] text-[#b0aaa2] max-w-[400px] mb-9 ${fade(heroVisible, "delay-200")}`}
             >
               We bring structure, accountability, and measurable impact to every
               stage of your food business lifecycle — one partner, every layer.
@@ -173,7 +177,7 @@ const WhyChooseSection = () => {
         </div>
 
         {/* ── ROW OF CARDS ── */}
-        <div className="relative z-[3] px-5 sm:px-[50px] lg:px-20 py-14 sm:py-16 lg:py-[100px]">
+        <div className="relative z-[3] px-5 sm:px-[50px] lg:px-20 py-16 sm:py-20 lg:py-[100px]">
           <div className="flex flex-col sm:flex-row gap-5 items-stretch">
             {reasons.map((item, index) => {
               const Icon = item.icon;
@@ -182,7 +186,7 @@ const WhyChooseSection = () => {
                 <React.Fragment key={item.title}>
                   {/* ── Card ── */}
                   <div
-                    className={`group flex-1 min-w-0 bg-[#171614]/80 backdrop-blur-sm border border-white/[0.08] overflow-hidden relative transition-all duration-300 hover:border-orange-500 hover:bg-[#1c1916] ${
+                    className={`group flex-1 min-w-0 bg-[#171614]/80 backdrop-blur-sm border border-white/[0.10] overflow-hidden relative transition-all duration-300 hover:border-orange-500 hover:bg-[#1c1916] ${
                       visibleCards[index]
                         ? "opacity-100 translate-y-0 transition-[opacity,transform,border-color,background] duration-[550ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
                         : "opacity-0 translate-y-7"
@@ -196,9 +200,14 @@ const WhyChooseSection = () => {
                     <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/7" }}>
                       <img
                         src={item.img}
-                        alt={item.title}
-                        className="w-full h-full object-cover block transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.06]"
-                        style={{ filter: "grayscale(20%) brightness(0.88)" }}
+                        alt={`${item.title} — ${item.desc}`}
+                        width={600}
+                        height={260}
+                        loading="lazy"
+                        decoding="async"
+                        sizes="(max-width: 640px) 100vw, 25vw"
+                        className="w-full h-full object-cover object-center block transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.06]"
+                        style={{ filter: "grayscale(15%) brightness(0.9)" }}
                       />
                       <div
                         className="absolute inset-0 pointer-events-none"
@@ -215,7 +224,7 @@ const WhyChooseSection = () => {
                     {/* Body */}
                     <div className="px-7 pt-6">
                       <div className="flex items-center gap-3 mb-2.5">
-                        <div className="w-9 h-9 bg-[#24211e] border border-white/[0.08] flex items-center justify-center text-orange-500 flex-shrink-0 group-hover:bg-orange-500/10 group-hover:border-orange-500/25 transition-all duration-300">
+                        <div className="w-9 h-9 bg-[#24211e] border border-white/[0.10] flex items-center justify-center text-orange-500 flex-shrink-0 group-hover:bg-orange-500/10 group-hover:border-orange-500/25 transition-all duration-300">
                           <Icon size={17} />
                         </div>
                         <h3
@@ -225,14 +234,14 @@ const WhyChooseSection = () => {
                           {item.title}
                         </h3>
                       </div>
-                      <p className="text-[13px] font-light leading-[1.8] text-[#7a746e] group-hover:text-[#a8a29a] transition-colors duration-300">
+                      <p className="text-[13px] font-light leading-[1.8] text-[#8c8680] group-hover:text-[#b0aaa2] transition-colors duration-300">
                         {item.desc}
                       </p>
                     </div>
 
                     {/* Footer */}
-                    <div className="mt-5 mx-0 px-7 pb-5 pt-3.5 border-t border-white/[0.07] flex items-center justify-between">
-                      <span className="text-[10px] font-medium tracking-[0.08em] text-[#7a746e] bg-[#24211e] border border-white/[0.07] px-2.5 py-1 group-hover:text-orange-500 group-hover:border-orange-500/25 transition-all duration-300">
+                    <div className="mt-5 mx-0 px-7 pb-5 pt-3.5 border-t border-white/[0.10] flex items-center justify-between">
+                      <span className="text-[10px] font-medium tracking-[0.08em] text-[#8c8680] bg-[#24211e] border border-white/[0.10] px-2.5 py-1 group-hover:text-orange-500 group-hover:border-orange-500/25 transition-all duration-300">
                         {item.stat}
                       </span>
                       <span
@@ -247,6 +256,36 @@ const WhyChooseSection = () => {
                 </React.Fragment>
               );
             })}
+          </div>
+        </div>
+
+        {/* ── CTA ── */}
+        <div className="relative z-[3] px-5 sm:px-[50px] lg:px-20 pb-16 sm:pb-20 lg:pb-24 border-t border-white/[0.10]">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 pt-12 sm:pt-14">
+            <div>
+              <h3
+                className="text-[clamp(22px,2.5vw,28px)] font-bold text-[#f2efe9]"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                Let&apos;s build your next outlet together.
+              </h3>
+              <p className="mt-2 text-[14px] font-light text-[#b0aaa2] max-w-md">
+                One accountable partner from site to service-ready kitchen.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/contact" className={ctaPrimaryClass}>
+                Book a consult
+              </Link>
+              <a
+                href={whatsappUrl("Hi! I'd like to book a consult with Kitchen Pulse.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={ctaSecondaryClass}
+              >
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </section>

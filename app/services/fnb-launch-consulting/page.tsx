@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CtaGroup, ServiceCtaBand } from "@/components/ui/CtaButtons";
 
 export const metadata: Metadata = {
   title: "F&B Launch Consulting — Idea to First Order | India",
@@ -15,11 +16,6 @@ export const metadata: Metadata = {
   },
 };
 
-const WHATSAPP_URL =
-  "https://wa.me/919167636653?text=" +
-  encodeURIComponent(
-    "Hi! I'd like to discuss F&B launch consulting with Kitchen Pulse."
-  );
 
 const PHASES = [
   {
@@ -133,7 +129,7 @@ export default function FnbLaunchConsultingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
       />
 
-      <section className="mx-auto max-w-5xl px-6 pb-16 pt-28 md:pt-32">
+      <section className="mx-auto max-w-5xl px-6 pb-16 pt-28 md:pt-32 md:pb-20">
         <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-orange-500">
           For new founders
         </p>
@@ -143,63 +139,47 @@ export default function FnbLaunchConsultingPage() {
         >
           F&B launch consulting — idea to first order
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#a8a29a]">
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#b0aaa2]">
           Turnkey kitchen brand launch consulting for new entrepreneurs —
           whether you are building a QSR, dine-in restaurant, cloud kitchen, or
           delivery-first brand. Kitchen Pulse takes you from concept through
           menu, kitchen flow, SOPs, tech, and go-to-market — all the way to
           first-order dispatch, pan-India.
         </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-sm bg-orange-500 px-5 py-3 text-sm font-medium uppercase tracking-wider text-white"
-          >
-            Book a demo
-          </Link>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center rounded-sm border border-[#f2efe9]/15 px-5 py-3 text-sm font-medium uppercase tracking-wider text-[#f2efe9]"
-          >
-            WhatsApp us
-          </a>
-          <Link
-            href="/services"
-            className="inline-flex items-center rounded-sm border border-[#f2efe9]/15 px-5 py-3 text-sm font-medium uppercase tracking-wider text-[#f2efe9]"
-          >
-            All services
-          </Link>
-        </div>
+        <CtaGroup
+          whatsappMessage="Hi! I'd like to discuss F&B launch consulting with Kitchen Pulse."
+          primaryLabel="Book a consult"
+          showServices
+        />
+
       </section>
 
-      <section className="border-y border-white/5 bg-[#171614]">
-        <div className="mx-auto grid max-w-5xl gap-8 px-6 py-14 md:grid-cols-3">
+      <section className="border-y border-white/[0.10] bg-[#171614]">
+        <div className="mx-auto grid max-w-5xl gap-8 px-6 py-14 md:py-16 md:grid-cols-3">
           <div>
             <p className="text-3xl font-bold text-orange-500">Idea → 1st order</p>
-            <p className="mt-2 text-sm text-[#a8a29a]">
+            <p className="mt-2 text-sm text-[#b0aaa2]">
               One partner from concept through live dispatch
             </p>
           </div>
           <div>
             <p className="text-3xl font-bold text-orange-500">All formats</p>
-            <p className="mt-2 text-sm text-[#a8a29a]">
+            <p className="mt-2 text-sm text-[#b0aaa2]">
               QSR, restaurant, dine-in, cloud kitchen, delivery-first
             </p>
           </div>
           <div>
             <p className="text-3xl font-bold text-orange-500">Pan India</p>
-            <p className="mt-2 text-sm text-[#a8a29a]">
+            <p className="mt-2 text-sm text-[#b0aaa2]">
               Navi Mumbai-based consulting for founders nationwide
             </p>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-2xl font-bold md:text-3xl">What the engagement covers</h2>
-        <p className="mt-4 max-w-3xl text-[#a8a29a] leading-relaxed">
+      <section className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+        <h2 className="text-2xl font-bold md:text-3xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>What the engagement covers</h2>
+        <p className="mt-4 max-w-3xl text-[#b0aaa2] leading-relaxed">
           Built for founders who need more than a deck — operating help from
           concept to first order across F&B formats, with optional brand
           identity when you want creative alongside the launch.
@@ -208,10 +188,10 @@ export default function FnbLaunchConsultingPage() {
           {INCLUDES.map((item) => (
             <li
               key={item.title}
-              className="rounded-md border border-white/10 bg-[#171614] p-5"
+              className="rounded-md border border-white/[0.12] bg-[#171614] p-5"
             >
               <h3 className="text-lg font-semibold">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-[#a8a29a]">
+              <p className="mt-2 text-sm leading-relaxed text-[#b0aaa2]">
                 {item.body}
               </p>
             </li>
@@ -220,8 +200,8 @@ export default function FnbLaunchConsultingPage() {
       </section>
 
       <section className="bg-[#171614]">
-        <div className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="text-2xl font-bold md:text-3xl">How a launch engagement runs</h2>
+        <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+          <h2 className="text-2xl font-bold md:text-3xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>How a launch engagement runs</h2>
           <ol className="mt-10 space-y-8">
             {PHASES.map((phase, i) => (
               <li key={phase.title} className="flex gap-5">
@@ -230,7 +210,7 @@ export default function FnbLaunchConsultingPage() {
                 </span>
                 <div>
                   <h3 className="text-lg font-semibold">{phase.title}</h3>
-                  <p className="mt-2 text-[#a8a29a] leading-relaxed">{phase.body}</p>
+                  <p className="mt-2 text-[#b0aaa2] leading-relaxed">{phase.body}</p>
                 </div>
               </li>
             ))}
@@ -238,11 +218,11 @@ export default function FnbLaunchConsultingPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-2xl font-bold md:text-3xl">
+      <section className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+        <h2 className="text-2xl font-bold md:text-3xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
           From consulting to a service-ready kitchen
         </h2>
-        <p className="mt-4 max-w-3xl text-[#a8a29a] leading-relaxed">
+        <p className="mt-4 max-w-3xl text-[#b0aaa2] leading-relaxed">
           When your concept is ready to build, the same team can take you into{" "}
           <Link
             href="/services/commercial-kitchen-fit-out"
@@ -269,33 +249,11 @@ export default function FnbLaunchConsultingPage() {
         </p>
       </section>
 
-      <section className="bg-[#1a1816] text-[#f2efe9]">
-        <div className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="text-2xl font-bold md:text-3xl">
-            Launching a kitchen this year?
-          </h2>
-          <p className="mt-4 max-w-2xl text-white/70">
-            Tell us your city, concept, and target go-live — we will map what an
-            idea-to-first-order engagement looks like for your format.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="inline-flex items-center rounded-sm bg-orange-500 px-5 py-3 text-sm font-medium uppercase tracking-wider text-white"
-            >
-              Talk to Kitchen Pulse
-            </Link>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center rounded-sm border border-[#f2efe9]/15 px-5 py-3 text-sm font-medium uppercase tracking-wider text-[#f2efe9]"
-            >
-              WhatsApp us
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServiceCtaBand
+        heading="Launching a kitchen this year?"
+        body="Tell us your city, concept, and target go-live — we will map what an idea-to-first-order engagement looks like for your format."
+        whatsappMessage="Hi! I'd like to discuss F&B launch consulting with Kitchen Pulse."
+      />
     </main>
   );
 }

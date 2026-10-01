@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const WHATSAPP_NUMBER = "919167636653";
-const WHATSAPP_MESSAGE = "Hi! I'd like to schedule a call with Kitchen Pulse.";
+const WHATSAPP_MESSAGE = "Hi! I'd like to book a consult with Kitchen Pulse.";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 const NAV_LINKS = [
@@ -138,42 +138,33 @@ export default function Navbar() {
           color: #f97316; background: #1f1814; padding-left: 22px;
         }
 
-        /* ── Orange CTA (fill-slide on hover) ── */
+        /* ── Primary solid orange CTA ── */
         .kp-cta-btn {
           display: inline-flex;
           align-items: center;
+          justify-content: center;
           gap: 7px;
-          padding: 9px 18px;
-          background: transparent;
+          min-height: 44px;
+          padding: 10px 18px;
+          background: #f97316;
           border: 1px solid #f97316;
-          color: #f97316;
+          color: #fff;
           font-family: 'DM Sans', sans-serif;
           font-size: 11px; font-weight: 500;
           letter-spacing: 0.14em;
           text-transform: uppercase;
           text-decoration: none;
           cursor: pointer;
-          position: relative;
-          overflow: hidden;
-          transition: color 0.25s;
+          transition: background 0.2s, border-color 0.2s;
         }
-        .kp-cta-btn::before {
-          content: '';
-          position: absolute; inset: 0;
-          background: #f97316;
-          transform: translateX(-100%);
-          transition: transform 0.25s ease;
-          z-index: 0;
-        }
-        .kp-cta-btn:hover::before { transform: translateX(0); }
-        .kp-cta-btn:hover { color: #fff; }
-        .kp-cta-btn > * { position: relative; z-index: 1; }
+        .kp-cta-btn:hover { background: #ea580c; border-color: #ea580c; color: #fff; }
 
         /* ── Mobile links ── */
         .kp-mobile-link {
           display: flex;
           align-items: center;
           gap: 10px;
+          min-height: 44px;
           padding: 12px 14px;
           font-size: 13px; font-weight: 400;
           letter-spacing: 0.08em;
@@ -190,25 +181,26 @@ export default function Navbar() {
           background: #1f1814;
         }
 
-        /* ── Mobile CTA ── */
+        /* ── Mobile CTA (solid primary, 44px tap) ── */
         .kp-mobile-cta {
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 8px;
           margin-top: 4px;
-          padding: 13px;
-          background: transparent;
+          min-height: 48px;
+          padding: 14px;
+          background: #f97316;
           border: 1px solid #f97316;
-          color: #f97316;
+          color: #fff;
           font-family: 'DM Sans', sans-serif;
           font-size: 11px; font-weight: 500;
           letter-spacing: 0.16em;
           text-transform: uppercase;
           text-decoration: none;
-          transition: background 0.25s, color 0.25s;
+          transition: background 0.25s;
         }
-        .kp-mobile-cta:hover { background: #f97316; color: #fff; }
+        .kp-mobile-cta:hover { background: #ea580c; color: #fff; }
       `}</style>
 
       {/* Fixed navbar that slides up/down */}
@@ -232,7 +224,7 @@ export default function Navbar() {
               src="/assets/bg.png"
               alt="Kitchen Pulse"
               // className="h-20 w-auto -mt-2"
-              className="h-20 w-auto object-contain filter brightness-0 invert opacity-90"
+              className="kp-logo-dark h-20 w-auto object-contain"
             />
           </Link>
 
@@ -300,13 +292,13 @@ export default function Navbar() {
               className="kp-cta-btn ml-3"
             >
               <span className="w-[4px] h-[4px] bg-current rotate-45 flex-shrink-0" />
-              <span>Schedule a Call</span>
+              <span>Book a consult</span>
             </a>
           </div>
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden flex items-center justify-center w-9 h-9 border border-white/10 bg-[#0f0e0d] text-[#a8a29a] hover:border-orange-500/40 hover:text-orange-500 transition-all duration-200"
+            className="md:hidden flex items-center justify-center min-w-[44px] min-h-[44px] w-11 h-11 border border-white/15 bg-[#0f0e0d] text-[#b0aaa2] hover:border-orange-500/40 hover:text-orange-500 transition-all duration-200"
             onClick={toggleMobileMenu}
             aria-label="Toggle navigation menu"
             aria-expanded={isOpen}
@@ -347,7 +339,7 @@ export default function Navbar() {
                       <Link
                         key={s.href}
                         href={s.href}
-                        className="flex items-center gap-2 py-2.5 px-2 text-[11px] font-light tracking-[0.08em] uppercase text-[#7a746e] no-underline hover:text-orange-500 transition-colors duration-200"
+                        className="flex items-center gap-2 min-h-[44px] py-3 px-2 text-[11px] font-light tracking-[0.08em] uppercase text-[#8c8680] no-underline hover:text-orange-500 transition-colors duration-200"
                         onClick={closeMobileMenu}
                       >
                         <span className="w-3 h-px bg-current opacity-50 flex-shrink-0" />
@@ -372,7 +364,7 @@ export default function Navbar() {
                 onClick={closeMobileMenu}
               >
                 <span className="w-[4px] h-[4px] bg-current rotate-45 flex-shrink-0" />
-                Schedule a Call
+                Book a consult
               </a>
             </div>
           </div>

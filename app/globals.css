@@ -12,11 +12,12 @@
   --kp-bg-muted: #24211e;
   --kp-bg-hover: #1c1916;
   --kp-fg: #f2efe9;
-  --kp-fg-muted: #a8a29a;
-  --kp-fg-subtle: #7a746e;
-  --kp-fg-faint: #5c574f;
-  --kp-border: rgba(255, 255, 255, 0.08);
-  --kp-border-strong: rgba(255, 255, 255, 0.12);
+  /* Bumped for WCAG-friendlier muted body on dark (#a8a29a stays primary muted) */
+  --kp-fg-muted: #b0aaa2;
+  --kp-fg-subtle: #8c8680;
+  --kp-fg-faint: #6e6860;
+  --kp-border: rgba(255, 255, 255, 0.10);
+  --kp-border-strong: rgba(255, 255, 255, 0.14);
   --kp-accent: #f97316;
   --kp-accent-hover: #ea580c;
   --kp-accent-soft: rgba(249, 115, 22, 0.12);
@@ -51,4 +52,20 @@ input,
 textarea,
 select {
   color-scheme: dark;
+}
+
+/* Shared section rhythm used across marketing pages */
+.kp-section {
+  padding-block: 4rem;
+}
+@media (min-width: 768px) {
+  .kp-section {
+    padding-block: 5rem;
+  }
+}
+
+/* Logo on dark navbar — subtle brighten without inventing assets */
+.kp-logo-dark {
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
 }

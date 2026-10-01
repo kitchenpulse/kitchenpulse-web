@@ -1,5 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { ctaPrimaryClass, ctaSecondaryClass, whatsappUrl } from "@/components/ui/CtaButtons";
 
 const Footer = () => {
   const [visible, setVisible] = useState(false);
@@ -33,7 +35,7 @@ const Footer = () => {
           font-size: 13px;
           font-weight: 300;
           line-height: 1.85;
-          color: #a8a29a;
+          color: #b0aaa2;
         }
 
         .kp-footer-heading {
@@ -45,74 +47,64 @@ const Footer = () => {
           margin-bottom: 14px;
         }
 
-        .kp-footer-policy {
-          font-size: 13px;
-          font-weight: 400;
-          color: #a8a29a;
-          letter-spacing: 0.03em;
-        }
-
-        .kp-footer-icon {
-          width: 42px;
-          height: 42px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 1px solid rgba(255,255,255,0.09);
-          background: #171614;
-          color: #f97316;
-          transition: all 0.3s ease;
-        }
-
-        .kp-footer-icon:hover {
-          background: #1f1814;
-          border-color: rgba(249,115,22,0.32);
-          transform: translateY(-2px);
-        }
-
         .kp-footer-divider {
-          border-top: 1px solid rgba(255,255,255,0.09);
+          border-top: 1px solid rgba(255,255,255,0.10);
         }
       `}</style>
 
       <footer
         ref={footerRef}
-        className="bg-[#0f0e0d] text-[#f2efe9] border-t border-white/[0.08]"
+        className="bg-[#0f0e0d] text-[#f2efe9] border-t border-white/[0.10]"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
-        <div className={`px-5 sm:px-12 lg:px-20 py-14 sm:py-16 ${fade()}`}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+        <div className={`px-5 sm:px-12 lg:px-20 py-16 sm:py-20 ${fade()}`}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-14">
             <div>
               <h3
-                className="text-[30px] sm:text-[34px] leading-[1.2] text-[#f2efe9] max-w-[260px]"
+                className="text-[28px] sm:text-[32px] leading-[1.25] text-[#f2efe9] max-w-[280px]"
                 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}
               >
                 Built to help F&amp;B brands scale with clarity and confidence.
               </h3>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/contact" className={ctaPrimaryClass}>
+                  Book a consult
+                </Link>
+                <a
+                  href={whatsappUrl("Hi! I'd like to book a consult with Kitchen Pulse.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={ctaSecondaryClass}
+                >
+                  WhatsApp
+                </a>
+              </div>
             </div>
 
             <div>
               <p className="kp-footer-heading">Contact</p>
-              
-              <p className="kp-footer-text mt-3 text-[#f97316] font-medium">
+              <a
+                href="mailto:info@kitchenpulse.in"
+                className="kp-footer-text mt-3 inline-block text-[#f97316] font-medium no-underline hover:underline min-h-[44px] leading-[44px]"
+              >
                 info@kitchenpulse.in
-              </p>
+              </a>
             </div>
 
             <div>
               <p className="kp-footer-heading">Phone</p>
-              <p className="kp-footer-text mt-3 text-[#f97316] font-medium">
+              <a
+                href="tel:+919167636653"
+                className="kp-footer-text mt-3 inline-block text-[#f97316] font-medium no-underline hover:underline min-h-[44px] leading-[44px]"
+              >
                 +91 91676 36653
-              </p>
+              </a>
             </div>
           </div>
 
-          <div className="kp-footer-divider mt-12 pt-8">
-            
-
-           
-            <div className="text-center mt-8">
-              <p className="text-[11px] sm:text-[12px] font-light tracking-[0.05em] text-[#6b6560]">
+          <div className="kp-footer-divider mt-14 pt-8">
+            <div className="text-center">
+              <p className="text-[12px] font-light tracking-[0.05em] text-[#8c8680]">
                 © {new Date().getFullYear()} Kitchen Pulse. All rights reserved.
               </p>
             </div>

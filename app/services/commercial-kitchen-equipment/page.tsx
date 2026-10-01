@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CtaGroup, ServiceCtaBand } from "@/components/ui/CtaButtons";
 
 export const metadata: Metadata = {
   title: "Commercial Kitchen Equipment Supply Across India",
@@ -15,9 +16,6 @@ export const metadata: Metadata = {
   },
 };
 
-const WHATSAPP_URL =
-  "https://wa.me/919167636653?text=" +
-  encodeURIComponent("Hi! I'd like to discuss commercial kitchen equipment with Kitchen Pulse.");
 
 const CATEGORIES = [
   {
@@ -119,7 +117,7 @@ export default function CommercialKitchenEquipmentPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
       />
 
-      <section className="mx-auto max-w-5xl px-6 pb-16 pt-28 md:pt-32">
+      <section className="mx-auto max-w-5xl px-6 pb-16 pt-28 md:pt-32 md:pb-20">
         <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-orange-500">
           Services
         </p>
@@ -129,61 +127,45 @@ export default function CommercialKitchenEquipmentPage() {
         >
           Commercial kitchen equipment across India
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#a8a29a]">
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#b0aaa2]">
           Layout-first equipment supply for restaurants and cloud kitchens —
           cooking, cold, prep, warewash, and custom stainless — so every unit
           fits the workflow, utilities, and opening date.
         </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-sm bg-orange-500 px-5 py-3 text-sm font-medium uppercase tracking-wider text-white"
-          >
-            Book a demo
-          </Link>
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center rounded-sm border border-[#f2efe9]/15 px-5 py-3 text-sm font-medium uppercase tracking-wider text-[#f2efe9]"
-          >
-            WhatsApp us
-          </a>
-          <Link
-            href="/services"
-            className="inline-flex items-center rounded-sm border border-[#f2efe9]/15 px-5 py-3 text-sm font-medium uppercase tracking-wider text-[#f2efe9]"
-          >
-            All services
-          </Link>
-        </div>
+        <CtaGroup
+          whatsappMessage="Hi! I'd like to discuss commercial kitchen equipment with Kitchen Pulse."
+          primaryLabel="Book a consult"
+          showServices
+        />
+
       </section>
 
-      <section className="border-y border-white/5 bg-[#171614]">
-        <div className="mx-auto grid max-w-5xl gap-8 px-6 py-14 md:grid-cols-3">
+      <section className="border-y border-white/[0.10] bg-[#171614]">
+        <div className="mx-auto grid max-w-5xl gap-8 px-6 py-14 md:py-16 md:grid-cols-3">
           <div>
             <p className="text-3xl font-bold text-orange-500">Layout-first</p>
-            <p className="mt-2 text-sm text-[#a8a29a]">
+            <p className="mt-2 text-sm text-[#b0aaa2]">
               Specs follow workflow drawings, not catalogue impulse buys
             </p>
           </div>
           <div>
             <p className="text-3xl font-bold text-orange-500">Custom SS</p>
-            <p className="mt-2 text-sm text-[#a8a29a]">
+            <p className="mt-2 text-sm text-[#b0aaa2]">
               Fabrication from our Saki Naka facility when stock SKUs fall short
             </p>
           </div>
           <div>
             <p className="text-3xl font-bold text-orange-500">Pan India</p>
-            <p className="mt-2 text-sm text-[#a8a29a]">
+            <p className="mt-2 text-sm text-[#b0aaa2]">
               Supply and install coordinated with fit-out and HVAC scopes
             </p>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-2xl font-bold md:text-3xl">What we supply</h2>
-        <p className="mt-4 max-w-3xl text-[#a8a29a] leading-relaxed">
+      <section className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+        <h2 className="text-2xl font-bold md:text-3xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>What we supply</h2>
+        <p className="mt-4 max-w-3xl text-[#b0aaa2] leading-relaxed">
           Commercial kitchens fail when equipment is treated as a shopping list.
           Kitchen Pulse treats it as a production system: capacity matched to
           peak demand, clearances for service, and utility loads that the site
@@ -196,10 +178,10 @@ export default function CommercialKitchenEquipmentPage() {
           {CATEGORIES.map((item) => (
             <div
               key={item.title}
-              className="rounded-md border border-white/10 bg-[#171614] p-5"
+              className="rounded-md border border-white/[0.12] bg-[#171614] p-5"
             >
               <h3 className="text-lg font-semibold">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-[#a8a29a]">
+              <p className="mt-2 text-sm leading-relaxed text-[#b0aaa2]">
                 {item.body}
               </p>
             </div>
@@ -208,8 +190,8 @@ export default function CommercialKitchenEquipmentPage() {
       </section>
 
       <section className="bg-[#171614]">
-        <div className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="text-2xl font-bold md:text-3xl">
+        <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+          <h2 className="text-2xl font-bold md:text-3xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
             How equipment selection works
           </h2>
           <ol className="mt-10 space-y-8">
@@ -220,7 +202,7 @@ export default function CommercialKitchenEquipmentPage() {
                 </span>
                 <div>
                   <h3 className="text-lg font-semibold">{step.title}</h3>
-                  <p className="mt-2 text-[#a8a29a] leading-relaxed">
+                  <p className="mt-2 text-[#b0aaa2] leading-relaxed">
                     {step.body}
                   </p>
                 </div>
@@ -230,11 +212,11 @@ export default function CommercialKitchenEquipmentPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-2xl font-bold md:text-3xl">
+      <section className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+        <h2 className="text-2xl font-bold md:text-3xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
           New versus refurbished — chosen for duty cycle
         </h2>
-        <p className="mt-4 max-w-3xl text-[#a8a29a] leading-relaxed">
+        <p className="mt-4 max-w-3xl text-[#b0aaa2] leading-relaxed">
           High-heat, high-cycle stations usually belong on new equipment with
           clear warranty and parts support. Lower-intensity holding or backup
           pieces can sometimes use refurbished units when condition, prior
@@ -256,7 +238,7 @@ export default function CommercialKitchenEquipmentPage() {
           </Link>{" "}
           when you want one accountable team from layout through commissioning.
         </p>
-        <p className="mt-4 max-w-3xl text-[#a8a29a] leading-relaxed">
+        <p className="mt-4 max-w-3xl text-[#b0aaa2] leading-relaxed">
           Based in Navi Mumbai with pan-India delivery, Kitchen Pulse helps
           restaurants and cloud kitchens avoid overbuying, under-venting, and
           last-minute SKU swaps that delay openings. Share your city, concept,
@@ -265,33 +247,11 @@ export default function CommercialKitchenEquipmentPage() {
         </p>
       </section>
 
-      <section className="bg-[#1a1816] text-[#f2efe9]">
-        <div className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="text-2xl font-bold md:text-3xl">
-            Need an equipment list that fits your kitchen?
-          </h2>
-          <p className="mt-4 max-w-2xl text-white/70">
-            Tell us your city, concept, and timeline — we will map cooking,
-            cold, and prep to layout before you buy.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="inline-flex items-center rounded-sm bg-orange-500 px-5 py-3 text-sm font-medium uppercase tracking-wider text-white"
-            >
-              Talk to Kitchen Pulse
-            </Link>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center rounded-sm border border-[#f2efe9]/15 px-5 py-3 text-sm font-medium uppercase tracking-wider text-[#f2efe9]"
-            >
-              WhatsApp us
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServiceCtaBand
+        heading="Need an equipment list that fits your kitchen?"
+        body="Tell us your city, concept, and timeline — we will map cooking, cold, and prep to layout before you buy."
+        whatsappMessage="Hi! I'd like to discuss commercial kitchen equipment with Kitchen Pulse."
+      />
     </main>
   );
 }
