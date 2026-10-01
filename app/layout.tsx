@@ -38,9 +38,9 @@ export const metadata: Metadata = {
       "One partner for restaurant & cloud kitchen setup — real estate, civil, HVAC, equipment, staffing & aggregator growth across India.",
     images: [
       {
-        url: "/apple-touch-icon.png",
-        width: 180,
-        height: 180,
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "Kitchen Pulse",
       },
     ],
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Kitchen Pulse | Turnkey F&B Kitchen Setup & Scale Across India",
     description:
       "One partner for restaurant & cloud kitchen setup across India.",
-    images: ["/apple-touch-icon.png"],
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
