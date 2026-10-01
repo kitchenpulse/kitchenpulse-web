@@ -59,18 +59,18 @@ const checkPoints = [
 
 const heroImages = [
   {
-    url: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=900&q=80",
+    url: "/assets/infra-kitchen.webp",
     alt: "Chef working in commercial kitchen",
     tag: "Commercial Kitchen",
   },
   {
-    url: "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=900&q=80",
-    alt: "Restaurant dine-in setup",
+    url: "/assets/digital-aggregator.webp",
+    alt: "Restaurant dine-in interior fit-out",
     tag: "Dine-In Setup",
   },
   {
-    url: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=80",
-    alt: "Cloud kitchen operations",
+    url: "/assets/infra-hood.webp",
+    alt: "Commercial kitchen exhaust and prep line",
     tag: "Cloud Kitchen",
   },
 ];
@@ -357,7 +357,7 @@ const InfrastructureSetupSection = () => {
           {/* Image side */}
           <div className="group relative min-h-[320px] overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=900&q=80"
+              src="/assets/infra-kitchen.webp"
               alt="Commercial kitchen build"
               className="w-full h-full object-cover transition-transform duration-[6000ms] ease-linear group-hover:scale-[1.05]"
               style={{ filter: "brightness(0.74) saturate(0.8)" }}

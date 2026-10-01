@@ -9,7 +9,7 @@ const testimonials = [
     logo: "/assets/clucin.png",
     featured: true,
     image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&auto=format&fit=crop",
+      "/assets/testimonial-featured.webp",
     quote:
       "Kitchen Pulse understood our QSR throughput challenges better than anyone we had worked with before. They supported us closely through equipment planning, installation, and commissioning, ensuring we went live on schedule with zero disruption to operations. I see them as a long-term partner for every new Cluckin outlet — our one-stop kitchen solutions partner.",
   },

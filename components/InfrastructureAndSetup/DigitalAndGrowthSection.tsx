@@ -7,24 +7,21 @@ const digitalItems = [
     description:
       "End-to-end management of Zomato, Swiggy, Blinkit and other platforms to optimize visibility, ratings, and order volumes.",
     icon: "📡",
-    image:
-      "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=900&q=80&auto=format&fit=crop", // restaurant table spread [web:44]
+    image: "/assets/digital-aggregator.webp",
   },
   {
     title: "Performance Marketing",
     description:
       "Digital campaigns focused on ROAS and customer acquisition across search, social, and local discovery channels.",
     icon: "📈",
-    image:
-      "https://images.unsplash.com/photo-1525755662778-989d0524087e?w=900&q=80&auto=format&fit=crop", // overhead shot of plates [web:43]
+    image: "/assets/digital-marketing.webp",
   },
   {
     title: "Brand & Customer Experience",
     description:
       "Cohesive brand storytelling, creatives, and CRM journeys that build loyalty across dine-in, delivery, and D2C.",
     icon: "✦",
-    image:
-      "https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=80&auto=format&fit=crop", // cozy restaurant interior with food [web:50]
+    image: "/assets/digital-brand.webp",
   },
 ];
 const metrics = [
@@ -108,8 +105,8 @@ const DigitalAndGrowthSection = () => {
           {/* Left: Image panel — flipped vs culinary (image left, text right) */}
           <div className={`group relative overflow-hidden min-h-[350px] md:min-h-0 order-2 md:order-1 ${fade(heroVisible, "delay-200")}`}>
             <img
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&q=85&auto=format&fit=crop"
-              alt="Digital growth analytics"
+              src="/assets/digital-hero.webp"
+              alt="Restaurant interior with open kitchen and HVAC"
               className="w-full h-full object-cover block transition-transform duration-[8000ms] ease-linear group-hover:scale-[1.04]"
               style={{ filter: "brightness(0.78) saturate(0.9)" }}
             />

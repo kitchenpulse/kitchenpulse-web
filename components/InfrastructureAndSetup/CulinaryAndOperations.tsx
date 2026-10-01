@@ -136,8 +136,8 @@ const CulinaryAndOperationsSection = () => {
               style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
             />
             <img
-              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1000&q=85&auto=format&fit=crop"
-              alt="Professional chef at work"
+              src="/assets/culinary-hero.webp"
+              alt="Chef plating in a commercial kitchen"
               className="w-full h-full object-cover block transition-transform duration-[8000ms] ease-linear group-hover:scale-[1.04]"
               style={{ filter: "brightness(0.78) saturate(0.9)" }}
             />
@@ -208,8 +208,8 @@ const CulinaryAndOperationsSection = () => {
           {/* Image side */}
           <div className="group relative min-h-[320px] overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=800&q=85&auto=format&fit=crop"
-              alt="Kitchen operations"
+              src="/assets/culinary-ops.webp"
+              alt="Chef working at a commercial combi-oven station"
               className="w-full h-full object-cover transition-transform duration-[6000ms] ease-linear group-hover:scale-[1.05]"
               style={{ filter: "brightness(0.75) saturate(0.8)" }}
             />

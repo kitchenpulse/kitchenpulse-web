@@ -9,7 +9,7 @@ const reasons = [
   {
     title: "One-Stop Solution",
     desc: "From real estate sourcing to digital growth — everything under one roof.",
-    img: "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    img: "/assets/why-onestop.webp",
     icon: HiLightningBolt,
     tag: "Full Stack",
     stat: "6 Services",
@@ -17,7 +17,7 @@ const reasons = [
   {
     title: "Seamless Integration",
     desc: "Coordinated execution across all operational functions.",
-    img: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    img: "/assets/why-integration.webp",
     icon: HiCog,
     tag: "Operations",
     stat: "Zero Gaps",
@@ -25,7 +25,7 @@ const reasons = [
   {
     title: "Cost-Effective Model",
     desc: "25–30% savings through bulk purchasing and operational efficiencies.",
-    img: "https://images.pexels.com/photos/4968633/pexels-photo-4968633.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    img: "/assets/why-savings.webp",
     icon: HiCurrencyRupee,
     tag: "Savings",
     stat: "25–30% Less",
@@ -33,7 +33,7 @@ const reasons = [
   {
     title: "Single Point of Contact",
     desc: "Dedicated team ensuring accountability and clarity.",
-    img: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    img: "/assets/why-team.webp",
     icon: HiUserGroup,
     tag: "Accountability",
     stat: "1 Dedicated Team",
@@ -122,8 +122,8 @@ const WhyChooseSection = () => {
         {/* Background image layer — next/image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/printedp.jpg"
-            alt="Printed kitchen operations backdrop"
+            src="/assets/why-bg.webp"
+            alt="Commercial kitchen with professional exhaust hood"
             fill
             sizes="100vw"
             className="object-cover"
@@ -203,13 +203,11 @@ const WhyChooseSection = () => {
 
                     {/* Image */}
                     <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/7" }}>
-                      <img
+                      <Image
                         src={item.img}
                         alt={`${item.title} — ${item.desc}`}
                         width={600}
                         height={260}
-                        loading="lazy"
-                        decoding="async"
                         sizes="(max-width: 640px) 100vw, 25vw"
                         className="w-full h-full object-cover object-center block transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.06]"
                         style={{ filter: "grayscale(15%) brightness(0.9)" }}
