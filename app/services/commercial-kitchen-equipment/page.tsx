@@ -252,6 +252,17 @@ export default function CommercialKitchenEquipmentPage() {
           and target go-live — we will map the equipment list that fits the
           room and the menu.
         </p>
+        <p className="mt-4 max-w-3xl text-[#b0aaa2] leading-relaxed">
+          Looking for product-intent guides (ranges, ovens, cold, prep, warewash)?
+          Browse our{" "}
+          <Link
+            href="/equipment"
+            className="text-orange-500 underline-offset-2 hover:underline"
+          >
+            commercial kitchen equipment guides
+          </Link>{" "}
+          — consult and quote, not an online shop.
+        </p>
       </section>
 
       <ServiceCtaBand

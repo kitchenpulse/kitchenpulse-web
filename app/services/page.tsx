@@ -128,6 +128,16 @@ export default function ServicesIndexPage() {
             </li>
           ))}
         </ul>
+        <p className="mt-6 text-sm text-[#a8a29a]">
+          Exploring equipment types (cooking, cold, prep, warewash)?{" "}
+          <Link
+            href="/equipment"
+            className="text-orange-500 underline-offset-2 hover:underline"
+          >
+            Browse equipment guides
+          </Link>{" "}
+          — consult and quote, not an online shop.
+        </p>
       </section>
 
       <section className="mx-auto max-w-5xl px-6 pb-16 md:pb-20">
