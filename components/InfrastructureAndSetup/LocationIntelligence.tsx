@@ -61,11 +61,11 @@ const checkPoints = [
 const heroImages = [
   {
     url: "/assets/infra-kitchen.webp",
-    alt: "Chef working in commercial kitchen",
+    alt: "Open kitchen with commercial HVAC and dining fit-out",
     tag: "Commercial Kitchen",
   },
   {
-    url: "/assets/digital-aggregator.webp",
+    url: "/assets/infra-dinein.webp",
     alt: "Restaurant dine-in interior fit-out",
     tag: "Dine-In Setup",
   },
@@ -210,7 +210,7 @@ const InfrastructureSetupSection = () => {
             <div className={fade(heroVisible, "delay-300")}>
               <CtaGroup
                 whatsappMessage="Hi! I'd like to discuss kitchen infrastructure and fit-out."
-                primaryLabel="Book a consult"
+                primaryLabel="Book a consultation"
                 showServices
               />
             </div>
@@ -367,7 +367,7 @@ const InfrastructureSetupSection = () => {
           <div className="group relative min-h-[320px] overflow-hidden">
             <img
               src="/assets/infra-kitchen.webp"
-              alt="Commercial kitchen build"
+              alt="Open commercial kitchen with HVAC hoods"
               className="w-full h-full object-cover transition-transform duration-[6000ms] ease-linear group-hover:scale-[1.05]"
               style={{ filter: "brightness(0.74) saturate(0.8)" }}
             />

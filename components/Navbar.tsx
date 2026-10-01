@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const WHATSAPP_NUMBER = "919167636653";
-const WHATSAPP_MESSAGE = "Hi! I'd like to book a consult with Kitchen Pulse.";
+const WHATSAPP_MESSAGE = "Hi! I'd like to book a consultation with Kitchen Pulse.";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 const NAV_LINKS = [
@@ -292,7 +292,7 @@ export default function Navbar() {
               className="kp-cta-btn ml-3"
             >
               <span className="w-[4px] h-[4px] bg-current rotate-45 flex-shrink-0" />
-              <span>Book a consult</span>
+              <span>Book a consultation</span>
             </a>
           </div>
 
@@ -364,7 +364,7 @@ export default function Navbar() {
                 onClick={closeMobileMenu}
               >
                 <span className="w-[4px] h-[4px] bg-current rotate-45 flex-shrink-0" />
-                Book a consult
+                Book a consultation
               </a>
             </div>
           </div>

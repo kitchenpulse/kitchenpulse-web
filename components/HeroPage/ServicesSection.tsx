@@ -250,12 +250,12 @@ const ServicesSection = () => {
                 Ready to map your next kitchen?
               </h3>
               <p className="mt-2 text-[14px] font-light text-[#b0aaa2] max-w-md">
-                Book a consult — we&apos;ll outline fit-out, equipment, or launch support for your city and timeline.
+                Book a consultation — we&apos;ll outline fit-out, equipment, or launch support for your city and timeline.
               </p>
             </div>
             <CtaGroup
               whatsappMessage="Hi! I'd like to discuss Kitchen Pulse services."
-              primaryLabel="Book a consult"
+              primaryLabel="Book a consultation"
               showServices
             />
           </div>

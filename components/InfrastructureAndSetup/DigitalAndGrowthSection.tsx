@@ -107,7 +107,7 @@ const DigitalAndGrowthSection = () => {
           <div className={`group relative overflow-hidden min-h-[350px] md:min-h-0 order-2 md:order-1 ${fade(heroVisible, "delay-200")}`}>
             <img
               src="/assets/digital-hero.webp"
-              alt="Restaurant interior with open kitchen and HVAC"
+              alt="Cafe POS tablet and digital payments for orders"
               className="w-full h-full object-cover block transition-transform duration-[8000ms] ease-linear group-hover:scale-[1.04]"
               style={{ filter: "brightness(0.78) saturate(0.9)" }}
             />
@@ -167,7 +167,7 @@ const DigitalAndGrowthSection = () => {
             <div className={fade(heroVisible, "delay-300")}>
               <CtaGroup
                 whatsappMessage="Hi! I'd like to discuss digital and aggregator growth."
-                primaryLabel="Book a consult"
+                primaryLabel="Book a consultation"
                 showServices
               />
             </div>

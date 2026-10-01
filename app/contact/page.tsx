@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Talk to Kitchen Pulse about restaurant or cloud kitchen setup. Email info@kitchenpulse.in or call +91 91676 36653. Kamothe, Navi Mumbai — pan-India delivery.",
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact Kitchen Pulse | Book a Consult — Navi Mumbai",
+    title: "Contact Kitchen Pulse | Book a Consultation — Navi Mumbai",
     description:
       "Email info@kitchenpulse.in or call +91 91676 36653. Kamothe, Navi Mumbai — pan-India kitchen setup support.",
     url: "https://kitchenpulse.in/contact",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Kitchen Pulse | Book a Consult — Navi Mumbai",
+    title: "Contact Kitchen Pulse | Book a Consultation — Navi Mumbai",
     description:
       "Talk to Kitchen Pulse about restaurant or cloud kitchen setup across India.",
     images: ["/og-image.jpg"],

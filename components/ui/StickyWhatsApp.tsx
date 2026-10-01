@@ -2,7 +2,7 @@
 
 import { whatsappUrl } from "@/components/ui/CtaButtons";
 
-const MESSAGE = "Hi! I'd like to book a consult with Kitchen Pulse.";
+const MESSAGE = "Hi! I'd like to book a consultation with Kitchen Pulse.";
 
 /**
  * Fixed WhatsApp FAB — dark-theme pill that stays clear of primary CTAs

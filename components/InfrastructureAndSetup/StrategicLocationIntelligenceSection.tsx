@@ -171,7 +171,7 @@ const StrategicLocationIntelligenceSection = () => {
             <div className={fade(heroVisible, "delay-300")}>
               <CtaGroup
                 whatsappMessage="Hi! I'd like help with F&B location sourcing."
-                primaryLabel="Book a consult"
+                primaryLabel="Book a consultation"
                 showServices
               />
             </div>

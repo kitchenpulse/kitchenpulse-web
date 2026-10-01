@@ -141,7 +141,7 @@ export default function CommercialKitchenEquipmentPage() {
         </p>
         <CtaGroup
           whatsappMessage="Hi! I'd like to discuss commercial kitchen equipment with Kitchen Pulse."
-          primaryLabel="Book a consult"
+          primaryLabel="Book a consultation"
           showServices
         />
 

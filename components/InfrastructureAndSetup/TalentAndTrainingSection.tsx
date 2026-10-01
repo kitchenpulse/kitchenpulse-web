@@ -135,7 +135,7 @@ const TalentAndTrainingSection = () => {
             <div className={fade(heroVisible, "delay-300")}>
               <CtaGroup
                 whatsappMessage="Hi! I'd like to discuss talent and training support."
-                primaryLabel="Book a consult"
+                primaryLabel="Book a consultation"
                 showServices
               />
             </div>

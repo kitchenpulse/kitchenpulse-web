@@ -193,7 +193,7 @@ const Testimonials: React.FC = () => {
             <div className="relative h-[220px] md:h-auto overflow-hidden">
               <img
                 src={featuredTestimonial.image}
-                alt="Commercial kitchen"
+                alt="Chef at commercial kitchen equipment station"
                 className="w-full h-full object-cover transition-transform duration-[6000ms] ease-linear group-hover:scale-[1.05]"
                 style={{ filter: "brightness(0.72) saturate(0.85)" }}
               />

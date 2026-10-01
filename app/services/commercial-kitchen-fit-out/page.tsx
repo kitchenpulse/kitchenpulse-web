@@ -126,7 +126,7 @@ export default function CommercialKitchenFitOutPage() {
         </p>
         <CtaGroup
           whatsappMessage="Hi! I'd like to discuss a commercial kitchen fit-out with Kitchen Pulse."
-          primaryLabel="Book a consult"
+          primaryLabel="Book a consultation"
           showServices
         />
 

@@ -68,10 +68,10 @@ const Footer = () => {
               </h3>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/contact" className={ctaPrimaryClass}>
-                  Book a consult
+                  Book a consultation
                 </Link>
                 <a
-                  href={whatsappUrl("Hi! I'd like to book a consult with Kitchen Pulse.")}
+                  href={whatsappUrl("Hi! I'd like to book a consultation with Kitchen Pulse.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={ctaSecondaryClass}

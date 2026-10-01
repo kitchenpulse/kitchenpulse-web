@@ -31,9 +31,9 @@ type CtaGroupProps = {
  * Consistent CTA hierarchy: one strong orange primary + outline WhatsApp + optional ghost.
  */
 export function CtaGroup({
-  whatsappMessage = "Hi! I'd like to book a consult with Kitchen Pulse.",
+  whatsappMessage = "Hi! I'd like to book a consultation with Kitchen Pulse.",
   primaryHref = "/contact",
-  primaryLabel = "Book a consult",
+  primaryLabel = "Book a consultation",
   showWhatsApp = true,
   showServices = false,
   className = "",
@@ -89,7 +89,7 @@ export function ServiceCtaBand({
         <CtaGroup
           className="mt-8"
           whatsappMessage={whatsappMessage}
-          primaryLabel="Book a consult"
+          primaryLabel="Book a consultation"
           showServices={false}
         />
       </div>
