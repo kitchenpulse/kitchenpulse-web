@@ -14,6 +14,13 @@ export const metadata: Metadata = {
     url: "https://kitchenpulse.in/services/fnb-launch-consulting",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: 'F&B Launch Consulting — Idea to First Order | Kitchen Pulse',
+    description:
+      'Turnkey kitchen brand launch consulting for new founders — QSR, restaurant, cloud kitchen, and delivery-first concepts across India.',
+    images: ["/og-image.jpg"],
+  },
 };
 
 

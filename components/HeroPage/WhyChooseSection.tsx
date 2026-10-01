@@ -1,9 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { HiLightningBolt, HiCog, HiCurrencyRupee, HiUserGroup } from "react-icons/hi";
-import Link from "next/link";
 import Image from "next/image";
-import { ctaPrimaryClass, ctaSecondaryClass, whatsappUrl } from "@/components/ui/CtaButtons";
+import { CtaGroup } from "@/components/ui/CtaButtons";
 
 const reasons = [
   {
@@ -276,19 +275,10 @@ const WhyChooseSection = () => {
                 One accountable partner from site to service-ready kitchen.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/contact" className={ctaPrimaryClass}>
-                Book a consult
-              </Link>
-              <a
-                href={whatsappUrl("Hi! I'd like to book a consult with Kitchen Pulse.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={ctaSecondaryClass}
-              >
-                WhatsApp
-              </a>
-            </div>
+            <CtaGroup
+              whatsappMessage="Hi! I'd like to book a consult with Kitchen Pulse."
+              primaryLabel="Book a consult"
+            />
           </div>
         </div>
       </section>

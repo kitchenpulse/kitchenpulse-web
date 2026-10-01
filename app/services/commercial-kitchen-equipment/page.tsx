@@ -14,6 +14,13 @@ export const metadata: Metadata = {
     url: "https://kitchenpulse.in/services/commercial-kitchen-equipment",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: 'Commercial Kitchen Equipment Supply Across India | Kitchen Pulse',
+    description:
+      'Layout-led equipment supply and custom stainless fabrication for F&B brands — cooking, cold, prep, and warewash lines across India.',
+    images: ["/og-image.jpg"],
+  },
 };
 
 

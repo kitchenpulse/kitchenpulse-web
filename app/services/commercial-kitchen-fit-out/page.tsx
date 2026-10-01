@@ -14,6 +14,13 @@ export const metadata: Metadata = {
     url: "https://kitchenpulse.in/services/commercial-kitchen-fit-out",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: 'Turnkey Commercial Kitchen Fit-Out Across India | Kitchen Pulse',
+    description:
+      'Civil, HVAC, custom equipment, and operational handover for F&B brands — from bare shell to service-ready kitchen.',
+    images: ["/og-image.jpg"],
+  },
 };
 
 

@@ -14,6 +14,13 @@ export const metadata: Metadata = {
     url: "https://kitchenpulse.in/services/kitchen-hvac",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: 'Commercial Kitchen HVAC & Exhaust Across India | Kitchen Pulse',
+    description:
+      'Exhaust, fresh air, and climate control for high-heat F&B kitchens — sized together so staff comfort and grease capture both work.',
+    images: ["/og-image.jpg"],
+  },
 };
 
 

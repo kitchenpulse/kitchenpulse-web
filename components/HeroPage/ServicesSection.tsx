@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { ctaPrimaryClass, ctaSecondaryClass } from "@/components/ui/CtaButtons";
+import { CtaGroup } from "@/components/ui/CtaButtons";
 
 const Icons = {
   RealEstate: () => (
@@ -254,14 +253,11 @@ const ServicesSection = () => {
                 Book a consult — we&apos;ll outline fit-out, equipment, or launch support for your city and timeline.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/contact" className={ctaPrimaryClass}>
-                Book a consult
-              </Link>
-              <Link href="/services" className={ctaSecondaryClass}>
-                All services
-              </Link>
-            </div>
+            <CtaGroup
+              whatsappMessage="Hi! I'd like to discuss Kitchen Pulse services."
+              primaryLabel="Book a consult"
+              showServices
+            />
           </div>
         </div>
       </section>

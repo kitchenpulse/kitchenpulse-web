@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ctaPrimaryClass, ctaSecondaryClass } from "@/components/ui/CtaButtons";
+import { CtaGroup, ctaGhostClass } from "@/components/ui/CtaButtons";
 
 const HeroSection: React.FC = () => {
   const [visible, setVisible] = useState(false);
@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
       {/* Background image — next/image for LCP; existing asset only */}
       <div className="absolute inset-0 animate-[heroZoom_14s_ease_forwards]">
         <Image
-          src="/assets/chefing.jpeg"
+          src="/assets/chefing.webp"
           alt="Chef plating dishes in a commercial kitchen"
           fill
           priority
@@ -105,26 +105,18 @@ const HeroSection: React.FC = () => {
           innovation, staffing, and digital growth — all under one roof.
         </p>
 
-        {/* CTAs — primary solid + secondary outline */}
+        {/* CTAs — CtaGroup primary + WhatsApp, ghost to services */}
         <div
           className={`flex flex-wrap items-center gap-3 sm:gap-4 mb-10 transition-all duration-700 ease-out delay-[380ms] ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <Link href="/contact" className={ctaPrimaryClass}>
-            Book a consult
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path
-                d="M1 7h12M8 2l5 5-5 5"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
-
-          <Link href="/services" className={ctaSecondaryClass}>
+          <CtaGroup
+            whatsappMessage="Hi! I'd like to book a consult with Kitchen Pulse."
+            primaryLabel="Book a consult"
+            showWhatsApp
+          />
+          <Link href="/services" className={ctaGhostClass}>
             Explore services
           </Link>
         </div>

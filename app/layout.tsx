@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import StickyWhatsApp from "@/components/ui/StickyWhatsApp";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -83,6 +84,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <StickyWhatsApp />
       </body>
     </html>
   );

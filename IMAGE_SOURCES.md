@@ -19,4 +19,4 @@ All new assets under `public/assets/*.webp` are compressed locally from Unsplash
 | `infra-kitchen.webp` | Remote Unsplash carousel | [Unsplash photo-1577219491135](https://unsplash.com/photos/ce391730fb2c) | Chef plating under heat lamps |
 | `infra-hood.webp` | Remote Unsplash carousel | [Pexels 38253262](https://www.pexels.com/photo/38253262/) | Exhaust hood / commercial line |
 
-**Kept unchanged:** `bg.png` / brand marks, client logos (`clucin`, `sadakchap`, `charcoaleats`, `keralacafe`, `rebelfoods`, `enoki`, `kytchens`, `kissanconnect`, `burgers`, `maizmexican`), Hero `chefing.jpeg`, Strategic Location city landmark Unsplash set, About founder initials (no invented photos).
+**Kept unchanged:** `bg.png` / brand marks, client logos (`clucin`, `sadakchap`, `charcoaleats`, `keralacafe`, `rebelfoods`, `enoki`, `kytchens`, `kissanconnect`, `burgers`, `maizmexican`), Hero `chefing.webp` (compressed from jpeg), Strategic Location city landmark Unsplash set, About founder initials (no invented photos).
