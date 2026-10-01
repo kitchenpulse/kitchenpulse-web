@@ -2,13 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "F&B Services | Kitchen Fit-Out, Equipment & HVAC",
+  title: "F&B Services | Fit-Out, Equipment, HVAC & Launch Consulting",
   description:
-    "Kitchen Pulse primary F&B services — commercial kitchen fit-out, equipment, and HVAC across India. Staffing and aggregator growth available as add-ons.",
+    "Kitchen Pulse F&B services — launch consulting for new founders across QSR, restaurants, and cloud kitchens, plus commercial kitchen fit-out, equipment, and HVAC across India. Staffing and aggregator growth available as add-ons.",
   alternates: { canonical: "/services" },
 };
 
 const PRIMARY = [
+  {
+    href: "/services/fnb-launch-consulting",
+    title: "F&B launch consulting",
+    body: "For new founders — idea to first order across QSR, restaurants, dine-in, cloud kitchens, and delivery-first brands. Concept, menu, kitchen flow, SOPs, tech, and go-live. Pan-India.",
+    badge: "For new founders",
+  },
   {
     href: "/services/commercial-kitchen-fit-out",
     title: "Commercial kitchen fit-out",
@@ -54,9 +60,10 @@ export default function ServicesIndexPage() {
         F&B services built to scale
       </h1>
       <p className="mt-5 max-w-2xl text-lg text-[#a8a29a]">
-        Primary focus: commercial kitchen fit-out, equipment, and HVAC —
-        pan-India from our Navi Mumbai base. Staffing and aggregator support
-        remain available as secondary add-ons.
+        Launch consulting for new founders across formats, plus commercial
+        kitchen fit-out, equipment, and HVAC — pan-India from our Navi Mumbai
+        base. Staffing and aggregator support remain available as secondary
+        add-ons.
       </p>
 
       <h2 className="mt-14 text-xs font-medium uppercase tracking-[0.18em] text-orange-500">
@@ -69,6 +76,11 @@ export default function ServicesIndexPage() {
               href={item.href}
               className="block rounded-md border border-white/10 bg-[#171614] p-5 transition hover:border-orange-500/40"
             >
+              {"badge" in item && item.badge ? (
+                <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.16em] text-orange-500">
+                  {item.badge}
+                </p>
+              ) : null}
               <h3 className="text-lg font-semibold text-[#f2efe9]">{item.title}</h3>
               <p className="mt-1 text-sm text-[#a8a29a]">{item.body}</p>
             </Link>

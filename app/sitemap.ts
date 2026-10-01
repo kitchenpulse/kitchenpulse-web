@@ -10,6 +10,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/MainSection`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/services`, lastModified, changeFrequency: "weekly", priority: 0.85 },
     {
+      url: `${base}/services/fnb-launch-consulting`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${base}/services/commercial-kitchen-fit-out`,
       lastModified,
       changeFrequency: "monthly",
