@@ -57,18 +57,6 @@ export default function EquipmentPageView({ page }: Props) {
     url: `${SITE}${path}`,
   };
 
-  const productLd =
-    page.includeProductSchema && page.productName
-      ? {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          name: page.productName,
-          description: page.metaDescription,
-          brand: { "@type": "Brand", name: "Kitchen Pulse" },
-          url: `${SITE}${path}`,
-        }
-      : null;
-
   const itemListLd =
     page.kind === "hub" || page.kind === "cluster"
       ? {
@@ -99,12 +87,6 @@ export default function EquipmentPageView({ page }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
       />
-      {productLd ? (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(productLd) }}
-        />
-      ) : null}
       {itemListLd ? (
         <script
           type="application/ld+json"

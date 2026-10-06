@@ -37,8 +37,6 @@ export type EquipmentPageData = {
   linkFitOut?: boolean;
   linkHvac?: boolean;
   faqs: FaqItem[];
-  includeProductSchema?: boolean;
-  productName?: string;
   ctaHeading: string;
   ctaBody: string;
   whatsappMessage: string;
