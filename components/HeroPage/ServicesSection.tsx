@@ -43,15 +43,27 @@ const Icons = {
       <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
     </svg>
   ),
+  Recipe: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="24" height="24">
+      <path d="M6 13.87A4 4 0 017.41 6a5.11 5.11 0 019.18 0A4 4 0 0118 13.87V21H6z"/>
+      <line x1="6" y1="17" x2="18" y2="17"/>
+    </svg>
+  ),
+  Layout: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="24" height="24">
+      <rect x="3" y="3" width="18" height="18" rx="1"/>
+      <path d="M3 9h18M9 9v12"/>
+    </svg>
+  ),
 };
 
 const SERVICES = [
   {
     title: "Real Estate Sourcing",
-    desc: "Expert location intelligence across tier 2 & 3 cities with pre-negotiated rates from our database of 1800+ F&B-suitable properties.",
+    desc: "We help you find the ideal spot for your outlet, matching footfall, visibility and kitchen-ready infrastructure to your concept.",
     icon: Icons.RealEstate,
     tag: "Location Intelligence",
-    stat: "1800+ Properties",
+    stat: "Location Scouting",
   },
   {
     title: "Civil & Infrastructure",
@@ -87,6 +99,20 @@ const SERVICES = [
     icon: Icons.Digital,
     tag: "Aggregator Management",
     stat: "4+ Platforms",
+  },
+  {
+    title: "Recipe Development",
+    desc: "Chef-led recipe development and standardisation, so every outlet serves the same dish the same way.",
+    icon: Icons.Recipe,
+    tag: "Menu & R&D",
+    stat: "Standardised Recipes",
+  },
+  {
+    title: "Layout Planning",
+    desc: "Efficient kitchen layouts planned around your menu, workflow and space, before a single wall goes up.",
+    icon: Icons.Layout,
+    tag: "Kitchen Design",
+    stat: "Workflow-First Design",
   },
 ];
 
@@ -183,15 +209,15 @@ const ServicesSection = () => {
           </div>
         </div>
 
-        {/* ── ALL 6 CARDS IN ONE ROW ── */}
+        {/* ── SERVICE CARDS GRID ── */}
         <div className="relative z-[2] px-5 sm:px-[50px] lg:px-20 py-16 sm:py-20 lg:py-[100px]">
-          <div className="flex flex-col sm:flex-row gap-0.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0.5">
             {SERVICES.map((service, i) => {
               const Icon = service.icon;
               return (
                 <div
                   key={service.title}
-                  className={`group flex-1 min-w-0 bg-[#171614] border border-white/[0.10] p-6 relative overflow-hidden flex flex-col cursor-default transition-all duration-300 hover:border-orange-500 hover:bg-[#1c1916] ${
+                  className={`group min-w-0 bg-[#171614] border border-white/[0.10] p-6 relative overflow-hidden flex flex-col cursor-default transition-all duration-300 hover:border-orange-500 hover:bg-[#1c1916] ${
                     visibleCards[i]
                       ? "opacity-100 translate-y-0 transition-[opacity,transform,border-color,background] duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
                       : "opacity-0 translate-y-6"

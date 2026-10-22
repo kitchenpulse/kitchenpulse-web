@@ -10,9 +10,9 @@ const highlights = [
     icon: "🏙️",
   },
   {
-    label: "Pre-Negotiated Rates",
+    label: "Site Shortlisting",
     description:
-      "Pre-negotiated rates from 1800+ vetted F&B-suitable properties for faster decisions.",
+      "Shortlisted F&B-suitable spaces matched to your concept for faster decisions.",
     icon: "📋",
   },
   {
@@ -22,9 +22,9 @@ const highlights = [
     icon: "📍",
   },
   {
-    label: "Tier 2 & 3 Expertise",
+    label: "Local Market Insight",
     description:
-      "Deep understanding of Tier 2 & 3 city dynamics for confident expansion.",
+      "Deep understanding of local market dynamics for confident expansion.",
     icon: "🗺️",
   },
 ];
@@ -48,14 +48,14 @@ const heroImages = [
 ];
 
 const stats = [
-  { value: "1800+", label: "Vetted Properties" },
+  { value: "F&B-Ready", label: "Spaces Shortlisted" },
   { value: "Pan-India", label: "City Coverage" },
-  { value: "Tier 2 & 3", label: "Deep Expertise" },
+  { value: "End-to-End", label: "Site Support" },
 ];
 
 const intelPoints = [
-  "1800+ vetted properties ready for F&B and D2C use",
-  "Ground-level insight across Tier 1, 2 & 3 cities",
+  "We help you find the right location for your outlet",
+  "Ground-level insight into footfall, visibility and local demand",
   "End-to-end support from shortlisting to deal closure",
 ];
 
@@ -300,7 +300,7 @@ const StrategicLocationIntelligenceSection = () => {
               the Listing
             </h3>
             <p className="text-[14px] font-light leading-[1.8] text-[#a8a29a] mb-9 max-w-[440px]">
-              From off-market properties to pre-negotiated lease terms, our network
+              From off-market properties to kitchen-ready spaces, our network
               gives you a real edge — whether you're launching your first outlet or
               scaling to fifty.
             </p>
