@@ -11,7 +11,7 @@ const reasons = [
     img: "/assets/why-onestop.webp",
     icon: HiLightningBolt,
     tag: "Full Stack",
-    stat: "6 Services",
+    stat: "8 Services",
   },
   {
     title: "Seamless Integration",

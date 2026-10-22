@@ -58,7 +58,7 @@ const SECONDARY = [
   {
     href: "/MainSection#location",
     title: "Real estate sourcing",
-    body: "F&B location intelligence across tier 2 & 3 cities.",
+    body: "We help you find the right location for your outlet.",
   },
   {
     href: "/MainSection#talent",
