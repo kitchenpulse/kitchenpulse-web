@@ -11,6 +11,8 @@ const logos = [
   { name: "Kytchens",        src: "/assets/kytchens.jpeg",        initials: "EF" },
   { name: "Kissan Connect", src: "/assets/kissanconnect.jpeg",           initials: "BBK" },
   { name: "MH99 Burgers",       src: "/assets/burgers.jpeg",       initials: "FC" },
+  { name: "Mumbai Pav Co.", src: "/assets/mumbaipavco.png", initials: "MPC" },
+  { name: "Nomad Pizza",    src: "/assets/nomadpizza.png",  initials: "NP" },
 ];
 
 // Duplicate for seamless infinite scroll
