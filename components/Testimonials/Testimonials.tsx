@@ -53,7 +53,7 @@ const testimonials = [
 ];
 
 const stats = [
-  { value: "120+", label: "Kitchens Built" },
+  { value: "90+", label: "Projects Executed" },
   { value: "40+", label: "F&B Brands" },
   { value: "98%", label: "On-time Delivery" },
 ];
