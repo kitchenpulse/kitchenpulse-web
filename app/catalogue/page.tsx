@@ -51,7 +51,7 @@ export default function CataloguePage() {
           Kitchen Pulse Product Catalogue
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#b0aaa2]">
-          A 32-page look at Kitchen Pulse Fabrication, cooking, food prep and
+          A 33-page look at Kitchen Pulse Fabrication, cooking, food prep and
           bakery, the Celfrost refrigeration range, plus dishwashing and
           beverage equipment. No prices — get in touch for a quote.
         </p>

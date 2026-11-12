@@ -13,6 +13,7 @@ const logos = [
   { name: "MH99 Burgers",       src: "/assets/burgers.jpeg",       initials: "FC" },
   { name: "Mumbai Pav Co.", src: "/assets/mumbaipavco.png", initials: "MPC" },
   { name: "Nomad Pizza",    src: "/assets/nomadpizza.png",  initials: "NP" },
+  { name: "Arsalan",        src: "/assets/arsalan.png",     initials: "AR" },
 ];
 
 // Duplicate for seamless infinite scroll
