@@ -36,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     { url: `${base}/testimonials`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/contact`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/catalogue`, lastModified, changeFrequency: "monthly", priority: 0.8 },
   ];
 
   const equipment: MetadataRoute.Sitemap = EQUIPMENT_PATHS.map((path) => ({

@@ -274,6 +274,13 @@ export default function Navbar() {
               </div>
             </div>
 
+            <Link
+              href="/catalogue"
+              className="kp-link-underline relative px-3 py-2 text-[11px] font-medium tracking-[0.12em] uppercase text-[#a8a29a] no-underline hover:text-[#f2efe9] transition-colors duration-200"
+            >
+              Catalogue
+            </Link>
+
             {NAV_LINKS.slice(2).map((link) => (
               <Link
                 key={link.href}
@@ -350,6 +357,7 @@ export default function Navbar() {
                 )}
               </div>
 
+              <Link href="/catalogue" className="kp-mobile-link" onClick={closeMobileMenu}>Catalogue</Link>
               <Link href="/testimonials" className="kp-mobile-link" onClick={closeMobileMenu}>Testimonials</Link>
               <Link href="/contact" className="kp-mobile-link" onClick={closeMobileMenu}>Contact</Link>
 

@@ -107,6 +107,9 @@ const Footer = () => {
               <Link href="/services" className="no-underline hover:text-orange-500">
                 Services
               </Link>
+              <Link href="/catalogue" className="no-underline hover:text-orange-500">
+                Catalogue
+              </Link>
               <Link href="/equipment" className="no-underline hover:text-orange-500">
                 Equipment guides
               </Link>
