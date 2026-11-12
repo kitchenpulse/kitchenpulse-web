@@ -137,6 +137,9 @@ export default function EquipmentPageView({ page }: Props) {
           <Link href="/contact" className={ctaSecondaryClass}>
             Get a quote
           </Link>
+          <Link href="/catalogue" className={ctaSecondaryClass}>
+            Download Catalogue
+          </Link>
           <a
             href={whatsappUrl(page.whatsappMessage)}
             target="_blank"
