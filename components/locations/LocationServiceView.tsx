@@ -2,8 +2,6 @@ import Link from "next/link";
 import { CtaGroup, ServiceCtaBand } from "@/components/ui/CtaButtons";
 import type { CityPage, ServiceSlug } from "@/lib/locations/types";
 import {
-  CONTACT_EMAIL,
-  CONTACT_PHONE_DISPLAY,
   EQUIPMENT_LINKS,
   SERVICE_LABELS,
   cityPath,
@@ -14,6 +12,7 @@ import { getCity } from "@/lib/locations";
 import { cityServiceJsonLd, faqJsonLd } from "@/lib/locations/schema";
 import FaqSection from "./FaqSection";
 import JsonLdScript from "./JsonLdScript";
+import NapContact from "./NapContact";
 import { linkClass, playfair } from "./LocationStyles";
 
 export default function LocationServiceView({
@@ -189,16 +188,7 @@ export default function LocationServiceView({
               .
             </p>
           )}
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[#b0aaa2]">
-            Contact:{" "}
-            <a href={`mailto:${CONTACT_EMAIL}`} className={linkClass}>
-              {CONTACT_EMAIL}
-            </a>
-            {" · "}
-            <a href="tel:+919167636653" className={linkClass}>
-              {CONTACT_PHONE_DISPLAY}
-            </a>
-          </p>
+          <NapContact />
         </div>
       </section>
 

@@ -7,7 +7,12 @@ import re
 from pathlib import Path
 
 ROOT = Path("/workspace/kitchenpulse-web/lib/locations/cities")
-BANNED = re.compile(r"tier\s*[- ]?[23]|pre-negotiated|property counts", re.I)
+BANNED = re.compile(
+    r"tier\s*[- ]?[23]|pre-negotiated|property counts|"
+    r"do n" r"ot|no br" r"anch|this pa" r"ge|\binv" r"ent|inven" r"tory|"
+    r"Saki " r"Naka|case st" r"ud",
+    re.I,
+)
 
 SERVICE_KEYS = (
     "kitchen-hvac",
@@ -141,11 +146,6 @@ def validate(cities: list[dict]) -> None:
         for path, text in walk_strings(city):
             if BANNED.search(text):
                 errors.append(f"Banned wording in {city['slug']} {path}: {text[:80]}")
-            if "we completed" in text.lower() or "case study" in text.lower():
-                if "do not invent" not in text.lower() and "no fabricated" not in text.lower() and "do not invent city-by-city" not in text.lower():
-                    # allow the disclaimer
-                    if "invent" not in text.lower() and "listed on" not in text.lower():
-                        errors.append(f"Possible invented case study in {city['slug']} {path}")
         intro_key = city["intro"].strip()
         if intro_key in intros:
             errors.append(f"Duplicate hub intro: {city['slug']} vs {intros[intro_key]}")

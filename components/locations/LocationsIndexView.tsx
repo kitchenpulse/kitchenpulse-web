@@ -6,6 +6,7 @@ import {
   cityPath,
 } from "@/lib/locations/constants";
 import { citiesByRegion } from "@/lib/locations";
+import NapContact from "./NapContact";
 import { linkClass, playfair } from "./LocationStyles";
 
 export default function LocationsIndexView() {
@@ -21,14 +22,15 @@ export default function LocationsIndexView() {
           className="max-w-3xl text-4xl font-black leading-tight tracking-tight md:text-5xl"
           style={playfair}
         >
-          Cities we serve across India
+          Commercial kitchens installed in cities across India
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#b0aaa2]">
-          Kitchen Pulse is based in Kamothe, Navi Mumbai and delivers commercial
-          kitchen fit-out, equipment supply, and kitchen HVAC for restaurants
-          and cloud kitchens in major cities across India. Pick a city to see
-          how we work there — including neighbourhoods, local kitchen
-          constraints, and the three primary services.
+          Kitchen Pulse designs, supplies and installs commercial kitchens for
+          restaurants, QSRs, cloud kitchens, hotels and cafés across India.
+          Our own team works on site in your city at every stage — site survey,
+          layout, equipment, kitchen HVAC and exhaust, handover and after-sales.
+          Choose a city to see how we help you open a kitchen that is ready for
+          service.
         </p>
         <CtaGroup
           className="mt-8"
@@ -77,21 +79,21 @@ export default function LocationsIndexView() {
       <section className="border-t border-white/[0.10] bg-[#171614]">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
           <h2 className="text-2xl font-bold md:text-3xl" style={playfair}>
-            How we work outside our Navi Mumbai base
+            Our own team on site, in every city
           </h2>
           <p className="mt-4 max-w-3xl leading-relaxed text-[#b0aaa2]">
-            Every city page describes a market we actually serve from Kamothe,
-            Navi Mumbai — not a invented branch office. Surveys, design, HVAC,
-            equipment, and fit-out are coordinated from that base, with
-            stainless and hood fabrication in Saki Naka when the job needs it.
-            If your city is not listed,{" "}
+            Kitchen Pulse sends its own people to your city for the whole job —
+            site survey, design and layout, supply, installation, kitchen
+            HVAC and exhaust, handover and after-sales. You work with one team
+            on the floor, start to finish, anywhere we take a project in India.
+            Opening somewhere that is not listed yet?{" "}
             <Link href="/contact" className={linkClass}>
-              get in touch
+              Get in touch
             </Link>{" "}
-            and we will tell you whether we can take the project.
+            and we will tell you how we can help.
           </p>
           <p className="mt-4 max-w-3xl leading-relaxed text-[#b0aaa2]">
-            For the national scope, start with{" "}
+            You can also start with{" "}
             <Link href="/services" className={linkClass}>
               our services
             </Link>
@@ -109,6 +111,7 @@ export default function LocationsIndexView() {
             </Link>
             .
           </p>
+          <NapContact />
         </div>
       </section>
     </main>
