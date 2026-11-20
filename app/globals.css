@@ -64,7 +64,7 @@ select {
   }
 }
 
-/* Logo on dark navbar — subtle brighten without inventing assets */
+/* Logo on dark navbar — subtle brighten of the existing mark */
 .kp-logo-dark {
   filter: brightness(0) invert(1);
   opacity: 0.92;

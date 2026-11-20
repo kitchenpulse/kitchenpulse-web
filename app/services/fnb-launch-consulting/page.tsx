@@ -89,7 +89,7 @@ const FAQ = [
   },
   {
     q: "Do you work outside Mumbai?",
-    a: "Yes. Kitchen Pulse is based in Navi Mumbai and delivers F&B launch consulting pan-India.",
+    a: "Yes. Kitchen Pulse works with founders across India, and we help you find the ideal spot for your outlet when you are still choosing a site.",
   },
 ];
 
@@ -178,7 +178,7 @@ export default function FnbLaunchConsultingPage() {
           <div>
             <p className="text-3xl font-bold text-orange-500">Pan India</p>
             <p className="mt-2 text-sm text-[#b0aaa2]">
-              Navi Mumbai-based consulting for founders nationwide
+              On-site support for founders across India
             </p>
           </div>
         </div>

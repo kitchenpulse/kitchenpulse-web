@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Kitchen Pulse | F&B & Cloud Kitchen Growth Partner",
     description:
-      "Meet the Navi Mumbai team behind turnkey kitchen fit-outs, equipment, HVAC, talent and digital growth for F&B brands across India.",
+      "Meet the Kitchen Pulse team behind turnkey kitchen fit-outs, equipment, HVAC, talent and digital growth for F&B brands across India.",
     url: "https://kitchenpulse.in/about",
     images: [
       {

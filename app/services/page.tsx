@@ -58,7 +58,7 @@ const SECONDARY = [
   {
     href: "/MainSection#location",
     title: "Real estate sourcing",
-    body: "We help you find the right location for your outlet.",
+    body: "We help you find the ideal spot for your outlet.",
   },
   {
     href: "/MainSection#talent",
@@ -87,9 +87,9 @@ export default function ServicesIndexPage() {
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#b0aaa2]">
           Launch consulting for new founders across formats, plus commercial
-          kitchen fit-out, equipment, and HVAC — pan-India from our Navi Mumbai
-          base. Staffing and aggregator support remain available as secondary
-          add-ons.
+          kitchen fit-out, equipment, and HVAC — with our own team on site in
+          your city at every stage. Staffing and aggregator support remain
+          available as secondary add-ons.
         </p>
         <CtaGroup
           className="mt-8"
@@ -136,7 +136,7 @@ export default function ServicesIndexPage() {
           >
             Browse equipment guides
           </Link>{" "}
-          — consult and quote, not an online shop.
+          — tell us what you need and we will send a quote.
         </p>
       </section>
 

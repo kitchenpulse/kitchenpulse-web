@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     absolute: "Kitchen Pulse | Turnkey F&B Kitchen Setup & Scale Across India",
   },
   description:
-    "One partner for restaurant & cloud kitchen setup — real estate, civil, HVAC, equipment, staffing & aggregator growth. Mumbai-based, pan-India. 25–30% cost savings.",
+    "One partner for restaurant and cloud kitchen setup — civil, HVAC, equipment, staffing and aggregator growth. Our own team on site across India. 25–30% cost savings.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Kitchen Pulse | Turnkey F&B Kitchen Setup & Scale Across India",

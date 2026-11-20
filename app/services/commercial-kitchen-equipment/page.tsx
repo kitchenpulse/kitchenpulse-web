@@ -39,14 +39,14 @@ const CATEGORIES = [
   },
   {
     title: "Custom stainless",
-    body: "Fabrication from our Saki Naka facility for hoods, counters, shelving, and space-specific modules that off-the-shelf SKUs cannot cover.",
+    body: "Custom stainless for hoods, counters, shelving, and space-specific modules when standard sizes cannot cover the room.",
   },
 ];
 
 const STEPS = [
   {
     title: "Menu & volume brief",
-    body: "We start from covers, dayparts, and menu complexity — not a catalogue wishlist — so every asset earns its footprint and power draw.",
+    body: "We start from covers, dayparts, and menu complexity so every asset earns its footprint and power draw.",
   },
   {
     title: "Layout before buy",
@@ -54,7 +54,7 @@ const STEPS = [
   },
   {
     title: "Spec & source",
-    body: "We specify capacity, utilities, and service access, then source new or carefully vetted refurbished units where they fit the brief and budget.",
+    body: "We specify capacity, utilities, and service access, then source the line — new equipment as the standard, with carefully vetted refurbished units where they fit the brief and budget.",
   },
   {
     title: "Install & commission",
@@ -65,7 +65,7 @@ const STEPS = [
 const FAQ = [
   {
     q: "What commercial kitchen equipment does Kitchen Pulse supply?",
-    a: "We supply cooking, cold storage, prep, warewash, and holding equipment for restaurants and cloud kitchens, plus custom stainless fabrication for counters, hoods, and space-specific modules. Sourcing covers premium partner lines and fabrication from our Saki Naka facility.",
+    a: "We supply cooking, cold storage, prep, warewash, and holding equipment for restaurants and cloud kitchens, plus custom stainless for counters, hoods, and space-specific modules. Sourcing covers premium partner lines and fabrication made to the room, with our own team on site for survey through install.",
   },
   {
     q: "Should kitchen layout be finalised before buying equipment?",
@@ -77,7 +77,7 @@ const FAQ = [
   },
   {
     q: "Do you deliver commercial kitchen equipment across India?",
-    a: "Yes. Kitchen Pulse is based in Navi Mumbai and supplies and installs equipment for F&B projects pan-India, coordinated with fit-out and HVAC when those scopes are included.",
+    a: "Yes. Kitchen Pulse sends its own team to your city to supply and install equipment, and to coordinate fit-out and HVAC when those scopes are included.",
   },
 ];
 
@@ -158,7 +158,7 @@ export default function CommercialKitchenEquipmentPage() {
           <div>
             <p className="text-3xl font-bold text-orange-500">Custom SS</p>
             <p className="mt-2 text-sm text-[#b0aaa2]">
-              Fabrication from our Saki Naka facility when stock SKUs fall short
+              Custom stainless made to the room when standard sizes fall short
             </p>
           </div>
           <div>
@@ -226,10 +226,9 @@ export default function CommercialKitchenEquipmentPage() {
         <p className="mt-4 max-w-3xl text-[#b0aaa2] leading-relaxed">
           High-heat, high-cycle stations usually belong on new equipment with
           clear warranty and parts support. Lower-intensity holding or backup
-          pieces can sometimes use refurbished units when condition, prior
-          duty, and service access check out. We do not push refurbished as a
-          default discount — we recommend it only when it protects food safety
-          and uptime. Pair equipment with our{" "}
+          pieces can use refurbished units when condition, prior duty, and
+          service access check out — and only when that choice still protects
+          food safety and uptime. Pair equipment with our{" "}
           <Link
             href="/services/commercial-kitchen-fit-out"
             className="text-orange-500 underline-offset-2 hover:underline"
@@ -246,11 +245,10 @@ export default function CommercialKitchenEquipmentPage() {
           when you want one accountable team from layout through commissioning.
         </p>
         <p className="mt-4 max-w-3xl text-[#b0aaa2] leading-relaxed">
-          Based in Navi Mumbai with pan-India delivery, Kitchen Pulse helps
-          restaurants and cloud kitchens avoid overbuying, under-venting, and
-          last-minute SKU swaps that delay openings. Share your city, concept,
-          and target go-live — we will map the equipment list that fits the
-          room and the menu.
+          Kitchen Pulse sends its own team to your city so restaurants and
+          cloud kitchens open with a line that fits the room and the menu.
+          Share your city, concept, and target go-live — we will map the
+          equipment list, then supply and install it on site.
         </p>
         <p className="mt-4 max-w-3xl text-[#b0aaa2] leading-relaxed">
           Looking for product-intent guides (ranges, ovens, cold, prep, warewash)?
@@ -261,7 +259,7 @@ export default function CommercialKitchenEquipmentPage() {
           >
             commercial kitchen equipment guides
           </Link>{" "}
-          — consult and quote, not an online shop.
+          — tell us what you need and we will send a quote.
         </p>
       </section>
 

@@ -5,7 +5,7 @@ import { CtaGroup, ServiceCtaBand } from "@/components/ui/CtaButtons";
 export const metadata: Metadata = {
   title: "Turnkey Commercial Kitchen Fit-Out Across India",
   description:
-    "End-to-end commercial kitchen fit-out for restaurants and cloud kitchens — civil, HVAC, exhaust, equipment fabrication, and handover. Mumbai-based, pan-India delivery.",
+    "End-to-end commercial kitchen fit-out for restaurants and cloud kitchens — civil, HVAC, exhaust, equipment, and handover. Our own team on site in your city, start to finish.",
   alternates: { canonical: "/services/commercial-kitchen-fit-out" },
   openGraph: {
     title: "Turnkey Commercial Kitchen Fit-Out Across India | Kitchen Pulse",
@@ -39,7 +39,7 @@ const STEPS = [
   },
   {
     title: "Equipment & fabrication",
-    body: "Custom stainless fabrication from our Saki Naka facility plus premium partners for cold, cooking, and prep lines.",
+    body: "Custom stainless made to the room, plus premium partners for cold, cooking, and prep lines, installed by our own team on site.",
   },
   {
     title: "Handover & scale",
@@ -58,7 +58,7 @@ const FAQ = [
   },
   {
     q: "Do you deliver commercial kitchen fit-outs pan-India?",
-    a: "Yes. We are based in Navi Mumbai and deliver pan-India for restaurants, cloud kitchens, and multi-outlet F&B brands using repeatable design and execution playbooks.",
+    a: "Yes. Kitchen Pulse sends its own team to your city for the survey, design and layout, supply, installation, HVAC, handover and after-sales — start to finish — for restaurants, cloud kitchens, and multi-outlet F&B brands.",
   },
   {
     q: "Do you fit out cloud kitchens differently from restaurants?",
@@ -149,7 +149,7 @@ export default function CommercialKitchenFitOutPage() {
           <div>
             <p className="text-3xl font-bold text-orange-500">Pan India</p>
             <p className="mt-2 text-sm text-[#b0aaa2]">
-              Repeatable fit-out playbooks beyond Mumbai
+              Our own team on site in your city, start to finish
             </p>
           </div>
         </div>
