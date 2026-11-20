@@ -227,9 +227,9 @@ export default function EquipmentPageView({ page }: Props) {
             Related services
           </h2>
           <p className="mt-4 max-w-3xl leading-relaxed text-[#b0aaa2]">
-            These guides capture product-intent searches. For the full
-            layout-first supply story — partners, Saki Naka fabrication, and
-            install — see our{" "}
+            These guides help you choose the right equipment. For the full
+            layout-first supply story — partners, custom stainless, and
+            install by our own team on site — see our{" "}
             <Link
               href="/services/commercial-kitchen-equipment"
               className="text-orange-500 underline-offset-2 hover:underline"

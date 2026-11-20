@@ -5,7 +5,7 @@ import { CtaGroup, ServiceCtaBand } from "@/components/ui/CtaButtons";
 export const metadata: Metadata = {
   title: "Commercial Kitchen HVAC & Exhaust Across India",
   description:
-    "Kitchen HVAC for restaurants and cloud kitchens — exhaust, fresh air, and AC designed as one system. Pan-India delivery from Navi Mumbai.",
+    "Kitchen HVAC for restaurants and cloud kitchens — exhaust, fresh air, and AC designed as one system. Our own team on site in your city, start to finish.",
   alternates: { canonical: "/services/kitchen-hvac" },
   openGraph: {
     title: "Commercial Kitchen HVAC & Exhaust Across India | Kitchen Pulse",
@@ -77,7 +77,7 @@ const FAQ = [
   },
   {
     q: "Do you deliver kitchen HVAC across India?",
-    a: "Yes. Kitchen Pulse is based in Navi Mumbai and delivers commercial kitchen HVAC and exhaust for restaurants and cloud kitchens pan-India, alone or as part of a turnkey fit-out.",
+    a: "Yes. Kitchen Pulse sends its own team to your city to design, install and commission commercial kitchen HVAC and exhaust, alone or as part of a turnkey fit-out.",
   },
 ];
 
@@ -243,7 +243,7 @@ export default function KitchenHvacPage() {
           phase work so service continues where the site allows.
         </p>
         <p className="mt-4 max-w-3xl text-[#b0aaa2] leading-relaxed">
-          From our Navi Mumbai base we deliver pan-India for QSRs, fine dining
+          Our own team works on site in your city — for QSRs, fine dining
           backing kitchens, and multi-city cloud brands. Share your city,
           cooking load, and whether the kitchen is live — we will outline the
           HVAC path and what it takes to balance the room properly.

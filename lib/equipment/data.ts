@@ -1,14 +1,14 @@
 import type { EquipmentPageData } from "./types";
 
-/** Wave-1 equipment SEO pages — hub, 7 clusters, 32 leaves (40 total). */
+/** Equipment guide pages — hub, 7 clusters, 32 leaves (40 total). */
 export const EQUIPMENT_PAGES: EquipmentPageData[] = [
   {
     slug: "",
     kind: "hub",
     title: "Commercial Kitchen Equipment Supply India",
-    metaDescription: "Layout-first commercial kitchen equipment for restaurants & cloud kitchens across India. Cooking, cold, prep, warewash — consult & quote, no online shop.",
+    metaDescription: "Layout-first commercial kitchen equipment for restaurants and cloud kitchens across India. Cooking, cold, prep and warewash — tell us what you need and we'll send a quote.",
     h1: "Commercial kitchen equipment across India",
-    intro: "Kitchen Pulse supplies cooking, refrigeration, prep, warewash, bakery, and holding equipment as a layout-led system — not a catalogue. Share your concept, city, and volume; we map the line, utilities, and install path, then quote.",
+    intro: "Kitchen Pulse supplies cooking, refrigeration, prep, warewash, bakery, and holding equipment as a layout-led system. Share your concept, city, and volume; we map the line, utilities, and install path, then send a quote.",
     primaryKeyword: "commercial kitchen equipment India",
     eyebrow: "Equipment guides",
     cardTitle: "Equipment hub",
@@ -16,11 +16,11 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     highlights: [
       {
         label: "System, not SKUs",
-        body: "Menu and layout drive the equipment list — we do not run an online shop or price grid.",
+        body: "Menu and layout drive the equipment list. Tell us what you need and we'll send a quote.",
       },
       {
-        label: "Pan-India RFQ",
-        body: "Restaurants, hotels, and cloud kitchens from metros to tier-2 and tier-3 openings.",
+        label: "Across India",
+        body: "Restaurants, hotels, and cloud kitchens in cities across India, with our own team on site.",
       },
       {
         label: "Install-ready",
@@ -33,16 +33,16 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
         body: "Buying commercial kitchen equipment from a product grid often ignores workflow, peak covers, and site utilities. Kitchen Pulse starts from your menu and kitchen drawing: receiving, prep, cook line, pass, warewash, and cold chain. Each asset has to earn its footprint and power draw. That is how restaurants and cloud kitchens avoid overbuying, under-venting, and last-minute swaps that delay openings.",
       },
       {
-        heading: "What we cover in wave-1 guides",
-        body: "Use the cluster pages below for cooking lines, ovens, refrigeration, prep and stainless, warewash, bakery, and hot holding. Leaf pages go deeper on high-intent equipment types — gas ranges, combi ovens, undercounters, SS tables, hood-type dishwashers, and more. Every page is a guided brief toward a consultation or WhatsApp RFQ, not a product detail page with cart or public prices.",
+        heading: "What the equipment guides cover",
+        body: "Use the cluster pages below for cooking lines, ovens, refrigeration, prep and stainless, warewash, bakery, and hot holding. Individual guides go deeper on high-intent equipment types — gas ranges, combi ovens, undercounters, SS tables, hood-type dishwashers, and more. Each guide helps you brief us so we can shortlist the line and send a quote, including on WhatsApp.",
       },
       {
         heading: "How an RFQ works with Kitchen Pulse",
-        body: "Tell us city, concept (QSR, multi-cuisine, cloud kitchen, hotel), approximate covers or order volume, fuel mix (gas / LPG / induction), and target go-live. We return a scoped equipment shortlist with capacity and utility notes, then supply and optional install. For the full service narrative — partners, fabrication from Saki Naka, and handover — see our commercial kitchen equipment service page. Need the room built around the line? Pair with commercial kitchen fit-out and kitchen HVAC.",
+        body: "Tell us city, concept (QSR, multi-cuisine, cloud kitchen, hotel), approximate covers or order volume, fuel mix (gas / LPG / induction), and target go-live. We return a scoped equipment shortlist with capacity and utility notes, then supply and install with our own team on site. For the full service story — partners, custom stainless, and handover — see our commercial kitchen equipment service page. Need the room built around the line? Pair with commercial kitchen fit-out and kitchen HVAC.",
       },
       {
-        heading: "Pan-India supply for tier-2 and tier-3 openings",
-        body: "Based in Navi Mumbai, we support F&B projects across India. Tier-2 and tier-3 restaurant openings often need clearer utility planning and fewer speculative SKUs — exactly where a consult-led list beats browsing. Lead times and freight depend on the mix; we set expectations during the brief, never as invented traffic or case-study claims.",
+        heading: "Our own team on site, across India",
+        body: "Kitchen Pulse sends its own team to your city to specify, supply and install the line. We plan utilities with you on site, then share lead times and freight in the quote so you know what to expect before you order.",
       },
     ],
     relatedSlugs: ["cooking", "ovens", "refrigeration", "prep", "warewash", "bakery", "holding"],
@@ -51,11 +51,11 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     faqs: [
       {
         q: "Does Kitchen Pulse sell commercial kitchen equipment online?",
-        a: "No. We do not run an ecommerce catalogue, SKU grid, or public price list. Equipment pages are guides that lead to a consultation, quote, or WhatsApp RFQ sized to your kitchen.",
+        a: "Tell us what you need and we'll send a quote sized to your kitchen. Share the city, menu and volume — or take the brief on WhatsApp — and we will shortlist equipment with capacity and utility notes.",
       },
       {
         q: "What equipment categories do you supply across India?",
-        a: "Cooking, ovens, refrigeration, prep and stainless fabrication, warewash, bakery, and hot holding — for restaurants, hotels, and cloud kitchens pan-India from our Navi Mumbai base.",
+        a: "Cooking, ovens, refrigeration, prep and stainless fabrication, warewash, bakery, and hot holding — for restaurants, hotels, and cloud kitchens across India, supplied and installed by our own team on site.",
       },
       {
         q: "Should layout be final before we buy equipment?",
@@ -87,8 +87,8 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
         body: "Capacity and utilities before brand shopping.",
       },
       {
-        label: "RFQ, not cart",
-        body: "Consultation and quote — no online shop or public prices.",
+        label: "Quote-led",
+        body: "Tell us what you need and we'll send a quote.",
       },
       {
         label: "Pan-India",
@@ -151,8 +151,8 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
         body: "Capacity and utilities before brand shopping.",
       },
       {
-        label: "RFQ, not cart",
-        body: "Consultation and quote — no online shop or public prices.",
+        label: "Quote-led",
+        body: "Tell us what you need and we'll send a quote.",
       },
       {
         label: "Pan-India",
@@ -161,8 +161,8 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     ],
     sections: [
       {
-        heading: "Choosing oven types without a price list",
-        body: "Deck ovens favour artisan bread, pizza, and chamber control. Convection ovens move air for even sheet-pan work in QSR and multi-cuisine kitchens. Combi ovens add steam for hotels and high-skill lines that want one footprint to replace multiple assets. Pizza-focused sites may need dedicated deck or conveyor capacity. We compare types on menu fit, tray capacity, and utilities — never as a public price grid.",
+        heading: "Choosing the right oven type",
+        body: "Deck ovens favour artisan bread, pizza, and chamber control. Convection ovens move air for even sheet-pan work in QSR and multi-cuisine kitchens. Combi ovens add steam for hotels and high-skill lines that want one footprint to replace multiple assets. Pizza-focused sites may need dedicated deck or conveyor capacity. We compare types on menu fit, tray capacity, and utilities, then send a quote for the model that fits.",
       },
       {
         heading: "When combi beats convection",
@@ -215,8 +215,8 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
         body: "Capacity and utilities before brand shopping.",
       },
       {
-        label: "RFQ, not cart",
-        body: "Consultation and quote — no online shop or public prices.",
+        label: "Quote-led",
+        body: "Tell us what you need and we'll send a quote.",
       },
       {
         label: "Pan-India",
@@ -268,7 +268,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Prep Equipment & SS Fabrication | India",
     metaDescription: "SS working tables, sinks, mixers, blenders, slicers & peelers for restaurant prep lines. Custom stainless + supply across India — get a quote.",
     h1: "Prep equipment & stainless stations",
-    intro: "Prep flow from receiving to cook — stainless working tables, sink units, planetary mixers, blenders, meat slicers, potato peelers, and vegetable cutters — plus custom SS from our Saki Naka fabrication capability.",
+    intro: "Prep flow from receiving to cook — stainless working tables, sink units, planetary mixers, blenders, meat slicers, potato peelers, and vegetable cutters — plus custom stainless made to the room.",
     primaryKeyword: "commercial kitchen prep equipment",
     eyebrow: "Equipment",
     cardTitle: "Prep equipment & stainless stations",
@@ -279,8 +279,8 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
         body: "Capacity and utilities before brand shopping.",
       },
       {
-        label: "RFQ, not cart",
-        body: "Consultation and quote — no online shop or public prices.",
+        label: "Quote-led",
+        body: "Tell us what you need and we'll send a quote.",
       },
       {
         label: "Pan-India",
@@ -293,8 +293,8 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
         body: "Prep equipment should follow the product path. Dirty receiving and veg wash stay upstream; clean cutting and portioning sit closer to the cook line. Stainless tables and sinks define that hygiene boundary; powered prep (mixers, slicers, peelers, cutters) sits where volume justifies the footprint and power.",
       },
       {
-        heading: "Custom stainless from Saki Naka",
-        body: "When standard table lengths or sink bowl counts do not fit the room, we fabricate working tables, counters, and modules from our Saki Naka facility. Custom radii, undershelves, splashbacks, and drawer packs are specified to hygiene and service access — not as decorative catalogue options.",
+        heading: "Custom stainless made to the room",
+        body: "When standard table lengths or sink bowl counts cannot fit the room, we fabricate working tables, counters, and modules to the layout. Custom radii, undershelves, splashbacks, and drawer packs are specified for hygiene and service access.",
       },
       {
         heading: "Brief for prep RFQs",
@@ -307,7 +307,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     faqs: [
       {
         q: "Do you fabricate custom SS working tables?",
-        a: "Yes. Kitchen Pulse fabricates stainless working tables and related modules from our Saki Naka facility when stock sizes cannot fit the layout.",
+        a: "Yes. Kitchen Pulse fabricates stainless working tables and related modules when stock sizes cannot fit the layout. Our team specifies them to your room and installs them with the rest of the line.",
       },
       {
         q: "What prep machines matter most for cloud kitchens?",
@@ -343,8 +343,8 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
         body: "Capacity and utilities before brand shopping.",
       },
       {
-        label: "RFQ, not cart",
-        body: "Consultation and quote — no online shop or public prices.",
+        label: "Quote-led",
+        body: "Tell us what you need and we'll send a quote.",
       },
       {
         label: "Pan-India",
@@ -354,7 +354,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     sections: [
       {
         heading: "Manual versus machine wash — qualitative economics",
-        body: "At low covers, a well-set pot-wash and glass sink can suffice. As covers and glassware volume rise, labour, breakage, and inconsistent hygiene push kitchens toward hood-type or undercounter machines. We do not publish price tables; we walk throughput (racks per hour), chemistry, and labour reality in consultation.",
+        body: "At low covers, a well-set pot-wash and glass sink can suffice. As covers and glassware volume rise, labour, breakage, and inconsistent hygiene push kitchens toward hood-type or undercounter machines. We walk throughput (racks per hour), chemistry, and labour with you, then send a quote for the machine that fits.",
       },
       {
         heading: "Water, softener, and drain",
@@ -407,8 +407,8 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
         body: "Capacity and utilities before brand shopping.",
       },
       {
-        label: "RFQ, not cart",
-        body: "Consultation and quote — no online shop or public prices.",
+        label: "Quote-led",
+        body: "Tell us what you need and we'll send a quote.",
       },
       {
         label: "Pan-India",
@@ -422,7 +422,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
       },
       {
         heading: "Pair with the oven cluster",
-        body: "Mixers and provers only succeed when oven throughput matches. Cross-check deck, convection, combi, and pizza oven guides so dough batches do not stall at the oven door.",
+        body: "Mixers and provers only succeed when oven throughput matches. Cross-check deck, convection, combi, and pizza oven guides so dough batches keep moving at the oven door.",
       },
       {
         heading: "Layout notes",
@@ -471,8 +471,8 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
         body: "Capacity and utilities before brand shopping.",
       },
       {
-        label: "RFQ, not cart",
-        body: "Consultation and quote — no online shop or public prices.",
+        label: "Quote-led",
+        body: "Tell us what you need and we'll send a quote.",
       },
       {
         label: "Pan-India",
@@ -486,7 +486,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
       },
       {
         heading: "Food-safety holding notes",
-        body: "Hot holding is about staying above safe serving temperatures without drying food out. Wet versus dry bain-marie, humidity in cabinets, and lid discipline all matter. We discuss holding practice in the brief; we do not invent compliance certifications on the page.",
+        body: "Hot holding is about staying above safe serving temperatures without drying food out. Wet versus dry bain-marie, humidity in cabinets, and lid discipline all matter. We discuss holding practice in the brief and specify equipment that can hold food safely at service temperature.",
       },
       {
         heading: "Custom display options",
@@ -524,7 +524,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Gas Range for Restaurants | India",
     metaDescription: "Spec commercial gas ranges for restaurant and cloud kitchen lines — burners, oven base, utilities. Pan-India supply. Book a consultation or WhatsApp.",
     h1: "Commercial gas ranges",
-    intro: "Commercial gas ranges specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial gas ranges specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial gas range India",
     eyebrow: "Equipment",
     cardTitle: "Commercial gas ranges",
@@ -544,7 +544,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
       },
       {
         heading: "What to put in your RFQ",
-        body: "City, burner count preference, oven base yes/no, fuel type, peak covers, and kitchen width. We shortlist and quote — no public price list.",
+        body: "City, burner count preference, oven base yes/no, fuel type, peak covers, and kitchen width. We shortlist the line and send a quote.",
       },
     ],
     relatedSlugs: ["commercial-induction-cooktop", "chinese-range", "commercial-deep-fryer", "commercial-griddle"],
@@ -579,7 +579,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Induction Cooktop & Range | India",
     metaDescription: "Commercial induction for restaurants and cloud kitchens — power load, cookware, line layout. Supply across India. Get a quote from Kitchen Pulse.",
     h1: "Commercial induction cooking",
-    intro: "Commercial induction cooking specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial induction cooking specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial induction cooktop India",
     eyebrow: "Equipment",
     cardTitle: "Commercial induction cooking",
@@ -634,7 +634,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Tandoor for Restaurants | India",
     metaDescription: "Gas & clay commercial tandoors sized for restaurant and cloud kitchen volume. Exhaust-aware supply pan-India — book a consultation.",
     h1: "Commercial tandoors",
-    intro: "Commercial tandoors specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial tandoors specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial tandoor India",
     eyebrow: "Equipment",
     cardTitle: "Commercial tandoors",
@@ -685,7 +685,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Deep Fryer for Restaurants | India",
     metaDescription: "Single & twin commercial deep fryers for QSR, restaurants & cloud kitchens. Oil capacity and safety-led specs — pan-India quote.",
     h1: "Commercial deep fryers",
-    intro: "Commercial deep fryers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial deep fryers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial deep fryer India",
     eyebrow: "Equipment",
     cardTitle: "Commercial deep fryers",
@@ -736,7 +736,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Griddle & Flat Top Grill | India",
     metaDescription: "Commercial griddles for breakfast, QSR and multi-cuisine lines. Size to menu and power — supply across India. WhatsApp Kitchen Pulse.",
     h1: "Commercial griddles",
-    intro: "Commercial griddles specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial griddles specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial griddle India",
     eyebrow: "Equipment",
     cardTitle: "Commercial griddles",
@@ -787,7 +787,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Chinese Range & Wok Station | India",
     metaDescription: "Chinese ranges and high-heat wok stations for restaurants and cloud kitchens. Spec’d with exhaust in mind — pan-India consultation.",
     h1: "Chinese ranges & wok stations",
-    intro: "Chinese ranges & wok stations specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Chinese ranges & wok stations specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial Chinese range India",
     eyebrow: "Equipment",
     cardTitle: "Chinese ranges & wok stations",
@@ -838,7 +838,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Tilting Brat Pan",
     metaDescription: "Tilting brat pans for bulk cooking in hotels, cloud kitchens & institutional lines. Capacity-led sourcing across India — get a quote.",
     h1: "Tilting brat pans",
-    intro: "Tilting brat pans specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Tilting brat pans specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "tilting brat pan India",
     eyebrow: "Equipment",
     cardTitle: "Tilting brat pans",
@@ -889,7 +889,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Salamander Grill | Restaurants India",
     metaDescription: "Salamander / overhead grills for finishing, melting & gratin in restaurant kitchens. Spec and supply pan-India — book a consultation.",
     h1: "Commercial salamander grills",
-    intro: "Commercial salamander grills specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial salamander grills specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial salamander India",
     eyebrow: "Equipment",
     cardTitle: "Commercial salamander grills",
@@ -940,7 +940,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Deck Oven for Bakeries | India",
     metaDescription: "Deck ovens for bakery and restaurant bake programs — chambers, steam options, power. Pan-India supply. Book a consultation with Kitchen Pulse.",
     h1: "Commercial deck ovens",
-    intro: "Commercial deck ovens specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial deck ovens specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial deck oven India",
     eyebrow: "Equipment",
     cardTitle: "Commercial deck ovens",
@@ -991,7 +991,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Convection Oven | Restaurants India",
     metaDescription: "Convection ovens for restaurants, QSRs and cloud kitchens — capacity and power planning. Supply across India. Get a quote.",
     h1: "Commercial convection ovens",
-    intro: "Commercial convection ovens specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial convection ovens specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial convection oven India",
     eyebrow: "Equipment",
     cardTitle: "Commercial convection ovens",
@@ -1042,7 +1042,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Combi Oven for Kitchens | India",
     metaDescription: "Combi ovens for hotels, restaurants & cloud kitchens — steam + convection in one footprint. Pan-India consult & supply. WhatsApp us.",
     h1: "Commercial combi ovens",
-    intro: "Commercial combi ovens specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial combi ovens specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial combi oven India",
     eyebrow: "Equipment",
     cardTitle: "Commercial combi ovens",
@@ -1093,7 +1093,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Pizza Oven for Restaurants | India",
     metaDescription: "Deck, conveyor & gas pizza ovens sized to order volume. For pizzerias and multi-cuisine kitchens across India — book a consultation.",
     h1: "Commercial pizza ovens",
-    intro: "Commercial pizza ovens specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial pizza ovens specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial pizza oven India",
     eyebrow: "Equipment",
     cardTitle: "Commercial pizza ovens",
@@ -1144,7 +1144,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Undercounter Refrigerator Commercial | India",
     metaDescription: "Undercounter fridges for restaurant prep lines and bars — GN sizing, power, ventilation. Pan-India supply. Get a quote from Kitchen Pulse.",
     h1: "Undercounter commercial refrigerators",
-    intro: "Undercounter commercial refrigerators specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Undercounter commercial refrigerators specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "undercounter refrigerator commercial India",
     eyebrow: "Equipment",
     cardTitle: "Undercounter commercial refrigerators",
@@ -1195,7 +1195,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Upright Commercial Refrigerator & Freezer | India",
     metaDescription: "Single & double-door upright fridges/freezers for restaurants and cloud kitchens. Capacity-led sourcing across India — book a consultation.",
     h1: "Upright commercial refrigerators & freezers",
-    intro: "Upright commercial refrigerators & freezers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Upright commercial refrigerators & freezers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "upright commercial refrigerator India",
     eyebrow: "Equipment",
     cardTitle: "Upright commercial refrigerators & freezers",
@@ -1246,7 +1246,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Walk-In Cold Room for Commercial Kitchens | India",
     metaDescription: "Walk-in cold rooms and freezer rooms for restaurants, cloud kitchens & central kitchens. Design + panel supply pan-India — get a quote.",
     h1: "Walk-in cold rooms",
-    intro: "Walk-in cold rooms specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Walk-in cold rooms specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "walk in cold room India",
     eyebrow: "Equipment",
     cardTitle: "Walk-in cold rooms",
@@ -1297,7 +1297,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Ice Machine for Restaurants | India",
     metaDescription: "Cube & flake ice machines for restaurants, bars and cloud kitchens. Water, drain and output sizing — pan-India consult. WhatsApp Kitchen Pulse.",
     h1: "Commercial ice machines",
-    intro: "Commercial ice machines specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial ice machines specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial ice machine India",
     eyebrow: "Equipment",
     cardTitle: "Commercial ice machines",
@@ -1348,7 +1348,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Blast Chiller for Kitchens | India",
     metaDescription: "Blast chillers for food safety and batch prep in restaurants, bakeries & cloud kitchens. Spec across India — book a consultation.",
     h1: "Commercial blast chillers",
-    intro: "Commercial blast chillers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial blast chillers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "blast chiller commercial India",
     eyebrow: "Equipment",
     cardTitle: "Commercial blast chillers",
@@ -1360,7 +1360,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
       },
       {
         heading: "HACCP angle — educational",
-        body: "Rapid chilling supports safer batch cook-chill practice when paired with probes, logging, and SOPs. We discuss process; we do not sell certifications on this page.",
+        body: "Rapid chilling supports safer batch cook-chill practice when paired with probes, logging, and SOPs. We discuss process and specify a chiller that supports your cook-chill workflow.",
       },
       {
         heading: "Footprint",
@@ -1397,17 +1397,17 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     slug: "ss-working-table",
     kind: "leaf",
     title: "SS Working Table for Commercial Kitchens | India",
-    metaDescription: "Stainless steel working tables — with/without undershelf, drawers, splash. Custom sizes from Saki Naka + supply pan-India. Get a quote.",
+    metaDescription: "Stainless steel working tables — with/without undershelf, drawers, splash. Standard and custom sizes, supplied and installed across India. Get a quote.",
     h1: "Stainless steel working tables",
-    intro: "Stainless steel working tables specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Stainless steel working tables specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "SS working table commercial India",
     eyebrow: "Equipment",
     cardTitle: "Stainless steel working tables",
-    cardBody: "Standard and custom SS working tables from stock or Saki Naka fab.",
+    cardBody: "Standard and custom SS working tables, made to the room when the layout needs it.",
     sections: [
       {
         heading: "Standard versus custom",
-        body: "Standard lengths speed delivery when the room fits. Odd niches, island prep, and integrated sinks often need custom stainless from our Saki Naka fabrication capability.",
+        body: "Standard lengths speed delivery when the room fits. Odd niches, island prep, and integrated sinks often need custom stainless fabricated to the layout.",
       },
       {
         heading: "Undershelf and drawer options",
@@ -1425,7 +1425,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     faqs: [
       {
         q: "Can you fabricate custom SS working tables?",
-        a: "Yes. Kitchen Pulse fabricates custom stainless working tables from our Saki Naka facility when stock sizes do not fit.",
+        a: "Yes. Kitchen Pulse fabricates custom stainless working tables when stock sizes cannot fit the layout.",
       },
       {
         q: "What sizes of SS tables do you supply?",
@@ -1450,7 +1450,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Kitchen Sink Unit SS | India",
     metaDescription: "Single, double & triple SS sink units for restaurant wash and prep. Drainboards and custom fab — supply across India. Book a consultation.",
     h1: "Commercial SS sink units",
-    intro: "Commercial SS sink units specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial SS sink units specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial kitchen sink unit India",
     eyebrow: "Equipment",
     cardTitle: "Commercial SS sink units",
@@ -1501,7 +1501,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Planetary Mixer for Bakeries | India",
     metaDescription: "Planetary mixers for bakery, QSR and restaurant prep — bowl size to batch volume. Pan-India sourcing. WhatsApp or book a consultation.",
     h1: "Commercial planetary mixers",
-    intro: "Commercial planetary mixers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial planetary mixers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial planetary mixer India",
     eyebrow: "Equipment",
     cardTitle: "Commercial planetary mixers",
@@ -1552,7 +1552,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Blender & Bar Blender | India",
     metaDescription: "Heavy-duty blenders and bar blenders for restaurants, cafes and cloud kitchens. Duty-cycle led specs — supply across India. Get a quote.",
     h1: "Commercial & bar blenders",
-    intro: "Commercial & bar blenders specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial & bar blenders specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial blender India",
     eyebrow: "Equipment",
     cardTitle: "Commercial & bar blenders",
@@ -1560,7 +1560,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     sections: [
       {
         heading: "Bar versus kitchen duty",
-        body: "Bar blenders face ice and continuous short cycles; kitchen blenders may puree soups and pastes in longer runs. Duty cycle and jar design differ — we do not treat them as identical.",
+        body: "Bar blenders face ice and continuous short cycles; kitchen blenders may puree soups and pastes in longer runs. Duty cycle and jar design differ, so we specify bar and kitchen blenders as separate tools.",
       },
       {
         heading: "Jar material",
@@ -1603,7 +1603,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Meat Slicer for Kitchens | India",
     metaDescription: "Gravity-feed meat slicers for delis, restaurants and cloud kitchens. Safety and throughput-led sourcing — pan-India consultation.",
     h1: "Commercial meat slicers",
-    intro: "Commercial meat slicers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial meat slicers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial meat slicer India",
     eyebrow: "Equipment",
     cardTitle: "Commercial meat slicers",
@@ -1654,7 +1654,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Potato Peeler Machine | India",
     metaDescription: "Floor-standing potato peelers for restaurants, hotels and cloud kitchens. Capacity by kg/batch — supply across India. Book a consultation.",
     h1: "Commercial potato peelers",
-    intro: "Commercial potato peelers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial potato peelers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial potato peeler India",
     eyebrow: "Equipment",
     cardTitle: "Commercial potato peelers",
@@ -1670,7 +1670,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
       },
       {
         heading: "When manual still wins",
-        body: "Low volume or highly irregular root shapes may stay manual. We do not push a peeler where labour economics do not support it.",
+        body: "Low volume or highly irregular root shapes may stay manual. We recommend a peeler when the labour and volume make it worthwhile.",
       },
     ],
     relatedSlugs: ["vegetable-cutting-machine", "commercial-sink-unit", "ss-working-table", "commercial-meat-slicer"],
@@ -1705,7 +1705,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Vegetable Cutting Machine | India",
     metaDescription: "Vegetable cutters and processors for high-volume prep in restaurants and cloud kitchens. Spec pan-India — get a quote from Kitchen Pulse.",
     h1: "Commercial vegetable cutting machines",
-    intro: "Commercial vegetable cutting machines specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial vegetable cutting machines specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial vegetable cutting machine India",
     eyebrow: "Equipment",
     cardTitle: "Commercial vegetable cutting machines",
@@ -1756,7 +1756,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Hood Type Dishwasher Commercial | India",
     metaDescription: "Hood-type / pass-through dishwashers for restaurants and hotels. Racks/hour and utility planning — pan-India supply. Book a consultation.",
     h1: "Hood-type commercial dishwashers",
-    intro: "Hood-type commercial dishwashers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Hood-type commercial dishwashers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "hood type dishwasher India",
     eyebrow: "Equipment",
     cardTitle: "Hood-type commercial dishwashers",
@@ -1772,7 +1772,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
       },
       {
         heading: "Tabling left and right",
-        body: "Dirty infeed and clean outfeed tables are part of the system. Plan lengths for your room so racks do not block aisles.",
+        body: "Dirty infeed and clean outfeed tables are part of the system. Plan lengths for your room so racks stay clear of the aisles.",
       },
     ],
     relatedSlugs: ["commercial-glasswasher", "commercial-sink-unit", "ss-working-table", "upright-commercial-refrigerator"],
@@ -1807,7 +1807,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Glasswasher for Bars & Restaurants",
     metaDescription: "Undercounter glasswashers for bars, cafes and restaurants. Glass-safe cycles and install notes — supply across India. WhatsApp Kitchen Pulse.",
     h1: "Commercial glasswashers",
-    intro: "Commercial glasswashers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial glasswashers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial glasswasher India",
     eyebrow: "Equipment",
     cardTitle: "Commercial glasswashers",
@@ -1819,7 +1819,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
       },
       {
         heading: "Chemistry",
-        body: "Correct detergent and rinse aid matter for spot-free glasses. We discuss chemistry with install, not as a public price list of consumables.",
+        body: "Correct detergent and rinse aid matter for spot-free glasses. We discuss chemistry with the install so glasses come out clean.",
       },
       {
         heading: "Undercounter space",
@@ -1858,7 +1858,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Spiral Mixer for Bakeries | India",
     metaDescription: "Spiral mixers for dough-heavy bakery and pizza programs. Dough kg sizing — pan-India consult & supply. Get a quote.",
     h1: "Commercial spiral mixers",
-    intro: "Commercial spiral mixers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial spiral mixers specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial spiral mixer India",
     eyebrow: "Equipment",
     cardTitle: "Commercial spiral mixers",
@@ -1909,7 +1909,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Dough Sheeter Machine | India",
     metaDescription: "Dough sheeters for bakery, pizza and layered products. Bench vs floor models — supply across India. Book a consultation.",
     h1: "Commercial dough sheeters",
-    intro: "Commercial dough sheeters specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial dough sheeters specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "dough sheeter commercial India",
     eyebrow: "Equipment",
     cardTitle: "Commercial dough sheeters",
@@ -1960,7 +1960,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Commercial Proofing Cabinet / Prover | India",
     metaDescription: "Proofing cabinets for bakery and QSR bake programs. Humidity and tray capacity — pan-India sourcing. WhatsApp or get a quote.",
     h1: "Commercial proofing cabinets",
-    intro: "Commercial proofing cabinets specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial proofing cabinets specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "proofing cabinet commercial India",
     eyebrow: "Equipment",
     cardTitle: "Commercial proofing cabinets",
@@ -2009,9 +2009,9 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     slug: "bain-marie",
     kind: "leaf",
     title: "Commercial Bain-Marie for Restaurants | India",
-    metaDescription: "Electric & gas bain-marie units for buffet and pass holding. GN sizing without public price lists — pan-India consult. Book a consultation.",
+    metaDescription: "Electric & gas bain-marie units for buffet and pass holding. GN sizing, specified and quoted for your line. Get a quote.",
     h1: "Commercial bain-marie",
-    intro: "Commercial bain-marie specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Commercial bain-marie specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "commercial bain marie India",
     eyebrow: "Equipment",
     cardTitle: "Commercial bain-marie",
@@ -2062,7 +2062,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Hot Display Counter for F&B",
     metaDescription: "Hot display counters for QSR, cafeteria and sweet shops. Custom SS options — supply across India. Get a quote from Kitchen Pulse.",
     h1: "Hot display counters",
-    intro: "Hot display counters specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Hot display counters specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "hot display counter commercial India",
     eyebrow: "Equipment",
     cardTitle: "Hot display counters",
@@ -2113,7 +2113,7 @@ export const EQUIPMENT_PAGES: EquipmentPageData[] = [
     title: "Hot Holding Cabinet Commercial | India",
     metaDescription: "Heated holding cabinets for banquet, QSR and cloud kitchen dispatch. Capacity-led specs — pan-India. Book a consultation or WhatsApp.",
     h1: "Hot holding cabinets",
-    intro: "Hot holding cabinets specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse sources pan-India via consultation and quote — no ecommerce catalogue or public prices.",
+    intro: "Hot holding cabinets specified for Indian restaurants, hotels, and cloud kitchens — capacity, utilities, and install readiness first. Kitchen Pulse specifies, supplies and installs across India. Tell us what you need and we'll send a quote.",
     primaryKeyword: "hot holding cabinet commercial India",
     eyebrow: "Equipment",
     cardTitle: "Hot holding cabinets",

@@ -81,7 +81,7 @@ const SERVICES = [
   },
   {
     title: "Equipment Solutions",
-    desc: "Custom fabrication at our Saki Naka facility plus premium partnerships with Trustfrost, Mukunda Foods, and Hoshizaki.",
+    desc: "Custom stainless made to the room, plus premium partnerships with Trustfrost, Mukunda Foods, and Hoshizaki.",
     icon: Icons.Equipment,
     tag: "Custom Fabrication",
     stat: "3 Premium Partners",
