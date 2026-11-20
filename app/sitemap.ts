@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { EQUIPMENT_PATHS } from "@/lib/equipment/data";
+import { listLocationPaths } from "@/lib/locations";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://kitchenpulse.in";
@@ -46,5 +47,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === "/equipment" ? 0.85 : 0.75,
   }));
 
-  return [...core, ...equipment];
+  const locations: MetadataRoute.Sitemap = listLocationPaths().map((path) => ({
+    url: `${base}${path}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority:
+      path === "/locations" ? 0.8 : path.split("/").length === 3 ? 0.8 : 0.75,
+  }));
+
+  return [...core, ...equipment, ...locations];
 }
